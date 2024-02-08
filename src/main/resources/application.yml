@@ -3,6 +3,9 @@ server:
   port: 8081
 
 spring:
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
   datasource:
     driver: com.mysql.jdbc.Driver
     username: root
