@@ -1,1 +1,10 @@
 
+server:
+  port: 8081
+
+spring:
+  datasource:
+    driver: com.mysql.jdbc.Driver
+    username: root
+    password: hello
+    url: jdbc:mysql://localhost:3306/incallup
