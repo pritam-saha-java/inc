@@ -1,6 +1,5 @@
 HELP.md
 target/
-
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
@@ -19,32 +18,6 @@ target/
 *.iws
 *.iml
 *.ipr
-
-### Eclipse ###
-
-.metadata
-bin/
-tmp/
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.settings/
-.loadpath
-.recommenders
-
-
-
-
-
-# sbteclipse plugin
-.target
-
-
-
-
-
 
 ### NetBeans ###
 /nbproject/private/
