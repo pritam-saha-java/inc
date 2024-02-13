@@ -23,6 +23,6 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
     driver: com.mysql.jdbc.Driver
-    username: root
-    password: hello
-    url: jdbc:mysql://localhost:3306/incallup
+    username: sql6683807
+    password: pzieJzTC9W
+    url: jdbc:mysql://sql6.freesqldatabase.com:3306/?user=sql6683807
