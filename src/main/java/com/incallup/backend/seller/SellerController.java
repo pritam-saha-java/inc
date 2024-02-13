@@ -12,7 +12,7 @@ public class SellerController {
 
     @GetMapping
     public String hello(){
-
+                log.info("hello from logs");
         return "hello";}
 
 }
