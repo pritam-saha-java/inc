@@ -4,7 +4,7 @@ import jakarta.persistence.Entity;
 
 
 
-@Entity(name = "tbl_post")
+//@Entity(name = "tbl_post")
 public class Post {
 
 
