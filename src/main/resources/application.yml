@@ -1,12 +1,15 @@
 
 server:
-  port: 8081
-
+  port: 443
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:keystore.jks
+    key-store-password: 123456
   compression:
     enabled: true
     mimeTypes: text/xml, text/css, text/html, application/json
     minResponseSize: 4096
-
 spring:
   application:
     name: incallup
