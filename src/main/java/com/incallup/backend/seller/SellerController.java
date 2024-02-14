@@ -1,3 +1,4 @@
+
 package com.incallup.backend.seller;
 
 import lombok.extern.slf4j.Slf4j;
@@ -16,3 +17,4 @@ public class SellerController {
         return "hello";}
 
 }
+
