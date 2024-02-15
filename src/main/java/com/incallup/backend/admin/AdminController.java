@@ -44,6 +44,9 @@ public class AdminController {
         return "Let the admin post something by Id";
     }
 
+    @PostMapping("/admin")
+
+
 
 }
 
