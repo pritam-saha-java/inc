@@ -1,51 +1,31 @@
 package com.incallup.backend.admin;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Type;
+
+@Entity
+@Table(name = "tbl_admin")
+@Data
+@NoArgsConstructor
 public class AdminModel {
 
+    @Id
     private int idAdmin;
 
-    private String admin_username;
+    @Column(name = "admin_username")
+    private String username;
 
-    private String admin_password;
+    @Column(name = "admin_password")
+    private String password;
 
-    private String admin_type;
+    @Column(name = "admin_type")
+    private String type;
 
-    public int getIdAdmin() {
-        return idAdmin;
-    }
 
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
-    }
 
-    public String getAdmin_username() {
-        return admin_username;
-    }
-
-    public void setAdmin_username(String admin_username) {
-        this.admin_username = admin_username;
-    }
-
-    public String getAdmin_password() {
-        return admin_password;
-    }
-
-    public void setAdmin_password(String admin_password) {
-        this.admin_password = admin_password;
-    }
-
-    public String getAdmin_type() {
-        return admin_type;
-    }
-
-    public void setAdmin_type(String admin_type) {
-        this.admin_type = admin_type;
-    }
-
-    public AdminModel(int idAdmin, String admin_username, String admin_password, String admin_type) {
-        this.idAdmin = idAdmin;
-        this.admin_username = admin_username;
-        this.admin_password = admin_password;
-        this.admin_type = admin_type;
-    }
 }
