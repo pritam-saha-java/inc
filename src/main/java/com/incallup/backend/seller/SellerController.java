@@ -7,7 +7,7 @@ import org.springframework.web.service.annotation.PutExchange;
 @RequestMapping("/seller")
 public class SellerController {
 
-    //(https://www.incallup.com/seller/welcome)
+
 
     @GetMapping
     public String Seller(){
@@ -15,19 +15,14 @@ public class SellerController {
     }
 
 
-    @PutExchange("/seller/{sellerId}")
+    @PutExchange("/{sellerId}")
     public String SellerId(@RequestBody SellerModel sellerId){
         System.out.println("Showing seller Id" + sellerId);
         return "Getting details of the seller";
     }
 
-    /*
-    @PutExchange("/seller/{sellerId}")
-    public String SellerId(){
-        return "Get details of a seller by Id";
-    }
-     */
-    @GetMapping("/seller/list")
+
+    @GetMapping("/list")
     public String List(){
         return "Show all sellers";
     }
