@@ -1,10 +1,15 @@
+
 package com.incallup.backend.seller;
+
 
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
 @RequestMapping("/seller")
+@Slf4j
 public class SellerController {
 
 
@@ -53,8 +58,10 @@ public class SellerController {
         return "Seller Username";
     }
 
+
     @GetMapping("/seller/login")
     public String Login(){
         return "Seller Login";
     }
 }
+

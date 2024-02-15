@@ -1,5 +1,4 @@
 package com.incallup.backend.admin;
-
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 
@@ -47,4 +46,5 @@ public class AdminController {
 
 
 }
+
 
