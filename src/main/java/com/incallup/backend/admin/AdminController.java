@@ -9,12 +9,9 @@ import org.springframework.web.service.annotation.PutExchange;
 //@GetMapping("/admin")
 //@GetMapping("/admin/list/post")
 //@GetMapping("/admin/list/sellers")
-//@RequestMapping("/")
 public class AdminController {
 
-    //(https://www.incallup.com/admin/welcome)
 
-//    @ResponseBody
 
     @GetMapping
     public String Admin(){
@@ -44,7 +41,7 @@ public class AdminController {
         return "Let the admin post something by Id";
     }
 
-    @PostMapping("/admin")
+//    @PostMapping("/admin")
 
 
 
