@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/customer")
 public class CustomerController {
 
-    //(https://www.incallup.com/customer/welcome)
 
-    @RequestMapping("/")
-    @ResponseBody
+
 
     @GetMapping
     public String Customer(){

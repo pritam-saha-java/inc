@@ -5,7 +5,6 @@ import org.springframework.web.service.annotation.PutExchange;
 
 @RestController
 @RequestMapping("/seller")
-
 public class SellerController {
 
     //(https://www.incallup.com/seller/welcome)
