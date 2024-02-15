@@ -9,7 +9,7 @@ public class SellerController {
 
     //(https://www.incallup.com/seller/welcome)
 
-    @GetMapping("/seller")
+    @GetMapping
     public String Seller(){
         return "/seller/welcome";
     }
