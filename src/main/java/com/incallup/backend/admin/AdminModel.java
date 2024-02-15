@@ -1,23 +1,26 @@
 package com.incallup.backend.admin;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import org.hibernate.annotations.Type;
+import jakarta.persistence.*;
+import lombok.*;
 
-@Entity
-@Table(name = "tbl_admin")
-@Data
+
+
+@Entity(name = "tbl_admin")
+@Getter
+@Setter
+@ToString
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class AdminModel {
 
     @Id
-    private int idAdmin;
+    @Column(name = "id_admin")
+    private Integer idAdmin;
 
-    @Column(name = "admin_username")
+
+
+    @Column(name = "admin_username",unique = true)
     private String username;
 
     @Column(name = "admin_password")
