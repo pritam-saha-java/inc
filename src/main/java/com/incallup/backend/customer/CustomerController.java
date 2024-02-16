@@ -2,6 +2,7 @@
 package com.incallup.backend.customer;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -20,19 +21,22 @@ public class CustomerController {
         return "/customer/welcome";
     }
 
-    @GetMapping("/title")
-    public String Title(){
+
+
+    @GetMapping("/title/{titleString}")
+    public String Title(@PathVariable(required = true,name = "title") String title){
         return "/title";
     }
 
-
-    public String Category(){
+    @GetMapping("/{category}")
+    public String Category(@PathVariable(required = true,name = "category") String category){
         return "/category";
     }
 
 
 
-    public String Location(){
+    @GetMapping("/{category}/{location}")
+    public String Location(@PathVariable(required = true,name = "category") String category,@PathVariable(required = true,name = "location") String location){
         return "/category/location";
     }
 
