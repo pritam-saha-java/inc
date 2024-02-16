@@ -1,4 +1,4 @@
-package com.incallup.backend.admin;
+package com.incallup.backend.model;
 
 import jakarta.persistence.*;
 import lombok.*;
