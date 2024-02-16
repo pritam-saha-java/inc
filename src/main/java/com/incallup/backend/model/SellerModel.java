@@ -1,4 +1,4 @@
-package com.incallup.backend.seller;
+package com.incallup.backend.model;
 
 public class SellerModel {
 

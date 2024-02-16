@@ -20,18 +20,18 @@ public class CustomerController {
         return "/customer/welcome";
     }
 
-    @GetMapping
+    @GetMapping("/title")
     public String Title(){
         return "/title";
     }
 
-    @GetMapping
-    public String Category){
+
+    public String Category(){
         return "/category";
     }
 
 
-    @GetMapping
+
     public String Location(){
         return "/category/location";
     }

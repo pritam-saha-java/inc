@@ -1,9 +1,7 @@
 package com.incallup.backend.model;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 @Entity(name = "tbl_post")
@@ -23,8 +21,8 @@ public class PostModel {
     @Column(name = "post_title", unique = true)
     private String post_title;
 
-    @Column(name = "post_location_id")
-    private Integer post_location_id;
+    @ManyToOne(targetEntity = LocationModel.class,fetch = FetchType.LAZY)
+    private LocationModel location;
 
     @Column(name = "post_views")
     private String post_views;
@@ -41,12 +39,13 @@ public class PostModel {
     @Column(name = "post_description")
     private String post_description;
 
-    @Column(name = "post_category_id ")
-    private Integer post_category_id;
+    @ManyToOne(targetEntity = CategoryModel.class)
+    private CategoryModel category;
 
     @Column(name = "post_verification_id ")
     private Integer post_verification_id;
+    //remove later
 
-    @Column(name = "post_promotion_id ")
-    private Integer post_promotion_id;
+    @OneToMany(targetEntity = PromotionModel.class)
+    private PromotionModel post_promotion_id;
 }

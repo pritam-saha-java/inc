@@ -18,16 +18,24 @@ public class AdminController {
         return "/admin/welcome";
     }
 
+    @GetMapping("/create")
     public String Create(){
         return "Enter Data";
     }
 
-    public String List(){
+    @GetMapping("/list/post")
+    public String ListPost(){
         return "List All Admins";
     }
 
+    @GetMapping("/list/sellers")
+    public String ListSellers(){
+        return "List of All Sellers";
+    }
+
+    @GetMapping("/block")
     public String Block(){
-        return "All Blocked Items";
+        return "To block an item";
     }
 
 
