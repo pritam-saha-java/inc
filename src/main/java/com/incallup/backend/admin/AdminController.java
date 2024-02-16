@@ -31,17 +31,15 @@ public class AdminController {
     }
 
 
-    @PutExchange("admin/block/seller/{id}")
+    @PutMapping("/block/seller/{id}")
     public String Profile(@PathVariable String adminId){
         return "Block a admin by id";
     }
 
-    @PutExchange("admin/block/post/{id}")
+    @PutMapping("/block/post/{id}")
     public String ProfilePost(@PathVariable String adminId){
         return "Let the admin post something by Id";
     }
-
-//    @PostMapping("/admin")
 
 
 
