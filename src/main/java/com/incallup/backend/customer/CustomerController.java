@@ -20,5 +20,21 @@ public class CustomerController {
         return "/customer/welcome";
     }
 
+    @GetMapping
+    public String Title(){
+        return "/title";
+    }
+
+    @GetMapping
+    public String Category){
+        return "/category";
+    }
+
+
+    @GetMapping
+    public String Location(){
+        return "/category/location";
+    }
+
 }
 
