@@ -6,7 +6,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 
-@Entity
+@Entity(name = "tbl_location")
 @Getter
 @Setter
 @Builder
