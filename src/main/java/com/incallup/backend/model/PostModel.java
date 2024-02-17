@@ -21,6 +21,7 @@ public class PostModel {
     @Column(name = "post_title", unique = true)
     private String post_title;
 
+    @ToString.Exclude
     @ManyToOne(targetEntity = LocationModel.class,fetch = FetchType.LAZY)
     private LocationModel location;
 
@@ -47,5 +48,6 @@ public class PostModel {
     //remove later
 
     @OneToMany(targetEntity = PromotionModel.class)
+    @ToString.Exclude
     private PromotionModel post_promotion_id;
 }
