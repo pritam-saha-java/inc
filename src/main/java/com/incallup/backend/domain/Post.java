@@ -1,4 +1,4 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
 
 import jakarta.persistence.*;
@@ -11,7 +11,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class PostModel {
+public class Post {
 
 
     @Id
@@ -22,8 +22,8 @@ public class PostModel {
     private String post_title;
 
     @ToString.Exclude
-    @ManyToOne(targetEntity = LocationModel.class,fetch = FetchType.LAZY)
-    private LocationModel location;
+    @ManyToOne(targetEntity = Location.class,fetch = FetchType.LAZY)
+    private Location location;
 
     @Column(name = "post_views")
     private String post_views;
@@ -40,14 +40,14 @@ public class PostModel {
     @Column(name = "post_description")
     private String post_description;
 
-    @ManyToOne(targetEntity = CategoryModel.class)
-    private CategoryModel category;
+    @ManyToOne(targetEntity = Category.class)
+    private Category category;
 
     @Column(name = "post_verification_id ")
     private Integer post_verification_id;
     //remove later
 
-    @OneToMany(targetEntity = PromotionModel.class)
+    @OneToMany(targetEntity = Promotion.class)
     @ToString.Exclude
-    private PromotionModel post_promotion_id;
+    private Promotion post_promotion_id;
 }

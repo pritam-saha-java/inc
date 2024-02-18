@@ -1,4 +1,4 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -12,7 +12,7 @@ import lombok.*;
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
-public class AdminModel {
+public class Admin {
 
     @Id
     @Column(name = "id_admin")

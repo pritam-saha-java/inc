@@ -1,4 +1,4 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
 
 import jakarta.persistence.Column;
@@ -14,7 +14,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 
-public class VerificationModel {
+public class Verification {
 
     @Id
     @Column(name = "idVerification")

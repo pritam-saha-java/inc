@@ -1,4 +1,4 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
 
 import jakarta.persistence.Column;
@@ -13,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class LocationModel {
+public class Location {
 
     @Id
     @Column(name = "idt_location")

@@ -1,8 +1,8 @@
 
-package com.incallup.backend.seller;
+package com.incallup.backend.controller;
 
 
-import com.incallup.backend.model.SellerModel;
+import com.incallup.backend.domain.Seller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 
@@ -22,7 +22,7 @@ public class SellerController {
 
 
     @PutExchange("/{sellerId}")
-    public String SellerId(@RequestBody SellerModel sellerId){
+    public String SellerId(@RequestBody Seller sellerId){
         System.out.println("Showing seller Id" + sellerId);
         return "Getting details of the seller";
     }

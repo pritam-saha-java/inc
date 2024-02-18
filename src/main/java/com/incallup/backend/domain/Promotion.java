@@ -1,4 +1,4 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
 
 import jakarta.persistence.Column;
@@ -14,7 +14,7 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 
-public class PromotionModel {
+public class Promotion {
 
 
     @Id

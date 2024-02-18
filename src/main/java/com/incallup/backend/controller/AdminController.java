@@ -1,4 +1,4 @@
-package com.incallup.backend.admin;
+package com.incallup.backend.controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 

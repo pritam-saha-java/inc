@@ -1,6 +1,6 @@
-package com.incallup.backend.model;
+package com.incallup.backend.domain;
 
-public class SellerModel {
+public class Seller {
 
     private int id;
     private String name;
