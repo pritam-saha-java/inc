@@ -1,22 +1,28 @@
 package com.incallup.backend.controller;
+import com.incallup.backend.domain.Admin;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 
 @RestController
 @RequestMapping("/admin")
 
-//@PostMapping("/admin")
 //@GetMapping("/admin")
 //@GetMapping("/admin/list/post")
 //@GetMapping("/admin/list/sellers")
 public class AdminController {
 
 
+    @PostMapping("/admin")
+    public void createAdmin(@RequestBody @Valid Admin admin){
+
+    }
 
     @GetMapping
     public String Admin(){
         return "/admin/welcome";
     }
+
 
     @GetMapping("/create")
     public String Create(){

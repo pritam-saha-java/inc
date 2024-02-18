@@ -1,6 +1,7 @@
 package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 
@@ -15,15 +16,17 @@ import lombok.*;
 public class Admin {
 
     @Id
-    @Column(name = "id_admin")
+    @Column(name = "admin_id")
     private Integer adminId;
 
 
 
-    @Column(name = "admin_username",unique = true)
+    @NotNull
+    @Column(name = "admin_username",unique = true,nullable = false)
     private String username;
 
-    @Column(name = "admin_password")
+    @NotNull
+    @Column(name = "admin_password",nullable = false)
     private String password;
 
     @Column(name = "admin_type")
