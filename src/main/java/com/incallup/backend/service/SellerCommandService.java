@@ -7,5 +7,5 @@ package com.incallup.backend.service;
  * -- Register (POST)
  */
 
-public class SellerCommandService {
+public interface SellerCommandService {
 }

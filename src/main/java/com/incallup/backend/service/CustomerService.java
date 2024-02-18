@@ -7,5 +7,5 @@ package com.incallup.backend.service;
  * -- Search by category & location
  * -- Search by location
  */
-public class CustomerService {
+public interface CustomerService {
 }

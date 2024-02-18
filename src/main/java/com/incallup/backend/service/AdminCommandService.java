@@ -6,6 +6,6 @@ package com.incallup.backend.service;
  *  -- Block Post
  *  -- Block Seller
  */
-public class AdminCommandService {
+public interface AdminCommandService {
 
 }
