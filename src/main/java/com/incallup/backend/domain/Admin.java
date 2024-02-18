@@ -16,7 +16,7 @@ public class Admin {
 
     @Id
     @Column(name = "id_admin")
-    private Integer idAdmin;
+    private Integer adminId;
 
 
 

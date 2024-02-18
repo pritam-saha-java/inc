@@ -16,7 +16,7 @@ public class Post {
 
     @Id
     @Column(name = "idpost")
-    private Integer idpost;
+    private Integer postId;
 
     @Column(name = "post_title", unique = true)
     private String post_title;

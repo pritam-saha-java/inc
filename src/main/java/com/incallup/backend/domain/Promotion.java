@@ -19,7 +19,7 @@ public class Promotion {
 
     @Id
     @Column(name = "idPromotion")
-    private Integer idPromotion;
+    private Integer promotionId;
 
 
 
