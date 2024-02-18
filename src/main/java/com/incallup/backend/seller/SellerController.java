@@ -2,6 +2,7 @@
 package com.incallup.backend.seller;
 
 
+import com.incallup.backend.model.SellerModel;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.service.annotation.PutExchange;
 
@@ -32,28 +33,28 @@ public class SellerController {
         return "Show all sellers";
     }
 
-    @GetMapping("/seller/list/{sellerId}")
+    @GetMapping("/list/{sellerId}")
     public String ListId(){
         return "Show all details of a seller";
     }
 
-    @GetMapping("/seller/profile/{sellerId}")
+    @GetMapping("/profile/{sellerId}")
     public String Profile(@PathVariable String sellerId){
         return "Show all details of a particular seller";
     }
 
-    @PostMapping("/seller/post")
+    @PostMapping("/post")
     public String Post(){
         return "Let the seller post things here";
     }
 
 
-    @GetMapping("/seller/post/{postID}")
+    @GetMapping("/post/{postID}")
     public String PostId(){
         return "Post Id of a seller";
     }
 
-    @GetMapping("/seller/{username}")
+    @GetMapping("/{username}")
     public String Username(){
         return "Seller Username";
     }

@@ -9,40 +9,46 @@ import org.springframework.web.service.annotation.PutExchange;
 //@GetMapping("/admin")
 //@GetMapping("/admin/list/post")
 //@GetMapping("/admin/list/sellers")
-//@RequestMapping("/")
 public class AdminController {
 
-    //(https://www.incallup.com/admin/welcome)
 
-//    @ResponseBody
 
     @GetMapping
     public String Admin(){
         return "/admin/welcome";
     }
 
+    @GetMapping("/create")
     public String Create(){
         return "Enter Data";
     }
 
-    public String List(){
+    @GetMapping("/list/post")
+    public String ListPost(){
         return "List All Admins";
     }
 
+    @GetMapping("/list/sellers")
+    public String ListSellers(){
+        return "List of All Sellers";
+    }
+
+    @GetMapping("/block")
     public String Block(){
-        return "All Blocked Items";
+        return "To block an item";
     }
 
 
-    @PutExchange("admin/block/seller/{id}")
+    @PutMapping("/block/seller/{id}")
     public String Profile(@PathVariable String adminId){
         return "Block a admin by id";
     }
 
-    @PutExchange("admin/block/post/{id}")
+    @PutMapping("/block/post/{id}")
     public String ProfilePost(@PathVariable String adminId){
         return "Let the admin post something by Id";
     }
+
 
 
 }
