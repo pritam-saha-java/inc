@@ -3,6 +3,9 @@ package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -20,4 +23,13 @@ public class Verification {
 
     @Column(name = "verification_is_verified")
     private Boolean isVerified;
+
+
+    @CreationTimestamp
+    @Column(name = "verification_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "verification_updated_at")
+    private Instant updatedAt;
 }

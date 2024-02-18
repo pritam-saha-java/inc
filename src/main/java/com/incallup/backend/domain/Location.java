@@ -3,6 +3,10 @@ package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -18,7 +22,18 @@ public class Location {
     @Column(name = "location_id")
     private Integer id;
 
-    @Column(name = "location_name")
-    private String name;
+    @Column(name = "location_district",unique = true,nullable = false)
+    private String district;
+
+    @Column(name = "location_state",nullable = false)
+    private String state;
+
+    @CreationTimestamp
+    @Column(name = "location_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "location_updated_at")
+    private Instant updatedAt;
 
 }

@@ -1,6 +1,5 @@
-package com.incallup.backend.util;
+package com.incallup.backend.utility;
 
-import com.fasterxml.jackson.databind.annotation.JsonPOJOBuilder;
 import lombok.Builder;
 import lombok.Data;
 

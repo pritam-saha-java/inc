@@ -2,7 +2,12 @@ package com.incallup.backend.domain;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Max;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -19,36 +24,46 @@ public class Post {
     @Column(name = "post_id")
     private Integer id;
 
+    @Max(15)
     @Column(name = "post_title", unique = true)
-    private String post_title;
+    private String title;
 
     @ToString.Exclude
-    @ManyToOne(targetEntity = Location.class,fetch = FetchType.LAZY)
+    @ManyToOne
     private Location location;
 
     @Column(name = "post_views")
-    private String post_views;
+    private String views;
 
-    @Column(name = "datetime")
-    private String datetime;
+
 
     @Column(name = "post_contact")
-    private String post_contact;
+    private String contact;
 
     @Column(name = "post_age")
-    private Integer post_age;
+    private Integer age;
 
+    @Max(50)
     @Column(name = "post_description")
-    private String post_description;
+    private String description;
 
-    @ManyToOne(targetEntity = Category.class)
+    @ManyToOne
     private Category category;
 
-    @Column(name = "post_verification_id ")
-    private Integer post_verification_id;
 
 
-    @OneToMany(targetEntity = Promotion.class)
+
+    @OneToMany
     @ToString.Exclude
-    private Promotion post_promotion_id;
+    private Promotion promotion;
+
+
+
+    @CreationTimestamp
+    @Column(name = "post_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "post_updated_at")
+    private Instant updatedAt;
 }

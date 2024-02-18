@@ -2,6 +2,10 @@ package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -19,4 +23,12 @@ public class Category {
 
     @Column(name = "category_name",nullable = false,unique = true)
     public String name;
+
+    @CreationTimestamp
+    @Column(name = "category_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "category_updated_at")
+    private Instant updatedAt;
 }

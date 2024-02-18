@@ -3,7 +3,10 @@ package com.incallup.backend.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.Instant;
 
 
 @Getter
@@ -32,6 +35,15 @@ public class Admin {
 
     @Column(name = "admin_type")
     private String type;
+
+
+    @CreationTimestamp
+    @Column(name = "admin_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "admin_updated_at")
+    private Instant updatedAt;
 
 
 

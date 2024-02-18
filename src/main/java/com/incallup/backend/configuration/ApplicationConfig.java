@@ -1,4 +1,4 @@
-package com.incallup.backend.config;
+package com.incallup.backend.configuration;
 
 import org.springframework.context.annotation.Configuration;
 

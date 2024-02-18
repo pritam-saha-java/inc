@@ -1,10 +1,11 @@
 package com.incallup.backend.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @Getter
 @Setter
@@ -17,5 +18,14 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
+
+    @CreationTimestamp
+    @Column(name = "customer_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "customer_updated_at")
+    private Instant updatedAt;
 
 }

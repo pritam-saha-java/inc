@@ -1,4 +1,4 @@
-package com.incallup.backend.util;
+package com.incallup.backend.utility;
 
 public class Contstants {
     public static String applicationName = "Incallup";

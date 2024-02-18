@@ -3,6 +3,10 @@ package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.Instant;
 
 @ToString
 @Builder
@@ -23,4 +27,12 @@ public class Promotion {
 
     @Column(name = "promotion_amount",nullable = false)
     private String amount;
+
+    @CreationTimestamp
+    @Column(name = "promotion_created_at")
+    private Instant createdAt;
+
+    @UpdateTimestamp
+    @Column(name = "promotion_updated_at")
+    private Instant updatedAt;
 }

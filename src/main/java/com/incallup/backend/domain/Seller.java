@@ -2,8 +2,12 @@ package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @Setter
@@ -19,7 +23,9 @@ public class Seller {
     @Column(name = "seller_id")
     private int id;
 
-
+    @OneToOne
+    @JoinColumn(name = "verification_verification_id")
+    private Verification verification;
 
     @Column(name = "seller_username",nullable = false,unique = true)
     private String username;
@@ -37,11 +43,17 @@ public class Seller {
     @Column(name = "seller_last_name",nullable = false)
     private String lastName;
 
+    @CreationTimestamp
+    @Column(name = "seller_created_at")
+    private Instant createdAt;
 
+    @UpdateTimestamp
+    @Column(name = "seller_updated_at")
+    private Instant updatedAt;
 
-
-
-
-
+    @ToString.Exclude
+    @OneToMany(orphanRemoval = true)
+    @JoinColumn(name = "seller_seller_id")
+    private List<Post> posts = new ArrayList<>();
 
 }
