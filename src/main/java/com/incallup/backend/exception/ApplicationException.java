@@ -1,14 +1,18 @@
 package com.incallup.backend.exception;
 
 import lombok.*;
+import lombok.experimental.StandardException;
 
-@EqualsAndHashCode(callSuper = true)
-@Data
-@RequiredArgsConstructor
-public class ApplicationException extends RuntimeException{
 
-    private final Integer status;
-    private final String title;
-    private final String Description;
+@Getter
+@Setter
+@ToString
+@Builder
+@StandardException
+public class ApplicationException extends Exception{
+
+    private  Integer status;
+    private  String title;
+    private  String Description;
 
 }
