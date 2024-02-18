@@ -2,10 +2,9 @@
 package com.incallup.backend.controller;
 
 
+import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.PutExchange;
-
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
@@ -17,11 +16,11 @@ public class SellerController {
 
     @GetMapping
     public String Seller(){
-        return "/seller/welcome";
+        return "posts";
     }
 
 
-    @PutExchange("/{sellerId}")
+    @PutMapping("/{sellerId}")
     public String SellerId(@RequestBody Seller sellerId){
         System.out.println("Showing seller Id" + sellerId);
         return "Getting details of the seller";
@@ -39,24 +38,24 @@ public class SellerController {
     }
 
     @GetMapping("/profile/{sellerId}")
-    public String Profile(@PathVariable String sellerId){
+    public String Profile(@PathVariable(name = "sellerId") String sellerId){
         return "Show all details of a particular seller";
     }
 
     @PostMapping("/post")
-    public String Post(){
-        return "Let the seller post things here";
+    public void Post(@RequestBody Post post){
+        log.info(post.toString());
     }
 
 
-    @GetMapping("/post/{postID}")
-    public String PostId(){
-        return "Post Id of a seller";
+    @GetMapping("/post/{postId}")
+    public String PostId(@PathVariable(name = "postId") String sellerId){
+        return "post";
     }
 
     @GetMapping("/{username}")
-    public String Username(){
-        return "Seller Username";
+    public String Username(@PathVariable(name = "username") String username){
+        return "profile";
     }
 
 

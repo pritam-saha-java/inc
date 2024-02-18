@@ -6,18 +6,19 @@ import lombok.*;
 
 
 
-@Entity(name = "tbl_admin")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
+@Entity(name = "tbl_admin")
 public class Admin {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "admin_id")
-    private Integer adminId;
+    private Integer id;
 
 
 

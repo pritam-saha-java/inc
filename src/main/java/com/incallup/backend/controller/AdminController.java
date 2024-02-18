@@ -1,12 +1,12 @@
 package com.incallup.backend.controller;
 import com.incallup.backend.domain.Admin;
 import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.PutExchange;
 
 @RestController
 @RequestMapping("/admin")
-
+@Slf4j
 //@GetMapping("/admin")
 //@GetMapping("/admin/list/post")
 //@GetMapping("/admin/list/sellers")

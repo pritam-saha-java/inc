@@ -4,19 +4,20 @@ package com.incallup.backend.domain;
 import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "tbl_post")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Entity(name = "tbl_post")
 public class Post {
 
 
     @Id
-    @Column(name = "idpost")
-    private Integer postId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "post_id")
+    private Integer id;
 
     @Column(name = "post_title", unique = true)
     private String post_title;
@@ -45,7 +46,7 @@ public class Post {
 
     @Column(name = "post_verification_id ")
     private Integer post_verification_id;
-    //remove later
+
 
     @OneToMany(targetEntity = Promotion.class)
     @ToString.Exclude

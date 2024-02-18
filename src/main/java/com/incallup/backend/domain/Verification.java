@@ -1,25 +1,23 @@
 package com.incallup.backend.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "tbl_verification")
 @Getter
 @Setter
 @ToString
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Entity(name = "tbl_verification")
 public class Verification {
 
     @Id
-    @Column(name = "idVerification")
-    private Integer idVerification;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "verification_id")
+    private Integer id;
 
-    @Column(name = "verification_type", unique = true)
-    private String verification_type;
+    @Column(name = "verification_is_verified")
+    private Boolean isVerified;
 }

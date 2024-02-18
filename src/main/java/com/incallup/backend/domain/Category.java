@@ -1,23 +1,22 @@
 package com.incallup.backend.domain;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "tbl_category")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Entity(name = "tbl_category")
 public class Category {
 
     @Id
-    @Column(name = "idCategory")
-    public Integer categoryId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "category_id")
+    public Integer id;
 
-    @Column(name = "category_name")
-    public String category_name;
+    @Column(name = "category_name",nullable = false,unique = true)
+    public String name;
 }

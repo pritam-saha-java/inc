@@ -1,28 +1,26 @@
 package com.incallup.backend.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
-@Entity(name = "tbl_promotion")
 @ToString
 @Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-
+@Entity(name = "tbl_promotion")
 public class Promotion {
 
 
     @Id
-    @Column(name = "idPromotion")
-    private Integer promotionId;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "promotion_id")
+    private Integer id;
 
 
 
-    @Column(name = "promotion_amount")
-    private String promotion_amount;
+    @Column(name = "promotion_amount",nullable = false)
+    private String amount;
 }
