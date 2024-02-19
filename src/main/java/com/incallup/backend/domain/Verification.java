@@ -15,7 +15,6 @@ import java.time.Instant;
 @NoArgsConstructor
 @Entity(name = "tbl_verification")
 public class Verification {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "verification_id")

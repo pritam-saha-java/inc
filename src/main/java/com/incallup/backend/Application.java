@@ -1,8 +1,7 @@
 
 package com.incallup.backend;
 
-import com.incallup.backend.domain.Admin;
-import com.incallup.backend.repository.AdminRepository;
+
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -19,7 +19,6 @@ public class Customer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-
     @CreationTimestamp
     @Column(name = "customer_created_at")
     private Instant createdAt;
