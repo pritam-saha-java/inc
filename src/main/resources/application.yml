@@ -28,8 +28,8 @@ spring:
   datasource:
     driver: com.mysql.jdbc.Driver
     username: sql6683807
-#    username: root
     password: pzieJzTC9W
+    url: jdbc:mysql://sql6.freesqldatabase.com:3306/?user=sql6683807/sql6683807
+#    username: root
 #    password: hello
-    url: jdbc:mysql://sql6.freesqldatabase.com:3306/?user=sql6683807
 #    url: jdbc:mysql://localhost:3306/incallup
