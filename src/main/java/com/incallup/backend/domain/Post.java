@@ -33,7 +33,7 @@ public class Post {
     private Location location;
 
     @Column(name = "post_views")
-    private String views;
+    private Integer views;
 
 
 
