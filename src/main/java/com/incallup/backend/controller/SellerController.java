@@ -59,7 +59,7 @@ public class SellerController {
     }
 
 
-    @GetMapping("/seller/login")
+    @GetMapping("/login")
     public String Login(){
         return "Seller Login";
     }

@@ -1,3 +1,22 @@
+springdoc:
+  version: v1
+  api-docs:
+    path: /incallup
+  swagger-ui:
+    disable-swagger-default: true
+    path: /incallup/swagger/ui
+logging:
+  level:
+    org:
+      springframework:
+        data:
+          jpa: trace
+        jdbc: debug
+      hibernate:
+        SQL: debug
+        ORM:
+          jdbc:
+            bind: trace
 server:
   port: 443
   servlet:
@@ -22,14 +41,15 @@ spring:
       format_sql: true
       dialect: org.hibernate.dialect.MySQLDialect
   show-sql: true
+
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
     driver: com.mysql.jdbc.Driver
-    username: sql6683807
-    password: pzieJzTC9W
-    url: jdbc:mysql://sql6.freesqldatabase.com:3306/?user=sql6683807/sql6683807
-#    username: root
-#    password: hello
-#    url: jdbc:mysql://localhost:3306/incallup
+#    username: sql6683807
+#    password: pzieJzTC9W
+#    url: jdbc:mysql://sql6.freesqldatabase.com:3306/?user=sql6683807/sql6683807
+    username: root
+    password: hello
+    url: jdbc:mysql://localhost:3306/incallup
