@@ -20,7 +20,7 @@ public class CustomerController {
     @GetMapping
     public ModelAndView Customer(ModelAndView model){
         model.setViewName("joker");
-        model.addObject("open","USA");
+        model.addObject("open", "hi");
         return model;
     }
 

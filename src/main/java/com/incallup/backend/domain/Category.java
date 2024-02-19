@@ -31,4 +31,10 @@ public class Category {
     @UpdateTimestamp
     @Column(name = "category_updated_at")
     private Instant updatedAt;
+
+    @Column(name = "category_description")
+    private String description;
+
+    @Column(name = "category_meta")
+    private String meta;
 }

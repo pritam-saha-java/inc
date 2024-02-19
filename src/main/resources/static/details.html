@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="img/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles/style.css">
+
+  <title>InCallUp</title>
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
+
+</head>
+
+<body >
+
+
+  <div class="modal site-modal " id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">
+            <img src="./icons/search.png" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
+            Search</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- Modal body -->
+        <div class="modal-body container">
+          <div class="row">
+            <div class="col">
+              <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                <option selected>Phone</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+
+            </div>
+            <div class="col">
+              <select class="form-select form-select-lg mb-3" aria-label="Large select example">
+                <option selected>All the Regions</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col">
+              <input placeholder="Search here" class=" form-control mb-3 text-danger" aria-label="Large select example">
+
+
+            </div>
+            <div class="col">
+              <select class="form-select mb-3 text-danger" aria-label="Large select example">
+                <option selected>All the Cities</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+              </select>
+            </div>
+          </div>
+
+
+        </div>
+
+        <!-- Modal footer -->
+        <div class="container">
+          <div class="row p-3 pt-0">
+            <div class="col-6 text-center">
+              <button style="border-radius: 0px 20px ;" type="button" class="btn sButton " data-bs-dismiss="modal">
+                Close
+              </button>
+            </div>
+              <div class="col-6 text-center  ">
+                <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
+                
+                  <img src="./icons/search.png" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
+                  
+                  Search
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- navbar start -->
+  <span class="d-block p-2  blue-bg"></span>
+  <nav class="container-fluid p-2 pt-0">
+    <div class="row pt-3 pb-0 mb-0 ">
+
+      <div class="col-8 px-5 text-center "><img class="h-75 site-logo " src="img/logo.png" alt="logo" ></div>
+
+      <div class="col-4 p-4 pb-0 ">
+
+        <img src="./icons/user.png" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
+        <button class="btn text-light p-1 blue-bg mx-auto w-50 mb-0 site-font1 text-center"
+          onclick="siteRedirect('post')">POST AD</button>
+      </div>
+
+    </div>
+    <div class="row px-3 mt-0 pt-0 pb-1">
+      <div class="col-6 site-font1 text-light px-4">
+        <img src="./icons/location.png" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
+        Locate me
+
+      </div>
+      <div class="col-6  ">
+        <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
+          data-bs-target="#myModal">
+          <img src="./icons/search.png" alt="search icon" class="site-icon mt-2 px-5 ">
+          <div class="p-2  site-font1">
+            Search
+          </div>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <span class="d-block p-2  blue-bg"></span>
+  <!-- navbar end -->
+  <!-- hero section start -->
+  <div class="container">
+    <a href="index.html" class="p-1 rounded mx-5 fs-3 site-link"> <b>&lt; Back To Search</b></a>
+    
+  </div>
+
+ <h1 class="text-center my-5"> This is details page</h1>
+  <div class="container-fluid m-4 mt-2">
+    <div class="site-title my-5 row ">
+      <p class="text-center">FIND ADS IN LOCAL : INDIA</p>
+    </div>
+    <div class="site-text  mt-2 row">
+      <p class="text-center">Most Popular Location In A Specific Category</p>
+    </div>
+    <div class="d-grid  mt-2 bg-light category-text   row ">
+      <div class="btn btn-secondary site-font container-fluid text-center" type="button">
+        <div class="row justify-content-between">
+          <div class="col-1">Camera</div> <button type="reset"
+            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+            id="showButton">></button>
+        </div>
+      </div>
+      <div class="h-1  container-fluid category-text-bar" id="">
+        <div class="row py-2">
+          <div class="col-md-6">
+            Category text
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
+            consequatur accusamus fugiat in dolor
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-8">
+              <div class="table-responsive">
+                <table class="table location-table ">
+                  <tbody>
+                    <tr class="">
+                      <td class=""><a href="#">Thane</a></td>
+                      <td><a href="#">Pune</a></td>
+                      <td><a href="#">Central Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Hyderabad</a></td>
+                      <td><a href="#">Kolkata</a></td>
+                      <td><a href="#">East Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Bhopal</a></td>
+                      <td><a href="#">South Delhi</a></td>
+                      <td><a href="#">Khordha</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid  mt-2 bg-light category-text  row ">
+      <div class="btn btn-secondary site-font container-fluid text-center" type="button">
+        <div class="row justify-content-between">
+          <div class="col-1">Camera</div> <button type="reset"
+            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+            id="showButton">></button>
+        </div>
+      </div>
+      <div class="h-1  container-fluid category-text-bar" id="">
+        <div class="row py-2">
+          <div class="col-md-6">
+            Category text
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
+            consequatur accusamus fugiat in dolor
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-8">
+              <div class="table-responsive">
+                <table class="table location-table ">
+                  <tbody>
+                    <tr class="">
+                      <td class=""><a href="#">Thane</a></td>
+                      <td><a href="#">Pune</a></td>
+                      <td><a href="#">Central Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Hyderabad</a></td>
+                      <td><a href="#">Kolkata</a></td>
+                      <td><a href="#">East Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Bhopal</a></td>
+                      <td><a href="#">South Delhi</a></td>
+                      <td><a href="#">Khordha</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid  mt-2 bg-light category-text  row ">
+      <div class="btn btn-secondary site-font container-fluid text-center" type="button">
+        <div class="row justify-content-between">
+          <div class="col-1">Camera</div> <button type="reset"
+            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+            id="showButton">></button>
+        </div>
+      </div>
+      <div class="h-1  container-fluid category-text-bar" id="">
+        <div class="row py-2">
+          <div class="col-md-6">
+            Category text
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
+            consequatur accusamus fugiat in dolor
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-8">
+              <div class="table-responsive">
+                <table class="table location-table ">
+                  <tbody>
+                    <tr class="">
+                      <td class=""><a href="#">Thane</a></td>
+                      <td><a href="#">Pune</a></td>
+                      <td><a href="#">Central Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Hyderabad</a></td>
+                      <td><a href="#">Kolkata</a></td>
+                      <td><a href="#">East Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Bhopal</a></td>
+                      <td><a href="#">South Delhi</a></td>
+                      <td><a href="#">Khordha</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-grid mt-2 bg-light category-text  row ">
+      <div class="btn btn-secondary site-font container-fluid text-center" type="button">
+        <div class="row justify-content-between">
+          <div class="col-1">Camera</div> <button type="reset"
+            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+            id="showButton">></button>
+        </div>
+      </div>
+      <div class="h-1  container-fluid category-text-bar" id="">
+        <div class="row py-2">
+          <div class="col-md-6">
+            Category text
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
+            consequatur accusamus fugiat in dolor
+          </div>
+          <div class="col-md-6">
+            <div class="col-md-8">
+              <div class="table-responsive">
+                <table class="table location-table ">
+                  <tbody>
+                    <tr class="">
+                      <td class=""><a href="#">Thane</a></td>
+                      <td><a href="#">Pune</a></td>
+                      <td><a href="#">Central Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Hyderabad</a></td>
+                      <td><a href="#">Kolkata</a></td>
+                      <td><a href="#">East Delhi</a></td>
+                    </tr>
+                    <tr>
+                      <td><a href="#">Bhopal</a></td>
+                      <td><a href="#">South Delhi</a></td>
+                      <td><a href="#">Khordha</a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container-fluid mt-5 px-5">
+      <div class="p-5 site-font bg-secondary-subtle ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+        est faucibus, condimentum nulla vitae, dictum neque. Nunc dignissim sem ut suscipit scelerisque. Nullam purus
+        justo, gravida quis purus at, varius pulvinar urna. Cras iaculis lectus non sem pellentesque, eu auctor tortor
+        dignissim. Vestibulum pulvinar libero a erat commodo rutrum. Donec eget faucibus turpis. Vestibulum quis
+        ullamcorper leo. Quisque posuere mauris sit amet pretium laoreet. Donec id nunc nulla. Mauris lobortis eleifend
+        suscipit. Quisque pellentesque nulla vel fermentum consectetur. Vestibulum vel accumsan nunc, at sollicitudin
+        sapien.
+        Etiam egestas, elit ut imperdiet ullamcorper, orci dui auctor magna, a suscipit felis arcu at nunc. Fusce
+        volutpat massa non vulputate fermentum. Aenean eleifend eget tellus sed placerat. Nullam faucibus eros ac felis
+        tempor consequat. Morbi sagittis tortor quis purus scelerisque vestibulum. Phasellus ut ipsum sed lectus
+        tincidunt ultricies. In in est vitae leo hendrerit volutpat. Ut mi orci, venenatis vulputate libero id, molestie
+        tincidunt justo.
+        Maecenas porttitor urna semper orci sodales, sit amet efficitur felis vulputate. Mauris rutrum nunc in diam
+        fermentum, eget eleifend turpis condimentum. Aenean turpis ex, pellentesque ut condimentum at, dapibus vitae
+        ante. Morbi vitae convallis lorem. Nam euismod vestibulum tincidunt. Integer vitae nulla blandit, ullamcorper
+        purus sit amet, iaculis ante. Etiam vestibulum pellentesque lorem ornare rutrum. Integer fermentum, sapien sed
+        pretium porta, neque orci finibus leo, eget cursus nulla velit id ante. Aenean id diam euismod, semper elit non,
+        laoreet sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Mauris lobortis imperdiet orci eu condimentum. Curabitur eleifend quam purus, sit amet fermentum magna viverra
+        sed. Pellentesque vel neque tempus nulla suscipit finibus sed eget metus. Aliquam euismod ligula non lorem
+        egestas ultricies. Mauris eget tellus in elit bibendum egestas. Fusce elementum fringilla odio, accumsan posuere
+        leo.
+
+      </div>
+    </div>
+  </div>
+  <footer class="container-fluid ">
+    <div class="row " id="footer-pink">
+      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " src="img/logo.png" alt="logo" >
+      </div>
+      <div class="col-6 container">
+        <div class="row ">
+          <p class="text-center pt-5 text-light" id="imp-link">Important Links</p>
+        </div>
+        <div class="row blue-bg my-2 px-3 py-1 me-2 py-2 ">
+          <div class="col-lg-2 col-md-11"><a class=" text-light " href="">FAQ </a> </div>
+          <div class="col-lg-1 col-md-1 text-light">|</div>
+          <div class="col-lg-2 col-md-11"><a class=" text-light " href="">Privacy Policy </a> </div>
+          <div class="col-lg-1 col-md-1 text-light">|</div>
+          <div class="col-lg-2 col-md-11"><a class=" text-light " href="">Terms & Condition </a> </div>
+          <div class="col-lg-1 col-md-1 text-light">|</div>
+          <div class="col-lg-2 col-md-11"><a class=" text-light " href="">Contact Us </a> </div>
+          <div class="col-lg col-md-1 text-light">|</div>
+          <div class="col-lg col-md-11"><a class=" text-light " href="">Blogs </a> </div>
+        </div>
+      </div>
+    </div>
+    <div class="row blue-bg p-4 text-light site-font ">
+      <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+  </script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/common.js"></script>
+</body>
+
+</html>

@@ -36,4 +36,11 @@ public class Location {
     @Column(name = "location_updated_at")
     private Instant updatedAt;
 
+
+    @Column(name = "location_description")
+    private String description;
+
+    @Column(name = "location_meta")
+    private String meta;
+
 }

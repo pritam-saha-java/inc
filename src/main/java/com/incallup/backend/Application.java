@@ -1,6 +1,8 @@
 
 package com.incallup.backend;
 
+import com.incallup.backend.domain.Admin;
+import com.incallup.backend.repository.AdminRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,9 +17,14 @@ public class Application {
 
 
 	@Bean
-	CommandLineRunner run(){
+	CommandLineRunner run(AdminRepository adminRepository){
 		return args -> {
-			System.out.println("Hello world from command line runner");
+			adminRepository.save(Admin.builder()
+							.username("hello")
+							.password("bye")
+							.type("main")
+					.build());
+		System.out.println("Hello world from command line runner");
 		};
 	}
 }
