@@ -53,7 +53,7 @@ public class Post {
 
 
 
-    @OneToMany
+    @OneToOne
     @ToString.Exclude
     private Promotion promotion;
 

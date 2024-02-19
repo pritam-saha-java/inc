@@ -20,7 +20,7 @@ public class Payment {
     private String transactionId;
 
     @OneToOne
-    @JoinColumn(name = "seller_seller_id")
+    @JoinColumn(name = "seller_id")
     private Seller seller;
 
     @CreationTimestamp

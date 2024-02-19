@@ -24,7 +24,7 @@ public class Seller {
     private int id;
 
     @OneToOne
-    @JoinColumn(name = "verification_verification_id")
+    @JoinColumn(name = "verification_id")
     private Verification verification;
 
     @Column(name = "seller_username",nullable = false,unique = true)
@@ -53,7 +53,7 @@ public class Seller {
 
     @ToString.Exclude
     @OneToMany(orphanRemoval = true)
-    @JoinColumn(name = "seller_seller_id")
+    @JoinColumn(name = "seller_id")
     private List<Post> posts = new ArrayList<>();
 
 }
