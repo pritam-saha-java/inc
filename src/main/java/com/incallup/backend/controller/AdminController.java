@@ -46,12 +46,12 @@ public class AdminController {
 
 
     @PutMapping("/block/seller/{id}")
-    public String Profile(@PathVariable String adminId){
+    public String Profile(@PathVariable Integer adminId){
         return "Block a admin by id";
     }
 
     @PutMapping("/block/post/{id}")
-    public String ProfilePost(@PathVariable String adminId){
+    public String ProfilePost(@PathVariable Integer adminId){
         return "Let the admin post something by Id";
     }
 
