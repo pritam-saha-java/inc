@@ -17,13 +17,9 @@ public class Application {
 
 
 	@Bean
-	CommandLineRunner run(AdminRepository adminRepository){
+	CommandLineRunner run(){
 		return args -> {
-			adminRepository.save(Admin.builder()
-							.username("hello")
-							.password("bye")
-							.type("main")
-					.build());
+
 		System.out.println("Hello world from command line runner");
 		};
 	}

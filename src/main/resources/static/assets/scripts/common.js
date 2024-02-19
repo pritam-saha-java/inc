@@ -1,4 +1,11 @@
 // this file will have all the common js effects needed for all pages
+var sitePopup = sessionStorage.getItem('popup');
+if(!sitePopup){
+
+
+
+
+
 const popupText = "<div class ='row' > <p class ='col-11' >Lorem ipsum dolor sit amenLorem ipsum dolor sit amen</p>   <b class ='col-1 ' id='closeButton' > x </b> </div>";
 const popup = 'popup';
 var body = document.body;
@@ -14,8 +21,11 @@ var closeButton = document.getElementById('closeButton');
 closeButton.addEventListener('click',(myEvent)=>{
     let element = document.getElementById(popup);
     element.style.display = 'none';
+    sessionStorage.setItem('popup',true);
     
 });
+
+}
 function siteRedirect(file){
     window.location = file+'.html';
 }
@@ -23,8 +33,8 @@ const logos = document.querySelectorAll('.site-logo');
 logos.forEach(logo => {
     logo.addEventListener('click', () => {
 
-        if (window.location.pathname !== '/index.html') {
-                    window.location.href = "index.html";
+        if (window.location.pathname !== '/') {
+                    window.location.href = "/";
             }
     });
   });

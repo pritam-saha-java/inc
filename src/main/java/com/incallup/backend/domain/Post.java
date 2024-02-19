@@ -66,4 +66,8 @@ public class Post {
     @UpdateTimestamp
     @Column(name = "post_updated_at")
     private Instant updatedAt;
+
+
+    @Column(name = "post_is_blocked")
+    private Boolean isBlocked  = false;
 }

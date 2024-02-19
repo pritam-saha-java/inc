@@ -19,10 +19,13 @@ public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "category_id")
-    public Integer id;
+    private Integer id;
 
     @Column(name = "category_name",nullable = false,unique = true)
-    public String name;
+    private String name;
+
+    @Column(name = "category_title",nullable = false,unique = true)
+    private String title;
 
     @CreationTimestamp
     @Column(name = "category_created_at")

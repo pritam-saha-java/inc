@@ -56,4 +56,7 @@ public class Seller {
     @JoinColumn(name = "seller_id")
     private List<Post> posts = new ArrayList<>();
 
+    @Column(name = "seller_is_blocked")
+    private Boolean isBlocked  = false;
+
 }
