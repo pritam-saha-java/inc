@@ -75,7 +75,7 @@ public class AdminService implements AdminQueryService {
 
             throw IdNotFoundException.builder()
                     .id(categoryId)
-                    .message("Others")
+                    .message("Other")
                     .entity("category")
                     .build();
         }
