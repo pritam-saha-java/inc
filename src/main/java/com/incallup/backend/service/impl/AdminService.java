@@ -4,11 +4,13 @@ import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
+import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
+import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +23,7 @@ import java.util.List;
  * */
 @Service
 @RequiredArgsConstructor
-public class AdminService implements AdminQueryService {
+public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Autowired
     private final SellerRepository sellerRepository;
@@ -80,5 +82,73 @@ public class AdminService implements AdminQueryService {
                     .build();
         }
         return categoryMust.get();
+    }
+
+    @Override
+    public void blockPost(Integer postId) throws IdNotFoundException {
+
+
+    }
+
+    @Override
+    public void blockSeller(Integer sellerId) throws IdNotFoundException {
+
+    }
+
+    @Override
+    public void createLocation(Location location) throws ApplicationException {
+           boolean isExist = locationRepository.findById(location.getId()).isPresent();
+           if(isExist){
+               throw ApplicationException.builder()
+                       .title("IdAlreadyExists")
+                       .Description("id already exists")
+                       .status(300)
+                       .build();
+           }
+           isExist = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
+
+           if(isExist){
+               throw ApplicationException.builder()
+                       .title("")
+                       .Description("district already exists")
+                       .status(300)
+                       .build();
+           }
+
+
+           locationRepository.save(location);
+    }
+
+    @Override
+    public void createCategory(Category category) throws ApplicationException {
+        boolean isExist = categoryRepository.findById(category.getId()).isPresent();
+        if(isExist){
+            throw ApplicationException.builder()
+                    .title("NameAlreadyExists")
+                    .Description("Name Already Exists")
+                    .status(300)
+                    .build();
+        }
+        isExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
+
+        if(isExist){
+            throw ApplicationException.builder()
+                    .title("")
+                    .Description("Category Already Exists")
+                    .status(300)
+                    .build();
+        }
+
+        categoryRepository.save(category);
+    }
+
+    @Override
+    public void updateCategory(Category category) throws ApplicationException {
+
+    }
+
+    @Override
+    public void updateLocation(Location location) throws ApplicationException {
+
     }
 }
