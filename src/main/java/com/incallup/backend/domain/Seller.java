@@ -24,6 +24,7 @@ public class Seller {
     private int id;
 
     @OneToOne
+    @MapsId
     @JoinColumn(name = "verification_id")
     private Verification verification;
 
@@ -37,12 +38,6 @@ public class Seller {
     @Column(name = "seller_password",nullable = false)
     private String password;
 
-
-    @Column(name = "seller_first_name",nullable = false)
-    private String firstName;
-    @Column(name = "seller_last_name",nullable = false)
-    private String lastName;
-
     @CreationTimestamp
     @Column(name = "seller_created_at")
     private Instant createdAt;
@@ -52,7 +47,7 @@ public class Seller {
     private Instant updatedAt;
 
     @ToString.Exclude
-    @OneToMany(orphanRemoval = true)
+    @OneToMany(orphanRemoval = true,fetch = FetchType.LAZY)
     @JoinColumn(name = "seller_id")
     private List<Post> posts = new ArrayList<>();
 
