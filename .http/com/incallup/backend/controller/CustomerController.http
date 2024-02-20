@@ -1,0 +1,11 @@
+### com.incallup.backend.controller.CustomerController#Customer
+# @name Customer 
+
+GET {{host}}/
+Authorization: {{token}}
+Cookie: {{cookie}}
+
+### END
+
+
+

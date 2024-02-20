@@ -1,10 +1,17 @@
 package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.Instant;
 
+@Getter
+@Setter
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity(name = "tbl_payment")
 public class Payment {
     @Id
@@ -19,8 +26,10 @@ public class Payment {
     @Column(name = "payment_transaction_id")
     private String transactionId;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     @JoinColumn(name = "seller_id")
+    @ToString.Exclude
     private Seller seller;
 
     @CreationTimestamp

@@ -23,8 +23,6 @@ public class Promotion {
     @Column(name = "promotion_id")
     private Integer id;
 
-
-
     @Column(name = "promotion_amount",nullable = false)
     private String amount;
 
