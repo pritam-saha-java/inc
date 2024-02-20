@@ -23,7 +23,7 @@
 <body >
 
 
-  <div class="modal site-modal " id="myModal">
+  <div th:fragment="siteSearch" class="modal site-modal " id="myModal">
     <div class="modal-dialog">
       <div class="modal-content">
 
@@ -97,8 +97,7 @@
       </div>
     </div>
   </div>
-
-  <!-- navbar start -->
+<header th:fragment="siteHeader">
   <span class="d-block p-2  blue-bg"></span>
   <nav class="container-fluid p-2 pt-0">
     <div class="row pt-3 pb-0 mb-0 ">
@@ -109,7 +108,7 @@
 
         <img th:src="@{/assets/icons/user.png}" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
         <button class="btn text-light p-1 blue-bg mx-auto w-50 mb-0 site-font1 text-center"
-          th:onclick="location.redirect = [[@{./post.html}]]">POST AD</button>
+                th:onclick="location.redirect = [[@{./post.html}]]">POST AD</button>
       </div>
 
     </div>
@@ -121,7 +120,7 @@
       </div>
       <div class="col-6  ">
         <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
-          data-bs-target="#myModal">
+                data-bs-target="#myModal">
           <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon mt-2 px-5 ">
           <div class="p-2  site-font1">
             Search
@@ -131,6 +130,9 @@
     </div>
   </nav>
   <span class="d-block p-2  blue-bg"></span>
+</header>
+  <!-- navbar start -->
+
   <!-- navbar end -->
   <!-- hero section start -->
   <div class="text-center  m-auto " id="hero-section">
@@ -156,7 +158,7 @@
   </div>
 
   <!-- hero section end -->
-  <div class="container-fluid m-4 mt-2">
+  <div th:fragment="categoryDropdown"  class="container-fluid m-4 mt-2">
     <div class="site-title my-5 row ">
       <p class="text-center">FIND ADS IN LOCAL : INDIA</p>
     </div>
@@ -364,7 +366,7 @@
       </div>
     </div>
   </div>
-  <footer class="container-fluid ">
+  <footer th:fragment="siteFooter" class="container-fluid ">
     <div class="row " id="footer-pink">
       <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " th:src="@{/assets/img/logo.png}" alt="logo" >
       </div>
