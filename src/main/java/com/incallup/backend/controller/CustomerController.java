@@ -20,14 +20,13 @@ import java.util.List;
 public class CustomerController {
 
 
-
+    private final  List<Category> categoryList = new ArrayList<>();
 
 
     @GetMapping
     public ModelAndView Customer(ModelAndView model){
         model.setViewName("dashboard");
 
-        List<Category> categoryList = new ArrayList<>();
         categoryList.add(Category.builder()
                         .name("call-girl")
                         .title("Call girl")
@@ -61,7 +60,7 @@ public class CustomerController {
     @GetMapping("{category}")
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView){
         modelAndView.setViewName("category");
-
+        modelAndView.addObject("categoryName",category);
         return modelAndView;
     }
 

@@ -12,9 +12,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" href="../static/assets/styles/style.css">
+  <link rel="stylesheet" th:href="@{/assets/styles/style.css}">
 
-  <title>InCallUp</title>
+  <title th:text="${categoryName}">category</title>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script> 
 
 </head>
@@ -29,8 +29,9 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <img src="../static/assets/icons/search.png" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
-            Search</h4>
+            <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
+            Search
+          </h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
@@ -85,7 +86,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
                 
-                  <img src="../static/assets/icons/search.png" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
+                  <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
                   
                   Search
               </button>
@@ -102,11 +103,11 @@
   <nav class="container-fluid p-2 pt-0">
     <div class="row pt-3 pb-0 mb-0 ">
 
-      <div class="col-8 px-5 text-center "><img class="h-75 site-logo " src="../static/assets/img/logo.png" alt="logo" ></div>
+      <div class="col-8 px-5 text-center "><img class="h-75 site-logo " th:src="@{/assets/img/logo.png}" alt="logo" ></div>
 
       <div class="col-4 p-4 pb-0 ">
 
-        <img src="../static/assets/icons/user.png" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
+        <img th:src="@{/assets/icons/user.png}" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
         <button class="btn text-light p-1 blue-bg mx-auto w-50 mb-0 site-font1 text-center"
           onclick="siteRedirect('post')">POST AD</button>
       </div>
@@ -114,14 +115,14 @@
     </div>
     <div class="row px-3 mt-0 pt-0 pb-1">
       <div class="col-6 site-font1 text-light px-4">
-        <img src="../static/assets/icons/location.png" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
+        <img th:src="@{/assets/icons/location.png}" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
         Locate me
 
       </div>
       <div class="col-6  ">
         <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
           data-bs-target="#myModal">
-          <img src="../static/assets/icons/search.png" alt="search icon" class="site-icon mt-2 px-5 ">
+          <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon mt-2 px-5 ">
           <div class="p-2  site-font1">
             Search
           </div>
@@ -134,7 +135,7 @@
   <!-- hero section start -->
   <div class="container">
     <a href="dashboard.html" class="row p-1 rounded mx-5 fs-3 site-link"> <b>&lt; Back To Search</b></a>
-    <div class="row"><img src="../static/assets/icons/home-icon.png" alt="home icon" class="site-icon border border-1 border-black " style="width: auto;"></div>
+    <div class="row"><img th:src="@{/assets/icons/home-icon.png}" alt="home icon" class="site-icon border border-1 border-black " style="width: auto;"></div>
 
   </div>
 
@@ -150,8 +151,8 @@
       <div class="btn btn-secondary site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
           <div class="col-1">Camera</div> <button type="reset"
-            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
-            id="showButton">></button>
+           class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+              >></button>
         </div>
       </div>
       <div class="h-1  container-fluid category-text-bar" id="">
@@ -193,8 +194,8 @@
       <div class="btn btn-secondary site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
           <div class="col-1">Camera</div> <button type="reset"
-            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
-            id="showButton">></button>
+           class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+              >></button>
         </div>
       </div>
       <div class="h-1  container-fluid category-text-bar" id="">
@@ -236,8 +237,8 @@
       <div class="btn btn-secondary site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
           <div class="col-1">Camera</div> <button type="reset"
-            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
-            id="showButton">></button>
+           class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+              >></button>
         </div>
       </div>
       <div class="h-1  container-fluid category-text-bar" id="">
@@ -279,8 +280,8 @@
       <div class="btn btn-secondary site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
           <div class="col-1">Camera</div> <button type="reset"
-            class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
-            id="showButton">></button>
+           class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
+              >></button>
         </div>
       </div>
       <div class="h-1  container-fluid category-text-bar" id="">
@@ -338,7 +339,7 @@
         ante. Morbi vitae convallis lorem. Nam euismod vestibulum tincidunt. Integer vitae nulla blandit, ullamcorper
         purus sit amet, iaculis ante. Etiam vestibulum pellentesque lorem ornare rutrum. Integer fermentum, sapien sed
         pretium porta, neque orci finibus leo, eget cursus nulla velit id ante. Aenean id diam euismod, semper elit non,
-        laoreet sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        laoreet sapien. class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
         Mauris lobortis imperdiet orci eu condimentum. Curabitur eleifend quam purus, sit amet fermentum magna viverra
         sed. Pellentesque vel neque tempus nulla suscipit finibus sed eget metus. Aliquam euismod ligula non lorem
         egestas ultricies. Mauris eget tellus in elit bibendum egestas. Fusce elementum fringilla odio, accumsan posuere
@@ -349,7 +350,7 @@
   </div>
   <footer class="container-fluid ">
     <div class="row " id="footer-pink">
-      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " src="../static/assets/img/logo.png" alt="logo" >
+      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " th:src="@{/assets/img/logo.png}" alt="logo" >
       </div>
       <div class="col-6 container">
         <div class="row ">
