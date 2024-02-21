@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SwaggerConfiguration {
     @Bean
-    public OpenAPI employeeManagementOpenAPI(@Value("${springdoc.version}") String appVersion) {
+    public OpenAPI employeeManagementOpenAPI(@Value("${springdoc.api-docs.version}") String appVersion) {
         var api = new OpenAPI();
         api.info(new Info().title("Incallup").version(appVersion)
                 .license(new License().name("incallup"))
