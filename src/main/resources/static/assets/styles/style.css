@@ -16,6 +16,9 @@ body {
     --post: #C1B0B0;
 
   }
+  *{
+    cursor: url('../icons/cursor.png') 2 5,pointer;
+  }
 
 .post-icon{
     height: 1.5rem;
