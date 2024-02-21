@@ -114,7 +114,6 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                        .build();
            }
 
-
            locationRepository.save(location);
     }
 
@@ -166,6 +165,25 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Override
     public void updateLocation(Location location) throws ApplicationException {
+        boolean bExists = locationRepository.findById(location.getId()).isPresent();
+        if(bExists){
+            throw ApplicationException.builder()
+                    .title("NoLocationUpdate")
+                    .Description("No update required in location")
+                    .status(300)
+                    .build();
+        }
 
+        bExists = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
+
+        if(bExists){
+            throw ApplicationException.builder()
+                    .title("NoLocationNow")
+                    .Description("No location update for now")
+                    .status(300)
+                    .build();
+        }
+
+        locationRepository.save(location);
     }
 }
