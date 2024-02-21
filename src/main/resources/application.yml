@@ -38,7 +38,7 @@ spring:
     name: incallup
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
   properties:
     hibernate:
       format_sql: true
@@ -50,9 +50,10 @@ spring:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
     driver: com.mysql.jdbc.Driver
-#    username: sql6683807
-#    password: pzieJzTC9W
-#    url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
-    username: root
-    password: hello
-    url: jdbc:mysql://localhost:3306/incallup
+    username: sql6683807
+    password: pzieJzTC9W
+    url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
+#   driver: com.mysql.cj.jdbc.Driver
+#   username: henuq6h44boqf8t4q23j
+#   password: gamingashish8276874632
+#   url: jdbc:mysql://aws.connect.psdb.cloud/incallup?sslMode=VERIFY_IDENTITY
