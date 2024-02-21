@@ -71,8 +71,8 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     @Override
     public Category getCategoryById(Integer categoryId) throws IdNotFoundException {
 
-        var categoryMust = categoryRepository.findById(categoryId);
-        if(categoryMust.isEmpty()){
+        var categoryOptional = categoryRepository.findById(categoryId);
+        if(categoryOptional.isEmpty()){
 
             throw IdNotFoundException.builder()
                     .id(categoryId)
@@ -80,7 +80,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                     .entity("category")
                     .build();
         }
-        return categoryMust.get();
+        return categoryOptional.get();
     }
 
     @Override
@@ -100,7 +100,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
            if(isExist){
                throw ApplicationException.builder()
                        .title("IdAlreadyExists")
-                       .Description("id already exists")
+                       .Description("Id already exists")
                        .status(300)
                        .build();
            }
@@ -132,7 +132,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
         if(isExist){
             throw ApplicationException.builder()
-                    .title("")
+                    .title("CategoryExists")
                     .Description("Category Already Exists")
                     .status(300)
                     .build();
@@ -143,7 +143,25 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Override
     public void updateCategory(Category category) throws ApplicationException {
+        boolean aExist = categoryRepository.findById(category.getId()).isPresent();
+        if (aExist){
+            throw ApplicationException.builder()
+                    .title("NoUpdate")
+                    .Description("Update not availiable")
+                    .status(300)
+                    .build();
+        }
+        aExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
 
+        if(aExist){
+            throw ApplicationException.builder()
+                    .title("UpdateNotApplicable")
+                    .Description("Update not applicable")
+                    .status(300)
+                    .build();
+        }
+
+        categoryRepository.save(category);
     }
 
     @Override
