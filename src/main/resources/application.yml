@@ -3,7 +3,7 @@ springdoc:
   api-docs:
     path: /incallup
   swagger-ui:
-    disable-swagger-default: true
+    disable-swagger-default-url: true
     path: /incallup/swagger/ui
 logging:
   level:
