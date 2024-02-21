@@ -86,11 +86,27 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     @Override
     public void blockPost(Integer postId) throws IdNotFoundException {
 
+        var postOptional = postRepository.findById(postId);
+        boolean dExist = postOptional.isEmpty();
+        if(dExist){
+            throw IdNotFoundException.builder().build();
+        }
+        var post = postOptional.get();
+        post.setIsBlocked(true);
 
     }
 
     @Override
     public void blockSeller(Integer sellerId) throws IdNotFoundException {
+
+        var sellerOptinal = sellerRepository.findById(sellerId);
+        boolean aExist = sellerOptinal.isEmpty();
+        if (aExist){
+            throw IdNotFoundException.builder().build();
+        }
+        var seller = sellerOptinal.get();
+        seller.setIsBlocked(true);
+
 
     }
 
