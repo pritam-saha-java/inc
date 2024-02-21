@@ -1,9 +1,9 @@
 springdoc:
-  version: v1
   api-docs:
+    version: v1
     path: /incallup
   swagger-ui:
-    disable-swagger-default: true
+    disable-swagger-default-url: true
     path: /incallup/swagger/ui
 logging:
   level:
