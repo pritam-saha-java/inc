@@ -13,6 +13,7 @@ import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import jakarta.servlet.Registration;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -33,17 +34,9 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     private final SellerRepository sellerRepository;
     @Autowired
     private final PostRepository postRepository;
-    @Override
-    public List<Seller> listSellers() {
-        return sellerRepository.findAll();
-    }
+
 
     @Override
-    public List<Post> listPosts() {
-        return postRepository.findAll();
-    }
-
-
     public Seller getSellerById(Integer sellerId) throws IdNotFoundException {
 
         var getSellerByIdOptional = sellerRepository.findById(sellerId);
@@ -57,7 +50,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         }
         return getSellerByIdOptional.get();
     }
-    Post getPostById(Integer postId) throws IdNotFoundException {
+    @Override
+    public Post getPostById(Integer postId) throws IdNotFoundException {
 
         var getPostByIdOptional = postRepository.findById(postId);
         if(getPostByIdOptional.isEmpty()){
@@ -71,10 +65,11 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         return getPostByIdOptional.get();
     }
 
-    List<Post> getPostsBySellerId(Integer sellerId) throws IdNotFoundException {
+    @Override
+    public List<Post> getPostsBySellerId(Integer sellerId) throws IdNotFoundException {
 
-        var getPostsBySellerIdOptional = postRepository.findById(sellerId);
-        if(getPostsBySellerIdOptional.isEmpty()){
+        var sellerOptional = sellerRepository.findById(sellerId);
+        if(sellerOptional.isEmpty()){
 
             throw IdNotFoundException.builder()
                     .id(sellerId)
@@ -82,80 +77,40 @@ public class SellerService implements SellerQueryService, SellerCommandService {
                     .entity("seller")
                     .build();
         }
-        return getPostsBySellerIdOptional.get();
+        return sellerOptional.get().getPosts();
     }
 
-    @Override
-    public void blockPost(Integer postId) throws IdNotFoundException {
 
-        var postOptional = postRepository.findById(postId);
-        boolean dExist = postOptional.isEmpty();
-        if(dExist){
-            throw IdNotFoundException.builder().build();
-        }
-        var post = postOptional.get();
-        post.setIsBlocked(true);
 
-    }
+
 
     @Override
-    public void blockSeller(Integer sellerId) throws IdNotFoundException {
-
-        var sellerOptinal = sellerRepository.findById(sellerId);
-        boolean aExist = sellerOptinal.isEmpty();
-        if (aExist){
-            throw IdNotFoundException.builder().build();
-        }
-        var seller = sellerOptinal.get();
-        seller.setIsBlocked(true);
-
-
-    }
-
-    @Override
-    public void createPost(Post post) throws ApplicationException {
-        boolean eExist = postRepository.findById(post.getId()).isPresent();
+    public void createPost(@Valid Post post, Integer sellerId) throws ApplicationException {
+        boolean eExist = postRepository.findPostBytile(post.getTitle()).isPresent();
         if(eExist){
             throw ApplicationException.builder()
                     .title("PostAlreadyExists")
-                    .Description("Post Already Exists")
-                    .status(500)
+                    .Description("Title  Already Exists")
+                    .status(301)
                     .build();
         }
-        eExist = postRepository.findById(post.getId()).isPresent();
-
-        if(eExist){
-            throw ApplicationException.builder()
-                    .title("PostExists")
-                    .Description("Post Already Exists")
-                    .status(500)
-                    .build();
-        }
-
         postRepository.save(post);
     }
 
     @Override
-    public void register(Registration registration) throws ApplicationException {
-        boolean eExist = postRepository.findById(registration.toString()).isPresent();
+    public void register(Seller seller) throws ApplicationException {
+        boolean eExist = sellerRepository.findByUsername(seller.getUsername()).isPresent();
         if(eExist){
             throw ApplicationException.builder()
                     .title("RegistrationAlreadyExists")
-                    .Description("Registration Already Exists")
+                    .Description("Username Already Exists")
                     .status(500)
                     .build();
         }
-        eExist = postRepository.findById(register()).isPresent();
-
-        if(eExist){
-            throw ApplicationException.builder()
-                    .title("RegistrationExists")
-                    .Description("Registration Hasbeen Done Already.")
-                    .status(500)
-                    .build();
-        }
-
-        postRepository.save(register());
+        sellerRepository.save(seller);
     }
+
+
+
 
 }
