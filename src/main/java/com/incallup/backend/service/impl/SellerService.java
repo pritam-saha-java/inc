@@ -32,10 +32,6 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     @Autowired
     private final SellerRepository sellerRepository;
     @Autowired
-    private final CategoryRepository categoryRepository;
-    @Autowired
-    private final LocationRepository locationRepository;
-    @Autowired
     private final PostRepository postRepository;
     @Override
     public List<Seller> listSellers() {
@@ -47,44 +43,46 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         return postRepository.findAll();
     }
 
-    @Override
-    public List<Category> listCategories() {
-        return categoryRepository.findAll();
-    }
 
-    @Override
-    public List<Location> listLocations() {
-        return locationRepository.findAll();
-    }
+    public Seller getSellerById(Integer sellerId) throws IdNotFoundException {
 
-    @Override
-    public Location getLocationById(Integer locationId) throws IdNotFoundException {
-
-        var locationOptional = locationRepository.findById(locationId);
-        if(locationOptional.isEmpty()){
+        var getSellerByIdOptional = sellerRepository.findById(sellerId);
+        if(getSellerByIdOptional.isEmpty()){
 
             throw IdNotFoundException.builder()
-                    .id(locationId)
-                    .message("Location Not Found")
-                    .entity("lcoation")
+                    .id(sellerId)
+                    .message("Seller Not Found")
+                    .entity("seller")
                     .build();
         }
-        return locationOptional.get();
+        return getSellerByIdOptional.get();
     }
+    Post getPostById(Integer postId) throws IdNotFoundException {
 
-    @Override
-    public Category getCategoryById(Integer categoryId) throws IdNotFoundException {
-
-        var categoryOptional = categoryRepository.findById(categoryId);
-        if(categoryOptional.isEmpty()){
+        var getPostByIdOptional = postRepository.findById(postId);
+        if(getPostByIdOptional.isEmpty()){
 
             throw IdNotFoundException.builder()
-                    .id(categoryId)
-                    .message("Other")
-                    .entity("category")
+                    .id(postId)
+                    .message("Post Not Found")
+                    .entity("post")
                     .build();
         }
-        return categoryOptional.get();
+        return getPostByIdOptional.get();
+    }
+
+    List<Post> getPostsBySellerId(Integer sellerId) throws IdNotFoundException {
+
+        var getPostsBySellerIdOptional = postRepository.findById(sellerId);
+        if(getPostsBySellerIdOptional.isEmpty()){
+
+            throw IdNotFoundException.builder()
+                    .id(sellerId)
+                    .message("Seller Not Found")
+                    .entity("seller")
+                    .build();
+        }
+        return getPostsBySellerIdOptional.get();
     }
 
     @Override
@@ -112,99 +110,6 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         seller.setIsBlocked(true);
 
 
-    }
-
-    @Override
-    public void createLocation(Location location) throws ApplicationException {
-        boolean isExist = locationRepository.findById(location.getId()).isPresent();
-        if(isExist){
-            throw ApplicationException.builder()
-                    .title("IdAlreadyExists")
-                    .Description("Id already exists")
-                    .status(300)
-                    .build();
-        }
-        isExist = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
-
-        if(isExist){
-            throw ApplicationException.builder()
-                    .title("")
-                    .Description("district already exists")
-                    .status(300)
-                    .build();
-        }
-
-        locationRepository.save(location);
-    }
-
-    @Override
-    public void createCategory(Category category) throws ApplicationException {
-        boolean isExist = categoryRepository.findById(category.getId()).isPresent();
-        if(isExist){
-            throw ApplicationException.builder()
-                    .title("NameAlreadyExists")
-                    .Description("Name Already Exists")
-                    .status(300)
-                    .build();
-        }
-        isExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
-
-        if(isExist){
-            throw ApplicationException.builder()
-                    .title("CategoryExists")
-                    .Description("Category Already Exists")
-                    .status(300)
-                    .build();
-        }
-
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void updateCategory(Category category) throws ApplicationException {
-        boolean aExist = categoryRepository.findById(category.getId()).isPresent();
-        if (aExist){
-            throw ApplicationException.builder()
-                    .title("NoUpdate")
-                    .Description("Update not availiable")
-                    .status(300)
-                    .build();
-        }
-        aExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
-
-        if(aExist){
-            throw ApplicationException.builder()
-                    .title("UpdateNotApplicable")
-                    .Description("Update not applicable")
-                    .status(300)
-                    .build();
-        }
-
-        categoryRepository.save(category);
-    }
-
-    @Override
-    public void updateLocation(Location location) throws ApplicationException {
-        boolean bExists = locationRepository.findById(location.getId()).isPresent();
-        if(bExists){
-            throw ApplicationException.builder()
-                    .title("NoLocationUpdate")
-                    .Description("No update required in location")
-                    .status(300)
-                    .build();
-        }
-
-        bExists = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
-
-        if(bExists){
-            throw ApplicationException.builder()
-                    .title("NoLocationNow")
-                    .Description("No location update for now")
-                    .status(300)
-                    .build();
-        }
-
-        locationRepository.save(location);
     }
 
     @Override
