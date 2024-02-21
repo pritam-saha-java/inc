@@ -19,7 +19,7 @@ public class Application {
 	CommandLineRunner run(){
 		return args -> {
 
-		System.out.println("Hello world from command line runner");
+		System.out.println("Welcome");
 		};
 	}
 }
