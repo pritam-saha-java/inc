@@ -20,7 +20,7 @@ import java.util.List;
 
 /**
  * This Service should implement both {@link com.incallup.backend.service.AdminCommandService} and {@link com.incallup.backend.service.AdminQueryService} interfaces
- * */
+ **/
 @Service
 @RequiredArgsConstructor
 public class AdminService implements AdminQueryService, AdminCommandService {
