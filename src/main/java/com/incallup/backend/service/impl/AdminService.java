@@ -27,7 +27,6 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Autowired
     private final SellerRepository sellerRepository;
-
     @Autowired
     private final CategoryRepository categoryRepository;
     @Autowired
