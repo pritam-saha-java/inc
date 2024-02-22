@@ -25,7 +25,6 @@ public interface AdminCommandService {
 
     public void createCategory(Category category) throws ApplicationException;
 
-
     public void updateCategory(Category category) throws ApplicationException;
 
     public void updateLocation(Location location) throws ApplicationException;
