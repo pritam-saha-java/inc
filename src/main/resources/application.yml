@@ -2,7 +2,6 @@ springdoc:
   api-docs:
     path: /incallup
   swagger-ui:
-    version: v1
     disable-swagger-default-url: true
     path: /incallup/swagger/ui
 logging:
@@ -10,16 +9,16 @@ logging:
     sql: trace
     root: trace
     web: trace
-    org:
-      springframework:
-        data:
-          jpa: trace
-        jdbc: debug
-      hibernate:
-        SQL: debug
-        ORM:
-          jdbc:
-            bind: trace
+#    org:
+#      springframework:
+#        data:
+#          jpa: trace
+#        jdbc: debug
+#      hibernate:
+#        SQL: debug
+#        ORM:
+#          jdbc:
+#            bind: trace
 server:
   port: 443
   servlet:
@@ -29,6 +28,7 @@ server:
     key-store-type: PKCS12
     key-store: classpath:keystore.jks
     key-store-password: 123456
+
   compression:
     enabled: true
     mime-types: text/xml , text/css , text/html , application/json
