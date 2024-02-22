@@ -31,9 +31,9 @@ server:
     mimeTypes: text/xml, text/css, text/html, application/json
     minResponseSize: 4096
 spring:
-  devtools:
-    restart:
-      additional-paths: src/main/resources/static , src/main/resources/templates
+#  devtools:
+#    restart:
+#      additional-paths: src/main/resources/static , src/main/resources/templates
   application:
     name: incallup
   jpa:
