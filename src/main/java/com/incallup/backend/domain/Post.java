@@ -29,7 +29,7 @@ public class Post {
     private String title;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Location location;
 
     @Column(name = "post_views")
@@ -47,7 +47,7 @@ public class Post {
     @Column(name = "post_description")
     private String description;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
 
