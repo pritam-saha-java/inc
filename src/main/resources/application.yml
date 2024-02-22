@@ -1,12 +1,15 @@
 springdoc:
-  version: v1
   api-docs:
     path: /incallup
   swagger-ui:
+    version: v1
     disable-swagger-default-url: true
     path: /incallup/swagger/ui
 logging:
   level:
+    sql: trace
+    root: trace
+    web: trace
     org:
       springframework:
         data:
@@ -28,8 +31,8 @@ server:
     key-store-password: 123456
   compression:
     enabled: true
-    mimeTypes: text/xml, text/css, text/html, application/json
-    minResponseSize: 4096
+    mime-types: text/xml , text/css , text/html , application/json
+    min-response-size: 4096
 spring:
 #  devtools:
 #    restart:
@@ -39,17 +42,17 @@ spring:
   jpa:
     hibernate:
       ddl-auto: validate
-  properties:
-    hibernate:
+    properties:
+      hibernate:
       format_sql: true
       dialect: org.hibernate.dialect.MySQLDialect
-  show-sql: true
+    show-sql: true
 
   mvc:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
-    driver: com.mysql.jdbc.Driver
+    driver-class-name: com.mysql.jdbc.Driver
     username: sql6683807
     password: pzieJzTC9W
     url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
