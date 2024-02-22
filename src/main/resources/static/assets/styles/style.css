@@ -14,6 +14,7 @@ body {
     --grey: #E3E3E3;
     --light-pink: #FF0061;
     --post: #C1B0B0;
+    
 
   }
   *{
@@ -24,7 +25,10 @@ body {
     height: 1.5rem;
     margin-left: 2%;
 }
+.grey-bg{
 
+    background-color: var(--grey);
+}
 
     .site-font1{
       
@@ -78,6 +82,7 @@ letter-spacing: 0em;
     background-color: var(--blue);
    
 }
+
 .text-pink{
     color: var(--pink);
 }
@@ -189,4 +194,13 @@ nav.container-fluid{
    
     
     /* Adjust padding to fit icon size */
+  }
+
+  .input-row{
+    margin-bottom: 0.2rem;
+    label{
+        border: 3px solid var(--blue);
+        border-right: 0.12rem!important;
+        margin-right: 0rem !important;
+    }
   }
