@@ -34,7 +34,7 @@ public class CustomerServiceImpl implements{
     }
 
     public List<Post> searchByCategoryAndLocation(String category, String location) throws ApplicationException{
-        String n = CustomerRepository.searchByCategoryAndLocation(String category, String location).isPresent();
+        String n = CustomerRepository.searchByCategoryAndLocation(customer.findById).isPresent();
         if(n){
             throw ApplicationException.builder()
                     .title("NotFoundByCategoryAndLocation")
@@ -44,5 +44,15 @@ public class CustomerServiceImpl implements{
         }
     }
 
+    public List<Post> searchByLocation(String location) throws ApplicationException{
+        String ns = CustomerRepository.searchByLocation(customer.findByLocation).isPresent();
+        if(ns){
+            throw ApplicationException.builder()
+                    .title("LocationNotFound")
+                    .Description("Location Not Found")
+                    .status(402)
+                    .build();
+        }
+    }
 
 }
