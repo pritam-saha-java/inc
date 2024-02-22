@@ -7,6 +7,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
+import java.util.List;
 
 @Getter
 @Setter
@@ -42,5 +43,9 @@ public class Location {
 
     @Column(name = "location_meta")
     private String meta;
+
+    @ToString.Exclude
+    @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+    private List<Post> posts;
 
 }

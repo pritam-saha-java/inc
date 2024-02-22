@@ -17,18 +17,17 @@ import com.incallup.backend.exception.IdNotFoundException;
  */
 public interface AdminCommandService {
 
-    public void blockPost (Integer postId) throws IdNotFoundException;
+     void blockPost (Integer postId) throws IdNotFoundException;
 
-    public void blockSeller(Integer sellerId) throws IdNotFoundException;
+     void blockSeller(Integer sellerId) throws IdNotFoundException;
 
-    public void createLocation(Location location) throws ApplicationException;
+     void createLocation(Location location) throws ApplicationException;
 
-    public void createCategory(Category category) throws ApplicationException;
+     void createCategory(Category category) throws ApplicationException;
 
+     void updateCategory(Category category) throws ApplicationException;
 
-    public void updateCategory(Category category) throws ApplicationException;
-
-    public void updateLocation(Location location) throws ApplicationException;
+     void updateLocation(Location location) throws ApplicationException;
 
 
 }
