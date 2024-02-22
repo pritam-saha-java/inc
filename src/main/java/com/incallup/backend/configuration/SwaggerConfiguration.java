@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Configuration;
 public class SwaggerConfiguration {
     @Bean
     public OpenAPI employeeManagementOpenAPI() {
+
         var api = new OpenAPI();
         api.info(new Info().title("Incallup")
                 .license(new License().name("incallup"))
