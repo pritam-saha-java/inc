@@ -2,6 +2,7 @@
 package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Post;
 import com.incallup.backend.utility.IncallupConstants;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.ui.Model;
@@ -9,10 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @Slf4j
@@ -52,9 +50,9 @@ public class CustomerController {
 
 
 
-    @GetMapping("title/{titleString}")
-    public String Title(@PathVariable(name = "titleString") String title){
-        return "joker";
+    @GetMapping("{category}/{location}/{titleString}")
+    public String Title(@PathVariable(name = "titleString") String title, @PathVariable String category, @PathVariable String location){
+        return category+"/"+location+"/"+title;
     }
 
     @GetMapping("{category}")
@@ -64,6 +62,27 @@ public class CustomerController {
         List<String> categories = List.of("one","two","three");
         if(!categories.contains(category))
             throw new RuntimeException();
+
+        List<Post> posts = new ArrayList<>();
+        posts.add(Post.builder()
+                        .age(16)
+                        .title("sample post title")
+                        .views(420)
+                        .contact("1001")
+                        .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                .build());
+        posts.add(Post.builder()
+                .age(69)
+                .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .views(420)
+                .contact("3456789123")
+                .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .build());
+
+        modelAndView.addObject("posts",posts);
+
         return modelAndView;
     }
 

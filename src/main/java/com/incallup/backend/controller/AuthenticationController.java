@@ -13,12 +13,17 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin("*")
 public class AuthenticationController {
 
     @GetMapping("/create")
     public ModelAndView Create(ModelAndView modelAndView){
-        modelAndView.setViewName("joker.html");
+        modelAndView.setViewName("create.html");
+        return modelAndView;
+    }
+
+    @GetMapping("/login")
+    public ModelAndView login(ModelAndView modelAndView){
+        modelAndView.setViewName("login.html");
         return modelAndView;
     }
     @Autowired
