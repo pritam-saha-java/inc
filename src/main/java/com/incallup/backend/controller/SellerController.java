@@ -4,6 +4,9 @@ package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
+import com.incallup.backend.service.SellerCommandService;
+import com.incallup.backend.service.SellerQueryService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
@@ -12,9 +15,11 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/seller")
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class SellerController {
 
-
+    private final SellerCommandService sellerCommandService;
+    private final SellerQueryService sellerQueryService;
 
     @GetMapping
     public String Seller(){
