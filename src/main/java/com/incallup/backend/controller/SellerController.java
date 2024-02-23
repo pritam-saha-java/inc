@@ -7,9 +7,11 @@ import com.incallup.backend.domain.Seller;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/seller")
@@ -18,12 +20,16 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class SellerController {
 
+    @Autowired
     private final SellerCommandService sellerCommandService;
+
+    @Autowired
     private final SellerQueryService sellerQueryService;
 
     @GetMapping
-    public String Seller(){
-        return "posts";
+    public ModelAndView Seller(ModelAndView model){
+        model.setViewName("posts");
+        return model;
     }
 
 
@@ -35,18 +41,21 @@ public class SellerController {
 
 
     @GetMapping("/list")
-    public String List(){
-        return "Show all sellers";
+    public ModelAndView List(ModelAndView model){
+        model.setViewName("");
+        return model;
     }
 
     @GetMapping("/list/{sellerId}")
-    public String ListId(@PathVariable String sellerId){
-        return "Show all details of a seller";
+    public ModelAndView ListId(@PathVariable String sellerId, ModelAndView model){
+        model.setViewName("");
+        return model;
     }
 
     @GetMapping("/profile/{sellerId}")
-    public String Profile(@PathVariable String sellerId){
-        return "Show all details of a particular seller";
+    public ModelAndView Profile(@PathVariable String sellerId, ModelAndView model){
+        model.setViewName("");
+        return model;
     }
 
     @PostMapping("/post")
@@ -56,13 +65,15 @@ public class SellerController {
 
 
     @GetMapping("/post/{postId}")
-    public String PostId(@PathVariable Integer postId){
-        return "post";
+    public ModelAndView PostId(@PathVariable Integer postId, ModelAndView model){
+        model.setViewName("posts");
+        return model;
     }
 
     @GetMapping("/{username}")
-    public String Username(@PathVariable String username){
-        return "profile";
+    public ModelAndView Username(@PathVariable String username, ModelAndView model){
+        model.setViewName("profile");
+        return model;
     }
 
 

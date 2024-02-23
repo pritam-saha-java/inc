@@ -2,6 +2,10 @@
 package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Post;
+import com.incallup.backend.exception.ApplicationException;
+import com.incallup.backend.repository.CategoryRepository;
+import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.CustomerService;
 import com.incallup.backend.utility.IncallupConstants;
 import lombok.RequiredArgsConstructor;
@@ -28,44 +32,32 @@ public class CustomerController {
 @Autowired
 private final CustomerService customerService;
 
+@Autowired
+private final AdminQueryService adminQueryService;
 
-    @GetMapping
+
+    @GetMapping("get/categories")
     public ModelAndView Customer(ModelAndView model){
         model.setViewName("dashboard");
-        final Set<Category> categoryList = new LinkedHashSet<>();
-        categoryList.add(Category.builder()
-                        .name("call-girl")
-                        .title("Call girl")
-                .build());
-        categoryList.add(Category.builder()
-                .name("adult-meetings")
-                .title("Adult meetings")
-                .build());
-        categoryList.add(Category.builder()
-                .name("massage")
-                .title("Massage")
-                .build());
-        categoryList.add(Category.builder()
-                .name("camera")
-                .title("camera title")
-                .build());
-
-
-        model.addObject("categories", categoryList.stream().toList());
-
+        List<Category> listOfCategories = adminQueryService.listCategories();
+        model.addObject("category", listOfCategories);
         return model;
     }
 
 
 
     @GetMapping("title/{titleString}")
-    public String Title(@PathVariable(name = "titleString") String title){
-        return "joker";
+    public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView) throws ApplicationException {
+        Post post = customerService.searchByTitle(title);
+        modelAndView.addObject("post",post);
+        modelAndView.setViewName("post");
+        return modelAndView;
     }
 
 
     @GetMapping("{category}")
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView){
+        List<Category> ns = adminQueryService.listCategories();
         modelAndView.setViewName("category");
         modelAndView.addObject("categoryName",category);
         return modelAndView;
@@ -74,35 +66,21 @@ private final CustomerService customerService;
 
 
     @GetMapping("{category}/{location}")
-    public String Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location){
-        return "/category/location";
+    public ModelAndView Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location, ModelAndView model) throws ApplicationException{
+        List<Post> cateGory = customerService.searchByCategoryAndLocation(category, location);
+        model.setViewName("category");
+        return model;
     }
 
 
     @GetMapping("get/categories")
     public ModelAndView getCategoryList(ModelAndView modelAndView){
-        final Set<Category> categoryList = new LinkedHashSet<>();
         modelAndView.setViewName("template");
-
-        categoryList.add(Category.builder()
-                .name("call-girl")
-                .title("Call girl")
-                .build());
-        categoryList.add(Category.builder()
-                .name("adult-meetings")
-                .title("Adult meetings")
-                .build());
-        categoryList.add(Category.builder()
-                .name("massage")
-                .title("Massage")
-                .build());
-        categoryList.add(Category.builder()
-                .name("camera")
-                .title("camera title")
-                .build());
-        modelAndView.addObject("category",categoryList.stream().toList());
+        List<Category> listOfCategories = adminQueryService.listCategories();
+        modelAndView.addObject("category",listOfCategories);
         return modelAndView;
     }
+
 
 }
 
