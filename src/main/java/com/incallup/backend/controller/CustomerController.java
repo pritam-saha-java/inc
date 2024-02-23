@@ -4,6 +4,7 @@ package com.incallup.backend.controller;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.utility.IncallupConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -17,6 +18,7 @@ import java.util.Set;
 @RestController
 @Slf4j
 @RequestMapping("/")
+@Service
 public class CustomerController {
 
 
