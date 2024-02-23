@@ -24,10 +24,7 @@ public class AdminController {
     }
 
 
-    @GetMapping("/create")
-    public String Create(){
-        return "Enter Data";
-    }
+
 
     @GetMapping("/list/post")
     public String ListPost(){

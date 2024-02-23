@@ -8,6 +8,7 @@ import com.incallup.backend.service.impl.LoginService;
 import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController
@@ -15,6 +16,11 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin("*")
 public class AuthenticationController {
 
+    @GetMapping("/create")
+    public ModelAndView Create(ModelAndView modelAndView){
+        modelAndView.setViewName("joker.html");
+        return modelAndView;
+    }
     @Autowired
     private AuthenticationService authenticationService;
 

@@ -56,11 +56,15 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth->{
 
                     auth.requestMatchers("/admin/**").authenticated();
+                    auth.requestMatchers("/seller/**").authenticated();
                     auth.anyRequest().permitAll();
 
                 })
-                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
-                .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .formLogin(configurer -> {
+                    configurer.loginPage("/auth/create");
+                })
+//                .oauth2ResourceServer(OAuth2ResourceServerConfigurer::jwt)
+                .sessionManagement(session->session.sessionCreationPolicy(SessionCreationPolicy.ALWAYS))
                 .build();
     }
 

@@ -27,7 +27,7 @@ public class Application {
 	CommandLineRunner run(AdminRepository adminRepository, RoleRepository roleRepository, PasswordEncoder encoder){
 		return args -> {
 
-			if(roleRepository.findRoleByAuthority("ADMIN").isPresent())
+			if(roleRepository.findByAuthority("ADMIN").isPresent())
 				return;
 
 			var adminRole = roleRepository.save(Role.builder()

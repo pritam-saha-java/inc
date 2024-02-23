@@ -38,7 +38,7 @@ public class AuthenticationService {
 
     public Admin register(String username,String password){
         String encodedPass = encoder.encode(password);
-        Role userRole = roleRepository.findRoleByAuthority("ADMIN").get();
+        Role userRole = roleRepository.findByAuthority("ADMIN").get();
         Set<Role>  authorities = new HashSet<>();
         authorities.add(userRole);
         return adminRepository.save(Admin.builder()
