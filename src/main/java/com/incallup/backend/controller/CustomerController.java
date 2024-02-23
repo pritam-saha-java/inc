@@ -24,7 +24,7 @@ import java.util.Set;
 public class CustomerController {
 
 
-    CustomerService customerService
+    CustomerService customerService;
 
     @Autowired
     //@GetMapping

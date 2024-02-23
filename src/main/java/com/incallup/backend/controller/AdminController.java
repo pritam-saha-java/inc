@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.*;
 //@GetMapping("/admin/list/sellers")
 public class AdminController {
 
-    AdminCommandService adminCommandService
-    AdminQueryService adminQueryService
+    AdminCommandService adminCommandService;
+    AdminQueryService adminQueryService;
 
     @PostMapping("/admin")
     public void createAdmin(@RequestBody @Valid Admin admin){
