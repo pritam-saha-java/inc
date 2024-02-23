@@ -4,12 +4,14 @@ package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
 @RequestMapping("/seller")
 @Slf4j
+@Service
 public class SellerController {
 
 
