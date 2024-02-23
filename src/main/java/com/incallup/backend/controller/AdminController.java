@@ -1,7 +1,10 @@
 package com.incallup.backend.controller;
 import com.incallup.backend.domain.Admin;
+import com.incallup.backend.service.AdminCommandService;
+import com.incallup.backend.service.AdminQueryService;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,31 +17,34 @@ import org.springframework.web.bind.annotation.*;
 //@GetMapping("/admin/list/sellers")
 public class AdminController {
 
+    AdminCommandService adminCommandService
+    AdminQueryService adminQueryService
 
     @PostMapping("/admin")
     public void createAdmin(@RequestBody @Valid Admin admin){
 
     }
 
-    @GetMapping
+    //@GetMapping
+    @Autowired
     public String Admin(){
         return "/admin/welcome";
     }
 
-
-
-
-    @GetMapping("/list/post")
+    //@GetMapping("/list/post")
+    @Autowired
     public String ListPost(){
         return "List All Admins";
     }
 
-    @GetMapping("/list/sellers")
+    //@GetMapping("/list/sellers")
+    @Autowired
     public String ListSellers(){
         return "List of All Sellers";
     }
 
-    @GetMapping("/block")
+    //@GetMapping("/block")
+    @Autowired
     public String Block(){
         return "To block an item";
     }
