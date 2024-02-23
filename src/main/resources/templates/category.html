@@ -33,7 +33,15 @@
 
   </div>
 
- <h1 class="text-center my-5"> This is category page</h1>
+    <div class="container text-center my-5">
+        <div class="row ">
+            <div class="col-3">photo</div>
+            <div class="col-9 container">
+              <div class="row post-title text-primary text-capitalize fs-2 ">Post title</div>
+              <div class="row">post description </div>
+            </div>
+        </div>
+    </div>
 
 
     <div th:replace="dashboard.html :: categoryDropdown"></div>

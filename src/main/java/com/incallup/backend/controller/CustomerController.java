@@ -61,6 +61,9 @@ public class CustomerController {
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView){
         modelAndView.setViewName("category");
         modelAndView.addObject("categoryName",category);
+        List<String> categories = List.of("one","two","three");
+        if(!categories.contains(category))
+            throw new RuntimeException();
         return modelAndView;
     }
 
