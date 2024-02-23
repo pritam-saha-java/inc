@@ -21,7 +21,7 @@ public class SellerController {
 
 
     @PutMapping("/{sellerId}")
-    public String SellerId(@RequestBody Seller sellerId){
+    public String SellerId( @PathVariable String sellerId){
         System.out.println("Showing seller Id" + sellerId);
         return "Getting details of the seller";
     }
@@ -33,12 +33,12 @@ public class SellerController {
     }
 
     @GetMapping("/list/{sellerId}")
-    public String ListId(){
+    public String ListId(@PathVariable String sellerId){
         return "Show all details of a seller";
     }
 
     @GetMapping("/profile/{sellerId}")
-    public String Profile(@PathVariable(name = "sellerId") String sellerId){
+    public String Profile(@PathVariable String sellerId){
         return "Show all details of a particular seller";
     }
 
@@ -49,19 +49,16 @@ public class SellerController {
 
 
     @GetMapping("/post/{postId}")
-    public String PostId(@PathVariable(name = "postId") String sellerId){
+    public String PostId(@PathVariable Integer postId){
         return "post";
     }
 
     @GetMapping("/{username}")
-    public String Username(@PathVariable(name = "username") String username){
+    public String Username(@PathVariable String username){
         return "profile";
     }
 
 
-    @GetMapping("/login")
-    public String Login(){
-        return "Seller Login";
-    }
+
 }
 
