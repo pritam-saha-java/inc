@@ -2,8 +2,10 @@
 package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.service.CustomerService;
 import com.incallup.backend.utility.IncallupConstants;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,10 +24,10 @@ import java.util.Set;
 public class CustomerController {
 
 
+    CustomerService customerService
 
-
-
-    @GetMapping
+    @Autowired
+    //@GetMapping
     public ModelAndView Customer(ModelAndView model){
         model.setViewName("dashboard");
         final Set<Category> categoryList = new LinkedHashSet<>();
@@ -53,13 +55,14 @@ public class CustomerController {
     }
 
 
-
-    @GetMapping("title/{titleString}")
+    @Autowired
+    //@GetMapping("title/{titleString}")
     public String Title(@PathVariable(name = "titleString") String title){
         return "joker";
     }
 
-    @GetMapping("{category}")
+    @Autowired
+    //@GetMapping("{category}")
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView){
         modelAndView.setViewName("category");
         modelAndView.addObject("categoryName",category);
@@ -67,13 +70,13 @@ public class CustomerController {
     }
 
 
-
-    @GetMapping("{category}/{location}")
+    @Autowired
+    //@GetMapping("{category}/{location}")
     public String Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location){
         return "/category/location";
     }
 
-
+    @Autowired
     @GetMapping("get/categories")
     public ModelAndView getCategoryList(ModelAndView modelAndView){
         final Set<Category> categoryList = new LinkedHashSet<>();
