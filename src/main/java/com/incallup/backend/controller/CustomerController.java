@@ -77,7 +77,7 @@ public class CustomerController {
     }
 
     @Autowired
-    @GetMapping("get/categories")
+    //@GetMapping("get/categories")
     public ModelAndView getCategoryList(ModelAndView modelAndView){
         final Set<Category> categoryList = new LinkedHashSet<>();
         modelAndView.setViewName("template");
