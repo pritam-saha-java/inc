@@ -2,6 +2,7 @@
 package com.incallup.backend;
 
 
+
 import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
@@ -41,12 +42,8 @@ public class Application {
 					.password(encoder.encode("kunal123"))
 					.build();
 			adminRepository.save(admin);
-//				var admin = Admin.builder()
-//						.username(IncallupConstants.ADMIN)
-//						.password(IncallupConstants.ADMIN_PASS)
-//						.build();
-//				adminRepository.save(admin);
 		System.out.println("Hello world from command line runner");
+
 		};
 	}
 }

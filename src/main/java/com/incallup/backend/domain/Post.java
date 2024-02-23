@@ -1,6 +1,7 @@
 package com.incallup.backend.domain;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Max;
 import lombok.*;
@@ -29,7 +30,7 @@ public class Post {
     private String title;
 
     @ToString.Exclude
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Location location;
 
     @Column(name = "post_views")
@@ -47,7 +48,8 @@ public class Post {
     @Column(name = "post_description")
     private String description;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY)
     private Category category;
 
 
