@@ -26,12 +26,13 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public Admin registerAdmin(@RequestBody AdminDTO admin){
+        modelAndView.setViewName("register.html");
         return authenticationService.register(admin.getUsername(),admin.getPassword());
     }
 
     @PostMapping("/login")
     public LoginResponse loginResponse(@RequestBody AdminDTO loginResponse){
-
+        modelAndView.setViewName("login.html");
         return authenticationService.loginResponse(loginResponse.getUsername(),loginResponse.getPassword());
     }
 
