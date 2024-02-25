@@ -31,6 +31,7 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public Admin registerAdmin(@RequestBody AdminDTO admin){
+
         return authenticationService.register(admin.getUsername(),admin.getPassword());
     }
 
