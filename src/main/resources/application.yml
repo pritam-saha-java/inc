@@ -4,12 +4,12 @@ springdoc:
     path: /incallup
   swagger-ui:
     disable-swagger-default-url: true
-    path: /incallup/swagger/ui
+    path: /incallup/swagger/ui/show
 logging:
   level:
-    sql: trace
-    root: trace
-    web: trace
+    sql: debug
+    root: debug
+    web: debug
 #    org:
 #      springframework:
 #        data:

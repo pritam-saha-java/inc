@@ -36,6 +36,8 @@ public class Application {
 					.build());
 			var roles = new HashSet<Role>();
 			roles.add(adminRole);
+			if(adminRepository.findUserByUsername("kunal").isPresent())
+				return;
 			Admin admin = Admin.builder()
 					.authorities(roles)
 					.username("kunal")

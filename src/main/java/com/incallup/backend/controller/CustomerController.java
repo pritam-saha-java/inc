@@ -17,10 +17,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 @RestController
 @Slf4j
@@ -46,12 +43,16 @@ private final AdminQueryService adminQueryService;
 
 
 
-    @GetMapping("title/{titleString}")
-    public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView) throws ApplicationException {
+
+     @GetMapping("{category}/{location}/{titleString}")
+    public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable String category, @PathVariable String location) throws ApplicationException {
         Post post = customerService.searchByTitle(title);
         modelAndView.addObject("post",post);
         modelAndView.setViewName("post");
         return modelAndView;
+
+ 
+  
     }
 
 
@@ -60,6 +61,30 @@ private final AdminQueryService adminQueryService;
         List<Category> ns = adminQueryService.listCategories();
         modelAndView.setViewName("category");
         modelAndView.addObject("categoryName",category);
+        List<String> categories = List.of("one","two","three");
+        if(!categories.contains(category))
+            throw new RuntimeException();
+
+        List<Post> posts = new ArrayList<>();
+        posts.add(Post.builder()
+                        .age(16)
+                        .title("sample post title")
+                        .views(420)
+                        .contact("1001")
+                        .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                .build());
+        posts.add(Post.builder()
+                .age(69)
+                .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .views(420)
+                .contact("3456789123")
+                .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .build());
+
+        modelAndView.addObject("posts",posts);
+
         return modelAndView;
     }
 

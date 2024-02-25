@@ -5,7 +5,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="icon" type="image/png" th:href="@{/assets/img/logo.png}"/>
+  <link rel="icon" type="image/png" th:href="@{/server/assets/img/logo.png}"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" th:href="@{/assets/styles/style.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}" />
 
   <title>InCallUp</title>
   <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
@@ -30,7 +30,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
+            <img th:src="@{/server/assets/icons/search.png}" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
             Search</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
@@ -86,7 +86,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
                 
-                  <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
+                  <img th:src="@{/server/assets/icons/search.png}" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
                   
                   Search
               </button>
@@ -102,11 +102,11 @@
   <nav class="container-fluid p-2 pt-0">
     <div class="row pt-3 pb-0 mb-0 ">
 
-      <div class="col-8 px-5 text-center "><img class="h-75 site-logo " th:src="@{/assets/img/logo.png}" alt="logo" ></div>
+      <div class="col-8 px-5 text-center "><img class="h-75 site-logo " th:src="@{/server/assets/img/logo.png}" alt="logo" ></div>
 
       <div class="col-4 p-4 pb-0 ">
 
-        <img th:src="@{/assets/icons/user.png}" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
+        <img th:src="@{/server/assets/icons/user.png}" alt="profile icon" onclick="siteRedirect('profile')" class="site-icon mx-4 " style="filter: invert(100%)  ;">
         <button class="btn text-light p-1 blue-bg mx-auto w-50 mb-0 site-font1 text-center"
                 th:onclick="location.redirect = [[@{./post.html}]]">POST AD</button>
       </div>
@@ -114,14 +114,14 @@
     </div>
     <div class="row px-3 mt-0 pt-0 pb-1">
       <div class="col-6 site-font1 text-light px-4">
-        <img th:src="@{/assets/icons/location.png}" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
+        <img th:src="@{/server/assets/icons/location.png}" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
         Locate me
 
       </div>
       <div class="col-6  ">
         <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
                 data-bs-target="#myModal">
-          <img th:src="@{/assets/icons/search.png}" alt="search icon" class="site-icon mt-2 px-5 ">
+          <img th:src="@{/server/assets/icons/search.png}" alt="search icon" class="site-icon mt-2 px-5 ">
           <div class="p-2  site-font1">
             Search
           </div>
@@ -146,7 +146,7 @@
 
 
           <div th:each="category : ${categories}" class="col-lg-3 col-md-6 col-sm-12 my-2 " th:onclick="location =[[${category.name}]];" >
-            <img th:src="@{/assets/img/sample.png}" class="card-img-top site-border  " th:alt="${category.name}">
+            <img th:src="@{/server/assets/img/sample.png}" class="card-img-top site-border  " th:alt="${category.name}">
             <div class="card-body blue-bg py-2 ">
               <h5 class="card-title text-light" th:text="${category.title}">camera</h5>
             </div>
@@ -368,7 +368,7 @@
   </div>
   <footer th:fragment="siteFooter" class="container-fluid ">
     <div class="row " id="footer-pink">
-      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " th:src="@{/assets/img/logo.png}" alt="logo" >
+      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " th:src="@{/server/assets/img/logo.png}" alt="logo" >
       </div>
       <div class="col-6 container">
         <div class="row ">
@@ -395,8 +395,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
   </script>
-  <script th:src="@{/assets/scripts/main.js}"></script>
-  <script th:src="@{/assets/scripts/common.js}"></script>
+  <script th:src="@{/server/assets/scripts/main.js}"></script>
+  <script th:src="@{/server/assets/scripts/common.js}"></script>
 </body>
 
 </html>
