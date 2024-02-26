@@ -33,13 +33,15 @@ private final CustomerService customerService;
 private final AdminQueryService adminQueryService;
 
 
-//    @GetMapping("get/categories")
-//    public ModelAndView Customer(ModelAndView model){
-//        model.setViewName("dashboard");
-//        List<Category> listOfCategories = adminQueryService.listCategories();
-//        model.addObject("category", listOfCategories);
-//        return model;
-//    }
+    @GetMapping
+    public ModelAndView Customer(ModelAndView model){
+        model.setViewName("dashboard");
+        List<Category> listOfCategories = adminQueryService.listCategories();
+
+        model.addObject("categories", listOfCategories);
+        System.out.println(model.getModel());
+        return model;
+    }
 
 
 
@@ -100,7 +102,7 @@ private final AdminQueryService adminQueryService;
 
     @GetMapping("get/categories")
     public ModelAndView getCategoryList(ModelAndView modelAndView){
-        modelAndView.setViewName("template");
+        modelAndView.setViewName("template-category");
         List<Category> listOfCategories = adminQueryService.listCategories();
         modelAndView.addObject("category",listOfCategories);
         return modelAndView;

@@ -4,9 +4,12 @@ package com.incallup.backend;
 
 
 import com.incallup.backend.domain.Admin;
+import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
 import com.incallup.backend.repository.RoleRepository;
+import com.incallup.backend.service.AdminQueryService;
+import com.incallup.backend.service.impl.AdminService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,6 +17,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Optional;
 
@@ -27,13 +31,27 @@ public class Application {
 
 
 	@Bean
-	CommandLineRunner run(AdminRepository adminRepository, RoleRepository roleRepository, PasswordEncoder encoder){
+	CommandLineRunner run(AdminService adminService, AdminRepository adminRepository, RoleRepository roleRepository, PasswordEncoder encoder){
 		return args -> {
 
+
+			var categories = adminService.listCategories();
+			if(categories.isEmpty()){
+
+
+
+
+				adminService.createCategory(Category.builder().title("Call Girl").build());
+				adminService.createCategory(Category.builder().title("Adult Dating").build());
+				adminService.createCategory(Category.builder().title("Male Escort").build());
+				adminService.createCategory(Category.builder().title("Massage").build());
+
+			}
 			Optional<Admin> adminn = adminRepository.findUserByUsername("kunal");
-			System.out.println("this is admin "+adminn.get());
-			if(roleRepository.findRoleByAuthority("ADMIN").isPresent())
+            adminn.ifPresent(admin -> System.out.println("this is admin " + admin));
+			if(roleRepository.findRoleByAuthority("ADMIN").isPresent()) {
 				return;
+			}
 
 			var adminRole = roleRepository.save(Role.builder()
 							.authority("ADMIN")

@@ -135,15 +135,8 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Override
     public void createCategory(Category category) throws ApplicationException {
-        boolean isExist = categoryRepository.findById(category.getId()).isPresent();
-        if(isExist){
-            throw ApplicationException.builder()
-                    .title("NameAlreadyExists")
-                    .Description("Name Already Exists")
-                    .status(300)
-                    .build();
-        }
-        isExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
+
+        boolean isExist = categoryRepository.findCategoryByTitle(category.getTitle()).isPresent();
 
         if(isExist){
             throw ApplicationException.builder()
@@ -152,7 +145,10 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                     .status(300)
                     .build();
         }
-
+        var title = category.getTitle();
+        title = title.toLowerCase();
+        title = title.replace(' ','-');
+        category.setName(title);
         categoryRepository.save(category);
     }
 
@@ -166,7 +162,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                     .status(300)
                     .build();
         }
-        aExist = categoryRepository.findCategoryByName(category.getName()).isPresent();
+        aExist = categoryRepository.findCategoryByTitle(category.getName()).isPresent();
 
         if(aExist){
             throw ApplicationException.builder()

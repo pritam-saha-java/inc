@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Post> searchByCategory(String category) throws ApplicationException{
-        Optional<Category> nSExists = categoryRepository.findCategoryByName(category);
+        Optional<Category> nSExists = categoryRepository.findCategoryByTitle(category);
         if(nSExists.isEmpty()){
             throw ApplicationException.builder()
                     .title("CategoryNotFound")
@@ -62,7 +62,7 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Post> searchByCategoryAndLocation(String categoryString, String locationString) throws ApplicationException{
         var postsByLocationOptional = locationRepository.findLocationByDistrict(locationString);
-        var categoryOptional = categoryRepository.findCategoryByName(categoryString);
+        var categoryOptional = categoryRepository.findCategoryByTitle(categoryString);
         if(postsByLocationOptional.isEmpty()||categoryOptional.isEmpty()){
             throw ApplicationException.builder()
                     .title("NotFoundByCategoryAndLocation")

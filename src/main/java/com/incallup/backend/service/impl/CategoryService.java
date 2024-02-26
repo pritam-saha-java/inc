@@ -16,7 +16,7 @@ public class CategoryService {
     private final CategoryRepository categoryRepository;
 
     private Category getCategoryByName(String cateogoryName) throws ApplicationException{
-         var cat = categoryRepository.findCategoryByName(cateogoryName);
+         var cat = categoryRepository.findCategoryByTitle(cateogoryName);
 
             if(cat.isEmpty())
                 throw ApplicationException.builder()
