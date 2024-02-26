@@ -59,14 +59,11 @@ private final AdminQueryService adminQueryService;
 
 
     @GetMapping("{category}")
-    public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView){
-        List<Category> ns = adminQueryService.listCategories();
+    public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView) throws ApplicationException {
+        List<Category> catetgories = adminQueryService.listCategories();
         modelAndView.setViewName("category");
-        modelAndView.addObject("categoryName",category);
-        List<String> categories = List.of("one","two","three");
-        if(!categories.contains(category))
-            throw new RuntimeException();
-
+        modelAndView.addObject("categoryName",catetgories);
+//        List<Post> posts = customerService.searchByCategory(category);
         List<Post> posts = new ArrayList<>();
         posts.add(Post.builder()
                         .age(16)
@@ -104,7 +101,8 @@ private final AdminQueryService adminQueryService;
     public ModelAndView getCategoryList(ModelAndView modelAndView){
         modelAndView.setViewName("template-category");
         List<Category> listOfCategories = adminQueryService.listCategories();
-        modelAndView.addObject("category",listOfCategories);
+        System.out.println(listOfCategories);
+        modelAndView.addObject("categories",listOfCategories);
         return modelAndView;
     }
 

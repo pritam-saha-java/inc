@@ -1,8 +1,7 @@
-
-<div class="d-grid  mt-2 bg-light category-text  row ">
+<div th:each=" category : ${categories}" class="d-grid  mt-2 bg-light category-text  row ">
     <div class="btn btn-secondary site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
-            <div class="col-1">Camera</div> <button type="reset"
+            <div class="col-1" th:text="${category.name}">Camera</div> <button type="reset"
                                                     class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
         >></button>
         </div>
@@ -20,7 +19,7 @@
                         <table class="table location-table ">
                             <tbody>
                             <tr class="">
-                                <td class=""><a href="#">Thane</a></td>
+                                <td ><a href="#">Thane</a></td>
                                 <td><a href="#">Pune</a></td>
                                 <td><a href="#">Central Delhi</a></td>
                             </tr>
@@ -42,3 +41,10 @@
         </div>
     </div>
 </div>
+<script>
+    var defaultRules = document.getElementsByClassName('category-text-bar');
+  for (const iterator1 of defaultRules) {
+      iterator1.style.display = 'none';
+  }
+
+</script>

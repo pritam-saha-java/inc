@@ -1,5 +1,9 @@
 // this file will be connected to index file
 
+
+
+
+
 var defaultRule = document.getElementsByClassName('category-text-bar');
 for (const iterator of defaultRule) {
     iterator.style.display = 'none';
