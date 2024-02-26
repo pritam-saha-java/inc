@@ -14,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Optional;
 
 
 /**
@@ -80,8 +81,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
     @Override
     public void createPost(@Valid Post post, Integer sellerId) throws ApplicationException {
-        boolean eExist = postRepository.findPostByTitle(post.getTitle()).isPresent();
-        if(eExist){
+        Optional<Post> eExist = postRepository.findPostByTitle(post.getTitle());
+        if(eExist.isPresent()){
             throw ApplicationException.builder()
                     .title("PostAlreadyExists")
                     .Description("Title  Already Exists")
@@ -93,7 +94,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
     @Override
     public void register(Seller seller) throws ApplicationException {
-        boolean eExist = sellerRepository.findByUsername(seller.getUsername()).isPresent();
+        boolean eExist = sellerRepository.findSellerByUsername(seller.getUsername()).isPresent();
         if(eExist){
             throw ApplicationException.builder()
                     .title("RegistrationAlreadyExists")

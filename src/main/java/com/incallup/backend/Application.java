@@ -7,16 +7,18 @@ import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
 import com.incallup.backend.repository.RoleRepository;
-import com.incallup.backend.utility.IncallupConstants;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.HashSet;
+import java.util.Optional;
 
 @SpringBootApplication
+@EnableJpaRepositories
 public class Application {
 
 	public static void main(String[] args) {
@@ -28,7 +30,9 @@ public class Application {
 	CommandLineRunner run(AdminRepository adminRepository, RoleRepository roleRepository, PasswordEncoder encoder){
 		return args -> {
 
-			if(roleRepository.findByAuthority("ADMIN").isPresent())
+			Optional<Admin> adminn = adminRepository.findUserByUsername("kunal");
+			System.out.println("this is admin "+adminn.get());
+			if(roleRepository.findRoleByAuthority("ADMIN").isPresent())
 				return;
 
 			var adminRole = roleRepository.save(Role.builder()

@@ -1,5 +1,6 @@
-package com.incallup.backend.domain;
+package com.incallup.backend.helper;
 
+import com.incallup.backend.domain.Admin;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

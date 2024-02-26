@@ -1,7 +1,7 @@
 package com.incallup.backend.service.impl;
 
 import com.incallup.backend.domain.Admin;
-import com.incallup.backend.domain.LoginResponse;
+import com.incallup.backend.helper.LoginResponse;
 import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
 import com.incallup.backend.repository.RoleRepository;
@@ -38,7 +38,7 @@ public class AuthenticationService {
 
     public Admin register(String username,String password){
         String encodedPass = encoder.encode(password);
-        Role userRole = roleRepository.findByAuthority("ADMIN").get();
+        Role userRole = roleRepository.findRoleByAuthority("ADMIN").get();
         Set<Role>  authorities = new HashSet<>();
         authorities.add(userRole);
         return adminRepository.save(Admin.builder()

@@ -2,10 +2,8 @@ package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.AdminDTO;
-import com.incallup.backend.domain.LoginResponse;
+import com.incallup.backend.helper.LoginResponse;
 import com.incallup.backend.service.impl.AuthenticationService;
-import com.incallup.backend.service.impl.LoginService;
-import lombok.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
