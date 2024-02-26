@@ -45,15 +45,15 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Post> searchByCategory(String category) throws ApplicationException{
-        Optional<Category> nSExists = categoryRepository.findCategoryByTitle(category);
-        if(nSExists.isEmpty()){
+        Optional<Category> categoryOptional = categoryRepository.findCategoryByName(category.trim());
+        if(categoryOptional.isEmpty()){
             throw ApplicationException.builder()
-                    .title("CategoryNotFound")
-                    .Description("Category Not Found")
+                    .title(category+" Category Not Found")
+                    .Description("Please Enter proper category")
                     .status(404)
                     .build();
         }
-        var categoryObj = nSExists.get();
+        var categoryObj = categoryOptional.get();
 
        return categoryObj.getPosts();
 

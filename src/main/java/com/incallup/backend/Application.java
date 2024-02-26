@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Optional;
 
+/**
+ * @author incallup
+ * */
 @SpringBootApplication
 @EnableJpaRepositories
 public class Application {
@@ -42,9 +45,9 @@ public class Application {
 
 
 				adminService.createCategory(Category.builder().title("Call Girl").build());
-				adminService.createCategory(Category.builder().title("Adult Dating").build());
-				adminService.createCategory(Category.builder().title("Male Escort").build());
-				adminService.createCategory(Category.builder().title("Massage").build());
+				adminService.createCategory(Category.builder().title("Verified Call Girl").build());
+				adminService.createCategory(Category.builder().title("Spa And Massage").build());
+				adminService.createCategory(Category.builder().title("Dating").build());
 
 			}
 			Optional<Admin> adminn = adminRepository.findUserByUsername("kunal");

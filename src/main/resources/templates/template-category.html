@@ -1,12 +1,13 @@
-<div th:each=" category : ${categories}" class="d-grid  mt-2 bg-light category-text  row ">
-    <div class="btn btn-secondary site-font container-fluid text-center" type="button">
+<div th:each=" category : ${categories}" class="d-grid px-4 mt-2 py-2 category-text bg-secondary-subtle rounded-2 row ">
+    <div class=" site-font container-fluid text-center" type="button">
         <div class="row justify-content-between">
-            <div class="col-1" th:text="${category.name}">Camera</div> <button type="reset"
-                                                    class="btn btn-secondary col-1 btn-outline-secondary fw-bold" onclick="showCategory(this);"
-        >></button>
+            <div class="col-1" th:text="${category.title}">Camera</div> <button type="reset"
+                                                    class="bg-secondary-subtle btn btn-outline-secondary col-1  fw-bold" onclick="showCategory(this);"
+        > &#11166; </button>
         </div>
     </div>
     <div class="h-1  container-fluid category-text-bar" >
+        <hr>
         <div class="row py-2">
             <div class="col-md-6">
                 Category text
@@ -15,11 +16,11 @@
             </div>
             <div class="col-md-6">
                 <div class="col-md-8">
-                    <div class="table-responsive">
+                    <div class="table-responsive bg-secondary-subtle">
                         <table class="table location-table ">
                             <tbody>
                             <tr class="">
-                                <td ><a href="#">Thane</a></td>
+                                <td ><a th:href="${'/'+category.name+'/thane'}">Thane</a></td>
                                 <td><a href="#">Pune</a></td>
                                 <td><a href="#">Central Delhi</a></td>
                             </tr>

@@ -2,6 +2,7 @@
 package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.repository.CategoryRepository;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.View;
 
 
 import java.util.*;
@@ -58,11 +60,14 @@ private final AdminQueryService adminQueryService;
     }
 
 
+
     @GetMapping("{category}")
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView) throws ApplicationException {
-        List<Category> catetgories = adminQueryService.listCategories();
-        modelAndView.setViewName("category");
-        modelAndView.addObject("categoryName",catetgories);
+
+
+        System.out.println(category);
+            customerService.searchByCategory(category);
+
 //        List<Post> posts = customerService.searchByCategory(category);
         List<Post> posts = new ArrayList<>();
         posts.add(Post.builder()
@@ -70,6 +75,7 @@ private final AdminQueryService adminQueryService;
                         .title("sample post title")
                         .views(420)
                         .contact("1001")
+                        .location(Location.builder().district("kolkata").state("West Bangal").build())
                         .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
                 .build());
         posts.add(Post.builder()
@@ -78,11 +84,14 @@ private final AdminQueryService adminQueryService;
                         "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
                 .views(420)
                 .contact("3456789123")
+                .location(Location.builder().district("kolkata").state("West Bangal").build())
                 .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
                         "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
                 .build());
 
         modelAndView.addObject("posts",posts);
+        modelAndView.addObject("categoryName",category);
+        modelAndView.setViewName("category");
 
         return modelAndView;
     }
@@ -90,10 +99,32 @@ private final AdminQueryService adminQueryService;
 
 
     @GetMapping("{category}/{location}")
-    public ModelAndView Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location, ModelAndView model) throws ApplicationException{
-        List<Post> cateGory = customerService.searchByCategoryAndLocation(category, location);
-        model.setViewName("category");
-        return model;
+    public ModelAndView Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location, ModelAndView modelAndView) throws ApplicationException{
+//        List<Post> posts = customerService.searchByCategoryAndLocation(category, location);
+
+         List<Post> posts = new ArrayList<>();
+        posts.add(Post.builder()
+                .age(16)
+                .title("sample post title")
+                .views(420)
+                .contact("1001")
+                .location(Location.builder().district("kolkata").state("West Bangal").build())
+                .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                .build());
+        posts.add(Post.builder()
+                .age(69)
+                .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .views(420)
+                .contact("3456789123")
+                .location(Location.builder().district("kolkata").state("West Bangal").build())
+                .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
+                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .build());
+        modelAndView.setViewName("category");
+        modelAndView.addObject("posts",posts);
+        modelAndView.addObject("categoryName",category);
+        return modelAndView;
     }
 
 
