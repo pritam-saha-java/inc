@@ -2,24 +2,17 @@
 package com.incallup.backend;
 
 
-
 import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
-import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
-import com.incallup.backend.repository.RoleRepository;
-import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.impl.AdminService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
-import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Optional;
 
 /**
@@ -35,7 +28,7 @@ public class Application {
 
 
 	@Bean
-	CommandLineRunner run(AdminService adminService, AdminRepository adminRepository, RoleRepository roleRepository, PasswordEncoder encoder){
+	CommandLineRunner run(AdminService adminService, AdminRepository adminRepository){
 		return args -> {
 
 
@@ -62,6 +55,9 @@ public class Application {
 				adminService.createLocation(Location.builder().district("purulia").state("West Bangal").build());
 				adminService.createLocation(Location.builder().district("mandarmani").state("West Bangal").build());
 				adminService.createLocation(Location.builder().district("thane").state("MAHARASHTRA").build());
+				adminService.createLocation(Location.builder().district("pune").state("MAHARASHTRA").build());
+				adminService.createLocation(Location.builder().district("solapur").state("MAHARASHTRA").build());
+				adminService.createLocation(Location.builder().district("mumbai").state("MAHARASHTRA").build());
 				adminService.createLocation(Location.builder().district("bangalore").state("Karnataka").build());
 				adminService.createLocation(Location.builder().district("bidar").state("Karnataka").build());
 				adminService.createLocation(Location.builder().district("ahemdabad").state("gujrat").build());
@@ -69,21 +65,21 @@ public class Application {
 			}
 			Optional<Admin> adminn = adminRepository.findUserByUsername("kunal");
             adminn.ifPresent(admin -> System.out.println("this is admin " + admin));
-			if(roleRepository.findRoleByAuthority("ADMIN").isPresent()) {
-				return;
-			}
+//			if(roleRepository.findRoleByAuthority("ADMIN").isPresent()) {
+//				return;
+//			}
 
-			var adminRole = roleRepository.save(Role.builder()
-							.authority("ADMIN")
-					.build());
-			var roles = new HashSet<Role>();
-			roles.add(adminRole);
+//			var adminRole = roleRepository.save(Role.builder()
+//							.authority("ADMIN")
+//					.build());
+//			var roles = new HashSet<Role>();
+//			roles.add(adminRole);
 			if(adminRepository.findUserByUsername("kunal").isPresent())
 				return;
 			Admin admin = Admin.builder()
-					.authorities(roles)
+//					.authorities(roles)
 					.username("kunal")
-					.password(encoder.encode("kunal123"))
+					.password("kunal123")
 					.build();
 			adminRepository.save(admin);
 		System.out.println("Hello world from command line runner");

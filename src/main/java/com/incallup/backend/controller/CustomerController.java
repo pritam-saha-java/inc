@@ -5,22 +5,18 @@ import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
-import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.ApplicationQueryService;
 import com.incallup.backend.service.CustomerService;
-import com.incallup.backend.utility.IncallupConstants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
-
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @Slf4j
@@ -53,10 +49,17 @@ private final ApplicationQueryService applicationQueryService;
 
 
      @GetMapping("{category}/{location}/{titleString}")
-    public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable String category, @PathVariable String location) throws ApplicationException {
-        Post post = customerService.searchByTitle(title);
+    public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable(name = "category") String category, @PathVariable(name = "location") String location) throws ApplicationException {
+//        Post post = customerService.searchByTitle(title);
+         Post post = Post.builder()
+                 .title(title)
+                 .contact("123456789")
+                 .description("post description")
+                 .category(applicationQueryService.getCategoryByName(category))
+                 .location(applicationQueryService.getLocationByName(location))
+                 .build();
         modelAndView.addObject("post",post);
-        modelAndView.setViewName("post");
+        modelAndView.setViewName("details");
         return modelAndView;
 
  
@@ -65,12 +68,15 @@ private final ApplicationQueryService applicationQueryService;
 
 
 
+
     @GetMapping("{category}")
-    public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView) throws ApplicationException {
+    public ModelAndView Category( @PathVariable(name = "category") String category, ModelAndView modelAndView) throws ApplicationException {
+
+        if(category.equals("favicon.ico"))
+            return null;
 
 
-
-            customerService.searchByCategory(category);
+        var postsByCategory = customerService.searchByCategory(category);
 
 //        List<Post> posts = customerService.searchByCategory(category);
         List<Post> posts = new ArrayList<>();

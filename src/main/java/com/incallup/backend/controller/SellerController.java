@@ -3,24 +3,40 @@ package com.incallup.backend.controller;
 
 
 import com.incallup.backend.domain.Post;
-import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
-import lombok.extern.slf4j.Slf4j;
+import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.support.RequestContextUtils;
 
 @RestController
 @RequestMapping("/seller")
 @Slf4j
 @Service
 @RequiredArgsConstructor
+@SessionAttributes(names = {"seller"})
 public class SellerController {
+
+//    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Invoice not found")
+    @ExceptionHandler(ServletRequestBindingException.class)
+    public String exception(HttpServletRequest request) {
+        String referrer = request.getHeader("referer");
+        FlashMap flashMap = RequestContextUtils.getOutputFlashMap(request);
+        flashMap.put("errorMessage","Execute A Query Then Retry");
+        return "Please Login";
+    }
+
 
     @Autowired
     private final SellerCommandService sellerCommandService;
@@ -28,10 +44,23 @@ public class SellerController {
     @Autowired
     private final SellerQueryService sellerQueryService;
 
-    @GetMapping
-    public ModelAndView Seller(ModelAndView model){
-        model.setViewName("posts");
-        return model;
+    @GetMapping("/get")
+    public String getSession(Model model){
+        model.addAttribute("seller","hi");
+        return "string";
+    }
+
+    @GetMapping("/auth")
+    public String Seller(@SessionAttribute("seller")String seller, ModelAndView model){
+        System.out.println("this is session attribute "+seller);
+//        model.setViewName("dashboard");
+        return "model";
+    }
+
+    @GetMapping("/end")
+    public String end(SessionStatus status){
+        status.setComplete();
+        return "end";
     }
 
 

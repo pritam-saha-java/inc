@@ -154,6 +154,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
            }
 
            var district = location.getDistrict().toLowerCase().trim();
+           district = district.replace(" ","-");
            var state = location.getState().toLowerCase().trim();
            location.setDistrict(district);
            location.setState(state);

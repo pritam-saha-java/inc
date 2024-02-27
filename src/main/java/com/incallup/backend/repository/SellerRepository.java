@@ -10,4 +10,5 @@ import java.util.Optional;
 @Repository
 public interface SellerRepository extends JpaRepository<Seller,Integer> {
     Optional<Seller> findSellerByUsername(String username);
+
 }
