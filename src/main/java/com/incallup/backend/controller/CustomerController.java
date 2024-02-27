@@ -7,6 +7,7 @@ import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.service.AdminQueryService;
+import com.incallup.backend.service.ApplicationQueryService;
 import com.incallup.backend.service.CustomerService;
 import com.incallup.backend.utility.IncallupConstants;
 import lombok.RequiredArgsConstructor;
@@ -33,6 +34,9 @@ private final CustomerService customerService;
 
 @Autowired
 private final AdminQueryService adminQueryService;
+
+@Autowired
+private final ApplicationQueryService applicationQueryService;
 
 
     @GetMapping
@@ -65,7 +69,7 @@ private final AdminQueryService adminQueryService;
     public ModelAndView Category(@PathVariable(name = "category") String category,ModelAndView modelAndView) throws ApplicationException {
 
 
-        System.out.println(category);
+
             customerService.searchByCategory(category);
 
 //        List<Post> posts = customerService.searchByCategory(category);
@@ -90,7 +94,7 @@ private final AdminQueryService adminQueryService;
                 .build());
 
         modelAndView.addObject("posts",posts);
-        modelAndView.addObject("categoryName",category);
+        modelAndView.addObject("category",applicationQueryService.getCategoryByName(category));
         modelAndView.setViewName("category");
 
         return modelAndView;
@@ -123,7 +127,8 @@ private final AdminQueryService adminQueryService;
                 .build());
         modelAndView.setViewName("category");
         modelAndView.addObject("posts",posts);
-        modelAndView.addObject("categoryName",category);
+        modelAndView.addObject("category",applicationQueryService.getCategoryByName(category));
+        modelAndView.addObject("location",applicationQueryService.getLocationByName(location));
         return modelAndView;
     }
 
@@ -137,6 +142,29 @@ private final AdminQueryService adminQueryService;
         return modelAndView;
     }
 
+    @GetMapping("get/categories/options")
+    public ModelAndView getCategoryOptions(ModelAndView modelAndView){
+        var categories = adminQueryService.listCategories();
+        modelAndView.addObject("categories",categories);
+        modelAndView.setViewName("category-options");
+        return modelAndView;
+    }
+
+    @GetMapping("get/state/options")
+    public ModelAndView getStatesOptions(ModelAndView modelAndView){
+        var states = adminQueryService.listStates();
+        modelAndView.addObject("states",states);
+        modelAndView.setViewName("state-options");
+        return modelAndView;
+    }
+    @GetMapping("/get/city/options")
+    public ModelAndView getCitiesOptions(ModelAndView modelAndView,@RequestParam String state)
+    {
+        var locations = applicationQueryService.getLocationByState(state);
+        modelAndView.addObject("locations",locations);
+        modelAndView.setViewName("district-options");
+        return modelAndView;
+    }
 
 }
 

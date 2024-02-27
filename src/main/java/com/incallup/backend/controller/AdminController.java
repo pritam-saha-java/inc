@@ -1,5 +1,8 @@
 package com.incallup.backend.controller;
 import com.incallup.backend.domain.Admin;
+import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Location;
+import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
 import jakarta.validation.Valid;
@@ -30,18 +33,35 @@ public class AdminController {
 
     }
 
+    @GetMapping("/create")
+    public ModelAndView getCreatePage(ModelAndView view){
+
+        view.setViewName("admin-create");
+        return view;
+    }
     @GetMapping
     public ModelAndView Admin(ModelAndView model){
         model.setViewName("Welcome");
         return model;
     }
 
-    @GetMapping("/categories")
-    public ModelAndView getCategories(ModelAndView model){
-        model.setViewName("Welcome");
-        var categories = adminQueryService.listCategories();
-        model.addObject("categories",categories);
-        return model;
+    @PostMapping("/category")
+    public String createCategories(@ModelAttribute("title") String title,@ModelAttribute("meta") String meta,@ModelAttribute("description") String description) throws ApplicationException {
+
+        var category = Category.builder().title(title).meta(meta).description(description).build();
+        adminCommandService.createCategory(category);
+        return "<script>alert('you have submitted category data successfully')</script>";
+    }
+
+
+    @PostMapping("/location")
+    public String createLocations(@ModelAttribute("description") String description,@ModelAttribute("district") String district,@ModelAttribute("state") String state,@ModelAttribute("meta") String meta) throws ApplicationException {
+
+        var location = Location.builder().description(description).district(district).state(state).meta(meta).build();
+
+        adminCommandService.createLocation(location);
+
+        return "<script>alert('you have submitted location data successfully')</script>";
     }
 
     @GetMapping("/list/post")

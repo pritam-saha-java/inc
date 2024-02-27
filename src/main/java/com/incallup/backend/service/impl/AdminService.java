@@ -16,7 +16,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 /**
  * This Service should implement both {@link com.incallup.backend.service.AdminCommandService} and {@link com.incallup.backend.service.AdminQueryService} interfaces
@@ -62,7 +65,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
             throw IdNotFoundException.builder()
                     .id(locationId)
                     .message("Location Not Found")
-                    .entity("lcoation")
+                    .entity("location")
                     .build();
         }
         return locationOptional.get();
@@ -84,12 +87,29 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     }
 
     @Override
+    public List<String> listStates() {
+        Set<String> states = new HashSet<>();
+        var locations = locationRepository.findAll();
+        locations.forEach(location -> {
+            var contains = states.contains(location.getState());
+            if(!contains){
+                states.add(location.getState());
+            }
+        });
+        return new ArrayList<>(states);
+    }
+
+    @Override
     public void blockPost(Integer postId) throws IdNotFoundException {
 
         var postOptional = postRepository.findById(postId);
         boolean dExist = postOptional.isEmpty();
         if(dExist){
-            throw IdNotFoundException.builder().build();
+            throw IdNotFoundException.builder()
+                    .id(postId)
+                    .entity("Post")
+                    .message("corresponding post does not exist")
+                    .build();
         }
         var post = postOptional.get();
         post.setIsBlocked(true);
@@ -99,12 +119,16 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     @Override
     public void blockSeller(Integer sellerId) throws IdNotFoundException {
 
-        var sellerOptinal = sellerRepository.findById(sellerId);
-        boolean aExist = sellerOptinal.isEmpty();
+        var sellerOptional = sellerRepository.findById(sellerId);
+        boolean aExist = sellerOptional.isEmpty();
         if (aExist){
-            throw IdNotFoundException.builder().build();
+            throw IdNotFoundException.builder()
+                    .id(sellerId)
+                    .entity("Seller")
+                    .message("corresponding seller does not exist")
+                    .build();
         }
-        var seller = sellerOptinal.get();
+        var seller = sellerOptional.get();
         seller.setIsBlocked(true);
 
 
@@ -112,24 +136,27 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Override
     public void createLocation(Location location) throws ApplicationException {
-           boolean isExist = locationRepository.findById(location.getId()).isPresent();
-           if(isExist){
-               throw ApplicationException.builder()
-                       .title("IdAlreadyExists")
-                       .Description("Id already exists")
-                       .status(300)
-                       .build();
-           }
-           isExist = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
+
+           var isExist = locationRepository.findLocationByDistrict(location.getDistrict().toLowerCase()).isPresent();
 
            if(isExist){
                throw ApplicationException.builder()
-                       .title("")
-                       .Description("district already exists")
+                       .title("location already exists")
+                       .Description("please choose unique district")
                        .status(300)
                        .build();
            }
+           if(location.getDistrict().isEmpty()){
+               throw ApplicationException.builder()
+                       .title("district name not found")
+                       .Description("please add district name")
+                       .build();
+           }
 
+           var district = location.getDistrict().toLowerCase().trim();
+           var state = location.getState().toLowerCase().trim();
+           location.setDistrict(district);
+           location.setState(state);
            locationRepository.save(location);
     }
 
@@ -146,6 +173,12 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                     .build();
         }
         var title = category.getTitle();
+        if(title.isEmpty()){
+            throw ApplicationException.builder()
+                    .title("title is empty")
+                    .Description("empty title couldn't be saved")
+                    .build();
+        }
         title = title.toLowerCase();
         title = title.replace(' ','-');
         category.setName(title);
@@ -154,48 +187,29 @@ public class AdminService implements AdminQueryService, AdminCommandService {
 
     @Override
     public void updateCategory(Category category) throws ApplicationException {
-        boolean aExist = categoryRepository.findById(category.getId()).isPresent();
-        if (aExist){
+
+
+        try {
+            categoryRepository.save(category);
+        }catch (Exception e)
+        {
             throw ApplicationException.builder()
-                    .title("NoUpdate")
-                    .Description("Update not availiable")
-                    .status(300)
+                    .title("error while saving category")
+                    .Description(e.getMessage())
                     .build();
         }
-        aExist = categoryRepository.findCategoryByTitle(category.getName()).isPresent();
-
-        if(aExist){
-            throw ApplicationException.builder()
-                    .title("UpdateNotApplicable")
-                    .Description("Update not applicable")
-                    .status(300)
-                    .build();
-        }
-
-        categoryRepository.save(category);
     }
 
     @Override
     public void updateLocation(Location location) throws ApplicationException {
-        boolean bExists = locationRepository.findById(location.getId()).isPresent();
-        if(bExists){
-            throw ApplicationException.builder()
-                    .title("NoLocationUpdate")
-                    .Description("No update required in location")
-                    .status(300)
-                    .build();
-        }
-
-        bExists = locationRepository.findLocationByDistrict(location.getDistrict()).isPresent();
-
-        if(bExists){
-            throw ApplicationException.builder()
-                    .title("NoLocationNow")
-                    .Description("No location update for now")
-                    .status(300)
-                    .build();
-        }
-
-        locationRepository.save(location);
+      try {
+          locationRepository.save(location);
+      }
+      catch (Exception e){
+          throw ApplicationException.builder()
+                  .title("error while saving the location")
+                  .Description(e.getMessage())
+                  .build();
+      }
     }
 }

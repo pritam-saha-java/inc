@@ -14,7 +14,7 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
 
-  <title th:text="${categoryName}">category</title>
+  <title th:text="${category.title}">category</title>
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
@@ -43,8 +43,8 @@
                 <div class="mt-3 mb-0 container bg-dark-subtle pt-2 col-4">
                   <div class="row">
                     <p id="post-age" class="col  mx-1 px-1" th:text="${post.age!=null?post.age:'22'}" ></p>
-                    <p id="post-category" class="col mx-1 px-1" th:text="${categoryName!=null?categoryName:'category'}" ></p>
-                    <p id="post-location" class="col mx-1 px-1 " th:text="${locationName!=null?locationName: post.location !=null?post.location.district:'location'}" ></p>
+                    <p id="post-category" class="col mx-1 px-1" th:text="${category.title!=null?category.title:'category'}" ></p>
+                    <p id="post-location" class="col mx-1 px-1 " th:text="${location!=null?location.district: post.location !=null?post.location.district:'location'}" ></p>
                   </div>
 
                 </div>

@@ -19,17 +19,18 @@ import java.util.List;
 */
 public interface AdminQueryService {
 
-    public List<Seller> listSellers();
+    List<Seller> listSellers();
 
-    public List<Post> listPosts();
+    List<Post> listPosts();
 
-    public List<Category> listCategories();
+    List<Category> listCategories();
 
-    public List<Location> listLocations();
+    List<Location> listLocations();
 
-    public Location getLocationById(Integer locationId) throws IdNotFoundException;
+    Location getLocationById(Integer locationId) throws IdNotFoundException;
 
-    public Category getCategoryById(Integer categoryId) throws IdNotFoundException;
+    Category getCategoryById(Integer categoryId) throws IdNotFoundException;
 
 
+    List<String> listStates();
 }

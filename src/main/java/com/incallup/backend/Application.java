@@ -5,6 +5,7 @@ package com.incallup.backend;
 
 import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Role;
 import com.incallup.backend.repository.AdminRepository;
 import com.incallup.backend.repository.RoleRepository;
@@ -38,6 +39,8 @@ public class Application {
 		return args -> {
 
 
+
+
 			var categories = adminService.listCategories();
 			if(categories.isEmpty()){
 
@@ -49,6 +52,16 @@ public class Application {
 				adminService.createCategory(Category.builder().title("Spa And Massage").build());
 				adminService.createCategory(Category.builder().title("Dating").build());
 
+			}
+
+
+			var locations = adminService.listLocations();
+			if(locations.isEmpty()){
+				adminService.createLocation(Location.builder().district("kolkata").state("West Bangal").build());
+				adminService.createLocation(Location.builder().district("thane").state("MAHARASHTRA").build());
+				adminService.createLocation(Location.builder().district("bangalore").state("Karnataka").build());
+				adminService.createLocation(Location.builder().district("ahemdabad").state("gujrat").build());
+				adminService.createLocation(Location.builder().district("hyderabad").state("tamilnadu").build());
 			}
 			Optional<Admin> adminn = adminRepository.findUserByUsername("kunal");
             adminn.ifPresent(admin -> System.out.println("this is admin " + admin));
