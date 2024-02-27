@@ -58,8 +58,12 @@ public class Application {
 			var locations = adminService.listLocations();
 			if(locations.isEmpty()){
 				adminService.createLocation(Location.builder().district("kolkata").state("West Bangal").build());
+				adminService.createLocation(Location.builder().district("digha").state("West Bangal").build());
+				adminService.createLocation(Location.builder().district("purulia").state("West Bangal").build());
+				adminService.createLocation(Location.builder().district("mandarmani").state("West Bangal").build());
 				adminService.createLocation(Location.builder().district("thane").state("MAHARASHTRA").build());
 				adminService.createLocation(Location.builder().district("bangalore").state("Karnataka").build());
+				adminService.createLocation(Location.builder().district("bidar").state("Karnataka").build());
 				adminService.createLocation(Location.builder().district("ahemdabad").state("gujrat").build());
 				adminService.createLocation(Location.builder().district("hyderabad").state("tamilnadu").build());
 			}
