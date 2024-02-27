@@ -28,13 +28,14 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 @SessionAttributes(names = {"seller"})
 public class SellerController {
 
-//    @ResponseStatus(value = HttpStatus.NOT_FOUND, reason = "Invoice not found")
+
     @ExceptionHandler(ServletRequestBindingException.class)
-    public String exception(HttpServletRequest request) {
+    public ModelAndView exception(HttpServletRequest request,ModelAndView modelAndView) {
         String referrer = request.getHeader("referer");
         FlashMap flashMap = RequestContextUtils.getOutputFlashMap(request);
         flashMap.put("errorMessage","Execute A Query Then Retry");
-        return "Please Login";
+        modelAndView.setViewName("seller-session-error");
+        return modelAndView;
     }
 
 
@@ -50,7 +51,7 @@ public class SellerController {
         return "string";
     }
 
-    @GetMapping("/auth")
+    @GetMapping("/auth/login")
     public String Seller(@SessionAttribute("seller")String seller, ModelAndView model){
         System.out.println("this is session attribute "+seller);
 //        model.setViewName("dashboard");
