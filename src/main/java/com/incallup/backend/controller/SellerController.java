@@ -66,9 +66,9 @@ public class SellerController {
             model.setViewName("profile");
        }
 
+
         return model;
     }
-    //
 
     @GetMapping("/end")
     public String end(SessionStatus status){
