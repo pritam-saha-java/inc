@@ -21,18 +21,18 @@ logging:
 #          jdbc:
 #            bind: trace
 server:
-  port: 8080
+  port: 443
   servlet:
     context-path: /
-#  ssl:
-#    enabled: true
-#    key-store-type: PKCS12
-#    key-store: classpath:keystore.jks
-#    key-store-password: 123456
+  ssl:
+    enabled: true
+    key-store-type: PKCS12
+    key-store: classpath:keystore.jks
+    key-store-password: 123456
 
   compression:
     enabled: true
-    mime-types: text/xml , text/css , text/html , application/json
+#    mime-types: text/xml , text/css , text/html , application/json
     min-response-size: 4096
 spring:
 #  devtools:
@@ -42,7 +42,7 @@ spring:
     name: incallup
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: validate
     properties:
       hibernate:
       format_sql: true
@@ -58,6 +58,6 @@ spring:
 #    password: pzieJzTC9W
 #    url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: root
-    password: hello
-    url: jdbc:mysql://localhost:3306/incallup
+    username: ${DBUSERNAME}
+    password: ${DBPASS}
+    url: ${DBURL}
