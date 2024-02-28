@@ -50,7 +50,7 @@ public class SellerController {
 
     @GetMapping("/get")
     public String getSession(Model model){
-
+        model.addAttribute("seller","username");
         return "string";
     }
 
@@ -111,7 +111,7 @@ public class SellerController {
     }
 
 
-    @GetMapping("get/post/{postId}")
+    @GetMapping("/get/post/{postId}")
     public ModelAndView PostId(HttpSession session,@PathVariable Integer postId, ModelAndView model) throws ApplicationException{
         var vatar = sellerQueryService.getPostById(postId);
         model.setViewName("details");
@@ -149,11 +149,13 @@ public class SellerController {
     /**
      * not implemented
      * */
-    @GetMapping("edit/{username}")
-    public ModelAndView Username(@PathVariable String username, ModelAndView model){
+    @GetMapping({"edit/{username}","/profile"})
+    public ModelAndView Username(@PathVariable(required = false) String username, ModelAndView model){
         model.setViewName("profile");
         return model;
     }
+
+
 
 
 

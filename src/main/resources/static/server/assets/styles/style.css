@@ -5,6 +5,8 @@ body {
     padding: 0.5 px;
     max-width:100%;
     width : 100vw;
+
+
     }
 
 :root {
@@ -22,7 +24,9 @@ body {
     cursor: url('../icons/cursor.png') 2 5,pointer;
   }
   */
-
+* {
+  box-sizing: border-box;
+}
 .post-icon{
     height: 1.5rem;
     margin-left: 2%;
@@ -45,9 +49,12 @@ body {
         
 
     }
-.site-icon{
-    height: 30px;
-}
+
+
+
+
+
+
 .text-light-pink{
     color: var(--light-pink);
 }
@@ -143,7 +150,8 @@ td>a{
     font-weight: 600;
 }
 
-nav.container-fluid{
+
+.bg-pink{
     background-color: var(--pink);
   }
 
@@ -207,3 +215,20 @@ nav.container-fluid{
         margin-right: 0rem !important;
     }
   }
+
+#header-logo{
+
+
+  width: 100%!important;
+  max-width: 400px!important;
+  height: auto!important;
+
+}
+/*
+@media only screen and (max-width: 600px) {
+  #header-logo {
+    height: 10px;
+
+  }
+}
+*/
