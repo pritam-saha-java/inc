@@ -1,16 +1,17 @@
 
 package com.incallup.backend.controller;
 
-
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.ServletRequestBindingException;
@@ -25,17 +26,17 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 @Slf4j
 @Service
 @RequiredArgsConstructor
-@SessionAttributes(names = {"seller"})
+@SessionAttributes("seller")
 public class SellerController {
 
 
     @ExceptionHandler(ServletRequestBindingException.class)
-    public ModelAndView exception(HttpServletRequest request,ModelAndView modelAndView) {
+    public String exception(HttpServletRequest request) {
         String referrer = request.getHeader("referer");
         FlashMap flashMap = RequestContextUtils.getOutputFlashMap(request);
         flashMap.put("errorMessage","Execute A Query Then Retry");
-        modelAndView.setViewName("seller-session-error");
-        return modelAndView;
+//        modelAndView.setViewName("seller-session-error");
+        return "please login first";
     }
 
 
@@ -52,8 +53,8 @@ public class SellerController {
     }
 
     @GetMapping("/auth/login")
-    public String Seller(@SessionAttribute("seller")String seller, ModelAndView model){
-        System.out.println("this is session attribute "+seller);
+    public String Seller(HttpSession session, ModelAndView model){
+//        System.out.println("this is session attribute "+seller);
 //        model.setViewName("dashboard");
         return "model";
     }
@@ -69,7 +70,7 @@ public class SellerController {
      * delayed
      * */
     @PutMapping("/{sellerId}")
-    public String SellerId( @PathVariable String sellerId){
+    public String SellerId(HttpSession session, @PathVariable String sellerId){
         System.out.println("Showing seller Id" + sellerId);
         return "Getting details of the seller";
     }
@@ -78,7 +79,7 @@ public class SellerController {
 
 
     @GetMapping("/list/{sellerId}")
-    public ModelAndView ListId(@PathVariable Integer sellerId, ModelAndView model){
+    public ModelAndView ListId(HttpSession session,@PathVariable Integer sellerId, ModelAndView model){
         var mg = sellerQueryService.getPostsBySellerId(sellerId);
         model.setViewName("sellers");
         model.addObject("post", mg);
@@ -86,25 +87,42 @@ public class SellerController {
     }
 
     @GetMapping("/profile/{sellerId}")
-    public ModelAndView Profile(@PathVariable Integer sellerId, ModelAndView model) throws IdNotFoundException {
+    public ModelAndView Profile(HttpSession session,@PathVariable Integer sellerId, ModelAndView model) throws IdNotFoundException {
         var na = sellerQueryService.getSellerById(sellerId);
         model.setViewName("profile");
         return model;
     }
 
     @PostMapping("/post/{sellerId}")
-    public void Post(@RequestBody Post post,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException {
+    public void Post(HttpSession session,@RequestBody Post post,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException {
         sellerCommandService.createPost(post,sellerId);
         log.info(post.toString());
     }
 
 
     @GetMapping("/post/{postId}")
-    public ModelAndView PostId(@PathVariable Integer postId, ModelAndView model) throws ApplicationException{
+    public ModelAndView PostId(HttpSession session,@PathVariable Integer postId, ModelAndView model) throws ApplicationException{
         var vatar = sellerQueryService.getPostById(postId);
-        model.setViewName("posts");
+        model.setViewName("details");
         return model;
     }
+
+    @GetMapping("/post")
+    public ModelAndView postView(HttpSession session, ModelAndView view){
+
+         String seller = (String) session.getAttribute("seller");
+            if(seller==null){
+
+                view.setViewName("seller-session-error");
+                return view;
+            }
+        view.setViewName("post");
+        return view;
+    }
+
+
+
+
 
     /**
      * not implemented

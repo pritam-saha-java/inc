@@ -140,10 +140,10 @@
             <input class="row mx-5" id="state" type="text" placeholder="enter state" name="state">
            
             <label class="row mx-5" for="meta">Meta Information</label>
-            <textarea class="row mx-5" name="meta" id="meta" cols="30" rows="2">add meta information for location</textarea>
+            <textarea class="row mx-5" name="meta" id="district-meta" cols="30" rows="2">add meta information for location</textarea>
             
             <label class="row mx-5" for="description">Location Description</label>
-            <textarea class="row mx-5" name="description" id="description" cols="30" rows="4">This is a sample text for location description</textarea>
+            <textarea class="row mx-5" name="description" id="district-description" cols="30" rows="4">This is a sample text for location description</textarea>
             
             <button class="btn btn-primary row mx-5 mt-3" type="submit">submit</button>
 
@@ -158,13 +158,17 @@
     <div class="tab">
         <h2> Category Entry Form</h2>
         <div id="catres"></div>
-        <form class="px-3 container justify-content-center" hx-post="/admin/category" hx-target="#catres">
+        <form class="px-3 container justify-content-center" enctype="multipart/form-data" hx-post="/admin/category" hx-target="#catres">
             <label  class="row mx-5" for="title">Enter Category Title</label>
             <input  class="row mx-5" name="title" id="title" type="text">
-            <label  class="row mx-5" for="meta">Category Meta Information</label>
-            <input  class="row mx-5" type="text" id="meta" name="meta" placeholder="This is a sample meta description">
-            <label  class="row mx-5" for="description">Category Description</label>
-            <textarea class="row mx-5"  name="description" id="description" cols="30" rows="4">This is a sample Description for a category
+
+            <label  class="row mx-5" for="category-image">Enter Category Picture</label>
+            <input  class="row mx-5" name="picture" id="category-image" type="file" accept="image/*" >
+
+            <label  class="row mx-5" for="category-meta">Category Meta Information</label>
+            <input  class="row mx-5" type="text" id="category-meta" name="meta" placeholder="This is a sample meta description">
+            <label  class="row mx-5" for="category-description">Category Description</label>
+            <textarea class="row mx-5"  name="description" id="category-description" cols="30" rows="4">This is a sample Description for a category
             </textarea>
             
             <button class="btn btn-primary row mx-5 mt-3" type="submit">submit</button>

@@ -5,13 +5,21 @@ import com.incallup.backend.domain.Location;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
+import jakarta.servlet.http.Part;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
 
 @RestController
 @RequestMapping("/admin")
@@ -45,10 +53,28 @@ public class AdminController {
         return model;
     }
 
-    @PostMapping("/category")
-    public String createCategories(@ModelAttribute("title") String title,@ModelAttribute("meta") String meta,@ModelAttribute("description") String description) throws ApplicationException {
+    public String convertInputStreamToByteArray(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        byte[] buffer = new byte[4096];
+        int bytesRead;
+        while ((bytesRead = inputStream.read(buffer)) != -1) {
+            outputStream.write(buffer, 0, bytesRead);
+        }
+        return Base64.getEncoder().encodeToString((outputStream.toByteArray()));
+
+//        return outputStream.toByteArray();
+    }
+    @PostMapping(value = "/category",headers = "Content-Type=multipart/form-data")
+    public String createCategories(@ModelAttribute("title") String title, @ModelAttribute("meta") String meta, @ModelAttribute("description") String description, @RequestParam("picture") MultipartFile multipartFile) throws ApplicationException {
+
 
         var category = Category.builder().title(title).meta(meta).description(description).build();
+//        byte[] bytes ;
+        try {
+//            category.setImageData(convertInputStreamToByteArray(multipartFile.getInputStream()));
+        }catch (Exception e){
+            log.error("file not found");
+        }
         adminCommandService.createCategory(category);
         return "<script>alert('you have submitted category data successfully')</script>";
     }

@@ -49,6 +49,13 @@ public class Category {
     @ToString.Exclude
     private List<Post> posts = new ArrayList<>();
 
+
+//    @Lob
+//    @Column(name = "category_image",columnDefinition = "BLOB")
+//    @Column(name = "category_image")
+//    private String imageData;
+//    private byte[] imageData;
+
     @Override
     public final boolean equals(Object o) {
         if (this == o) return true;
