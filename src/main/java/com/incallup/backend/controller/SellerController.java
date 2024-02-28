@@ -57,7 +57,7 @@ public class SellerController {
     @PostMapping("/auth/login")
     public ModelAndView Seller(ModelAndView model,@ModelAttribute("username") String username,@ModelAttribute("password") String password){
 //        System.out.println("this is session attribute "+seller);
-//        model.setViewName("dashboard");
+//        model.setViewName("dashboard");j
 
         boolean authenticated = sellerQueryService.authenticate(username,password);
        if(authenticated)
