@@ -17,14 +17,17 @@ body {
     
 
   }
+  /*
   *{
     cursor: url('../icons/cursor.png') 2 5,pointer;
   }
+  */
 
 .post-icon{
     height: 1.5rem;
     margin-left: 2%;
 }
+
 .grey-bg{
 
     background-color: var(--grey);

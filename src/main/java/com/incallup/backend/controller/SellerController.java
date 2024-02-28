@@ -4,6 +4,7 @@ package com.incallup.backend.controller;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
+import com.incallup.backend.exception.LogoutException;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import jakarta.servlet.http.HttpServletRequest;
@@ -11,10 +12,8 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.Banner;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.ServletRequestBindingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.FlashMap;
@@ -30,13 +29,16 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 public class SellerController {
 
 
-    @ExceptionHandler(ServletRequestBindingException.class)
-    public String exception(HttpServletRequest request) {
+    @ExceptionHandler(LogoutException.class)
+    public ModelAndView exception(HttpServletRequest request,LogoutException exception) {
+        ModelAndView view = new ModelAndView();
         String referrer = request.getHeader("referer");
         FlashMap flashMap = RequestContextUtils.getOutputFlashMap(request);
         flashMap.put("errorMessage","Execute A Query Then Retry");
-//        modelAndView.setViewName("seller-session-error");
-        return "please login first";
+//        view.setViewName("seller-session-error");
+        view.addObject("login",exception.getDescription());
+        view.setViewName("login");
+        return view;
     }
 
 
@@ -48,15 +50,23 @@ public class SellerController {
 
     @GetMapping("/get")
     public String getSession(Model model){
-        model.addAttribute("seller","hi");
+
         return "string";
     }
 
-    @GetMapping("/auth/login")
-    public String Seller(HttpSession session, ModelAndView model){
+    @PostMapping("/auth/login")
+    public ModelAndView Seller(ModelAndView model,@ModelAttribute("username") String username,@ModelAttribute("password") String password){
 //        System.out.println("this is session attribute "+seller);
 //        model.setViewName("dashboard");
-        return "model";
+
+        boolean authenticated = sellerQueryService.authenticate(username,password);
+       if(authenticated)
+       {
+            model.addObject("seller",username);
+            model.setViewName("profile");
+       }
+
+        return model;
     }
 
     @GetMapping("/end")
@@ -100,7 +110,7 @@ public class SellerController {
     }
 
 
-    @GetMapping("/post/{postId}")
+    @GetMapping("get/post/{postId}")
     public ModelAndView PostId(HttpSession session,@PathVariable Integer postId, ModelAndView model) throws ApplicationException{
         var vatar = sellerQueryService.getPostById(postId);
         model.setViewName("details");
@@ -108,16 +118,27 @@ public class SellerController {
     }
 
     @GetMapping("/post")
-    public ModelAndView postView(HttpSession session, ModelAndView view){
+    public ModelAndView postView(HttpSession session, ModelAndView view)  throws LogoutException{
 
-         String seller = (String) session.getAttribute("seller");
-            if(seller==null){
-
-                view.setViewName("seller-session-error");
-                return view;
-            }
+        authenticate(session);
         view.setViewName("post");
         return view;
+    }
+
+    private static void authenticate(HttpSession session) throws LogoutException {
+        String seller = (String) session.getAttribute("seller");
+        log.info("seller object");
+        log.info(seller);
+        if(seller==null){
+            throw new LogoutException();
+        }
+    }
+
+    @GetMapping({"/login","/",""})
+    public ModelAndView login(ModelAndView modelAndView){
+
+        modelAndView.setViewName("login");
+        return modelAndView;
     }
 
 
@@ -127,7 +148,7 @@ public class SellerController {
     /**
      * not implemented
      * */
-    @GetMapping("/{username}")
+    @GetMapping("edit/{username}")
     public ModelAndView Username(@PathVariable String username, ModelAndView model){
         model.setViewName("profile");
         return model;

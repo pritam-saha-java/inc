@@ -4,6 +4,7 @@ package com.incallup.backend.service;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.IdNotFoundException;
+import com.incallup.backend.exception.LogoutException;
 
 import java.util.List;
 
@@ -22,5 +23,5 @@ public interface SellerQueryService {
     List<Post> getPostsBySellerId(Integer sellerId) throws IdNotFoundException;
 
 
-
+    boolean authenticate(String username, String password) throws LogoutException;
 }

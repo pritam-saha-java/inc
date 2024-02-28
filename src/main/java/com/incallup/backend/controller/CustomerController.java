@@ -139,38 +139,6 @@ private final ApplicationQueryService applicationQueryService;
     }
 
 
-    @GetMapping("get/categories")
-    public ModelAndView getCategoryList(ModelAndView modelAndView){
-        modelAndView.setViewName("template-category");
-        List<Category> listOfCategories = adminQueryService.listCategories();
-        System.out.println(listOfCategories);
-        modelAndView.addObject("categories",listOfCategories);
-        return modelAndView;
-    }
-
-    @GetMapping("get/categories/options")
-    public ModelAndView getCategoryOptions(ModelAndView modelAndView){
-        var categories = adminQueryService.listCategories();
-        modelAndView.addObject("categories",categories);
-        modelAndView.setViewName("category-options");
-        return modelAndView;
-    }
-
-    @GetMapping("get/state/options")
-    public ModelAndView getStatesOptions(ModelAndView modelAndView){
-        var states = adminQueryService.listStates();
-        modelAndView.addObject("states",states);
-        modelAndView.setViewName("state-options");
-        return modelAndView;
-    }
-    @GetMapping("/get/city/options")
-    public ModelAndView getCitiesOptions(ModelAndView modelAndView,@RequestParam String state)
-    {
-        var locations = applicationQueryService.getLocationByState(state);
-        modelAndView.addObject("locations",locations);
-        modelAndView.setViewName("district-options");
-        return modelAndView;
-    }
 
 }
 

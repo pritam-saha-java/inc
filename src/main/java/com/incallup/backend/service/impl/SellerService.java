@@ -5,6 +5,7 @@ import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
+import com.incallup.backend.exception.LogoutException;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.SellerCommandService;
@@ -13,6 +14,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -75,8 +77,19 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         return sellerOptional.get().getPosts();
     }
 
+    @Override
+    public boolean authenticate(String username, String password) throws LogoutException {
 
+        var sellerOptional = sellerRepository.findSellerByUsername(username);
+        if(sellerOptional.isEmpty())
+            throw LogoutException.builder().title("wrong username").Description("please provide correct username").build();
 
+        var seller = sellerOptional.get();
+        if(!seller.getPassword().equals(password))
+            throw LogoutException.builder().title("wrong password").Description("please enter correct password").build();
+
+        return true;
+    }
 
 
     @Override

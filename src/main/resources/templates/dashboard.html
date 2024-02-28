@@ -41,14 +41,14 @@
         <div class="modal-body container">
           <div class="row">
             <div class="col">
-              <select hx-trigger="load" hx-get="get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
+              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
                 <option selected>Choose Category</option>
 
               </select>
 
             </div>
-            <div class="col" hx-trigger="load" hx-get="get/state/options" hx-target="#states" >
-              <select name="state" id="states" hx-get="get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
+            <div class="col" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#states" >
+              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
                 <option selected>Choose State</option>
 
               </select>
@@ -162,7 +162,7 @@
       <p class="text-center">Most Popular Location In A Specific Category</p>
     </div>
 
-    <div hx-get="https://localhost/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
+    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
 
 
     <div class="container-fluid mt-5 px-5">
