@@ -1,29 +1,22 @@
-package com.incallup.backend.utility;
-
-
+package com.incallup.backend.configuration;
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class WHMConfig {
-    public static final String PASS = "2NNx]l-9tgBn";
-    public static final String USER = "dev";
-    public static final int PORT = 21;
-    public static final String SERVER = "incallup.com";
 
-//    @Value("${whm.ftp.server}")
-//    private String ftpServer;
-//
-//    @Value("${whm.ftp.port}")
-//    private int ftpPort;
-//
-//    @Value("${whm.ftp.username}")
-//    private String ftpUsername;
-//
-//    @Value("${whm.ftp.password}")
-//    private String ftpPassword;
+    @Value("${whm.ftp.password}")
+    private String PASS ;
+    @Value("${whm.ftp.username}")
+    private   String USER ;
+    @Value("${whm.ftp.port}")
+    private   int PORT ;
+    @Value("${whm.ftp.server}")
+    private String SERVER ;
+
 
     @Bean
     public FTPClient generateFTP(){

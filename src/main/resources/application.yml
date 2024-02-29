@@ -64,7 +64,7 @@ spring:
 
 whm:
   ftp:
-    port: 22
+    port: 21
     server: incallup.com
     username: dev
     password: 2NNx]l-9tgBn
