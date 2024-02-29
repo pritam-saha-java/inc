@@ -61,3 +61,10 @@ spring:
     username: ${DBUSERNAME}
     password: ${DBPASS}
     url: ${DBURL}
+
+whm:
+  ftp:
+    port: 22
+    server: incallup.com
+    username: dev
+    password: 2NNx]l-9tgBn
