@@ -94,14 +94,25 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
     @Override
     public void createPost(@Valid Post post, Integer sellerId) throws ApplicationException {
-        Optional<Post> eExist = postRepository.findPostByTitle(post.getTitle());
-        if(eExist.isPresent()){
+
+        var sellerOption = sellerRepository.findById(sellerId);
+        if(sellerOption.isEmpty())
+            throw ApplicationException.builder()
+                    .title("seller does not exists")
+                    .Description("please login from proper seller option")
+                    .build();
+        Optional<Post> postOption = postRepository.findPostByName(post.getTitle());
+        if(postOption.isPresent()){
             throw ApplicationException.builder()
                     .title("PostAlreadyExists")
                     .Description("Title  Already Exists")
                     .status(301)
                     .build();
         }
+
+        String title = post.getTitle();
+        String name = title.trim().replace(' ','-');
+        post.setName(name);
         postRepository.save(post);
     }
 

@@ -32,7 +32,7 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Post searchByTitle(String title) throws ApplicationException{
-       Optional<Post> nS = postRepository.findPostByTitle(title);
+       Optional<Post> nS = postRepository.findPostByName(title);
         if(nS.isEmpty()){
             throw ApplicationException.builder()
                     .title("TitleNotFound")

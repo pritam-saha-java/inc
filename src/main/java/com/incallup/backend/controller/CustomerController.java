@@ -83,6 +83,7 @@ private final ApplicationQueryService applicationQueryService;
         posts.add(Post.builder()
                         .age(16)
                         .title("sample post title")
+                        .name("sample-post-title")
                         .views(420)
                         .contact("1001")
                         .location(Location.builder().district("kolkata").state("West Bangal").build())
@@ -92,6 +93,7 @@ private final ApplicationQueryService applicationQueryService;
                 .age(69)
                 .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
                         "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                        .title("lorem-ipsum")
                 .views(420)
                 .contact("3456789123")
                 .location(Location.builder().district("kolkata").state("West Bangal").build())

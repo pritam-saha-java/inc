@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8"/>
@@ -17,7 +17,7 @@
   <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css" />
 
   <title>InCallUp</title>
-  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<!--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
   <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
 
 </head>
@@ -32,7 +32,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="site-icon mx-1" style="height: 25px;" >
+            <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon mx-1" style="height: 25px;" >
             Search</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
@@ -82,7 +82,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
                 
-                  <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="site-icon " style="filter: invert(100%) ;" >
+                  <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon " style="filter: invert(100%) ;" >
                   
                   Search
               </button>
@@ -97,14 +97,14 @@
   <span class="d-block p-2  blue-bg"></span>
   <nav class=" navbar bg-pink   ">
     <div class="container  ">
-      <a class="navbar-brand  " href="https://localhost/" >
-        <img class=" col-lg-8 col-md-10 col-sm-12" src="https://localhost/server/assets/img/logo.png" alt="incallup logo"
+      <div  class="navbar-brand "   >
+        <img onclick="location='https://localhost/seller/profile'" class=" col-lg-8 col-md-10 col-sm-12"  src="https://localhost/server/assets/img/logo.png" alt="incallup logo"
         style=" max-width:20rem; height:auto;"
         >
-      </a>
-      <div class="d-flex align-items-center" >
+      </div>
+      <div class="d-flex align-items-center mt-2 " >
 
-        <img  class=" mx-5  " src="https://localhost/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
+        <img  onclick="location = 'https://localhost/seller/profile'" class=" mx-5  " src="https://localhost/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
         <a class="  py-2 text-light text-wrap blue-bg site-font1 rounded-4 px-5 "
                 href="https://localhost/seller/post">POST AD</a>
 
@@ -114,16 +114,20 @@
 
   <div class="bg-pink container-fluid p-3  bg-blue">
     <div class="row px-3 mt-0 ">
-      <div class="col-6 site-font1 text-light ">
-        <img src="https://localhost/server/assets/icons/location.png" alt="search icon" class="site-icon  " style="filter: invert(100%) ;">
+      <div class="col-6 site-font1 text-light d-flex  justify-content-center" onclick="alert('locating please wait');">
+        <img src="https://localhost/server/assets/icons/location.png" alt="search icon" class=" my-icon  " style="filter: invert(100%) ;  ">
+       <p class="px-4 d-sm-none d-lg-inline-block d-md-none ">
+
+
         Locate me
+       </p>
 
       </div>
       <div class="col-6  ">
         <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
                 data-bs-target="#myModal">
-          <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="site-icon mt-2 px-5 ">
-          <div class="p-2  site-font1">
+          <img src="https://localhost/server/assets/icons/search.png" alt="search icon" style="max-height: 30px;" class=" mt-2 px-5 ">
+          <div class="p-2 d-sm-none d-lg-inline-block d-md-none  site-font1">
             Search
           </div>
         </button>
@@ -136,18 +140,18 @@
 
   <!-- navbar end -->
   <!-- hero section start -->
-  <div class="text-center  m-auto " id="hero-section" style="background: url('server/assets/img/background.png') center no-repeat; background-size: cover; ">
+  <div class="text-center container px-0 m-auto " id="hero-section" style="background: url('https://localhost/server/assets/img/background.png') center no-repeat; background-size: fit;   ">
     <div id="hero-bg">
-      <div class="pt-5">
+      <div class="pt-5 ">
         <div class="text-pink px-2 " id="hero-title">WELCOME TO INCALLUP</div>
         <span class="mt-2 site-text">Have a date in your city today , choose your category </span>
       </div>
-      <div class="container-fluid " >
+      <div class="container " >
         <div class="row mt-5 justify-content-center" >
 
 
           <div th:each="category : ${categories}" class="col-lg-3 col-md-6 col-sm-12 my-2 " th:onclick="location =[[${category.name}]];" >
-            <img th:src="@{/server/assets/img/sample.png}" class="card-img-top site-border  " th:alt="${category.title}">
+            <img src="https://localhost/server/assets/img/sample.png" class="card-img-top site-border  " th:alt="${category.title}">
             <div class="card-body blue-bg py-2 ">
               <h5 class="card-title text-light" th:text="${category.title}">camera</h5>
             </div>
@@ -159,8 +163,8 @@
   </div>
 
   <!-- hero section end -->
-  <div th:fragment="categoryDropdown"  class="container-fluid m-4 mt-2">
-    <div class="site-title my-5 row ">
+  <div th:fragment="categoryDropdown"  class="container mt-2">
+    <div class="site-title my-5 row  ">
       <p class="text-center">FIND ADS IN LOCAL : INDIA</p>
     </div>
     <div class="site-text  mt-2 row">
@@ -170,7 +174,7 @@
     <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
 
 
-    <div class="container-fluid mt-5 px-5">
+    <div class="container mt-5 px-5">
       <div class="p-5 site-font bg-secondary-subtle ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
         est faucibus, condimentum nulla vitae, dictum neque. Nunc dignissim sem ut suscipit scelerisque. Nullam purus
         justo, gravida quis purus at, varius pulvinar urna. Cras iaculis lectus non sem pellentesque, eu auctor tortor
@@ -197,9 +201,9 @@
       </div>
     </div>
   </div>
-  <footer th:fragment="siteFooter" class="container-fluid ">
+  <footer th:fragment="siteFooter" class="container ">
     <div class="row " id="footer-pink">
-      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " th:src="@{/server/assets/img/logo.png}" alt="logo" >
+      <div class="col-6"><img class="mx-auto d-block h-75 mt-3 site-logo " src="https://localhost/server/assets/img/logo.png" alt="logo" >
       </div>
       <div class="col-6 container">
         <div class="row ">

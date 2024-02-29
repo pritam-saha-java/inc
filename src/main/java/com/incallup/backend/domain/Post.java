@@ -29,6 +29,10 @@ public class Post {
     @Column(name = "post_title", unique = true)
     private String title;
 
+
+    @Column(name = "post_name",unique = true)
+    private String name;
+
     @ToString.Exclude
     @ManyToOne(cascade = CascadeType.ALL)
     private Location location;

@@ -24,9 +24,11 @@ body {
     cursor: url('../icons/cursor.png') 2 5,pointer;
   }
   */
+
 * {
   box-sizing: border-box;
 }
+
 .post-icon{
     height: 1.5rem;
     margin-left: 2%;
@@ -121,8 +123,8 @@ letter-spacing: 0em;
     line-height: 83px;
 }
 #hero-bg{
-    height: 100%;
-    width: 100%;
+    height: auto;
+    width: auto;
     background-color: #ffffffb6;
     background-size: cover;
     padding-bottom: 3%;
@@ -135,11 +137,7 @@ font-weight: 500;
 line-height: 61px;
 letter-spacing: 0em;
 }
-#hero-section{
 
-
-    
-}
 #footer-pink , .bg-pink{
     background-color: var(--pink);
 }
@@ -150,7 +148,10 @@ td>a{
     font-weight: 600;
 }
 
+.my-icon{
+    max-height: 30px;
 
+}
 .bg-pink{
     background-color: var(--pink);
   }
