@@ -6,6 +6,7 @@ import com.incallup.backend.service.ApplicationQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,6 +17,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/app")
 @RequiredArgsConstructor
+@CrossOrigin(origins = "*")
 public class ApplicationController {
 
 
@@ -25,6 +27,7 @@ public class ApplicationController {
     private final ApplicationQueryService applicationQueryService;
 
     @GetMapping("get/categories")
+//    @Cacheable(value = "categories",key = "categories")
     public ModelAndView getCategoryList(ModelAndView modelAndView){
         modelAndView.setViewName("template-category");
         List<Category> listOfCategories = adminQueryService.listCategories();

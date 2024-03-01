@@ -19,15 +19,15 @@ body {
     
 
   }
-  /*
+
   *{
     cursor: url('../icons/cursor.png') 2 5,pointer;
   }
-  */
+
 
 * {
 
-   overflow-x:hidden;
+
 }
 
 .post-icon{

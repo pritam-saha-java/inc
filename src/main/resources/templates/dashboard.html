@@ -6,7 +6,7 @@
   
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="icon" type="image/png" href="https://localhost/server/assets/img/logo.png"/>
+  <link rel="icon" type="image/png" href="https://incallup.com/server/assets/img/logo.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css" />
+  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css" />
 
   <title>InCallUp</title>
 
@@ -33,7 +33,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon mx-1" style="height: 25px;" >
+            <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" class="my-icon mx-1" style="height: 25px;" >
             Search</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
@@ -42,14 +42,14 @@
         <div class="modal-body container">
           <div class="row">
             <div class="col">
-              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
+              <select hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
                 <option selected>Choose Category</option>
 
               </select>
 
             </div>
-            <div class="col" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#states" >
-              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
+            <div class="col" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#states" >
+              <select name="state" id="states" hx-get="https://incallup.com/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
                 <option selected>Choose State</option>
 
               </select>
@@ -83,7 +83,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
                 
-                  <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon " style="filter: invert(100%) ;" >
+                  <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" class="my-icon " style="filter: invert(100%) ;" >
                   
                   Search
               </button>
@@ -94,29 +94,29 @@
       </div>
     </div>
   </div>
-<header class="container-fluid " th:fragment="siteHeader">
-  <span class="d-block p-2  blue-bg"></span>
-  <nav class=" navbar bg-pink   ">
+<header class="container-fluid  " th:fragment="siteHeader">
+  <span class="d-block py-2   blue-bg"></span>
+  <nav class=" navbar bg-pink    ">
     <div class="container  ">
-      <div  class="navbar-brand "   >
-        <img onclick="location='https://localhost/'" class=" col-lg-8 col-md-10 col-sm-12"  src="https://localhost/server/assets/img/logo.png" alt="incallup logo"
-        style=" max-width:20rem; height:auto;"
+      <div  class="col-lg-8 col-md-10   col-sm-12 d-flex justify-content-start  "   >
+        <img onclick="location='https://incallup.com/'" class=" "  src="https://incallup.com/server/assets/img/logo.png" alt="incallup logo"
+        style=" max-width:15rem; height:auto; "
         >
       </div>
-      <div class="d-flex align-items-center mt-2 " >
+      <div class="d-flex align-items-center mt-2 col " >
 
-        <img  onclick="location = 'https://localhost/seller/profile'" class=" mx-5  " src="https://localhost/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
+        <img  onclick="location = 'https://incallup.com/seller/profile'" class=" mx-5  " src="https://incallup.com/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
         <a class="  py-2 text-light text-wrap blue-bg site-font1 rounded-4 px-5 "
-                href="https://localhost/seller/post">POST AD</a>
+                href="https://incallup.com/seller/post">POST AD</a>
 
       </div>
     </div>
   </nav>
 
-  <div class="bg-pink container-fluid p-3  bg-blue">
-    <div class="row px-3 mt-0 ">
-      <div class="col-6 site-font1 text-light d-flex  justify-content-center" onclick="alert('locating please wait');">
-        <img src="https://localhost/server/assets/icons/location.png" alt="search icon" class=" my-icon  " style="filter: invert(100%) ;  ">
+  <div class="bg-pink container-fluid p-3 px-5 bg-blue">
+    <div class="row px-3 mt-0 d-flex justify-content-around ">
+      <div class="col-6  site-font1 text-light d-flex px-5  justify-content-center" onclick="alert('locating please wait');">
+        <img src="https://incallup.com/server/assets/icons/location.png" alt="search icon" class=" my-icon  " style="filter: invert(100%) ;  ">
        <p class="px-4 d-sm-none d-lg-inline-block d-md-none ">
 
 
@@ -125,9 +125,9 @@
 
       </div>
       <div class="col-6  ">
-        <button class=" input-group margin-bottom-sm bg-light p-2 rounded px-1" type="button" data-bs-toggle="modal"
+        <button class=" input-group rounded-5 margin-bottom-sm bg-light p-2  px-1" type="button" data-bs-toggle="modal"
                 data-bs-target="#myModal">
-          <img src="https://localhost/server/assets/icons/search.png" alt="search icon" style="max-height: 30px;" class=" mt-2 px-5 ">
+          <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" style="max-height: 30px;" class=" mt-2 mx-5 ">
           <div class="p-2 d-sm-none d-lg-inline-block d-md-none  site-font1">
             Search
           </div>
@@ -141,10 +141,10 @@
 
   <!-- navbar end -->
   <!-- hero section start -->
-  <div class="text-center container px-0 m-auto  " id="hero-section" style="background: url('https://localhost/server/assets/img/background.png') center no-repeat; max-width: 1300px; background-size: fit;   ">
+  <div class="text-center container p-0 m-auto   " id="hero-section" style="background: url('https://incallup.com/server/assets/img/background.png') center no-repeat; max-height:auto; max-width: 1300px; background-size: fit;   ">
     <div id="hero-bg">
       <div class="pt-5 ">
-        <div class="text-pink px-2 " id="hero-title">WELCOME TO INCALLUP</div>
+        <div class="text-pink px-2  " id="hero-title">WELCOME TO INCALLUP</div>
         <span class="mt-2 text-wrap site-text">Have a date in your city today , choose your category </span>
       </div>
       <div class="container " >
@@ -152,9 +152,9 @@
 
 
           <div th:each="category : ${categories}" class="col-lg-3 col-md-6 col-sm-12 my-2 " th:onclick="location =[[${category.name}]];" >
-            <img src="https://localhost/server/assets/img/sample.png" class="card-img-top site-border  " th:alt="${category.title}">
+            <img src="https://incallup.com/server/assets/img/sample.png" class="card-img-top site-border  " th:alt="${category.title}">
             <div class="card-body blue-bg py-2 ">
-              <h5 class="card-title text-light" th:text="${category.title}">camera</h5>
+              <div class="card-title h-3 text-light" th:text="${category.title}">Camera</div>
             </div>
           </div>
         </div >
@@ -172,11 +172,11 @@
       <p class="text-center">Most Popular Location In A Specific Category</p>
     </div>
 
-    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
+    <div hx-get="https://incallup.com/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
 
 
-    <div class="container mt-5 px-5">
-      <div class="p-5 site-font bg-secondary-subtle ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+    <div class="container my-5 px-2">
+      <div class="p-5 px-3 text-center site-font bg-secondary-subtle ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
         est faucibus, condimentum nulla vitae, dictum neque. Nunc dignissim sem ut suscipit scelerisque. Nullam purus
         justo, gravida quis purus at, varius pulvinar urna. Cras iaculis lectus non sem pellentesque, eu auctor tortor
         dignissim. Vestibulum pulvinar libero a erat commodo rutrum. Donec eget faucibus turpis. Vestibulum quis
@@ -202,20 +202,20 @@
       </div>
     </div>
   </div>
-  <footer th:fragment="siteFooter" class="container ">
+  <footer th:fragment="siteFooter" class="container-fluid ">
     <div class="row " id="footer-pink">
-      <div class="col-4"><img class="mx-auto d-block h-75 mt-3 site-logo " src="https://localhost/server/assets/img/logo.png" alt="logo" >
+      <div class="col-4 "><img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " src="https://incallup.com/server/assets/img/logo.png" alt="logo" >
       </div>
-      <div class="col-6 container">
-        <div class="row ">
+      <div class="col-lg-7  d-inline  col-md-6 col-sm-3 container">
+        <div class="row  ">
           <p class="text-center pt-5 text-light" id="imp-link">Important Links</p>
         </div>
-        <div class="row blue-bg my-2 px-3 py-1 me-2 py-2 container d-flex justify-content-lg-around justify-content-sm-start ">
-          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">FAQ </a> <p class="col-1" >|</p> </div>
-          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col text-light " href="">Privacy Policy </a> <p class="col-1" >|</p> </div>
-          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">Terms & Condition </a> <p class="col-1" >|</p> </div>
-          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col text-light " href="">Contact Us </a> <p class="col-1" >|</p> </div>
-          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">Blogs </a> <p class="col-1" >|</p> </div>
+        <div class="row  blue-bg my-2 px-3 py-1 me-2 py-2 container d-flex justify-content-lg-around justify-content-sm-start ">
+          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">FAQ </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col text-light " href="">Privacy Policy </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none  " >|</p> </div>
+          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">Terms & Condition </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col text-light " href="">Contact Us </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-sm-12 col-lg-2 row col-md-4"><a class=" col  text-light " href="">Blogs </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
 
 
 <!--          <div class=" text-light col-sm-11 col-lg-3 col-md-11"><a class=" text-light " href="">Privacy Policy </a><p>|</p> </div>-->
