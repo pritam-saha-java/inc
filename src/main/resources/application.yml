@@ -58,9 +58,13 @@ spring:
 #    password: pzieJzTC9W
 #    url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
     driver-class-name: com.mysql.cj.jdbc.Driver
-    username: ${DBUSERNAME}
-    password: ${DBPASS}
-    url: ${DBURL}
+    username: v1vwaapzk16lpxuxcuny
+    password: pscale_pw_lbjzf4dMOJDe0s8CeAgWw2u2UefW6CGX7RCZrDfpfye
+    url: jdbc:mysql://aws.connect.psdb.cloud/incallup?sslMode=VERIFY_IDENTITY
+
+#    username: ${DBUSERNAME}
+#    password: ${DBPASS}
+#    url: ${DBURL}
 
 whm:
   ftp:

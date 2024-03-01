@@ -3,6 +3,7 @@ package com.incallup.backend.service.impl;
 
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
+import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
@@ -81,6 +82,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     public boolean authenticate(String username, String password) throws LogoutException {
 
         var sellerOptional = sellerRepository.findSellerByUsername(username);
+
+
         if(sellerOptional.isEmpty())
             throw LogoutException.builder().title("wrong username").Description("please provide correct username").build();
 
@@ -116,14 +119,16 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         postRepository.save(post);
     }
 
+
     @Override
-    public void register(Seller seller) throws ApplicationException {
+    public void register(Seller seller) throws AccountCreationException {
         boolean eExist = sellerRepository.findSellerByUsername(seller.getUsername()).isPresent();
         if(eExist){
-            throw ApplicationException.builder()
+            throw AccountCreationException.builder()
+
                     .title("RegistrationAlreadyExists")
                     .Description("Username Already Exists")
-                    .status(500)
+                    .status(303)
                     .build();
         }
         sellerRepository.save(seller);

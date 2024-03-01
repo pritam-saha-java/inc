@@ -18,7 +18,7 @@ public class WHMConfig {
     private String SERVER ;
 
 
-    @Bean
+//    @Bean
     public FTPClient generateFTP(){
 
         FTPClient ftpClient = new FTPClient();

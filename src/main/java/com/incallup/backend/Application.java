@@ -2,10 +2,9 @@
 package com.incallup.backend;
 
 
-import com.incallup.backend.domain.Admin;
-import com.incallup.backend.domain.Category;
-import com.incallup.backend.domain.Location;
+import com.incallup.backend.domain.*;
 import com.incallup.backend.repository.AdminRepository;
+import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.impl.AdminService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -13,6 +12,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 /**
@@ -28,11 +28,25 @@ public class Application {
 //
 
 	@Bean
-	CommandLineRunner run(AdminService adminService, AdminRepository adminRepository){
+	CommandLineRunner run(AdminService adminService, AdminRepository adminRepository,
+						  SellerRepository sellerRepository){
 		return args -> {
 
 
 
+
+			var sellers = adminService.listSellers();
+			if(sellers.isEmpty())
+			{
+
+				sellerRepository.save(Seller.builder()
+//								.posts(new ArrayList<Post>())
+						.email("sample@email.com")
+								.id(7800)
+						.username("seller")
+						.password("123456")
+						.build());
+			}
 
 			var categories = adminService.listCategories();
 			if(categories.isEmpty()){
@@ -42,8 +56,8 @@ public class Application {
 
 				adminService.createCategory(Category.builder().title("Call Girl").build());
 				adminService.createCategory(Category.builder().title("Verified Call Girl").build());
-				adminService.createCategory(Category.builder().title("Spa And Massage").build());
-				adminService.createCategory(Category.builder().title("Dating").build());
+//				adminService.createCategory(Category.builder().title("Spa And Massage").build());
+//				adminService.createCategory(Category.builder().title("Dating").build());
 
 			}
 

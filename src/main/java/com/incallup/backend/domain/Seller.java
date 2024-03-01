@@ -3,6 +3,7 @@ package com.incallup.backend.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.*;
+import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 import java.time.Instant;
@@ -23,10 +24,10 @@ public class Seller {
     @Column(name = "seller_id")
     private int id;
 
-    @OneToOne
-    @MapsId
-    @JoinColumn(name = "verification_id")
-    private Verification verification;
+//    @OneToOne(fetch = FetchType.LAZY,cascade = CascadeType.REMOVE)
+//    @MapsId
+//    @JoinColumn(name = "verification_id")
+//    private Verification verification ;
 
     @Column(name = "seller_username",nullable = false,unique = true)
     private String username;

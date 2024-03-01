@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
+    <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css">
 
     <title >Login Page</title>
     <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
@@ -28,12 +28,12 @@
 
 
 <div th:if="${login!=null}">
-    <div th:text="login.description" class="text-center">Please Login First</div>
+    <div th:text="login" class="text-center">Please Login First</div>
 </div>
 
-<h1 class="text-center my-5  ">Get Into <img src="/server/assets/img/logo.png" alt="site-logo"></h1>
+<h1 class="text-center my-5  ">Get Into <img src="https://localhost/server/assets/img/logo.png" alt="site-logo"></h1>
 
-<form class="container " hx-post="https://localhost/seller/auth/login">
+<form class="container " method="post" action="https://localhost/seller/auth/login">
     <div class="mb-4 row justify-content-center " >
 
     <input  class="form-control-lg col-6 col-md-8 col-sm-8 rounded-5" type="text" name="username" id="email" placeholder="Username">
@@ -50,7 +50,7 @@
 
 <!--<div class="text-center text-primary" hx-get="https://localhost/seller/forgot">Forgot Password</div>-->
 <div class="text-center">Don’t Have An Account Yet?
-    <a  class="text-pink" href="/auth/create" >Sign Up</a></div>
+    <a  class="text-pink" href="https://localhost/auth/create" >Sign Up</a></div>
 
 
 </div>
