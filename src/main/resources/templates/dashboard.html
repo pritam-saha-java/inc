@@ -152,7 +152,7 @@
 
 
           <div th:each="category : ${categories}" class="col-lg-3 col-md-6 col-sm-12 my-2 " th:onclick="location =[[${category.name}]];" >
-            <img src="https://incallup.com/server/assets/img/sample.png" class="card-img-top site-border  " th:alt="${category.title}">
+            <img th:src="@{${'/server/assets/img/'+category.name+'.jpg'}}" class="card-img-top site-border  " th:alt="${category.title}">
             <div class="card-body blue-bg py-2 ">
               <div class="card-title h-3 text-light" th:text="${category.title}">Camera</div>
             </div>
