@@ -6,7 +6,7 @@
   
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="icon" type="image/png" href="https://incallup.com/server/assets/img/logo.png"/>
+  <link rel="icon" type="image/png" href="https://localhost/server/assets/img/logo.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css" />
+  <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css" />
 
   <title>InCallUp</title>
 
@@ -33,7 +33,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" class="my-icon mx-1" style="height: 25px;" >
+            <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon mx-1" style="height: 25px;" >
             Search</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
@@ -42,14 +42,14 @@
         <div class="modal-body container">
           <div class="row">
             <div class="col">
-              <select hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
+              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
                 <option selected>Choose Category</option>
 
               </select>
 
             </div>
-            <div class="col" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#states" >
-              <select name="state" id="states" hx-get="https://incallup.com/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
+            <div class="col" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#states" >
+              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
                 <option selected>Choose State</option>
 
               </select>
@@ -83,7 +83,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
                 
-                  <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" class="my-icon " style="filter: invert(100%) ;" >
+                  <img src="https://localhost/server/assets/icons/search.png" alt="search icon" class="my-icon " style="filter: invert(100%) ;" >
                   
                   Search
               </button>
@@ -99,15 +99,15 @@
   <nav class=" navbar bg-pink    ">
     <div class="container  ">
       <div  class="col-lg-8 col-md-10   col-sm-12 d-flex justify-content-start  "   >
-        <img onclick="location='https://incallup.com/'" class=" "  src="https://incallup.com/server/assets/img/logo.png" alt="incallup logo"
+        <img onclick="location='https://localhost/'" class=" "  src="https://localhost/server/assets/img/logo.png" alt="incallup logo"
         style=" max-width:15rem; height:auto; "
         >
       </div>
       <div class="d-flex align-items-center mt-2 col " >
 
-        <img  onclick="location = 'https://incallup.com/seller/profile'" class=" mx-5  " src="https://incallup.com/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
+        <img  onclick="location = 'https://localhost/seller/profile'" class=" mx-5  " src="https://localhost/server/assets/icons/user.png" alt=""  style="filter: invert(100%); max-height: 30px;" >
         <a class="  py-2 text-light text-wrap blue-bg site-font1 rounded-4 px-5 "
-                href="https://incallup.com/seller/post">POST AD</a>
+                href="https://localhost/seller/post">POST AD</a>
 
       </div>
     </div>
@@ -116,7 +116,7 @@
   <div class="bg-pink container-fluid p-3 px-5 bg-blue">
     <div class="row px-3 mt-0 d-flex justify-content-around ">
       <div class="col-6  site-font1 text-light d-flex px-5  justify-content-center" onclick="alert('locating please wait');">
-        <img src="https://incallup.com/server/assets/icons/location.png" alt="search icon" class=" my-icon  " style="filter: invert(100%) ;  ">
+        <img src="https://localhost/server/assets/icons/location.png" alt="search icon" class=" my-icon  " style="filter: invert(100%) ;  ">
        <p class="px-4 d-sm-none d-lg-inline-block d-md-none ">
 
 
@@ -127,7 +127,7 @@
       <div class="col-6  ">
         <button class=" input-group rounded-5 margin-bottom-sm bg-light p-2  px-1" type="button" data-bs-toggle="modal"
                 data-bs-target="#myModal">
-          <img src="https://incallup.com/server/assets/icons/search.png" alt="search icon" style="max-height: 30px;" class=" mt-2 mx-5 ">
+          <img src="https://localhost/server/assets/icons/search.png" alt="search icon" style="max-height: 30px;" class=" mt-2 mx-5 ">
           <div class="p-2 d-sm-none d-lg-inline-block d-md-none  site-font1">
             Search
           </div>
@@ -141,7 +141,7 @@
 
   <!-- navbar end -->
   <!-- hero section start -->
-  <div class="text-center container p-0 m-auto   " id="hero-section" style="background: url('https://incallup.com/server/assets/img/background.png') center no-repeat; max-height:auto; max-width: 1300px; background-size: fit;   ">
+  <div class="text-center container p-0 m-auto   " id="hero-section" style="background: url('https://localhost/server/assets/img/background.png') center no-repeat; max-height:auto; max-width: 1300px; background-size: fit;   ">
     <div id="hero-bg">
       <div class="pt-5 ">
         <div class="text-pink px-2  " id="hero-title">WELCOME TO INCALLUP</div>
@@ -172,7 +172,7 @@
       <p class="text-center">Most Popular Location In A Specific Category</p>
     </div>
 
-    <div hx-get="https://incallup.com/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
+    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" >Category </div>
 
 
     <div class="container my-5 px-2">
@@ -204,7 +204,7 @@
   </div>
   <footer th:fragment="siteFooter" class="container-fluid ">
     <div class="row " id="footer-pink">
-      <div class="col-4 "><img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " src="https://incallup.com/server/assets/img/logo.png" alt="logo" >
+      <div class="col-4 "><img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " src="https://localhost/server/assets/img/logo.png" alt="logo" >
       </div>
       <div class="col-lg-7  d-inline  col-md-6 col-sm-3 container">
         <div class="row  ">

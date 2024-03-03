@@ -53,10 +53,18 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
   datasource:
-    driver-class-name: com.mysql.jdbc.Driver
-    username: incallup_incallup
-    password: B=3hX4SkiNE,
-    url: jdbc:mysql://62.171.171.251:3306/incallup_db
+#    driver-class-name: com.mysql.jdbc.Driver
+#    username: incallup_incallup
+#    password: B=3hX4SkiNE,
+#    url: jdbc:mysql://62.171.171.251:3306/incallup_db
+
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: hello
+    url: jdbc:mysql://localhost:3306/incallup
+
+
+
 #    url: jdbc:mysql://sql6.freesqldatabase.com:3306/sql6683807
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    username: incallup_incallup
@@ -75,6 +83,6 @@ spring:
 whm:
   ftp:
     port: 21
-    server: incallup.com
+    server: 62.171.171.251
     username: dev
     password: 2NNx]l-9tgBn
