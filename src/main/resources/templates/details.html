@@ -14,6 +14,8 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
+  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
 
   <title >Details Page</title>
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
@@ -28,7 +30,7 @@
 <!-- hero section start -->
 <div class="container">
   <a href="dashboard.html" class="row p-1 rounded  mx-5 fs-3 site-link"> <b>&lt; Back To Search</b></a>
-  <div class="row"><img th:src="@{/server/assets/icons/home-icon.png}" alt="home icon" class="site-icon border border-1 border-black " style="width: auto;"></div>
+  <div class="row"><img th:src="@{/server/assets/icons/home-icon.png}" alt="home icon" class="my-icon border border-1 border-black " style="width: auto;"></div>
 
 </div>
 
@@ -39,12 +41,12 @@
   </h2>
   <h3>location | views | post ID </h3>
   <div class="row gx-4 gx-lg-5 align-items-center">
-      <div class="col-md-6"><img class="card-img-top rounded-4 mt-5 mb-5 mb-md-0" src="https://localhost/server/assets/img/sample.jpg" alt="..."></div>
+      <div class="col-md-6"><img class="card-img-top rounded-4 mt-5 mb-5 mb-md-0" src="https://incallup.com/server/assets/img/sample.jpg" alt="..."></div>
       <div class="col-md-6">
           
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/call.png" alt="" srcset=""> Call</h1>
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/whatsapp.png" alt="" srcset=""> Whatsapp</h1>
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/telegram.png" alt="" srcset=""> Telegram</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://incallup.com/server/assets/img/call.png" alt="" srcset=""> Call</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://incallup.com/server/assets/img/whatsapp.png" alt="" srcset=""> Whatsapp</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://incallup.com/server/assets/img/telegram.png" alt="" srcset=""> Telegram</h1>
          
          
       </div>
@@ -63,8 +65,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
   </script>
-  <script src="../static/server/assets/scripts/main.js"></script>
-  <script src="../static/server/assets/scripts/common.js"></script>
+  <script th:src="@{/server/assets/scripts/main.js}"></script>
+  <script th:src="@{/server/assets/scripts/common.js}"></script>
 </body>
 
 </html>

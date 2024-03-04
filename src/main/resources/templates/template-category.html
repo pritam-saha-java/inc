@@ -1,25 +1,34 @@
-<div th:each=" category : ${categories}" class="d-grid px-4 mt-2 py-2 category-text bg-secondary-subtle rounded-2 row ">
+
+
+
+
+
+
+
+
+
+<div  th:each=" category : ${categories}" class="d-grid px-4 mt-2 py-2 category-text bg-secondary-subtle rounded-2 row " th:onclick="showCategory([[${category.name}]]+'-btn',[[${category.name}]]+'-bar');" >
     <div class=" site-font container text-center" type="button">
         <div class="row justify-content-between">
-            <div class="col-lg-4 col-md-6 col-sm-8" th:text="${category.title}">Camera</div> <button type="reset"
-                                                    class="bg-secondary-subtle btn btn-outline-secondary col-1  fw-bold" onclick="showCategory(this);"
+            <div class="col-lg-4 col-md-6 col-sm-8" th:text="${category.title}">Camera</div> <button
+                                                    class="  col-1  fw-bold" th:attr="id=${category.name+'-btn'}"
         > &#11166; </button>
         </div>
     </div>
-    <div class="h-1  container category-text-bar" >
+    <div class="h-1  container category-text-bar bg-secondary-subtle "  th:attr="id=${category.name+'-bar'}" >
         <hr>
         <div class="row py-2">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 Category text
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
                 consequatur accusamus fugiat in dolor
             </div>
-            <div class="col-md-6">
-                <div class="col-md-8">
-                    <div class="table-responsive bg-secondary-subtle">
+            <div class="col">
+                <div>
+                    <div class="table-responsive ">
                         <table class="table location-table ">
                             <tbody>
-                            <tr class="">
+                            <tr>
                                 <td ><a th:href="${'/'+category.name+'/thane'}">Thane</a></td>
                                 <td><a th:href="${'/'+category.name+'/pune'}">Pune</a></td>
                                 <td><a th:href="${'/'+category.name+'/central-delhi'}">Central Delhi</a></td>

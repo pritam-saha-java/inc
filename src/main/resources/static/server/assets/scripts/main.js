@@ -15,21 +15,22 @@ for (const element of allTDs) {
     element.classList.add('text-light');
     
 }
-function showCategory(element){
+function showCategory(button,categoryBody){
     
-    let catergoryButton = element.parentNode.parentNode.parentNode;
+//    let catergoryButton = element.parentNode.parentNode.parentNode;
     
   
-    let category = catergoryButton.querySelector('.category-text-bar');
-    let button = element;
+//    let category = catergoryButton.querySelector('.category-text-bar');
+    let category = document.getElementById(categoryBody);
+    let showButton = document.getElementById(button);
     
     let boolean = category.style.display==='none'?true:false;
      if(boolean){
         category.style.display = ''
-        button.innerHTML =  '&#11165;'
+        showButton.innerHTML =  '&#11165;'
     }else{
         category.style.display = 'none'
-        button.innerHTML =  '&#11166;'
+        showButton.innerHTML =  '&#11166;'
 
      }
    

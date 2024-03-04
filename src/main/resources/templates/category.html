@@ -14,6 +14,10 @@
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
 
+
+  <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
   <title th:text="${category.title}">category</title>
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
@@ -38,7 +42,7 @@
 
   <div class="card my-4 " th:each="post : ${posts}" th:onclick=" location = [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; "  >
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-md-4 col-sm-8 text-center">
         <img class="img-fluid rounded-4" th:src="@{/server/assets/img/sample.jpg}" alt="" >
       </div>
       <div class="col-md-8">
@@ -63,9 +67,9 @@
               </small>
               <small class="col-6 container">
                 <div class="row d-flex justify-content-end px-5">
-                  <small alt="contact link" class="col-1 px-5"><img src="https://localhost/server/assets/img/call.png" alt=""></small>
-                  <small alt="whatsapp link" class="col-1 px-5 "><img src="https://localhost/server/assets/img/whatsapp.png" alt=""></small>
-                  <small alt="telegram link" class="col-1 px-5"><img src="https://localhost/server/assets/img/telegram.png" alt=""></small>
+                  <small alt="contact link" class="col-1 px-5"><img src="https://incallup.com/server/assets/img/call.png" alt=""></small>
+                  <small alt="whatsapp link" class="col-1 px-5 "><img src="https://incallup.com/server/assets/img/whatsapp.png" alt=""></small>
+                  <small alt="telegram link" class="col-1 px-5"><img src="https://incallup.com/server/assets/img/telegram.png" alt=""></small>
 
                   
                 </div>

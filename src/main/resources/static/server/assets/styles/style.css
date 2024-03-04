@@ -101,6 +101,7 @@ letter-spacing: 0em;
 }
 button.btn:hover{
     background-color: var(--blue);
+    color:var(--light-pink);
 }
 #hero-title{
     
@@ -167,6 +168,8 @@ td>a{
   }
 
 
+
+
   .sButton{
     background-color: var(--pink);
     color: var(--grey);
@@ -195,7 +198,16 @@ td>a{
   }
 
 
+ .header-icon-text{
+    display:block;
+}
+@media screen and (max-width: 600px){
+    .header-icon-text{
+    display:none;
+    }
 
+
+}
 
 
   .plus-icon {
