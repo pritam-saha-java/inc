@@ -137,15 +137,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     @Override
     public void createLocation(Location location) throws ApplicationException {
 
-           var isExist = locationRepository.findLocationByDistrict(location.getDistrict().toLowerCase()).isPresent();
 
-           if(isExist){
-               throw ApplicationException.builder()
-                       .title("location already exists")
-                       .Description("please choose unique district")
-                       .status(300)
-                       .build();
-           }
            if(location.getDistrict().isEmpty()){
                throw ApplicationException.builder()
                        .title("district name not found")
@@ -154,6 +146,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
            }
 
            var district = location.getDistrict().toLowerCase().trim();
+           location.setName(district);
            district = district.replace(" ","-");
            var state = location.getState().toLowerCase().trim();
            location.setDistrict(district);

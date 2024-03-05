@@ -201,10 +201,13 @@ td>a{
  .header-icon-text{
     display:block;
 }
-@media screen and (max-width: 600px){
+@media screen and (max-width: 1000px){
     .header-icon-text{
     display:none;
     }
+
+
+
 
 
 }

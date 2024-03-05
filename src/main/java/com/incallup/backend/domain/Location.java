@@ -24,6 +24,8 @@ public class Location {
     @Column(name = "location_id")
     private Integer id;
 
+    @Column(name = "location_name",nullable = false)
+    private String name;
     @Column(name = "location_district",unique = true,nullable = false)
     private String district;
 
@@ -39,10 +41,12 @@ public class Location {
     private Instant updatedAt;
 
 
-    @Column(name = "location_description")
+    @Lob
+    @Column(name = "location_description",length = 1000)
     private String description;
 
-    @Column(name = "location_meta")
+    @Lob
+    @Column(name = "location_meta",length = 1000)
     private String meta;
 
     @ToString.Exclude

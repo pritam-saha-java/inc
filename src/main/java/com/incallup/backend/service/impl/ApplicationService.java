@@ -37,13 +37,13 @@ public class ApplicationService implements ApplicationQueryService {
     @Override
     public Location getLocationByName(String locationName) throws ApplicationException{
 
-        var optionalLocation= locationRepository.findLocationByDistrict(locationName);
-         if (optionalLocation.isEmpty())
+        var locations= locationRepository.findLocationByDistrict(locationName);
+         if (locations.isEmpty())
              throw ApplicationException.builder()
                      .title("unknown location selected")
                      .Description("please choose right location")
                      .build();
-        return optionalLocation.get();
+        return locations.get();
     }
 
     @Override
