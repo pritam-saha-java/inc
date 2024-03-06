@@ -15,7 +15,7 @@ import java.util.Objects;
 @Component
 @Slf4j
 public class FileUtility {
-    public static final String DOCUMENTUPLOAD = "/documentupload/";
+    public static final String DOCUMENTUPLOAD = "/inctest/";
 
     public File convert(MultipartFile file) {
         if(file==null)
@@ -189,8 +189,8 @@ public class FileUtility {
     public String getPresignedBase64FromWHM(String file) {
         String server = "incallup.com";
         int port = 22;
-        String user = "dev@incallup.com";
-        String pass = "2NNx]l-9tgBn";
+        String user = "root";
+        String pass = "4booiVOPDhVws59d2";
         InputStream fis =null;
         FTPClient ftpClient = new FTPClient();
         try {
@@ -212,13 +212,14 @@ public class FileUtility {
             String fileString ="";
 
             fileString= this.convertInputStreamToBase64(remoteFile);
-            String byte64URL = "data:image/png;base64," +fileString;
+//            String byte64URL = "data:image/png;base64," +fileString;
 
 
             ftpClient.logout();
             ftpClient.disconnect();
             remoteFile.close();
-            return byte64URL;
+//            return byte64URL;
+            return fileString;
         } catch (Exception e) {
 
             // Handle exception appropriately (e.g., log and return an error message)

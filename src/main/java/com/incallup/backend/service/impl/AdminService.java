@@ -1,5 +1,6 @@
 package com.incallup.backend.service.impl;
 
+import com.incallup.backend.configuration.WHMService;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Post;
@@ -12,10 +13,14 @@ import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
+import com.jcraft.jsch.SftpException;
 import lombok.RequiredArgsConstructor;
+import net.schmizz.sshj.sftp.SFTPException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -155,7 +160,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
     }
 
     @Override
-    public void createCategory(Category category) throws ApplicationException {
+    public void createCategory(Category category, MultipartFile image) throws ApplicationException {
 
         boolean isExist = categoryRepository.findCategoryByTitle(category.getTitle()).isPresent();
 
@@ -177,7 +182,25 @@ public class AdminService implements AdminQueryService, AdminCommandService {
         title = title.replace(' ','-');
         category.setName(title);
         categoryRepository.save(category);
+        try {
+
+        whmService.uploadFile(image,category.getName());
+        }
+        catch (SftpException | IOException e){
+
+            throw ApplicationException.builder()
+                    .title("error saving image")
+                    .Description(e.getMessage())
+                    .build();
+
+        }
+
+
+
     }
+
+    @Autowired
+    private WHMService whmService;
 
     @Override
     public void updateCategory(Category category) throws ApplicationException {

@@ -5,6 +5,7 @@ import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *  will contain PUT & POST operations for admin
@@ -23,7 +24,7 @@ public interface AdminCommandService {
 
      void createLocation(Location location) throws ApplicationException;
 
-     void createCategory(Category category) throws ApplicationException;
+     void createCategory(Category category, MultipartFile multipartFile) throws ApplicationException;
 
      void updateCategory(Category category) throws ApplicationException;
 

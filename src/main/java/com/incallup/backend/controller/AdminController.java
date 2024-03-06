@@ -1,18 +1,23 @@
 package com.incallup.backend.controller;
 
+import com.incallup.backend.configuration.WHMService;
 import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
+import com.jcraft.jsch.SftpException;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.io.IOException;
 
 @RestController
 @RequestMapping("/admin")
@@ -61,9 +66,9 @@ public class AdminController {
     @PostMapping(value = "/category",headers = "Content-Type=multipart/form-data")
     public String createCategories(@ModelAttribute("title") String title, @ModelAttribute("meta") String meta, @ModelAttribute("description") String description
 
-//                                   ,@RequestParam("picture") MultipartFile multipartFile
+                                   ,@RequestParam("picture") MultipartFile multipartFile
 
-    ) throws ApplicationException {
+    ) throws ApplicationException{
 
 
         var category = Category.builder().title(title).meta(meta).description(description).build();
@@ -73,9 +78,12 @@ public class AdminController {
 //        }catch (Exception e){
 //            log.error("file not found");
 //        }
-        adminCommandService.createCategory(category);
+
+
+        adminCommandService.createCategory(category,multipartFile);
         return "<script>alert('you have submitted category data successfully')</script>";
     }
+
 
 
     @PostMapping("/location")
