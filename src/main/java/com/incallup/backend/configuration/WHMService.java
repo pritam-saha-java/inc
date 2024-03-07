@@ -17,20 +17,22 @@ import java.io.OutputStream;
 @RequiredArgsConstructor
 public class WHMService  {
 
-    public static final String INCTEST = "/inctest/";
-    @Value("${whm.ftp.password}")
-    private final String PASS ;
-    @Value("${whm.ftp.username}")
-    private final  String USER ;
-    @Value("${whm.ftp.port}")
-    private final   int PORT ;
-    @Value("${whm.ftp.server}")
-    private final String SERVER ;
-//    @Value("${whm.ftp.sessionTimeout}")
-    private final Integer SESSION_TIMEOUT = 15000;
 
-//    @Value("${whm.ftp.channelTimeout}")
-    private final Integer CHANNEL_TIMEOUT = 15000;
+
+    @Value("${whm.ftp.password}")
+    private String PASS ;
+    @Value("${whm.ftp.username}")
+    private  String USER ;
+    @Value("${whm.ftp.port}")
+    private Integer PORT ;
+    @Value("${whm.ftp.server}")
+    private String SERVER ;
+    @Value("${whm.ftp.sessionTimeout}")
+    private Integer SESSION_TIMEOUT ;
+    @Value("${whm.ftp.path}")
+    public String INCTEST ;
+    @Value("${whm.ftp.channelTimeout}")
+    private Integer CHANNEL_TIMEOUT ;
 //    @Bean
 //    public SSHClient setupSshj() throws IOException {
 //        SSHClient client = new SSHClient();

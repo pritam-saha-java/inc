@@ -8,8 +8,8 @@ springdoc:
 logging:
   level:
     sql: debug
-    root: debug
     web: debug
+#    root: error
 #    org:
 #      springframework:
 #        data:
@@ -27,7 +27,8 @@ server:
   ssl:
     enabled: true
     key-store-type: PKCS12
-    key-store: classpath:keystore.jks
+    key-store: classpath:incallup.com.jks
+#    key-store: classpath:keystore.jks
     key-store-password: 123456
 
   compression:
@@ -80,12 +81,16 @@ spring:
 #    password: ${DBPASS}
 #    url: ${DBURL}
 
+
 whm:
   ftp:
     port: 22
     server: 62.171.171.251
     username: root
     password: 4booiVOPDhVws59d2
+    path: /inctest/
+    sessionTimeout: 15000
+    channelTimeout: 15000
 #    port: 21
 #    username: dev
 #    password: 2NNx]l-9tgBn

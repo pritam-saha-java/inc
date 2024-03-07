@@ -3,20 +3,14 @@ package com.incallup.backend;
 
 
 
-import com.incallup.backend.configuration.WHMService;
-import com.incallup.backend.utility.FileUtility;
-import com.incallup.backend.utility.FileUtility2;
-import lombok.extern.slf4j.Slf4j;
+//import com.incallup.backend.configuration.WHMService;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.web.multipart.MultipartFile;
-
-import java.io.File;
 
 
 /**
@@ -38,7 +32,7 @@ public class Application {
 //			, AdminRepository adminRepository
 //			, SellerRepository sellerRepository,
 //			LocationRepository locationRepository,
-			WHMService service
+//			WHMService service
 
 	){
 		return args -> {
