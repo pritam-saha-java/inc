@@ -185,11 +185,9 @@ public class Application {
 //
 //			log.error(String.valueOf(file.isFile()));
 //			MultipartFile multipartFile = new MockM
-
 //		log.info("download started");
 //		boolean isDownloaded = service.downloadFile("src/main/resources/index.html","/inctest/index.html");
 //		log.info("download result"+isDownloaded);
-
 
 		};
 	}
