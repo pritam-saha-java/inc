@@ -91,7 +91,7 @@ font-weight: 900;
 line-height: 62px;
 letter-spacing: 0em;
 }
-.blue-bg{
+.blue-bg,.blue-bg-desktop{
     background-color: var(--blue);
    
 }
@@ -199,12 +199,42 @@ td>a{
 
 
  .header-icon-text{
-    display:block;
+    display:inline;
 }
 @media screen and (max-width: 1000px){
     .header-icon-text{
     display:none;
     }
+
+    .blue-bg-desktop{
+     background-color: transparent;
+    }
+
+    #hero-title{
+
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33px;
+
+
+    }
+    #hero-subtext{
+
+
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 31px;
+
+
+    }
+    .site-header{
+
+    padding-top:1% !important;
+    padding-bottom:1% !important;
+    }
+
+
 
 
 
