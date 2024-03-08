@@ -70,5 +70,8 @@ navToggle.addEventListener("click", function () {
     this.setAttribute("aria-expanded", "true");
     closeBtn.style.display = ''
     showBtn.style.display = 'none'
+   
   }
 });
+
+
