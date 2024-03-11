@@ -72,9 +72,11 @@ body {
     
 }
 
+
+
 #hero-section{
 
-background: url('https://incallup.com/server/assets/img/background.png') center no-repeat;
+background: url('https://localhost/server/assets/img/background.png') center no-repeat;
 max-height:auto;
 max-width: 1300px;
 background-size: fit;
@@ -218,6 +220,11 @@ td>a{
  .header-icon-text{
     display:inline;
 }
+
+.icon-pink{
+    color:var(--pink);
+}
+
 @media screen and (max-width: 1000px){
 
 
@@ -304,6 +311,8 @@ max-height:auto;
         margin-right: 0rem !important;
     }
   }
+
+
 
 #header-logo{
 

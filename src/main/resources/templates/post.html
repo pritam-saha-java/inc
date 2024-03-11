@@ -14,13 +14,22 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
+  <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
 
 
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
   <title>Post Page</title>
 
- 
+  <style>
+
+    *{
+    cursor: pointer;
+    }
+
+  </style>
 </head>
 
 <body  >
@@ -36,7 +45,7 @@
         <b class="col-2">Category *</b>
         <p class="col-3"></p>
       </label>
-      <select class="form-select row " hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
+      <select class="form-select row " hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
         <option selected>Select Category</option>
 
       </select>
@@ -79,8 +88,8 @@
         </div>
         <div class="row mb-3 justify-content-between">
           <div class="col-5">
-            <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#post-state" ><b>State * </b></label>
-            <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options"  hx-target="#post-city"   class="form-control site-input "  >
+            <label for="post-state" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#post-state" ><b>State * </b></label>
+            <select name="state" id="post-state" hx-get="https://localhost/app/get/city/options"  hx-target="#post-city"   class="form-control site-input "  >
             <option>select state</option>
             </select>
           </div>
