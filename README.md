@@ -1,4 +1,4 @@
-# InCallup
+# Inc
 
 API documentation is the [link](https://localhost/incallup/swagger/ui) format : https://{base-url}/incallup/swagger/ui
 
