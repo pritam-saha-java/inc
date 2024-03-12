@@ -42,20 +42,25 @@
   <!-- hero section start -->
   <div class="container px-4 mt-5  p-1 fw-bold fs-3 ">
     <a href="https://localhost/" class="row  rounded    site-link"> < Back To Search </a>
-    <div class="row mt-5 ">
-      <div class="col-2">
+    <div class="row mt-5 d-flex justify-content-start ">
+      <div class="col-1 ">
 
-        <i class="fa fa-home  border border-1 rounded-4 border-black p-1 icon-pink " aria-hidden="true"></i> >
+        <i class="fa fa-home  border border-1 rounded-4 border-black p-1 icon-pink " aria-hidden="true"></i>
 
       </div>
-      <div class="col-2 border border-1 rounded-4 "  >
-          <p th:text="${category.title}" >Category</p>
+      <div class="col-2 d-flex align-items-start justify-content-evenly "  >
+        <p  > > </p>
+        <p class="border border-1 rounded-4 px-1 text-center " th:text="${category.title}" >Category</p>
       </div>
+
+      <div th:if="${location!=null}" class="col-2 d-flex align-items-start justify-content-evenly ">
+        <p > > </p>
+        <p class="border border-1 rounded-4 px-1 text-center text-capitalize " th:text="${location.name}"></p> </div>
 
     </div>
 
 
-    <div class="row mt-5 " th:text="${location!=null?location.name:category.title}">location title</div>
+    <div class="row mt-5 text-capitalize " th:text="${location!=null?location.name:category.title}">location title</div>
 
   </div>
 
@@ -81,20 +86,21 @@
 
 
           <div class="col-6 container  ">
-            <div class="row  ">
-              <small class="col-3 fw-bold text-capitalize" th:text="${post.age!=null?post.age+' years':'22 years'}" >age</small>
-              <small class="col-1 fw-bold  ">|</small>
-              <small class="col-3 fw-bold text-capitalize" th:text="${category.title!=null?category.title:'category'}" >category</small>
-              <small class="col-1 fw-bold d-sm-none d-sm-inline d-lg-inline ">|</small>
-              <small class="col-3 fw-bold text-capitalize" th:text="${location!=null?location.district: post.location !=null?post.location.district:'location'}" >location</small>
+            <div class="row fw-bold text-capitalize " >
+              <div th:text=" ${post.age!=null?post.age+' years':'22 years'} + ' | ' + ${category.title!=null?category.title:'category'} + ' | ' +  ${location!=null?location.district: post.location !=null?post.location.district:'location'} " ></div>
+
+
+
+
+
             </div>
 
           </div>
           <div class="col-6 container">
             <div class="row d-flex justify-content-around align-items-end  px-5">
-              <p alt="contact link" class="col-1 px-auto  fs-3" th:onclick="location =  'tel:'+[[${post.contact}]];"><i class="fa fa-phone" aria-hidden="true"></i></p>
-              <p alt="whatsapp link" class="col-1 px-auto  fs-3" th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];" ><i class="fa fa-whatsapp" aria-hidden="true"></i></p>
-              <p alt="telegram link" class="col-1 px-auto fs-3" th:onclick="location = 'https://t.me/'+[[${post.contact}]];" ><i class="fa fa-telegram" aria-hidden="true"></i></p>
+              <p alt="contact link" class="col-1 px-auto  fs-3" th:onclick="location =  'tel:'+[[${post.contact}]];"><i class="fa fa-phone  " style="color: #BE206B;" aria-hidden="true"></i></p>
+              <p alt="whatsapp link" class="col-1 px-auto  fs-3" th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];" ><i class="fa fa-whatsapp p-1" style="background-color: #23B33A; color:white;" aria-hidden="true"></i></p>
+              <p alt="telegram link" class="col-1 px-auto fs-3" th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];" ><i class="fa fa-telegram" style="color: #33B1E3;" aria-hidden="true"></i></p>
 
 
             </div>
