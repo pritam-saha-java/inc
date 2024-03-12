@@ -78,28 +78,38 @@ private final ApplicationQueryService applicationQueryService;
 
         var postsByCategory = customerService.searchByCategory(category);
 
-//        List<Post> posts = customerService.searchByCategory(category);
-        List<Post> posts = new ArrayList<>();
-        posts.add(Post.builder()
-                        .age(16)
-                        .title("sample post title")
-                        .name("sample-post-title")
-                        .views(420)
-                        .contact("1001")
-                        .location(Location.builder().district("kolkata").state("West Bangal").build())
-                        .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
-                .build());
-        posts.add(Post.builder()
-                .age(69)
-                .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
-                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
-                        .title("lorem-ipsum")
-                .views(420)
-                .contact("3456789123")
-                .location(Location.builder().district("kolkata").state("West Bangal").build())
-                .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
-                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
-                .build());
+        List<Post> posts = customerService.searchByCategory(category);
+        if(posts.isEmpty()) {
+            posts = new ArrayList<>();
+            posts.add(Post.builder()
+                    .age(16)
+                    .title("sample post title")
+                    .name("sample-post-title")
+                    .views(420)
+                    .contact("123456789")
+                    .location(Location.builder().district("kolkata").state("West Bangal").build())
+                    .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                    .build());
+            posts.add(Post.builder()
+                    .age(69)
+                    .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
+                            "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                    .title("lorem-ipsum")
+                    .views(420)
+                    .contact("123456789")
+                    .location(Location.builder().district("kolkata").state("West Bangal").build())
+                    .description("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text   " +
+                            "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                    .build());
+        }
+
+//        posts.forEach(post -> {
+//
+//            post.setWhatsapp("https://api.whatsapp.com/send/?phone="+post.getContact());
+//            post.setTelegram("https://t.me/"+post.getContact());
+//            post.setCall("tel:"+post.getContact());
+//
+//        });
 
         modelAndView.addObject("posts",posts);
         modelAndView.addObject("category",applicationQueryService.getCategoryByName(category));

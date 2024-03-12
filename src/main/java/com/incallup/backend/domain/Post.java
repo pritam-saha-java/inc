@@ -75,6 +75,7 @@ public class Post {
     private Instant updatedAt;
 
 
+
     @Column(name = "post_is_blocked")
     private Boolean isBlocked  = false;
 }

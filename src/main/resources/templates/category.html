@@ -10,7 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
   <meta name="description" th:content="${category.description}">
   <meta name="keywords" th:content="${category.meta}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
@@ -22,6 +21,15 @@
   <title th:text="${category.title}">category</title>
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <style>
+
+
+    *{
+    cursor: auto;
+    }
+  </style>
 </head>
 
 <body >
@@ -52,39 +60,41 @@
   </div>
 
     <div class="container   my-5 ">
-      
 
-  <div class="card my-4  " th:each="post : ${posts}" th:onclick=" location = [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; "  >
+      <div th:if="${posts.isEmpty}">
+        <div class="h2 text-center text-danger">No posts Available &#128531;</div>
+      </div>
+  <div class="card my-4  " th:each="post : ${posts}"   >
     <div class="row g-0">
       <div class="col-md-4 col-sm-8 ">
         <img class="img-fluid d-lg-inline d-md-inline d-sm-block rounded-start rounded-4" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" >
       </div>
-      <div class="col-md-8 container">
-        <div class="card-body mt-4 row">
+      <div class="col-md-8 container pb-0">
+        <div class="card-body mt-4 row" th:onclick=" location = [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
           <h2 class="card-title fw-bold text-capitalize my-5 mb-5 text-pink fs-3" th:text="${post.title}" >Card title</h2>
           <p class="card-text mt-5" th:text="${post.description}" >
             This is a wider card with supporting text below as a natural lead-in 
             to additional content. This content is a little bit longer.
           </p>
         </div>
-        <div class="card-body row d-flex align-items-end mb-0">
+        <div class="px-2 row mt-5 pb-2  align-items-end">
 
 
           <div class="col-6 container  ">
-            <div class="row ">
-              <small class="col" th:text="${post.age!=null?post.age:'22'}" >age</small>
-              <small class="col ">|</small>
-              <small class="col" th:text="${category.title!=null?category.title:'category'}" >category</small>
-              <small class="col  ">|</small>
-              <small class="col" th:text="${location!=null?location.district: post.location !=null?post.location.district:'location'}" >location</small>
+            <div class="row  ">
+              <small class="col-3 fw-bold text-capitalize" th:text="${post.age!=null?post.age+' years':'22 years'}" >age</small>
+              <small class="col-1 fw-bold  ">|</small>
+              <small class="col-3 fw-bold text-capitalize" th:text="${category.title!=null?category.title:'category'}" >category</small>
+              <small class="col-1 fw-bold d-sm-none d-sm-inline d-lg-inline ">|</small>
+              <small class="col-3 fw-bold text-capitalize" th:text="${location!=null?location.district: post.location !=null?post.location.district:'location'}" >location</small>
             </div>
 
           </div>
           <div class="col-6 container">
-            <div class="row d-flex justify-content-end px-5">
-              <small alt="contact link" class="col-1 px-5  "><i class="fa fa-whatsapp"  aria-hidden="true"></i></small>
-              <small alt="whatsapp link" class="col-1 px-5  "><i class="bi bi-whatsapp"></i></small>
-              <small alt="telegram link" class="col-1 px-5 "><i class="bi bi-whatsapp"></i></small>
+            <div class="row d-flex justify-content-around align-items-end  px-5">
+              <p alt="contact link" class="col-1 px-auto  fs-3" th:onclick="location =  'tel:'+[[${post.contact}]];"><i class="fa fa-phone" aria-hidden="true"></i></p>
+              <p alt="whatsapp link" class="col-1 px-auto  fs-3" th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];" ><i class="fa fa-whatsapp" aria-hidden="true"></i></p>
+              <p alt="telegram link" class="col-1 px-auto fs-3" th:onclick="location = 'https://t.me/'+[[${post.contact}]];" ><i class="fa fa-telegram" aria-hidden="true"></i></p>
 
 
             </div>
