@@ -1,0 +1,332 @@
+
+body {
+  
+    overflow-x: hidden; 
+    padding: 0.5 px;
+    max-width:100%;
+    width : 100vw;
+
+
+    }
+
+:root {
+    --blue: #103652;
+    --pink : #BE206B;
+    --font:  Rubik;
+    --grey: #E3E3E3;
+    --light-pink: #FF0061;
+    --post: #C1B0B0;
+    
+
+  }
+
+  *{
+    cursor: url('../icons/cursor.png') 2 5,pointer;
+  }
+
+
+* {
+
+
+}
+
+.post-icon{
+    height: 1.5rem;
+    margin-left: 2%;
+}
+
+.grey-bg{
+
+    background-color: var(--grey);
+}
+
+    .site-font1{
+      
+        
+        font-family: Rubik;
+        font-size: 27px;
+        font-weight: 500;
+        line-height: 35px;
+        letter-spacing: 0em;
+        text-align: center;
+        
+
+    }
+
+
+
+
+
+
+.text-light-pink{
+    color: var(--light-pink);
+}
+.site-font{
+   
+    font-family: Rubik;
+    font-size: 27px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    text-align: left;
+    
+}
+
+
+
+#hero-section{
+
+background: url('https://localhost/server/assets/img/background.png') center no-repeat;
+max-height:auto;
+max-width: 1300px;
+background-size: fit;
+
+
+}
+.btn-secondary{
+    background: var(--grey);
+    color: black;
+
+}
+.btn-outline-secondary{
+    border-color: var(--grey);
+    
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+.site-title{
+font-family: Rubik;
+font-size: 48px;
+font-weight: 900;
+line-height: 62px;
+letter-spacing: 0em;
+}
+.blue-bg,.blue-bg-desktop{
+    background-color: var(--blue);
+   
+}
+
+.text-pink{
+    color: var(--pink);
+}
+button.btn:hover{
+    background-color: var(--blue);
+    color:var(--light-pink);
+}
+#hero-title{
+    
+font-family: Rubik;
+font-size: 64px;
+font-weight: 700;
+line-height: 83px;
+letter-spacing: 0em;
+padding-top: 5rem;
+
+
+}
+.site-border{
+  
+    border: 0.2rem solid var(--pink);
+    border-bottom-width: 0.3rem;
+   
+}
+#imp-link{
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 83px;
+}
+#hero-bg{
+    height: auto;
+    width: auto;
+    background-color: #ffffffb6;
+    background-size: cover;
+    padding-bottom: 3%;
+}
+
+.site-text{
+font-family: Rubik;
+font-size: 36px;
+font-weight: 500;
+line-height: 61px;
+letter-spacing: 0em;
+}
+
+#footer-pink , .bg-pink{
+    background-color: var(--pink);
+}
+
+td>a{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+}
+
+.my-icon{
+    max-height: 30px;
+
+}
+.bg-pink{
+    background-color: var(--pink);
+  }
+
+  #copyright{
+        text-align: center;
+  }
+
+  .category-text{
+    border: 2px solid black;
+    border-radius: 10px;
+  }
+
+
+
+
+  .sButton{
+    background-color: var(--pink);
+    color: var(--grey);
+    width: 150px;
+  }
+  .sButton:hover{
+    color: var(--grey);
+  }
+
+  #myModal{
+  position:absolute;
+  top: 50%;
+  }
+
+
+
+
+  .post>div>input , .post>div>select , .post>div>textarea ,.site-input{
+    background-color: var(--post);
+  
+  }
+
+  .blue-border-primary{
+  border-color:var(--blue)!important;
+
+  }
+
+  .post{
+   
+    margin: auto 20%;
+    padding: 1%;
+  }
+
+
+ .header-icon-text{
+    display:inline;
+}
+
+.icon-pink{
+    color:var(--pink);
+}
+
+@media screen and (max-width: 1000px){
+
+
+#hero-section{
+
+background: transparent;
+max-height:auto;
+
+
+
+}
+
+
+    .site-font{
+            font-size: 15px;
+            font-weight: 400;
+            line-height: 15px;
+        }
+
+    .header-icon-text{
+    display:none;
+    }
+
+    .blue-bg-desktop{
+     background-color: transparent;
+    }
+    .blue-bg-desktop:hover{
+     background-color: transparent!important;
+
+    }
+
+    #hero-title{
+
+
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 33px;
+    padding-top: 0.5rem;
+
+
+    }
+    #hero-subtext{
+
+
+    font-size: 13px;
+    font-weight: 200;
+    line-height: 31px;
+
+
+    }
+
+
+    .site-header{
+
+    padding-top:1% !important;
+    padding-bottom:1% !important;
+    }
+
+
+
+
+
+
+
+}
+
+
+  .plus-icon {
+    font-size: 50px; 
+    /* Adjust font size as needed */
+    color: var(--blue); /* Change icon color */
+    /* background-color: var(--post); */
+     /* Change icon background color */
+   
+    
+    /* Adjust padding to fit icon size */
+  }
+
+  .input-row{
+    margin-bottom: 0.2rem;
+    label{
+        border: 3px solid var(--blue);
+        border-right: 0.12rem!important;
+        margin-right: 0rem !important;
+    }
+  }
+
+
+
+#header-logo{
+
+
+  width: 100%!important;
+  max-width: 400px!important;
+  height: auto!important;
+
+}
+/*
+@media only screen and (max-width: 600px) {
+  #header-logo {
+    height: 10px;
+
+  }
+}
+*/

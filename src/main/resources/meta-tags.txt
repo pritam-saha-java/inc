@@ -1,0 +1,12 @@
+These are the meta tags required for
+<meta charset="UTF-8">
+<title>Crux Coffee Roasters - Online Store</title>
+<meta name="description" content="Order online from Crux Coffee Roasters with secure payment options and seamless online shopping experience.">
+<meta property="og:title" content="Crux Coffee Roasters - Online Store">
+<meta property="og:image" itemprop="image" content="https://dukaan.b-cdn.net/1000x1000/webp/6004340/ffba3fde-3592-4385-b911-8a4307cccc04/crux-coffee-roaster-05-0b9679b5-6805-4d38-94ba-19f7a2b8aed9.png">
+<meta property="og:description" content="Order online from Crux Coffee Roasters with secure payment options and seamless online shopping experience.">
+<meta property="og:type" content="website">
+<meta property="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Crux Coffee Roasters - Online Store">
+<meta name="twitter:description" content="Order online from Crux Coffee Roasters with secure payment options and seamless online shopping experience.">
+<meta property="twitter:image" content="https://dukaan.b-cdn.net/1000x1000/webp/6004340/ffba3fde-3592-4385-b911-8a4307cccc04/crux-coffee-roaster-05-0b9679b5-6805-4d38-94ba-19f7a2b8aed9.png">
