@@ -71,8 +71,8 @@
       </div>
   <div class="card my-4  " th:each="post : ${posts}"   >
     <div class="row g-0">
-      <div class="col-md-4 col-sm-8 ">
-        <img class="img-fluid d-lg-inline d-md-inline d-sm-block rounded-start rounded-4" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" >
+      <div class="col-md-4 col-sm-12 ">
+        <img class="img-fluid  h-100  w-100 rounded-start rounded-4" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" >
       </div>
       <div class="col-md-8 container pb-0">
         <div class="card-body mt-4 row" th:onclick=" location = [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >

@@ -135,8 +135,7 @@ private final ApplicationQueryService applicationQueryService;
                 .build());
         posts.add(Post.builder()
                 .age(29)
-                .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
-                        "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
+                .title("123456789012345")
                 .views(420)
                 .contact("123456789")
                 .location(Location.builder().district("kolkata").state("West Bangal").build())

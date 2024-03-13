@@ -33,7 +33,6 @@ public class Application {
 //			, SellerRepository sellerRepository,
 //			LocationRepository locationRepository,
 //			WHMService service
-
 	){
 		return args -> {
 //			/*
