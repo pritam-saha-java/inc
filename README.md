@@ -1,18 +1,12 @@
-# InCallup
+
+# Inc
 
 
+API documentation is the [link](https://localhost/incallup/swagger/ui) format : https://{base-url}/incallup/swagger/ui
+
+### branching strategy 
+feature branch ----> testing branch ----> staging branch ----> main branch (production branch)
 
 
-API documentation is the [link](https://localhost/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
-
-port number : 443
-
-fix post page footer
-
-
-
-
-signup link should be domain/register
-login link should be domain/login
-
+		
 
