@@ -91,7 +91,7 @@ private final ApplicationQueryService applicationQueryService;
                     .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
                     .build());
             posts.add(Post.builder()
-                    .age(69)
+                    .age(29)
                     .title("Lorem Ipsum Dummy TextLorem Ipsum Dummy Text Dummy Text  " +
                             "Text Lorem Ipsum Dummy TextLorem Ipsum Dummy ")
                     .title("lorem-ipsum")
