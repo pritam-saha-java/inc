@@ -1,0 +1,60 @@
+
+
+
+
+
+
+
+
+
+<div  th:each=" category : ${categories}" class="d-grid bg-secondary-subtle mx-1  mt-2 border border-2  rounded-2 row " th:onclick="showCategory([[${category.name}]]+'-btn',[[${category.name}]]+'-bar');" >
+    <div class=" site-font container text-center py-2 " >
+        <div class="row justify-content-between  ">
+            <div class=" col text-start " th:text="${category.title}">Camera</div>
+            <span class="  col-1 px-1 " th:attr="id=${category.name+'-btn'}"
+        > &#11166; </span>
+        </div>
+    </div>
+    <div class="h-1  container category-text-bar  "  th:attr="id=${category.name+'-bar'}" >
+        <hr class="mb-0 mx-0 ">
+        <div class="row pt-2 bg-white rounded-2 px-2 ">
+            <div class="col-md-4 col-lg-6 col-sm-4" th:text="${category.description}">
+                Category text
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nihil autem neque eum, aspernatur ea blanditiis
+                consequatur accusamus fugiat in dolor
+            </div>
+
+
+                    <div class="col table-responsive ">
+                        <table class="table location-table ">
+                            <tbody>
+                            <tr>
+                                <td ><a th:href="${'/'+category.name+'/thane'}">Thane</a></td>
+                                <td><a th:href="${'/'+category.name+'/pune'}">Pune</a></td>
+                                <td><a th:href="${'/'+category.name+'/central-delhi'}">Central Delhi</a></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="${'/'+category.name+'/hyderabad'}">Hyderabad</a></td>
+                                <td><a th:href="${'/'+category.name+'/kolkata'}">Kolkata</a></td>
+                                <td><a th:href="${'/'+category.name+'/east-delhi'}">East Delhi</a></td>
+                            </tr>
+                            <tr>
+                                <td><a th:href="${'/'+category.name+'/bhopal'}" >Bhopal</a></td>
+                                <td><a th:href="${'/'+category.name+'/south-delhi'}">South Delhi</a></td>
+                                <td><a th:href="${'/'+category.name+'/khorda'}">Khordha</a></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+        </div>
+    </div>
+</div>
+<script>
+    var defaultRules = document.getElementsByClassName('category-text-bar');
+  for (const iterator1 of defaultRules) {
+      iterator1.style.display = 'none';
+  }
+
+</script>

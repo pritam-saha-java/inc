@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+  <link rel="icon" type="image/png" href="/server/assets/img/logo.png"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
+  <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
+
+
+  <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <title>Post Page</title>
+
+  <style>
+
+    *{
+    cursor: pointer;
+    }
+
+  </style>
+</head>
+
+<body  >
+
+
+
+<div th:replace="dashboard.html :: siteSearch"></div>
+<div th:replace="dashboard.html :: siteHeader"></div>
+  <!-- hero section start -->
+  <form class=" my-2 post" method="post">
+    <div class="mb-3 container ">
+      <label for="exampleInputEmail1"  class="form-label row d-flex justify-content-between  ">
+        <b class="col-2">Category *</b>
+        <p class="col-3"></p>
+      </label>
+      <select class="form-select row " hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
+        <option selected>Select Category</option>
+
+      </select>
+
+    </div>
+    <div class="mb-3 container">
+      <label for="exampleInputEmail1" class="form-label row d-flex justify-content-between ">
+        <b class="col-2">Ad Title *</b>
+        <p class="col-3">15 Characters required</p>
+      </label>
+      <input type="text" class="form-control site-input row" id="postTitle" placeholder="Enter Title Text Here">
+    </div>
+    <div class="mb-3 container">
+      <label for="exampleInputEmail1" class="form-label row d-flex justify-content-between ">
+        <b class="col-2">Description *</b>
+        <p class="col-3">50 Characters required</p>
+      </label>
+      <textarea type="text" class="form-control site-input row " id="postDescription" rows="5"></textarea>
+    </div>
+    <div class=" container">
+        <div class="row mb-3 d-flex justify-content-between">
+          <div class="col-5">
+            <label for="exampleInputEmail1" class="form-label"><b>Phone *</b></label>
+            <input type="tel" class="form-control site-input " id="postTitle" placeholder="Enter Phone Number" >
+          </div>
+          <div class="col-1 text-center">
+            <br>
+            <input type="checkbox" class="form-check-input site-input " id="whatsapp">
+            <img th:src="@{/server/assets/img/whatsapp.png} " alt="WhatsApp" class="post-icon"></img>
+          </div>
+          <div class="col-1 text-center">
+            <br>
+            <input type="checkbox" class="form-check-input site-input " id="telegram">
+            <img th:src="@{/server/assets/img/telegram.png}" alt="Telegram" class="post-icon"></img>
+          </div>
+          <div class="col-5">
+            <label for="exampleInputEmail1" class="form-label"><b>Your Age *</b></label>
+            <input type="number" class="form-control site-input" id="postTitle" placeholder="Age">
+          </div>
+        </div>
+        <div class="row mb-3 justify-content-between">
+          <div class="col-5">
+            <label for="post-state" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#post-state" ><b>State * </b></label>
+            <select name="state" id="post-state" hx-get="https://localhost/app/get/city/options"  hx-target="#post-city"   class="form-control site-input "  >
+            <option>select state</option>
+            </select>
+          </div>
+          <div class="col-5">
+            <label for="post-city"><b>City * </b></label>
+            <select name="city" id="post-city"  class="form-control site-input"  >
+
+            </select>
+          </div>
+        </div>
+        <div class="row my-4 " >
+            <label for="image-input" class="site-input py-4 col mx-2 text-center">
+              <div class="image-container ">
+                <span class="plus-icon">+</span>
+
+              </div>
+              <span class="p-1">Maximum Image Size 5 MB</span>
+              <input type="file" id="image-input" accept="image/*" hidden>
+            </label>
+            <label for="image-input" class="site-input py-4 col mx-2 text-center">
+              <div class="image-container ">
+                <span class="plus-icon">+</span>
+
+              </div>
+              <span class="p-1">Maximum Image Size 5 MB</span>
+              <input type="file" id="image-input" accept="image/*" hidden>
+            </label>
+
+        </div>
+    </div>
+
+    <div class="mb-3 form-check text-center row d-flex justify-content-center ">
+      <div class="col-1"><input type="checkbox" class="form-check-input  site-input" id="exampleCheck1"></div>
+
+        <label class="form-check-label col-5" for="exampleCheck1">By Clicking Publish You Accept Our <b><a href="terms.html" class="text-pink">Terms & Condition</a></b></label>
+
+    </div>
+    <div class="row d-flex justify-content-center ">
+      <button  class="btn btn-primary w-25 bg-pink mx-3 px-2">Next</button>
+    </div>
+  </form>
+<div th:replace="dashboard.html :: siteFooter"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+</script>
+<script th:src="@{/server/assets/scripts/main.js}"></script>
+<script th:src="@{/server/assets/scripts/common.js}"></script>
+</body>
+</body>
+
+</html>
