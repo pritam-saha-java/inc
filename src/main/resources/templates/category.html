@@ -40,22 +40,22 @@
   <div th:replace="dashboard.html :: siteHeader"></div>
 
   <!-- hero section start -->
-  <div class="container px-4 mt-5  p-1 fw-bold fs-3 ">
+  <div class="container px-4 mt-5  p-1 fw-bold fs-3  ">
     <a href="https://localhost/" class="row  rounded    site-link"> < Back To Search </a>
-    <div class="row mt-5 d-flex justify-content-start ">
-      <div class="col-1 ">
+    <div class="row  grid mt-5 d-flex justify-content-start ">
+      <div class="g-col-1 col  d-flex align-items-start justify-content-start ">
 
         <i class="fa fa-home  border border-1 rounded-4 border-black p-1 icon-pink " aria-hidden="true"></i>
 
       </div>
-      <div class="col-2 d-flex align-items-start justify-content-evenly "  >
+      <div class="g-col-2 g-col-sm-3 col  d-flex align-items-start justify-content-start  "  >
         <p  > > </p>
         <p class="border border-1 rounded-4 px-1 text-center " th:text="${category.title}" >Category</p>
       </div>
 
-      <div th:if="${location!=null}" class="col-2 d-flex align-items-start justify-content-evenly ">
-        <p > > </p>
-        <p class="border border-1 rounded-4 px-1 text-center text-capitalize " th:text="${location.name}"></p> </div>
+      <div th:if="${location!=null}" class="g-col-2 g-col-sm-3 col d-flex align-items-start justify-content-start  ">
+        <p  > > </p>
+        <p class="border border-1 rounded-4 px-1 text-center text-capitalize  " th:text="${location.name}"></p> </div>
 
     </div>
 
@@ -72,10 +72,10 @@
   <div class="card my-4  " th:each="post : ${posts}"   >
     <div class="row g-0">
       <div class="col-md-4 col-sm-12 ">
-        <img class="img-fluid  h-100  w-100 rounded-start rounded-4" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" >
+        <img class="img-fluid  h-100  w-100 rounded-start rounded-4" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
       </div>
       <div class="col-md-8 container pb-0">
-        <div class="card-body mt-lg-4 mt-sm-1 row" th:onclick=" location = [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+        <div class="card-body mt-lg-4 mt-sm-1 row" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
           <h2 class="card-title fw-bold text-capitalize my-lg-5 my-sm-1  text-pink fs-3" th:text="${post.title}" >Card title</h2>
           <p class="card-text my-lg-5 my-md-5 my-sm-1 " th:text="${post.description}" >
             This is a wider card with supporting text below as a natural lead-in 
@@ -87,7 +87,7 @@
 
           <div class="col-6 container  ">
             <div class="row fw-bold text-capitalize " >
-              <div class="fs-6" th:text=" ${post.age!=null?post.age+' years':'22 years'} + ' | ' + ${category.title!=null?category.title:'category'} + ' | ' +  ${location!=null?location.district: post.location !=null?post.location.district:'location'} " ></div>
+              <div class="fs-6 site-card" th:text=" ${post.age!=null?post.age+' years':'22 years'} + ' | ' + ${category.title!=null?category.title:'category'} + ' | ' +  ${location!=null?location.district: post.location !=null?post.location.district:'location'} " ></div>
 
 
 
@@ -97,10 +97,10 @@
 
           </div>
           <div class="col-6 container">
-            <div class="row d-flex justify-content-around align-items-end  px-5">
-              <p alt="contact link" class="col-1 px-auto  fs-3" th:onclick="location =  'tel:'+[[${post.contact}]];"><i class="fa fa-phone  " style="color: #BE206B;" aria-hidden="true"></i></p>
-              <p alt="whatsapp link" class="col-1 px-auto  fs-3" th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];" ><i class="fa fa-whatsapp p-1" style="background-color: #23B33A; color:white;" aria-hidden="true"></i></p>
-              <p alt="telegram link" class="col-1 px-auto fs-3" th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];" ><i class="fa fa-telegram" style="color: #33B1E3;" aria-hidden="true"></i></p>
+            <div class="row d-flex justify-content-around align-items-end  px-lg-5 px-md-5 px-sm-2">
+              <p alt="contact link" class="col  " th:onclick="location.href =  'tel:'+[[${post.contact}]];"><i class="fa fa-phone p-1 " style="color: #BE206B;" aria-hidden="true"></i></p>
+              <p alt="whatsapp link" class="col   " th:onclick="location.href = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];" ><i class="fa fa-whatsapp p-1" style="background-color: #23B33A; color:white;" aria-hidden="true"></i></p>
+              <p alt="telegram link" class="col  " th:onclick="location.href = 'https://t.me/+91'+[[${post.contact}]];" ><i class="fa fa-telegram p-1 " style="color: #33B1E3;" aria-hidden="true"></i></p>
 
 
             </div>

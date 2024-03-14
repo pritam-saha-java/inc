@@ -38,7 +38,7 @@
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <i class="fas fa-search mx-2 "></i>
+            <i class="fas fa fa-search mx-2 "></i>
             Search
 
           </h4>
@@ -52,14 +52,14 @@
         <div class="modal-body container">
           <div class="row">
             <div class="col">
-              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
+              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select  form-select-lg mb-3" aria-label="Large select example">
                 <option selected>Choose Category</option>
 
               </select>
 
             </div>
             <div class="col" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#states" >
-              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
+              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities"  class="form-select  form-select-lg mb-3" aria-label="Select text">
                 <option selected>Choose State</option>
 
               </select>
@@ -93,7 +93,7 @@
               <div class="col-6 text-center  ">
                 <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
 
-                  <i class="fas fa-search mx-2 "></i>
+                  <i class="fas fa fa-search mx-2 "></i>
 
                   Search
               </button>
@@ -134,11 +134,11 @@
 
       <button type="button"  class=" text-light btn blue-bg-desktop site-font1 py-1 px-3  fs-5 " aria-label="Search" data-bs-toggle="modal"
                data-bs-target="#myModal" >
-        <i class="fas fa-search mx-2"></i>
+        <i class="fas fa fa-search mx-2"></i>
         <p class="header-icon-text " >Search</p>
       </button>
       <button class="nav__toggle py-2 px-3  btn blue-bg-desktop text-light" title="menu"  aria-expanded="false" type="button">
-        <i class="fas fa-bars" aria-hidden="true"  id="menu-one"></i>
+        <i class="fas fa fa-bars" aria-hidden="true"  id="menu-one"></i>
         <i class="fa fa-times" aria-hidden="true" id="menu-two" style="display:none;"></i>
       </button>
     </div>

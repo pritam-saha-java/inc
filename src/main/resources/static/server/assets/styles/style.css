@@ -322,6 +322,18 @@ max-height:auto;
   height: auto!important;
 
 }
+
+@media screen and (max-width: 500px){
+        .site-card{
+
+         font-size: 10px!important;
+
+        }
+
+
+       }
+
+
 /*
 @media only screen and (max-width: 600px) {
   #header-logo {
