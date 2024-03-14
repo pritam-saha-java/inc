@@ -118,7 +118,16 @@ private final ApplicationQueryService applicationQueryService;
         return modelAndView;
     }
 
-
+    @GetMapping("/register")
+    public ModelAndView Create(ModelAndView modelAndView){
+        modelAndView.setViewName("create.html");
+        return modelAndView;
+    }
+    @GetMapping("/login")
+    public ModelAndView login(ModelAndView modelAndView){
+        modelAndView.setViewName("login.html");
+        return modelAndView;
+    }
 
     @GetMapping("{category}/{location}")
     public ModelAndView Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location, ModelAndView modelAndView) throws ApplicationException{

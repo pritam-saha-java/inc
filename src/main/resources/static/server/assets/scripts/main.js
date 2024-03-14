@@ -27,10 +27,10 @@ function showCategory(button,categoryBody){
     let boolean = category.style.display==='none'?true:false;
      if(boolean){
         category.style.display = ''
-        showButton.innerHTML =  '&#11165;'
+        showButton.innerHTML =  '&#xf106;'
     }else{
         category.style.display = 'none'
-        showButton.innerHTML =  '&#11166;'
+        showButton.innerHTML =  '&#xf105;'
 
      }
    
