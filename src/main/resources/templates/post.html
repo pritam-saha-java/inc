@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" >
 
 <head>
   <meta charset="UTF-8"/>
@@ -39,7 +39,7 @@
 <div th:replace="dashboard.html :: siteSearch"></div>
 <div th:replace="dashboard.html :: siteHeader"></div>
   <!-- hero section start -->
-  <form class=" my-2 post" method="post">
+  <form class=" my-2 post" th:action="https://localhost/seller" method="post">
     <div class="mb-3 container ">
       <label for="exampleInputEmail1"  class="form-label row d-flex justify-content-between  ">
         <b class="col-2">Category *</b>
