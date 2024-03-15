@@ -36,8 +36,12 @@ server:
 #    mime-types: text/xml , text/css , text/html , application/json
     min-response-size: 4096
 spring:
-#  devtools:
-#    restart:
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src
 #      additional-paths: src/main/resources/static , src/main/resources/templates
   application:
     name: incallup
