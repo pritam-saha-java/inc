@@ -52,7 +52,7 @@ public class Post {
     private String description;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @ToString.Exclude
     private Category category;
 

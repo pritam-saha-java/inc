@@ -169,9 +169,15 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         }
 
 
-        var category =  categoryRepository.findCategoryByName(post.getCategory().getName());
-        category.ifPresent(post::setCategory);
+        var categoryOptional =  categoryRepository.findCategoryByName(post.getCategory().getName());
+        categoryOptional.ifPresent(post::setCategory);
+
         postRepository.save(post);
+        var category = categoryOptional.get();
+        List<Post> posts = category.getPosts();
+        posts.add(post);
+        category.setPosts(posts);
+        categoryRepository.save(category);
     }
 
 

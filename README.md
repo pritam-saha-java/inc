@@ -15,4 +15,6 @@ fix post page footer
 signup link should be domain/register
 login link should be domain/login
 
+to do - add validations for post form
+
 
