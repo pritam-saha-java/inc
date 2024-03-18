@@ -80,6 +80,9 @@ public class Post {
     @Column(length = 100000)
     private byte[] imageData2;
 
+    @Transient
+    private String byteString;
+
     @Column(name = "post_is_blocked")
     private Boolean isBlocked  = false;
 }

@@ -12,10 +12,10 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Optional;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.util.*;
+import java.util.zip.Inflater;
 
 @Service
 @RequiredArgsConstructor
@@ -59,9 +59,40 @@ public class CustomerServiceImpl implements CustomerService {
                     .build();
         }
         var categoryObj = categoryOptional.get();
+        var posts = categoryObj.getPosts();
+        posts.forEach((post -> {
 
-       return categoryObj.getPosts();
+            var imageData1 = post.getImageData1();
+            var realImageData = decompress(imageData1);
+            post.setImageData1(realImageData);
+            String byteString = convertByteArrayToBase64(realImageData);
+            post.setByteString(byteString);
+            System.out.println("this is post image"+byteString);
+        }));
+       return posts;
 
+    }
+
+    public String convertByteArrayToBase64(byte[] byteArray) {
+        return Base64.getEncoder().encodeToString(byteArray);
+    }
+    public  byte[] decompress(byte[] compressedData)  {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(compressedData);
+        Inflater inflater = new Inflater();
+        byte[] buffer = new byte[1024];
+        try {
+            inflater.setInput(compressedData);
+            while (!inflater.finished()) {
+                int count = inflater.inflate(buffer);
+                outputStream.write(buffer, 0, count);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            inflater.end();
+        }
+        return outputStream.toByteArray();
     }
 
     @Override

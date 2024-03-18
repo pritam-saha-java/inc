@@ -87,6 +87,7 @@ private final ApplicationQueryService applicationQueryService;
         var postsByCategory = customerService.searchByCategory(category);
 
         List<Post> posts = customerService.searchByCategory(category);
+
         if(posts.isEmpty()) {
             posts = new ArrayList<>();
             posts.add(Post.builder()
