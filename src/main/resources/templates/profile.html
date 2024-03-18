@@ -18,8 +18,6 @@
     <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
     <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
 
-
-  <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
  
   <title>Seller Profile</title>
@@ -67,7 +65,7 @@
           <svg class="p-1 col" id=https://localhost="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
             <path d="M28 16 L8 16 M20 8 L28 16 20 24 M11 28 L3 28 3 4 11 4" />
           </svg>
-          <p onclick="location = 'https://localhost/seller/end' " class="col">Log Out</p>
+          <a href="https://localhost/seller/end" class="col text-white">Log Out</a>
         
         </span>
       </div>
@@ -93,25 +91,28 @@
             <div class="row">
               <hr>
             </div>
-            <div class="row px-3 input-row">
-              <label class="col-2  mx-1 text-center text-dark  site-input" for="">User Name</label>
-              <input class="col-3 site-input" type="text" placeholder="username" >
-              <button class="col-2 blue-bg mx-1 text-light">Change</button>
+            <div class="row my-3">
+                <div style="width:auto;" class="col-2 ml-3 p-2 blue-bg mx-1 text-light rounded-top-left-1 rounded-bottom-right-1">Profile</div>
             </div>
-            <div class="row px-3 input-row">
-              <label class="col-2  mx-1 text-center text-dark  site-input" for="">Email</label>
-              <input class="col-3 site-input" type="text" placeholder="user@email.com" >
-              <button class="col-2 blue-bg mx-1 text-light">Change</button>
+            <div class="row my-3 px-3 input-row">
+              <label class="col-2  mx-1 text-center text-dark  site-input rounded-bottom-left-1   " for="username">User Name</label>
+              <input class="col-3 site-input rounded-top-right-1" type="text" placeholder="username" id="username" >
+              <button style="width:auto;" class="col-2 blue-bg mx-2 text-light rounded-top-left-1 rounded-bottom-right-1">Change</button>
             </div>
-            <div class="row px-3 input-row">
-              <label class="col-2  mx-1 text-center text-dark  site-input" for="">Phone</label>
-              <input class="col-3 site-input" type="tel" placeholder="123456789" >
-              <button class="col-2 blue-bg mx-1 text-light">Change</button>
+            <div class="row my-3 px-3 input-row">
+              <label class="col-2  mx-1 text-center text-dark rounded-bottom-left-1  site-input" for="email">Email</label>
+              <input class="col-3 site-input rounded-top-right-1  " type="text" placeholder="user@email.com" id="email">
+              <button style="width:auto;" class="col-2 blue-bg mx-2 text-light rounded-top-left-1 rounded-bottom-right-1">Change</button>
             </div>
-            <div class="row px-3 input-row">
-              <label class="col-2  mx-1 text-center text-dark  site-input" for="">Password</label>
-              <input class="col-3 site-input"  type="password" placeholder="********" >
-              <button class="col-2 blue-bg mx-1 text-light">Change</button>
+            <div class="row my-3 px-3 input-row">
+              <label class="col-2  mx-1 text-center rounded-bottom-left-1  text-dark  site-input" for="contact">Phone</label>
+              <input class="col-3 site-input rounded-top-right-1 " type="tel" placeholder="123456789" name="contact" id="contact">
+              <button style="width:auto;" class="col-2 blue-bg mx-2 text-light rounded-top-left-1 rounded-bottom-right-1">Change</button>
+            </div>
+            <div class="row my-3 px-3 input-row">
+              <label class="col-2  mx-1 text-center rounded-bottom-left-1  text-dark  site-input" for="password">Password</label>
+              <input class="col-3 site-input rounded-top-right-1 "  type="password" placeholder="*******" name="password" id="password">
+              <button style="width:auto;" class="col-2 blue-bg mx-2 text-light rounded-top-left-1  rounded-bottom-right-1 ">Change</button>
             </div>
 
 
@@ -129,8 +130,8 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
   </script>
-  <script src="../static/server/assets/scripts/main.js"></script>
-  <script src="../static/server/assets/scripts/common.js"></script>
+  <script src="https://localhost/server/assets/scripts/main.js"></script>
+  <script src="https://localhost/server/assets/scripts/common.js"></script>
 </body>
 
 </html>

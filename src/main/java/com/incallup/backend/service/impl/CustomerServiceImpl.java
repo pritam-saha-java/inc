@@ -45,6 +45,11 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public List<Post> searchByCategory(String category) throws ApplicationException{
+
+
+
+
+
         Optional<Category> categoryOptional = categoryRepository.findCategoryByName(category.trim());
         if(categoryOptional.isEmpty()){
             throw ApplicationException.builder()

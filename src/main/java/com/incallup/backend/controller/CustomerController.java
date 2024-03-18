@@ -76,6 +76,14 @@ private final ApplicationQueryService applicationQueryService;
             return null;
 
 
+        var customPages = List.of("blogs", "contact","terms","privacy","faq");
+        if (customPages.contains(category)){
+            modelAndView.setViewName("site-"+category);
+            return modelAndView;
+        }
+
+
+
         var postsByCategory = customerService.searchByCategory(category);
 
         List<Post> posts = customerService.searchByCategory(category);

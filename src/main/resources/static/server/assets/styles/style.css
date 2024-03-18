@@ -72,7 +72,18 @@ body {
     
 }
 
-
+.rounded-top-left-1 {
+    border-top-left-radius: 1rem;
+}
+.rounded-top-right-1 {
+    border-top-right-radius: 1rem;
+}
+.rounded-bottom-left-1 {
+    border-bottom-left-radius: 1rem;
+}
+.rounded-bottom-right-1 {
+    border-bottom-right-radius: 1rem;
+}
 
 #hero-section{
 
@@ -200,9 +211,13 @@ td>a{
 
 
 
-  .post>div>input , .post>div>select , .post>div>textarea ,.site-input{
+  .post>div>input , .post>div>select , .post>div>textarea {
     background-color: var(--post);
   
+  }
+
+  .site-input{
+  background-color:#D9D9D9;
   }
 
   .blue-border-primary{
