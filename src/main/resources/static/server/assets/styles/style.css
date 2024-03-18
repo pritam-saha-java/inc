@@ -224,8 +224,17 @@ td>a{
 .icon-pink{
     color:var(--pink);
 }
+.text-animate{
+        font-size:2rem!important;
+
+    }
 
 @media screen and (max-width: 1000px){
+
+    .text-animate{
+        font-size:1.5rem!important;
+
+    }
 
 
 #hero-section{
@@ -324,6 +333,7 @@ max-height:auto;
 }
 
 @media screen and (max-width: 500px){
+
         .site-card{
 
          font-size: 10px!important;
@@ -342,3 +352,8 @@ max-height:auto;
   }
 }
 */
+
+#sentenceTarget {
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}

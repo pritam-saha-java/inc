@@ -88,7 +88,7 @@ private final ApplicationQueryService applicationQueryService;
                     .views(420)
                     .contact("123456789")
                     .location(Location.builder().district("kolkata").state("West Bangal").build())
-                    .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                    .description("did not put any description because this girl cannot be described in words ")
                     .build());
             posts.add(Post.builder()
                     .age(29)
@@ -141,7 +141,7 @@ private final ApplicationQueryService applicationQueryService;
                 .views(420)
                 .contact("123456789")
                 .location(Location.builder().district("kolkata").state("West Bangal").build())
-                .description("did not put any description because this girl cannot be described in words and I don't get paid for enough also")
+                .description("did not put any description because this girl cannot be described in words ")
                 .build());
         posts.add(Post.builder()
                 .age(29)

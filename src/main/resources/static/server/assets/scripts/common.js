@@ -9,12 +9,14 @@ if(!sitePopup){
 
 
 
-const popupText = "<small class ='row d-flex align-items-center ' > <p class ='col-11 text-center ' >Lorem ipsum dolor sit amenLorem ipsum dolor sit amen</p>   <b class ='col-1 ' id='closeButton' > x </b> </small>";
+const popupText = "<div class ='row d-flex align-items-center  ' > <p class ='col-11 text-center  ' id='sentenceTarget' >This is target sentence </p>   <b class ='col-1 ' id='closeButton' > x </b> </div>";
 const popup = 'popup';
 var body = document.body;
 var title = document.createElement('div');
 title.classList.add('container');
 title.classList.add('lh-1');
+title.classList.add('text-animate');
+
 title.classList.add('mb-0');
 title.classList.add('text-light-pink');
 // title.classList.add('text-center');
@@ -73,5 +75,46 @@ navToggle.addEventListener("click", function () {
    
   }
 });
+const sentences = [
+  "We Advise People Not To Send Money Upfront.",
+  "Incallup Is Not An Escort Service.",
+  "We Are Safe Dating Website.",
+  "Please Be Aware Of URLs That Do Not Take You To Incallup Page."
+];
 
+const targetDiv = document.getElementById("sentenceTarget");
 
+const displaySentences = () => {
+  let index = 0;
+
+  const displayNextSentence = () => {
+    const sentence = sentences[index];
+
+    // Slide out animation for the existing content
+    targetDiv.style.transform = 'translateY(-100%)';
+
+    // Wait for the slide out animation to complete before updating content
+    setTimeout(() => {
+      targetDiv.textContent = sentence;
+
+      // Slide in animation for the new content
+      setTimeout(() => {
+        targetDiv.style.transform = 'translateY(0)';
+      }, 50); // Adding a slight delay before slide in animation
+
+      index++;
+
+      // Reset index if it exceeds the length of the array
+      if (index >= sentences.length) {
+        index = 0;
+      }
+
+      // Continue the loop
+      setTimeout(displayNextSentence, 2000);
+    }, 500); // Wait for slide out animation to complete (matching CSS transition duration)
+  };
+
+  displayNextSentence();
+};
+
+displaySentences();
