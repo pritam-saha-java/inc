@@ -7,6 +7,8 @@ import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
+import com.incallup.backend.repository.CategoryRepository;
+import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.SellerCommandService;
@@ -15,9 +17,13 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
+import java.util.zip.Deflater;
 
 
 /**
@@ -32,8 +38,24 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     private final SellerRepository sellerRepository;
     @Autowired
     private final PostRepository postRepository;
+    private final LocationRepository locationRepository;
+    private final CategoryRepository categoryRepository;
 
 
+    private byte[] compressImage(byte[] imageData) throws IOException {
+        // Compress image using Deflater
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        Deflater deflater = new Deflater();
+        deflater.setInput(imageData);
+        deflater.finish();
+        byte[] buffer = new byte[1024];
+        while (!deflater.finished()) {
+            int count = deflater.deflate(buffer);
+            outputStream.write(buffer, 0, count);
+        }
+        deflater.end();
+        return outputStream.toByteArray();
+    }
     @Override
     public Seller getSellerById(Integer sellerId) throws IdNotFoundException {
 
@@ -94,9 +116,25 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         return true;
     }
 
+    @Override
+    public Seller getSellerByUsername(String username) throws IdNotFoundException {
+
+        var userOptional = sellerRepository.findSellerByUsername(username);
+
+        return userOptional.orElseThrow(IdNotFoundException::new);
+    }
+
 
     @Override
-    public void createPost(@Valid Post post, Integer sellerId) throws ApplicationException {
+    public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException {
+
+        var postOptional = postRepository.findPostByTitle(post.getTitle());
+        if(postOptional.isPresent())
+            throw ApplicationException.builder()
+                    .title("title already exists")
+                    .Description("please choose proper title")
+                    .status(409)
+                    .build();
 
         var sellerOption = sellerRepository.findById(sellerId);
         if(sellerOption.isEmpty())
@@ -116,6 +154,23 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         String title = post.getTitle();
         String name = title.trim().replace(' ','-');
         post.setName(name);
+
+        var location = locationRepository.findLocationByDistrict(post.getLocation().getDistrict());
+        location.ifPresent(post::setLocation);
+
+        try {
+            post.setImageData1(compressImage(image1.getBytes()));
+            post.setImageData2(compressImage(image2.getBytes()));
+        } catch (IOException e) {
+            throw ApplicationException.builder()
+                    .title("error saving data")
+                    .Description("try to choose another format for images")
+                    .build();
+        }
+
+
+        var category =  categoryRepository.findCategoryByName(post.getCategory().getName());
+        category.ifPresent(post::setCategory);
         postRepository.save(post);
     }
 

@@ -1,12 +1,17 @@
 
 package com.incallup.backend.controller;
 
+import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Location;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
+import com.incallup.backend.repository.AdminRepository;
+import com.incallup.backend.service.AdminQueryService;
+import com.incallup.backend.service.CustomerService;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import com.incallup.backend.service.impl.AuthenticationService;
@@ -17,9 +22,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.FlashMap;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
@@ -33,6 +38,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequiredArgsConstructor
 @SessionAttributes("seller")
 public class SellerController {
+    @Autowired
+    private AdminRepository adminRepository;
 
 
     @ExceptionHandler(LogoutException.class)
@@ -53,11 +60,11 @@ public class SellerController {
     @Autowired
     private final SellerQueryService sellerQueryService;
 
-    @GetMapping("/get")
-    public String getSession(Model model){
-        model.addAttribute("seller","username");
-        return "string";
-    }
+//    @GetMapping("/get")
+//    public String getSession(Model model){
+//        model.addAttribute("seller","username");
+//        return "string";
+//    }
 
     @Autowired
     private AuthenticationService authenticationService;
@@ -122,7 +129,10 @@ public class SellerController {
     }
 
 
-
+    @Autowired
+    private final AdminQueryService adminQueryService;
+    @Autowired
+    private final CustomerService customerService;
 
     @GetMapping("/list/{sellerId}")
     public ModelAndView ListId(HttpSession session,@PathVariable Integer sellerId, ModelAndView model) throws IdNotFoundException{
@@ -142,11 +152,42 @@ public class SellerController {
         return model;
     }
 
-    @PostMapping("/post/{sellerId}")
-    public void Post(HttpSession session,@RequestBody Post post,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException {
+    @PostMapping(value = "/post/{sellerId}",headers = "Content-Type=multipart/form-data")
+    public ModelAndView Post(HttpSession session
+                ,@RequestParam("image1") MultipartFile multipartFile1
+                ,@RequestParam("image2") MultipartFile multipartFile2
+                ,@ModelAttribute("category") String category
+                ,@ModelAttribute("title") String title
+                ,@ModelAttribute("description") String description
+                ,@ModelAttribute("contact") String contact
+                ,@ModelAttribute("whatsapp") String whatsapp
+                ,@ModelAttribute("telegram") String telegram
+                ,@ModelAttribute("age") Integer age
+                ,@ModelAttribute("state") String state
+                ,@ModelAttribute("city") String city
+                ,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException {
         authenticate(session);
-        sellerCommandService.createPost(post,sellerId);
+        log.info(multipartFile1.getOriginalFilename());
+        log.info(multipartFile2.getOriginalFilename());
+        Post post = Post.builder()
+                .age(age)
+                .title(title)
+                .description(description)
+                .contact(contact)
+                .isBlocked(false)
+                .category(Category.builder()
+                        .name(category)
+                        .build())
+                .location(Location.builder()
+                        .district(city.trim().replace(" ","-"))
+                        .state(state)
+                        .build())
+                .build();
         log.info(post.toString());
+
+        sellerCommandService.createPost(post,sellerId,multipartFile1,multipartFile2);
+        log.info(post.toString());
+        return new ModelAndView("profile");
     }
 
 
@@ -163,6 +204,12 @@ public class SellerController {
     public ModelAndView postView(HttpSession session, ModelAndView view)  throws LogoutException{
         log.info("inside post method");
         authenticate(session);
+        var username = (String) session.getAttribute("seller");
+        var seller = sellerQueryService.getSellerByUsername(username);
+        var sellerId = seller.getId();
+        view.addObject("sellerId",sellerId);
+
+
         view.setViewName("post");
         return view;
     }

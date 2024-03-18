@@ -24,4 +24,6 @@ public interface SellerQueryService {
 
 
     boolean authenticate(String username, String password) throws LogoutException;
+
+    Seller getSellerByUsername(String username) throws IdNotFoundException;
 }
