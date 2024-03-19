@@ -19,11 +19,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
-import java.util.zip.Deflater;
 
 
 /**
@@ -42,20 +40,6 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     private final CategoryRepository categoryRepository;
 
 
-    private byte[] compressImage(byte[] imageData) throws IOException {
-        // Compress image using Deflater
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        Deflater deflater = new Deflater();
-        deflater.setInput(imageData);
-        deflater.finish();
-        byte[] buffer = new byte[1024];
-        while (!deflater.finished()) {
-            int count = deflater.deflate(buffer);
-            outputStream.write(buffer, 0, count);
-        }
-        deflater.end();
-        return outputStream.toByteArray();
-    }
     @Override
     public Seller getSellerById(Integer sellerId) throws IdNotFoundException {
 
@@ -159,8 +143,10 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         location.ifPresent(post::setLocation);
 
         try {
-            post.setImageData1(compressImage(image1.getBytes()));
-            post.setImageData2(compressImage(image2.getBytes()));
+            post.setImageData1(image1.getBytes());
+//            post.setImageData1(compressImage(image1.getBytes()));
+            post.setImageData2(image2.getBytes());
+//            post.setImageData2(compressImage(image2.getBytes()));
         } catch (IOException e) {
             throw ApplicationException.builder()
                     .title("error saving data")
