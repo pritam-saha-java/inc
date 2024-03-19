@@ -69,20 +69,20 @@
       <div th:if="${posts.isEmpty}">
         <div class="h2 text-center text-danger">No posts Available &#128531;</div>
       </div>
-  <div class="card my-4  " th:each="post : ${posts}"   >
+  <div class="card my-4  "  th:each="post : ${posts}"   >
     <div class="row g-0">
       <div class="col-md-4 col-sm-12 ">
-        <img class="img-fluid  h-100  w-100 rounded-start rounded-4" th:src="'data:image/png;base64,'+ ${post.byteString}" th:alt="${post.title}" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+        <img class="img-fluid  h-100  w-100 rounded-start rounded-4 cat-image"  th:src="'data:image/png;base64,'+ ${post.byteString}" th:alt="${post.title}" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
       </div>
       <div class="col-md-8 container pb-0">
-        <div class="card-body mt-lg-4 mt-sm-1 row" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
-          <h2 class="card-title fw-bold text-capitalize my-lg-5 my-sm-1  text-pink fs-3" th:text="${post.title}" >Card title</h2>
+        <div class="card-body px-0 mt-lg-4 mt-sm-1 row"  th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+          <h2 class="card-title fw-bold text-capitalize my-lg-2 my-sm-1  text-pink fs-3" th:text="${post.title}" >Card title</h2>
           <p class="card-text my-lg-5 my-md-5 my-sm-1 " th:text="${post.description}" >
             This is a wider card with supporting text below as a natural lead-in 
             to additional content. This content is a little bit longer.
           </p>
         </div>
-        <div class="px-2 row mt-lg-5 mt-md-5 mt-sm-1 pb-2  align-items-end">
+        <div class=" row mt-lg-5 mt-md-5 mt-sm-1 pb-2  align-items-end">
 
 
           <div class="col-6 container  ">

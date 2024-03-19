@@ -244,6 +244,12 @@ td>a{
 
     }
 
+    .cat-image{
+        height:332px!important;
+        width:300px!important;
+        object-fit: cover!important ;
+    }
+
 @media screen and (max-width: 1000px){
 
     .text-animate{
@@ -251,6 +257,10 @@ td>a{
 
     }
 
+    .cat-image{
+        height:auto!important;
+        width:auto!important;
+    }
 
 #hero-section{
 

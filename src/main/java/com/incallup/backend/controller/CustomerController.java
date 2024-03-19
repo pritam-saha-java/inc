@@ -50,14 +50,15 @@ private final ApplicationQueryService applicationQueryService;
 
      @GetMapping("{category}/{location}/{titleString}")
     public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable(name = "category") String category, @PathVariable(name = "location") String location) throws ApplicationException {
-//        Post post = customerService.searchByTitle(title);
-         Post post = Post.builder()
-                 .title(title)
-                 .contact("123456789")
-                 .description("post description")
-                 .category(applicationQueryService.getCategoryByName(category))
-                 .location(applicationQueryService.getLocationByName(location))
-                 .build();
+        Post post = customerService.searchByTitle(title);
+
+//          post = Post.builder()
+//                 .title(title)
+//                 .contact("123456789")
+//                 .description("post description")
+//                 .category(applicationQueryService.getCategoryByName(category))
+//                 .location(applicationQueryService.getLocationByName(location))
+//                 .build();
         modelAndView.addObject("post",post);
         modelAndView.setViewName("details");
         return modelAndView;

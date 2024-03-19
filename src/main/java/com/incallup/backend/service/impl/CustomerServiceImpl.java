@@ -28,15 +28,20 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Post searchByTitle(String title) throws ApplicationException{
-       Optional<Post> nS = postRepository.findPostByName(title);
-        if(nS.isEmpty()){
+       Optional<Post> postOptional = postRepository.findPostByName(title);
+
+
+        if(postOptional.isEmpty()){
             throw ApplicationException.builder()
                     .title("TitleNotFound")
                     .Description("Title Not Found")
                     .status(503)
                     .build();
         }
-        return nS.get();
+
+        var post = postOptional.get();
+        post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+        return post;
     }
 
     @Override
