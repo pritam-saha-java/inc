@@ -382,3 +382,51 @@ max-height:auto;
   overflow: hidden;
   transition: transform 0.5s ease;
 }
+
+
+
+
+
+
+
+
+section.bread_wraper.login-breadcrame {
+    margin: 60px 0 0 0;
+}
+
+  .bread_wraper {margin:0px 0 0 0;
+
+     padding: 12px 0 0 0;
+  }
+
+  .bread_wraper ul li{ display:inline-block; padding:0 0px; font-family: 'Poppins', sans-serif;}
+
+  .bread_wraper ul li a {font-size:18px;font-family: 'Poppins', sans-serif;}
+
+  .bread_wraper ul li {font-size:16px;color: #002540;font-family: 'Poppins', sans-serif;}
+
+
+  .bread_wraper {
+      margin: 0px 0 0 0 !important;
+  }
+
+
+  .bread_wraper ul li a { font-size:20px; }
+
+
+   @media (max-width: 375px){
+  .bread_wraper ul li a {
+      font-size: 18px;
+
+      font-family: 'Poppins', sans-serif;
+  }
+  }
+
+   @media (max-width: 360px){
+
+       .bread_wraper ul li a {
+               font-size: 18px;
+
+               font-family: 'Poppins', sans-serif;
+           }
+   }
