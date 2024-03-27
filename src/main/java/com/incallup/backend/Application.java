@@ -12,6 +12,11 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
+
 
 /**
  * @author incallup
@@ -30,6 +35,24 @@ public class Application {
 	protected CommandLineRunner run(){
 		return args -> {
 
+
+			String url = "https://localhost";
+			if(Desktop.isDesktopSupported()){
+				Desktop desktop = Desktop.getDesktop();
+				try {
+					desktop.browse(new URI(url));
+				} catch (IOException | URISyntaxException e) {
+					e.printStackTrace();
+				}
+			}
+//			else{
+//				Runtime runtime = Runtime.getRuntime();
+//				try {
+//					runtime.exec("rundll32 url.dll,FileProtocolHandler " + url);
+//				} catch (IOException e) {
+//					e.printStackTrace();
+//				}
+//			}
 
 
 		};

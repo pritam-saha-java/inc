@@ -11,6 +11,9 @@ import com.incallup.backend.service.CustomerService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 @Service
@@ -41,6 +44,24 @@ public class CustomerServiceImpl implements CustomerService {
 
         var post = postOptional.get();
         post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+        int views = post.getViews();
+        post.setViews(++views);
+        postRepository.save(post);
+
+        String inputDate = post.getCreatedAt().toString();
+        String[] parts = inputDate.split("T");
+        String dateString = parts[0];
+        DateTimeFormatter inputFormatter =  DateTimeFormatter.ofPattern("yyyy-MM-dd");
+
+        LocalDate dateTime = LocalDate.parse(dateString);
+
+        // Define the desired format
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd MMMM", Locale.ENGLISH);
+
+        // Format the LocalDateTime object to a string
+        String formattedDate = dateTime.format(formatter);
+        post.setDate(formattedDate);
+
         return post;
     }
 

@@ -83,6 +83,9 @@ public class Post {
     @Transient
     private String byteString;
 
+    @Transient
+    private String date;
+
     @Column(name = "post_is_blocked")
     private Boolean isBlocked  = false;
 }

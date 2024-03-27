@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
   <meta charset="UTF-8"/>
@@ -28,25 +28,44 @@
 <div th:replace="dashboard.html :: siteHeader"></div>
 
 <!-- hero section start -->
-<div class="container">
-  <a href="dashboard.html" class="row p-1 rounded  mx-5 fs-3 site-link"> <b>&lt; Back To Search</b></a>
-  <div class="row"><img th:src="@{/server/assets/icons/home-icon.png}" alt="home icon" class="my-icon border border-1 border-black " style="width: auto;"></div>
+<div class="container  mt-2  p-1 fw-bold fs-5  ">
+  <a href="https://localhost/" class="row px-4 rounded mb-2   site-link"> < Back To Search </a>
+  <section class="bread_wraper mt-3">
+
+        <div class="bread-inner text-left pb-3">
+          <ul>
+            <li><a href="https://localhost/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
+            <li> > </li>
+            <li><a th:href="${'https://localhost/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center" th:text="${post.category.title}" >category</a></li>
+            <li > > </li>
+            <li  ><a th:href="${'https://localhost/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center" th:text="${post.location.name}" >category</a></li>
+            <li > > </li>
+            <li  ><a  class="border border-1 border-black rounded-4 p-2 text-center" th:text="${post.title}" >category</a></li>
+          </ul>
+        </div>
+
+
+  </section>
+
+
+
+
 
 </div>
 
 <div class="container px-4 px-lg-5 my-5">
-  <h4>Date</h4>
-  <h2 class="row px-3 text-start" th:text="${post.title}">
+  <h4 class="px-1 text-capitalize " th:text="${post.date}">Date</h4>
+  <h2 class="row px-3 text-start text-capitalize " th:text="${post.title}">
     Title
   </h2>
-  <h3 th:text=" ${post.location.district} + ' | ' + ${post.views} + ' | ' +  ${post.id} " >location | views | post ID </h3>
+  <h3 class="px-1 text-capitalize " th:text=" ${post.location.district} + ' | ' + ${post.views} + ' views  |  id : ' +  ${post.id} " >location | views | post ID </h3>
   <div class="row gx-4 gx-lg-5 align-items-center">
       <div class="col-md-6"><img class="card-img-top rounded-4 mt-5 mb-5 mb-md-0" th:src="'data:image/png;base64,'+ ${post.byteString}" th:alt="${post.title}"></div>
       <div class="col-md-6">
           
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/call.png" alt="" srcset=""> Call</h1>
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/whatsapp.png" alt="" srcset=""> Whatsapp</h1>
-          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/telegram.png" alt="" srcset=""> Telegram</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/call.png" alt="phone number" > Call</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/whatsapp.png" alt="whatsapp" > Whatsapp</h1>
+          <h1 class="display-5 fw-bolder"><img src="https://localhost/server/assets/img/telegram.png" alt="telegram" > Telegram</h1>
          
          
       </div>
