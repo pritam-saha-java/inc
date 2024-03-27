@@ -8,14 +8,18 @@ import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.ApplicationQueryService;
 import com.incallup.backend.service.CustomerService;
+import com.incallup.backend.service.SiteMapService;
+import com.incallup.backend.utility.IncallupConstants;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -24,6 +28,58 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class CustomerController {
+
+
+    @GetMapping(value = "/robots.txt", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String getRobotsTxt() {
+        return """
+                
+                User-agent: *
+                Allow: /
+                Sitemap: https://www.incallup.com/sitemap.xml
+                """;
+    }
+
+    @GetMapping(value = "/sitemap.xml", produces = MediaType.APPLICATION_XHTML_XML_VALUE)
+    public String getSiteMap() {
+            StringBuilder content = new StringBuilder(" <sitemapindex xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\"> \n");
+        Arrays.asList(IncallupConstants.SITEMAP_PAGES.values())
+                .forEach(page->{
+            content.append(" <sitemap>\n");
+            content.append("\t<loc>");
+            content.append("https://www.incallup.com/sitemap/");
+            content.append(page);
+            content.append(".xml");
+            content.append("</loc> \n");
+            content.append("  </sitemap> \n");
+
+        });
+            content.append(" </sitemapindex> ");
+//        return  +
+//
+//                <sitemap>
+//                <loc>https://www.incallup.com/sitemap/web_0.xml</loc>
+//                </sitemap>
+//
+//               ;
+        return content.toString();
+
+    }
+
+//    @GetMapping(value = "sitemap/{pageName}", produces = MediaType.APPLICATION_XHTML_XML_VALUE)
+    @GetMapping(value = "sitemap/{pageName}", produces = MediaType.TEXT_PLAIN_VALUE)
+    public String getSiteMap(@PathVariable(name = "pageName") String pageName) {
+        return switch (pageName){
+            case "category.xml"->siteMapService.categorySiteMap();
+            case "location.xml"->siteMapService.locationSiteMap();
+            case "titles.xml"->siteMapService.postSiteMap();
+            default ->" sitemap error ";
+        };
+
+    }
+
+    @Autowired
+    private final SiteMapService siteMapService;
 
 @Autowired
 private final CustomerService customerService;
