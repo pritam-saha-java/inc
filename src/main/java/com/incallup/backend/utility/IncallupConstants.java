@@ -6,7 +6,9 @@ public class IncallupConstants {
 
     public static enum SITEMAP_PAGES {
 
-        CATEGORY("category"),LOCATION("location"),TITLES("titles");
+        CATEGORY("category")
+//        ,LOCATION("location")
+        ,TITLES("titles");
         private final String value;
 
         private SITEMAP_PAGES(String value){

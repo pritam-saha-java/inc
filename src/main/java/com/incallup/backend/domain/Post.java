@@ -14,6 +14,7 @@ import java.time.Instant;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Builder
 @Entity(name = "tbl_post")
 public class Post {
@@ -33,7 +34,7 @@ public class Post {
     private String name;
 
     @ToString.Exclude
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Location location;
 
     @Column(name = "post_views")
@@ -88,4 +89,6 @@ public class Post {
 
     @Column(name = "post_is_blocked")
     private Boolean isBlocked  = false;
+
+
 }

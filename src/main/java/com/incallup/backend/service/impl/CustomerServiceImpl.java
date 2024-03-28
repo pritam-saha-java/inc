@@ -97,23 +97,27 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public List<Post> searchByCategoryAndLocation(String categoryString, String locationString) throws ApplicationException{
         var postsByLocationOptional = locationRepository.findLocationByDistrict(locationString);
-        var categoryOptional = categoryRepository.findCategoryByTitle(categoryString);
+        var categoryOptional = categoryRepository.findCategoryByName(categoryString);
         if(postsByLocationOptional.isEmpty()||categoryOptional.isEmpty()){
             throw ApplicationException.builder()
                     .title("NotFoundByCategoryAndLocation")
-                    .Description("Not Found By Category And Location")
+                    .Description("Not Found By Category or Location")
                     .status(503)
                     .build();
         }
         var category = categoryOptional.get();
-        var locations = postsByLocationOptional.get();
-        var posts = locations.getPosts();
+        var location = postsByLocationOptional.get();
+        var posts = location.getPosts();
          List<Post> postsByLocation = new LinkedList<>();
         posts.forEach( post -> {
             if(post.getCategory().equals(category))
                 postsByLocation.add(post);
         });
 
+
+        postsByLocation.forEach((post -> {
+            post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+        }));
         return new ArrayList<>(postsByLocation);
     }
 

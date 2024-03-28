@@ -139,8 +139,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         String name = title.trim().replace(' ','-');
         post.setName(name);
 
-        var location = locationRepository.findLocationByDistrict(post.getLocation().getDistrict());
-        location.ifPresent(post::setLocation);
+        var locationOptional = locationRepository.findLocationByDistrict(post.getLocation().getDistrict());
+        locationOptional.ifPresent(post::setLocation);
 
         try {
             post.setImageData1(image1.getBytes());
@@ -160,11 +160,24 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
         post.setViews(0);
         postRepository.save(post);
-        var category = categoryOptional.get();
-        List<Post> posts = category.getPosts();
-        posts.add(post);
-        category.setPosts(posts);
-        categoryRepository.save(category);
+
+        if(categoryOptional.isPresent()){
+            var category = categoryOptional.get();
+            List<Post> posts = category.getPosts();
+            posts.add(post);
+            category.setPosts(posts);
+            categoryRepository.save(category);
+        }
+
+        if(locationOptional.isPresent()){
+            var location = locationOptional.get();
+            var locationPosts = location.getPosts();
+            locationPosts.add(post);
+            location.setPosts(locationPosts);
+            locationRepository.save(location);
+        }
+
+
     }
 
 

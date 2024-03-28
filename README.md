@@ -17,4 +17,6 @@ login link should be domain/login
 
 to do - add validations for post form
 
+bug - application is not taking location wise data
+
 

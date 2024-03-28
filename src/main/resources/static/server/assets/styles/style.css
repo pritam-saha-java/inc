@@ -12,7 +12,7 @@ body {
 :root {
     --blue: #103652;
     --pink : #BE206B;
-    --font:  Rubik;
+    --font:  "Inter", sans-serif;
     --grey: #E3E3E3;
     --light-pink: #FF0061;
     --post: #C1B0B0;
@@ -43,7 +43,7 @@ body {
     .site-font1{
       
         
-        font-family: Rubik;
+        font-family: "Inter", sans-serif;
         font-size: 27px;
         font-weight: 500;
         line-height: 35px;
@@ -63,7 +63,7 @@ body {
 }
 .site-font{
    
-    font-family: Rubik;
+    font-family: "Inter", sans-serif;
     font-size: 27px;
     font-weight: 700;
     line-height: 35px;
@@ -108,7 +108,7 @@ a{
     color: black;
 }
 .site-title{
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 48px;
 font-weight: 900;
 line-height: 62px;
@@ -128,7 +128,7 @@ button.btn:hover{
 }
 #hero-title{
     
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 64px;
 font-weight: 700;
 line-height: 83px;
@@ -157,7 +157,7 @@ padding-top: 5rem;
 }
 
 .site-text{
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 36px;
 font-weight: 500;
 line-height: 61px;
