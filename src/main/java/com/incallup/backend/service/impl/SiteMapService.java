@@ -1,4 +1,4 @@
-package com.incallup.backend.service;
+package com.incallup.backend.service.impl;
 
 import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.repository.LocationRepository;

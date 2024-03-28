@@ -7,7 +7,7 @@ import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.ApplicationQueryService;
 import com.incallup.backend.service.CustomerService;
-import com.incallup.backend.service.SiteMapService;
+import com.incallup.backend.service.impl.SiteMapService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
