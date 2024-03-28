@@ -9,7 +9,7 @@ port number : 443
 
 fix post page footer
 
-
+translation : https://incallup-com.translate.goog/dating/thane?_x_tr_sl=la&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=sc
 
 
 signup link should be domain/register
