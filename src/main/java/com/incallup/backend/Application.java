@@ -2,9 +2,6 @@
 package com.incallup.backend;
 
 
-
-//import com.incallup.backend.configuration.WHMService;
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -29,8 +26,6 @@ public class Application {
 	@Bean
 	protected CommandLineRunner run(){
 		return args -> {
-
-
 
 
 		};
