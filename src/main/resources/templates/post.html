@@ -35,7 +35,7 @@
     function validateForm() {
            var checkbox = document.getElementById('checkbox');
            var title = document.getElementById('postTitle');
-           if(title.value.length>15){
+           if(title.value.length>55){
             alert('insert shorter title');
             return false;
            }
@@ -70,7 +70,7 @@
     <div class="mb-3 container">
       <label for="exampleInputEmail1" class="form-label row d-flex justify-content-between ">
         <b class="col-2">Ad Title *</b>
-        <p class="col-3">15 Characters required</p>
+        <p class="col-3">55 Characters required</p>
       </label>
       <input name="title" type="text" class="form-control site-input row" id="postTitle" placeholder="Enter Title Text Here">
     </div>
