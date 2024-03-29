@@ -25,8 +25,8 @@ public class Post {
     @Column(name = "post_id")
     private Integer id;
 
-//    @Max(15)
-    @Column(name = "post_title", unique = true)
+
+    @Column(name = "post_title", unique = true,length = 1000)
     private String title;
 
 
@@ -49,7 +49,7 @@ public class Post {
     private Integer age;
 
 //    @Max(50)
-    @Column(name = "post_description")
+    @Column(name = "post_description",length = 10000)
     private String description;
 
     @JsonIgnore
@@ -83,6 +83,8 @@ public class Post {
 
     @Transient
     private String byteString;
+    @Transient
+    private String byteString2;
 
     @Transient
     private String date;

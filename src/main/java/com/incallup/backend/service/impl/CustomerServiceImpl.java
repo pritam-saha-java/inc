@@ -9,6 +9,7 @@ import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.service.CustomerService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.*;
 
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
@@ -44,6 +46,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         var post = postOptional.get();
         post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+        post.setByteString2(convertByteArrayToBase64(post.getImageData2()));
+        log.info("logging information : "+post.getByteString2().length());
+
+
         int views = post.getViews();
         post.setViews(++views);
         postRepository.save(post);
@@ -84,7 +90,12 @@ public class CustomerServiceImpl implements CustomerService {
         var posts = categoryObj.getPosts();
         posts.forEach((post -> {
             post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            if(post.getTitle().length()>15)
+                post.setTitle(post.getTitle().substring(0,13)+"..");
+            if(post.getDescription().length()>50)
+                post.setDescription(post.getDescription().substring(0,48)+"..");
         }));
+
        return posts;
 
     }
@@ -117,6 +128,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         postsByLocation.forEach((post -> {
             post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            if(post.getTitle().length()>15)
+                post.setTitle(post.getTitle().substring(0,13)+"..");
+            if(post.getDescription().length()>50)
+                post.setDescription(post.getDescription().substring(0,48)+"..");
         }));
         return new ArrayList<>(postsByLocation);
     }
@@ -132,8 +147,17 @@ public class CustomerServiceImpl implements CustomerService {
                     .build();
         }
         var locationObj = locationOpt.get();
-        return locationObj.getPosts();
+        var posts =  locationObj.getPosts();
 
+        posts.forEach((post -> {
+            post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            if(post.getTitle().length()>15)
+                post.setTitle(post.getTitle().substring(0,13)+"..");
+            if(post.getDescription().length()>50)
+                post.setDescription(post.getDescription().substring(0,48)+"..");
+        }));
+
+        return posts;
     }
 
 }
