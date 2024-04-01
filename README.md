@@ -19,4 +19,5 @@ to do - add validations for post form
 
 bug - application is not taking location wise data
 
+343 x 686
 

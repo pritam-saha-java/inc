@@ -26,11 +26,11 @@ public class Post {
     private Integer id;
 
 
-    @Column(name = "post_title", unique = true,length = 1000)
+    @Column(name = "post_title",length = 1000)
     private String title;
 
 
-    @Column(name = "post_name",unique = true)
+    @Column(name = "post_name",length = 1000)
     private String name;
 
     @ToString.Exclude
