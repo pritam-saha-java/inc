@@ -32,23 +32,58 @@
   </style>
 
   <script>
-    function validateForm() {
-           var checkbox = document.getElementById('checkbox');
-           var title = document.getElementById('postTitle');
-           if(title.value.length>15&&title.value.length<90){
-              alert('insert longer title');
-              return false;
-           }
-           if(postDescription.value.length>50&&postDescription.value.length<1000){
-              alert('please insert longer description');
-              return false;
-           }
-           if (!checkbox.checked) {
-               alert('Please check accept our terms before submitting.');
+
+    function containsEmoji(text) {
+           var emojiPattern = /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
+           return emojiPattern.test(text);
+       }
+
+       function containsNumber(text) {
+           var numberPattern = /\d/;
+           return numberPattern.test(text);
+       }
+
+       function containsSpecialCharacters(text) {
+           var specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
+           return specialCharacterPattern.test(text);
+       }
+   function validateForm() {
+          var checkbox = document.getElementById('checkbox');
+          var title = document.getElementById('postTitle');
+           if(title.value.length<15){
+             alert('insert longer title');
+             return false;
+            }
+           if(title.value.length>90){
+              alert("insert shorter title")
                return false;
            }
-           return true;
-       }
+           if (containsNumber(title.value)) {
+                alert("Please do not use numbers in the title.");
+                return false;
+            }
+           if (containsEmoji(title.value)) {
+                alert("Please do not use emojis in the title.");
+                return false;
+            }
+            if (containsSpecialCharacters(title.value)) {
+                alert("Please do not use special characters in the title.");
+                return false;
+            }
+          if(postDescription.value.length<50){
+             alert('please insert longer description');
+             return false;
+          }
+          if(postDescription.value.length>1000){
+             alert('please insert shorter description');
+             return false;
+          }
+          if (!checkbox.checked) {
+              alert('Please check accept our terms before submitting.');
+              return false;
+          }
+          return true;
+      }
   </script>
 </head>
 
