@@ -23,14 +23,14 @@ title.classList.add('text-light-pink');
 title.id = popup;
 title.innerHTML = popupText;
 //check from session if it is first visitor or not if it is first link then show popup if it is already turned  off then don't show
-body.insertBefore(title,body.childNodes[0]);
-var closeButton = document.getElementById('closeButton'); 
-closeButton.addEventListener('click',(myEvent)=>{
-    let element = document.getElementById(popup);
-    element.style.display = 'none';
-    sessionStorage.setItem('popup',true);
-    
-});
+//body.insertBefore(title,body.childNodes[0]);
+//var closeButton = document.getElementById('closeButton');
+//closeButton.addEventListener('click',(myEvent)=>{
+//    let element = document.getElementById(popup);
+//    element.style.display = 'none';
+//    sessionStorage.setItem('popup',true);
+//
+//});
 
 }
 function siteRedirect(file){
