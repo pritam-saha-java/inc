@@ -54,7 +54,7 @@
 
 <div class="container px-4 px-lg-5 ">
 
-  <h2 class="row px-3 text-start text-capitalize " th:text="${post.title}">
+  <h2 class="row px-3 text-start text-capitalize post-title" th:text="${post.title}">
     Title
   </h2>
 
@@ -63,27 +63,27 @@
 
   <div class="  bread-inner text-left "   >
 
-    <ul style="padding-left:1rem;">
+    <ul class="my-ul" >
       <li class="px-1">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-geo-alt-fill  " height="10px" viewBox="0 0 16 16">
           <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
         </svg>
       </li>
-      <li th:text="${#strings.capitalizeWords(post.location.district)}"></li>
-      <li class="px-1" ><i class="fa fa-eye" aria-hidden="true"></i></li>
-      <li th:text="'Views : '+${post.views}"></li>
-      <li class="px-1" ><i class="fa fa-address-book" aria-hidden="true"></i></li>
-      <li th:text="'Ad Id : '+${post.id}"></li>
-      <li class="px-1" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
-      <li th:text="'Date : '+${post.date}"></li>
+      <li class="small-text" th:text="${#strings.capitalizeWords(post.location.district)}"></li>
+      <li class="px-1 small-text " ><i class="fa fa-eye" aria-hidden="true"></i></li>
+      <li class="small-text" th:text="'Views : '+${post.views}"></li>
+      <li class="px-1 small-text " ><i class="fa fa-address-book" aria-hidden="true"></i></li>
+      <li class="small-text" th:text="'Ad Id : '+${post.id}"></li>
+      <li class="px-1 small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
+      <li class="small-text" th:text="'Date : '+${post.date}"></li>
       <li class="px-1" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10">
           <rect width="100%" height="100%" fill="white"/>
-          <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkdJREFUOE+t1F3IzWkUBfAfpeYCUaSUQskFckHCKEyRBlNqlBtCU+RCaEZu5OvGjcZHGDeUGKFJE4kLIZOmUb6ipHwMTYqZSSEK8Sw953Q63vftvbDr9O/8//tZe++11n56+MLRoxO8XpiC+ZiI/niGaziPo/jQ0dmOAKdjF0bhBf7GQwzEWHxV/6/HoXbQdsCNpfKGemAtTuJN26GF2Iyh2FS+5UwzWgFX4ecKsgjPu6C3L7bhB6zG9kZuAzDVruIuJnXGTwcFLtX8EXiQ7w3AA2XMxRhWx52DAbiA15hXBLqNx+XdtAp8GIPq+8n12QTMeGewoCb/hZH4EbOrGEOwpii+oxaaibf4FqdbRx6Dm1iKdJp4hH/xO77B/mKXqbheORuH/2tu6JqFXxojp4NTdZSLNek9fq22GY37mIF9VdlX6F1zUyyAw+OIcPh98dzxFsAkxn+NMfrUDvcUD24tvlxSGhiP/6p1biCqB+e3AAb5HlYUkvciioWCP6owMXXP4oLvqkdjkxOVz1gtvk1cKU1MCGB+4SMAc2vV5XW8ZaXgQfyEy/inAgdgXTm3svg1oCmYKbc0bLO7dtiwTXevjAhypzjiSKWiaZvB1Ue3KpcRpTtxtnQe+zQbaV29jBfpI0ZW6kkXiP2ws3CfvQ6H2e1P0X455GOWPULkmW141wKcmyYdZecjZnJyQTSjo+vr63othZ+AZcefIpsSkNgorshE59qn6OyCTV72OarnDszOviwG/hPH6upl7T6LrgC7I8pnOR8BJ6p5M/1Q8+UAAAAASUVORK5CYII=" x="0" y="0" width="20" height="20"/>
+          <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkdJREFUOE+t1F3IzWkUBfAfpeYCUaSUQskFckHCKEyRBlNqlBtCU+RCaEZu5OvGjcZHGDeUGKFJE4kLIZOmUb6ipHwMTYqZSSEK8Sw953Q63vftvbDr9O/8//tZe++11n56+MLRoxO8XpiC+ZiI/niGaziPo/jQ0dmOAKdjF0bhBf7GQwzEWHxV/6/HoXbQdsCNpfKGemAtTuJN26GF2Iyh2FS+5UwzWgFX4ecKsgjPu6C3L7bhB6zG9kZuAzDVruIuJnXGTwcFLtX8EXiQ7w3AA2XMxRhWx52DAbiA15hXBLqNx+XdtAp8GIPq+8n12QTMeGewoCb/hZH4EbOrGEOwpii+oxaaibf4FqdbRx6Dm1iKdJp4hH/xO77B/mKXqbheORuH/2tu6JqFXxojp4NTdZSLNek9fq22GY37mIF9VdlX6F1zUyyAw+OIcPh98dzxFsAkxn+NMfrUDvcUD24tvlxSGhiP/6p1biCqB+e3AAb5HlYUkvciioWCP6owMXXP4oLvqkdjkxOVz1gtvk1cKU1MCGB+4SMAc2vV5XW8ZaXgQfyEy/inAgdgXTm3svg1oCmYKbc0bLO7dtiwTXevjAhypzjiSKWiaZvB1Ue3KpcRpTtxtnQe+zQbaV29jBfpI0ZW6kkXiP2ws3CfvQ6H2e1P0X455GOWPULkmW141wKcmyYdZecjZnJyQTSjo+vr63othZ+AZcefIpsSkNgorshE59qn6OyCTV72OarnDszOviwG/hPH6upl7T6LrgC7I8pnOR8BJ6p5M/1Q8+UAAAAASUVORK5CYII=" x="0" y="0" class="small-text" />
         </svg>
 
       </li>
-      <li th:text="'Age : '+${post.age}"></li>
+      <li class="small-text" th:text="'Age : '+${post.age}"></li>
     </ul>
 
     </div>
@@ -123,17 +123,17 @@
 
   <div class="row fixed-bottom mobilecontactbar stickymobile">
     <div class="col px-2 m-auto">
-      <button th:href="'tel:'+${post.contact}" style="color:white;  background-color: #BE206B;   " class="btn btn-primary btn-phone btn-md btn-block phone-pin">
+      <button th:href="'tel:'+${post.contact}"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
         <i class="fa fa-lg fa fa-phone mx-1"></i>Telephone
       </button>
     </div>
     <div class="col px-2 m-auto">
-      <a target="_blank" rel="nofollow" th:href="'https://api.whatsapp.com/send/?phone='+${post.contact}" style="background-color: #23B33A; color:white; " class="btn btn-whatsapp btn-md btn-block whatsapp-pin">
+      <a target="_blank" rel="nofollow" th:href="'https://api.whatsapp.com/send/?phone='+${post.contact}"  class="btn btn-whatsapp btn-md btn-block whatsapp-pin">
         <i class="fab fa-lg fa-whatsapp mx-1 align-middle"></i>Whatsapp
       </a>
     </div>
     <div class="col px-2 m-auto">
-      <button th:href="'https://t.me/+91'+${post.contact}" style=" color:white; background-color:#1d93d2;; " class="btn btn-primary btn-phone btn-md btn-block phone-pin">
+      <button th:href="'https://t.me/+91'+${post.contact}"  class="btn btn-primary btn-telegram btn-md btn-block telegram-pin">
         <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2"><defs><style>.cls-1{fill:white;stroke:#fffff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M40.83,8.48c1.14,0,2,1,1.54,2.86l-5.58,26.3c-.39,1.87-1.52,2.32-3.08,1.45L20.4,29.26a.4.4,0,0,1,0-.65L35.77,14.73c.7-.62-.15-.92-1.07-.36L15.41,26.54a.46.46,0,0,1-.4.05L6.82,24C5,23.47,5,22.22,7.23,21.33L40,8.69a2.16,2.16,0,0,1,.83-.21Z"/></svg>
         Telegram
       </button>

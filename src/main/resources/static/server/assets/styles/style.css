@@ -26,6 +26,11 @@ body {
 */
 
 
+.small-text{
+
+    font-size:10px!important;
+}
+
 .stickymobile {
     background-color: #fff;
     bottom: 0;
@@ -366,8 +371,71 @@ max-height:auto;
   height: auto!important;
 
 }
+.my-ul{
+    padding-left:1rem;
+}
+
+
+
+
+.btn-whatsapp , .btn-phone , .btn-telegram {
+    font-size: 14px !important;
+    font-weight: 500;
+    padding: .8rem .1rem;
+    text-transform: capitalize;
+}
+.btn {
+    border-radius: 18px;
+    font-weight: 500;
+}
+.whatsapp-pin,.phone-pin ,.telegram-pin {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+    width: 100%;
+}
+.btn-whatsapp {
+    background-color: #23B33A;
+    color: #fff !important;
+    font-size: .8rem !important;
+}
+.btn-primary {
+    background-color: #BE206B !important;
+    color: #fff !important;
+}
+
+.btn-telegram {
+    background-color:#1d93d2 !important;
+    color: #fff !important;
+    font-size: .8rem !important;
+}
+
+
+.post-title{
+        font-family: Inter , sans-serif;
+}
+@media screen and (max-width: 400px){
+
+
+
+.whatsapp-pin,.phone-pin ,.telegram-pin {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+
+}
+
+}
 
 @media screen and (max-width: 500px){
+
+        .my-ul{
+            padding-left:0.1rem;
+            }
+        .small-text {
+            font-size: 6px !important;
+
+            }
 
         .site-card{
 
@@ -377,6 +445,7 @@ max-height:auto;
 
 
        }
+
 
 
 /*
