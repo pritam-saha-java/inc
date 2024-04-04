@@ -82,39 +82,39 @@ const sentences = [
   "Please Be Aware Of URLs That Do Not Take You To Incallup Page."
 ];
 
-const targetDiv = document.getElementById("sentenceTarget");
+//const targetDiv = document.getElementById("sentenceTarget");
 
-const displaySentences = () => {
-  let index = 0;
-
-  const displayNextSentence = () => {
-    const sentence = sentences[index];
-
-    // Slide out animation for the existing content
-    targetDiv.style.transform = 'translateY(-100%)';
-
-    // Wait for the slide out animation to complete before updating content
-    setTimeout(() => {
-      targetDiv.textContent = sentence;
-
-      // Slide in animation for the new content
-      setTimeout(() => {
-        targetDiv.style.transform = 'translateY(0)';
-      }, 50); // Adding a slight delay before slide in animation
-
-      index++;
-
-      // Reset index if it exceeds the length of the array
-      if (index >= sentences.length) {
-        index = 0;
-      }
-
-      // Continue the loop
-      setTimeout(displayNextSentence, 2000);
-    }, 500); // Wait for slide out animation to complete (matching CSS transition duration)
-  };
-
-  displayNextSentence();
-};
-
-displaySentences();
+//const displaySentences = () => {
+//  let index = 0;
+//
+//  const displayNextSentence = () => {
+//    const sentence = sentences[index];
+//
+//    // Slide out animation for the existing content
+//    targetDiv.style.transform = 'translateY(-100%)';
+//
+//    // Wait for the slide out animation to complete before updating content
+//    setTimeout(() => {
+//      targetDiv.textContent = sentence;
+//
+//      // Slide in animation for the new content
+//      setTimeout(() => {
+//        targetDiv.style.transform = 'translateY(0)';
+//      }, 50); // Adding a slight delay before slide in animation
+//
+//      index++;
+//
+//      // Reset index if it exceeds the length of the array
+//      if (index >= sentences.length) {
+//        index = 0;
+//      }
+//
+//      // Continue the loop
+//      setTimeout(displayNextSentence, 2000);
+//    }, 500); // Wait for slide out animation to complete (matching CSS transition duration)
+//  };
+//
+//  displayNextSentence();
+//};
+//
+//displaySentences();
