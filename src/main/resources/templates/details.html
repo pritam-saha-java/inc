@@ -20,6 +20,12 @@
   <title >Details Page</title>
   <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+  <style>
+
+    ol, ul {
+    padding-left: 0.6rem;
+    }
+  </style>
 </head>
 
 <body >
@@ -28,17 +34,17 @@
 <div th:replace="dashboard.html :: siteHeader"></div>
 
 <!-- hero section start -->
-<div class="container  mt-2  p-1 fw-bold fs-5  ">
-  <a href="https://localhost/" class="row px-4 rounded    site-link"> < Back To Search </a>
+<div class="container  mt-2  p-1 fs-6  ">
+  <a href="https://incallup.com/" class="row px-4 rounded    site-link"> < Back To Search </a>
   <section class="bread_wraper mt-3">
 
         <div class="bread-inner text-left ">
           <ul>
-            <li><a href="https://localhost/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
+            <li><a href="https://incallup.com/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
             <li> > </li>
-            <li><a th:href="${'https://localhost/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
+            <li><a th:href="${'https://incallup.com/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
             <li > > </li>
-            <li  ><a th:href="${'https://localhost/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${post.location.name}" >category</a></li>
+            <li  ><a th:href="${'https://incallup.com/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${post.location.name}" >category</a></li>
 
           </ul>
         </div>
@@ -77,10 +83,7 @@
       <li class="px-1 small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
       <li class="small-text" th:text="'Date : '+${post.date}"></li>
       <li class="px-1" >
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="10">
-          <rect width="100%" height="100%" fill="white"/>
-          <image xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAkdJREFUOE+t1F3IzWkUBfAfpeYCUaSUQskFckHCKEyRBlNqlBtCU+RCaEZu5OvGjcZHGDeUGKFJE4kLIZOmUb6ipHwMTYqZSSEK8Sw953Q63vftvbDr9O/8//tZe++11n56+MLRoxO8XpiC+ZiI/niGaziPo/jQ0dmOAKdjF0bhBf7GQwzEWHxV/6/HoXbQdsCNpfKGemAtTuJN26GF2Iyh2FS+5UwzWgFX4ecKsgjPu6C3L7bhB6zG9kZuAzDVruIuJnXGTwcFLtX8EXiQ7w3AA2XMxRhWx52DAbiA15hXBLqNx+XdtAp8GIPq+8n12QTMeGewoCb/hZH4EbOrGEOwpii+oxaaibf4FqdbRx6Dm1iKdJp4hH/xO77B/mKXqbheORuH/2tu6JqFXxojp4NTdZSLNek9fq22GY37mIF9VdlX6F1zUyyAw+OIcPh98dzxFsAkxn+NMfrUDvcUD24tvlxSGhiP/6p1biCqB+e3AAb5HlYUkvciioWCP6owMXXP4oLvqkdjkxOVz1gtvk1cKU1MCGB+4SMAc2vV5XW8ZaXgQfyEy/inAgdgXTm3svg1oCmYKbc0bLO7dtiwTXevjAhypzjiSKWiaZvB1Ue3KpcRpTtxtnQe+zQbaV29jBfpI0ZW6kkXiP2ws3CfvQ6H2e1P0X455GOWPULkmW141wKcmyYdZecjZnJyQTSjo+vr63othZ+AZcefIpsSkNgorshE59qn6OyCTV72OarnDszOviwG/hPH6upl7T6LrgC7I8pnOR8BJ6p5M/1Q8+UAAAAASUVORK5CYII=" x="0" y="0" class="small-text" />
-        </svg>
+        <img height="10px" src="https://incallup.com/server/assets/icons/age.png" alt="age png">
 
       </li>
       <li class="small-text" th:text="'Age : '+${post.age}"></li>

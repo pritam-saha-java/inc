@@ -54,6 +54,11 @@ public class Post {
     @Column(name = "post_age")
     private Integer age;
 
+    @Column(name = "post_incall")
+    private String incall;
+    @Column(name = "post_outcall")
+    private String outcall;
+
 //    @Max(50)
     @Column(name = "post_description",length = 10000)
     private String description;

@@ -9,7 +9,7 @@ Language stack :
 
 
 
-API documentation is the [link](https://localhost/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
+API documentation is the [link](https://incallup.com/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
 
 port number : 443
 
@@ -38,6 +38,9 @@ to-do list :
  - site text should be displayed from database (done)
  - load the bottom bars as preload and not through js (done)
  - category page mobile fix (done)
+ - title page changes : 
+   - top text should be styled properly 
+ - add incall outcall prices 
  - Title page picture size should be fixed ()
  - add validations for post form (need to check which validation are remaining) 
  - fix search form (find out different test case scenarios)

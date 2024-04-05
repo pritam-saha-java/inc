@@ -117,7 +117,7 @@ private final ApplicationController applicationController;
      @GetMapping("{category}/{location}/{titleString}")
     public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable(name = "category") String category, @PathVariable(name = "location") String location) throws ApplicationException {
         Post post = customerService.searchByTitle(title);
-
+        modelAndView.addObject("description", applicationQueryService.getSiteDescription());
         modelAndView.addObject("post",post);
         modelAndView.setViewName("details");
         return modelAndView;
@@ -149,7 +149,7 @@ private final ApplicationController applicationController;
         List<Post> posts = customerService.searchByCategory(category);
 
 
-
+        modelAndView.addObject("description", applicationQueryService.getSiteDescription());
         modelAndView.addObject("posts",posts);
         modelAndView.addObject("category",applicationQueryService.getCategoryByName(category));
         modelAndView.setViewName("category");
