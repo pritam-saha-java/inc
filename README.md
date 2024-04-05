@@ -38,4 +38,5 @@ to-do list :
  - On homepage margins above the large text should be reduced
  - On search page the title buttons should be moved and aligned to left
  - There should be separate screens for mobile and desktop on title page.
+ - improve seller panel UI
 
