@@ -9,7 +9,7 @@ Language stack :
 
 
 
-API documentation is the [link](https://localhost/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
+API documentation is the [link](https://incallup.com/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
 
 port number : 443
 
