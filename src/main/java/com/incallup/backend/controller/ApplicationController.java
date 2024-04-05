@@ -33,7 +33,6 @@ public class ApplicationController {
     public ModelAndView getCategoryList(ModelAndView modelAndView){
         modelAndView.setViewName("template-category");
         List<Category> listOfCategories = adminQueryService.listCategories();
-        System.out.println(listOfCategories);
         modelAndView.addObject("categories",listOfCategories);
         return modelAndView;
     }

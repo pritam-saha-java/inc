@@ -7,7 +7,7 @@
 
 
 
-<div  th:each=" category : ${categories}" class="d-grid bg-secondary-subtle mx-1  mt-2 border border-2  rounded-2 row " th:onclick="showCategory([[${category.name}]]+'-btn',[[${category.name}]]+'-bar');" >
+<div th:fragment="siteCategory"  th:each=" category : ${categories}" class="d-grid bg-secondary-subtle mx-1  mt-2 border border-2  rounded-2 row " th:onclick="showCategory([[${category.name}]]+'-btn',[[${category.name}]]+'-bar');" >
     <div class=" site-font container text-center py-2 " >
         <div class="row justify-content-between  ">
             <div class=" col text-start " th:text="${category.title}">Camera</div>

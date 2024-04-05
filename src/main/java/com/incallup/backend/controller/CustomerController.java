@@ -99,7 +99,7 @@ private final AdminQueryService adminQueryService;
 @Autowired
 private final ApplicationQueryService applicationQueryService;
 
-
+private final ApplicationController applicationController;
 
     @GetMapping
     public ModelAndView Customer(ModelAndView model){

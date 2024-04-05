@@ -32,7 +32,7 @@
 
 
   <div th:fragment="siteSearch" class="modal fade site-modal " tabindex="-1" id="myModal">
-    <div class="modal-dialog">
+    <div class="modal-dialog pt-5">
       <div class="modal-content">
 
         <!-- Modal Header -->
@@ -180,8 +180,9 @@
       <p class="text-center">Most Popular Location In A Specific Category</p>
     </div>
 
-    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" > </div>
 
+
+    <div id="categoryTemplate" th:replace="template-category.html :: siteCategory"></div>
 
     <div class="container my-3 px-2">
       <div th:text="${description}" style="text-align: justify;" class=" p-3 lg-base  fw-light bg-secondary-subtle ">

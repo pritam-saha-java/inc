@@ -36,10 +36,11 @@ to-do list :
  - On search page the title buttons should be moved and aligned to left (done)
  - align the homepage text as justified (done)
  - site text should be displayed from database (done)
- - load the bottom bars as preload and not through js
+ - load the bottom bars as preload and not through js (done)
+ - category page mobile fix (done)
+ - Title page picture size should be fixed ()
  - add validations for post form (need to check which validation are remaining) 
  - fix search form (find out different test case scenarios)
- - Title page picture size should be fixed ()
  - There should be separate screens for mobile and desktop on title page.
  - improve seller panel UI
  - add compression in application for images (test out logic in separate java file)
