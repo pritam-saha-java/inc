@@ -40,7 +40,7 @@
   <div th:replace="dashboard.html :: siteHeader"></div>
 
   <!-- hero section start -->
-  <div class="container px-4 mt-2  p-1 fw-bold fs-5  ">
+  <div class="container px-4 mt-2  p-1  fs-6  ">
     <a href="https://localhost/" class="row px-0 rounded mb-2   site-link"> < Back To Search </a>
     <section class="bread_wraper mt-3">
       <div class="container px-0">
@@ -100,7 +100,7 @@
           </div>
           <div class="col-6 ">
             <div class=" ">
-              <a target="_blank" rel="nofollow" alt="contact link" class="px-1  " th:href="'tel:'+${post.contact}"><i class="fa fa-phone p-2 py-1 rounded-1 text-animate" style="color:white;  background-color: #BE206B;   " aria-hidden="true"></i></a>
+              <a target="_blank" rel="nofollow" alt="contact link" class="  " th:href="'tel:'+${post.contact}"><i class="fa fa-phone p-2 py-1 rounded-1 text-animate" style="color:white;  background-color: #BE206B;   " aria-hidden="true"></i></a>
               <a target="_blank" rel="nofollow" alt="whatsapp link" class="px-1   " th:href="'https://api.whatsapp.com/send/?phone='+${post.contact}" ><i class="fa fa-whatsapp p-2 py-1 rounded-1 text-animate" style="background-color: #23B33A; color:white;  " aria-hidden="true"></i></a>
               <a target="_blank" rel="nofollow" alt="telegram link" class="px-1  " th:href="'https://t.me/+91'+${post.contact}" >
 
