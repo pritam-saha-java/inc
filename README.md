@@ -31,14 +31,16 @@ to-do list :
  - sort the every dropdown data alphabetically (done)
  - signup link should be domain/register (done)
  - login link should be domain/login (done)
- - add validations for post form 
- - fix search form 
  - reduce the image size (done)
- - Title page picture size should be fixed
  - On homepage margins above the large text should be reduced (done)
  - On search page the title buttons should be moved and aligned to left (done)
+   - align the homepage text as justified
+ - add validations for post form (need to check which validation are remaining) 
+ - fix search form (find out different test case scenarios)
+ - Title page picture size should be fixed ()
  - There should be separate screens for mobile and desktop on title page.
  - improve seller panel UI
- - add compression in application 
- - add watermark in image using java
+ - add compression in application for images (test out logic in separate java file)
+ - add watermark in image using java (test the logic in separate java file)
+ - admin panel 
 
