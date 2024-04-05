@@ -34,7 +34,9 @@ to-do list :
  - reduce the image size (done)
  - On homepage margins above the large text should be reduced (done)
  - On search page the title buttons should be moved and aligned to left (done)
-   - align the homepage text as justified
+ - align the homepage text as justified (done)
+ - site text should be displayed from database (done)
+ - load the bottom bars as preload and not through js
  - add validations for post form (need to check which validation are remaining) 
  - fix search form (find out different test case scenarios)
  - Title page picture size should be fixed ()

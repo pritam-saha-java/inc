@@ -16,16 +16,18 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @SpringBootApplication
 @EnableJpaRepositories
 @Slf4j
-public class Application {
+public class Website {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(Website.class, args);
 	}
 
 
 	@Bean
 	protected CommandLineRunner run(){
 		return args -> {
+
+
 
 
 		};

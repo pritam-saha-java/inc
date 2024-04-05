@@ -100,11 +100,13 @@ private final AdminQueryService adminQueryService;
 private final ApplicationQueryService applicationQueryService;
 
 
+
     @GetMapping
     public ModelAndView Customer(ModelAndView model){
         model.setViewName("dashboard");
         List<Category> listOfCategories = adminQueryService.listCategories();
         model.addObject("categories", listOfCategories);
+        model.addObject("description", applicationQueryService.getSiteDescription());
         System.out.println(model.getModel());
         return model;
     }
