@@ -9,7 +9,6 @@ import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
-import com.incallup.backend.repository.AdminRepository;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.CustomerService;
 import com.incallup.backend.service.SellerCommandService;
@@ -38,8 +37,8 @@ import org.springframework.web.servlet.view.RedirectView;
 @RequiredArgsConstructor
 @SessionAttributes("seller")
 public class SellerController {
-    @Autowired
-    private AdminRepository adminRepository;
+
+
 
 
     @ExceptionHandler(LogoutException.class)
