@@ -1,6 +1,7 @@
 package com.incallup.backend.controller;
 
 import com.incallup.backend.domain.Category;
+import com.incallup.backend.domain.Location;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.ApplicationQueryService;
 import lombok.RequiredArgsConstructor;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -46,7 +48,8 @@ public class ApplicationController {
 
     @GetMapping("get/state/options")
     public ModelAndView getStatesOptions(ModelAndView modelAndView){
-        var states = adminQueryService.listStates();
+        List<String> states = adminQueryService.listStates();
+        Collections.sort(states);
         modelAndView.addObject("states",states);
         modelAndView.setViewName("state-options");
         return modelAndView;
@@ -54,7 +57,8 @@ public class ApplicationController {
     @GetMapping("/get/city/options")
     public ModelAndView getCitiesOptions(ModelAndView modelAndView,@RequestParam String state)
     {
-        var locations = applicationQueryService.getLocationByState(state);
+        List<Location> locations = applicationQueryService.getLocationByState(state);
+        locations.sort(new Location());
         modelAndView.addObject("locations",locations);
         modelAndView.setViewName("district-options");
         return modelAndView;

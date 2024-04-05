@@ -28,15 +28,17 @@ translation : https://incallup-com.translate.goog/dating/thane?_x_tr_sl=la&_x_tr
 screen size for phone : 343 x 686
 
 to-do list :
- - sort the every dropdown data alphabetically
- - signup link should be domain/register
- - login link should be domain/login
- - add validations for post form
- - fix search form
- - reduce the image size
+ - sort the every dropdown data alphabetically (done)
+ - signup link should be domain/register (done)
+ - login link should be domain/login (done)
+ - add validations for post form 
+ - fix search form 
+ - reduce the image size (done)
  - Title page picture size should be fixed
- - On homepage margins above the large text should be reduced
- - On search page the title buttons should be moved and aligned to left
+ - On homepage margins above the large text should be reduced (done)
+ - On search page the title buttons should be moved and aligned to left (done)
  - There should be separate screens for mobile and desktop on title page.
  - improve seller panel UI
+ - add compression in application 
+ - add watermark in image using java
 
