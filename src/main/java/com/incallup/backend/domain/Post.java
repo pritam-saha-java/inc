@@ -40,6 +40,12 @@ public class Post {
     @Column(name = "post_views")
     private Integer views;
 
+    @Column(name = "post_telegram")
+    private Boolean telegram;
+
+    @Column(name = "post_whatsapp")
+    private Boolean whatsapp;
+
 
 
     @Column(name = "post_contact")
