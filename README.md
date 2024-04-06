@@ -49,4 +49,9 @@ to-do list :
  - add compression in application for images (test out logic in separate java file)
  - add watermark in image using java (test the logic in separate java file)
  - admin panel 
+ - details page : age+ views text size should increased
+ - social media buttons size and shape should be fixed
+ - Footer Logo size should be fixed
+ - title & description length should be increased on category page
+ - distance between category page image and title decreased
 
