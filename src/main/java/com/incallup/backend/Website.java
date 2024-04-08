@@ -27,7 +27,6 @@ public class Website {
 	protected CommandLineRunner run(){
 		return args -> {
 
-			System.out.println("hello");
 
 		};
 	}

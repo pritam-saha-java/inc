@@ -38,6 +38,7 @@ to-do list :
  - site text should be displayed from database (done)
  - load the bottom bars as preload and not through js (done)
  - category page mobile fix (done)
+ - Footer Logo size should be fixed (done)
  - title page changes : 
    - top text should be styled properly 
  - add incall outcall prices 
@@ -51,7 +52,6 @@ to-do list :
  - admin panel 
  - details page : age+ views text size should increased
  - social media buttons size and shape should be fixed
- - Footer Logo size should be fixed
  - title & description length should be increased on category page
  - distance between category page image and title decreased
 
