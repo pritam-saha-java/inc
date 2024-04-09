@@ -39,19 +39,31 @@ to-do list :
  - load the bottom bars as preload and not through js (done)
  - category page mobile fix (done)
  - Footer Logo size should be fixed (done)
- - title page changes : 
-   - top text should be styled properly 
- - add incall outcall prices 
+
+
+UI Changes ---
+- title page changes :
+   - top text should be styled properly
  - Title page picture size should be fixed ()
- - add validations for post form (need to check which validation are remaining) 
- - fix search form (find out different test case scenarios)
  - There should be separate screens for mobile and desktop on title page.
  - improve seller panel UI
- - add compression in application for images (test out logic in separate java file)
- - add watermark in image using java (test the logic in separate java file)
- - admin panel 
  - details page : age+ views text size should increased
  - social media buttons size and shape should be fixed
- - title & description length should be increased on category page
  - distance between category page image and title decreased
+
+
+
+
+
+Functional Changes --
+ - add incall outcall prices 
+ - add validations for post form (need to check which validation are remaining) 
+ - fix search form (find out different test case scenarios)
+ - Create Post delete function for seller
+ - admin panel 
+ - add compression in application for images (test out logic in separate java file)
+ - add watermark in image using java (test the logic in separate java file)
+ - title & description length should be increased on category page
+
+
 
