@@ -102,7 +102,6 @@
       </label>
       <select name="category" class="form-select row " hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
         <option selected>Select Category</option>
-
       </select>
 
     </div>
@@ -141,6 +140,17 @@
             <input name="age" type="number" class="form-control site-input" id="postAge" placeholder="Age">
           </div>
         </div>
+      <div class="row mb-3 d-flex justify-content-between">
+        <div class="col-5">
+          <label for="postIncall" class="form-label"><b>Incall *</b></label>
+          <input name="incall" type="number" class="form-control site-input " id="postIncall" placeholder="Enter Price Here" >
+        </div>
+
+        <div class="col-5">
+          <label for="postOutCall" class="form-label"><b>OutCall *</b></label>
+          <input name="outcall" type="number" class="form-control site-input" id="postOutCall" placeholder="Enter Price Here">
+        </div>
+      </div>
         <div class="row mb-3 justify-content-between">
           <div class="col-5">
             <label for="post-state" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#post-state" ><b>State * </b></label>
@@ -155,6 +165,7 @@
             </select>
           </div>
         </div>
+
         <div class="row my-4 " >
             <label for="image-input" class="site-input py-4 col mx-2 text-center">
               <div class="image-container ">
