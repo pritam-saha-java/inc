@@ -31,6 +31,12 @@ public class Seller {
     @Column(name = "seller_username",nullable = false,unique = true)
     private String username;
 
+    @Column(name = "seller_incall",nullable = false)
+    private String incall;
+
+    @Column(name = "seller_outcall",nullable = false)
+    private String outcall;
+
     @Email
     @Column(name = "seller_email",nullable = false)
     private String email;
