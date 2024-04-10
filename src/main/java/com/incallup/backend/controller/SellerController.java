@@ -101,7 +101,9 @@ public class SellerController {
         boolean authenticated = sellerQueryService.authenticate(username,password);
        if(authenticated)
        {
-            model.addObject("seller",username);
+           var seller = sellerQueryService.getSellerByUsername(username);
+            model.addObject("seller",seller.getUsername());
+            model.addObject("seller1",seller);
             model.setViewName("profile");
        }
 
@@ -146,7 +148,7 @@ public class SellerController {
     public ModelAndView Profile(HttpSession session,@PathVariable Integer sellerId, ModelAndView model) throws IdNotFoundException {
         authenticate(session);
         var seller = sellerQueryService.getSellerById(sellerId);
-        model.addObject("seller",seller);
+        model.addObject("seller1",seller);
         model.setViewName("profile");
         return model;
     }
@@ -239,9 +241,13 @@ public class SellerController {
     @GetMapping({"edit/{username}","/profile"})
     public ModelAndView Username(HttpSession session, @PathVariable(required = false) String username, ModelAndView model) throws LogoutException{
         authenticate(session);
-
         if(username!=null){
             log.info(username);
+            model.addObject("seller1",sellerQueryService.getSellerByUsername(username));
+
+        }else {
+        var postUser = (String) session.getAttribute("seller");
+            model.addObject("seller1",sellerQueryService.getSellerByUsername(postUser));
 
 
         }

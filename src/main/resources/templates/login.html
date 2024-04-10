@@ -13,12 +13,21 @@
           integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <title >Login Page</title>
-    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/reset.min.css" />
-    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/nav.css" />
-    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/header.css" />
+    <link rel="stylesheet" href="https://localhost/server/assets/styles/reset.min.css" />
+    <link rel="stylesheet" href="https://localhost/server/assets/styles/nav.css" />
+    <link rel="stylesheet" href="https://localhost/server/assets/styles/header.css" />
 
-    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css">
+    <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css">
     <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script>
+
+        var link = document.location.href;
+        if(link.includes("seller")){
+            document.location.href = '/login';
+            console.log("link changed");
+
+        }
+    </script>
 
 </head>
 
@@ -38,9 +47,9 @@
     </div>
 </div>
 
-<h1 class="text-center my-5 site-text ">Get Into <img src="https://incallup.com/server/assets/img/logo.png" alt="site-logo"></h1>
+<h1 class="text-center my-5 site-text ">Get Into <img  class="rounded rounded-4" style=" max-width:10rem; height:auto; background-color:var(--pink); " src="https://localhost/server/assets/img/logo.png" alt="site-logo"></h1>
 
-<form class="container " method="post" action="https://incallup.com/seller/login">
+<form class="container " method="post" action="https://localhost/seller/login">
     <div class="mb-4 row justify-content-center " >
 
     <input  class="form-control-lg col-6 col-md-8 col-sm-8 rounded-5" type="text" name="username" id="email" placeholder="Username">
@@ -55,9 +64,9 @@
     </div>
 </form>
 
-<!--<div class="text-center text-primary" hx-get="https://incallup.com/seller/forgot">Forgot Password</div>-->
+<!--<div class="text-center text-primary" hx-get="https://localhost/seller/forgot">Forgot Password</div>-->
 <div class="text-center">Don’t Have An Account Yet?
-    <a  class="text-pink" href="https://incallup.com/auth/create" >Sign Up</a></div>
+    <a  class="text-pink" href="https://localhost/auth/create" >Sign Up</a></div>
 
 
 </div>

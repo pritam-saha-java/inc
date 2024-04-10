@@ -39,6 +39,7 @@ Done Changes :
  - load the bottom bars as preload and not through js (done)
  - category page mobile fix (done)
  - Footer Logo size should be fixed (done)
+ - fix search form (find out different test case scenarios) (done)
 
 
 UI Changes ---
@@ -58,7 +59,6 @@ UI Changes ---
 Functional Changes --
  - add incall outcall prices 
  - add validations for post form (need to check which validation are remaining) 
- - fix search form (find out different test case scenarios)
  - Create Post delete function for seller
  - admin panel 
  - add compression in application for images (test out logic in separate java file)
