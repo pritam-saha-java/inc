@@ -57,12 +57,12 @@ UI Changes ---
 
 
 Functional Changes --
- - add incall outcall prices 
+ - add incall outcall prices (in progress)
  - add validations for post form (need to check which validation are remaining) 
  - Create Post delete function for seller
  - admin panel 
  - add compression in application for images (test out logic in separate java file)
- - add watermark in image using java (test the logic in separate java file)
+ - add watermark in image using java (test the logic in separate java file) (in progress)
  - title & description length should be increased on category page
 
 
