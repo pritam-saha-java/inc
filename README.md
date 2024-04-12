@@ -65,6 +65,7 @@ Functional Changes --
  - add compression in application for images (test out logic in separate java file)
  - title & description length should be increased on category page
  - post should take longer description (bug)
+ - bug in ads.html page ("post.location!=null?location.district: post.location !=null?post.location.district:'location'" (template: "ads" - line 71, col 57))
 
 
 
