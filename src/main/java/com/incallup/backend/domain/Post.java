@@ -59,7 +59,7 @@ public class Post {
     @Column(name = "post_outcall")
     private String outcall;
 
-//    @Max(50)
+
     @Column(name = "post_description",length = 10000)
     private String description;
 
