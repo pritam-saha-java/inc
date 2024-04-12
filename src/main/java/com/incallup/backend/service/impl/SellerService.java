@@ -113,11 +113,6 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     @Override
     public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException {
 
-
-            // code for image1, image2
-
-
-
         var postOptional = postRepository.findPostByTitle(post.getTitle());
         if(postOptional.isPresent())
             throw ApplicationException.builder()
