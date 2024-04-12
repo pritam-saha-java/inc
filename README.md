@@ -39,6 +39,7 @@ Done Changes :
  - load the bottom bars as preload and not through js (done)
  - category page mobile fix (done)
  - Footer Logo size should be fixed (done)
+ - add watermark in image using java (test the logic in separate java file) (done)
  - fix search form (find out different test case scenarios) (done)
 
 
@@ -62,7 +63,6 @@ Functional Changes --
  - Create Post delete function for seller
  - admin panel 
  - add compression in application for images (test out logic in separate java file)
- - add watermark in image using java (test the logic in separate java file) (in progress)
  - title & description length should be increased on category page
  - post should take longer description (bug)
 
