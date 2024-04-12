@@ -167,6 +167,8 @@ public class SellerController {
                 ,@ModelAttribute("telegram") String telegram
                 ,@ModelAttribute("age") Integer age
                 ,@ModelAttribute("state") String state
+                ,@ModelAttribute("incall") String incall
+                ,@ModelAttribute("outcall") String outcall
                 ,@ModelAttribute("city") String city
                 ,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException, IOException {
         authenticate(session);
@@ -181,6 +183,10 @@ public class SellerController {
                 .category(Category.builder()
                         .name(category)
                         .build())
+                .incall(incall)
+                .outcall(outcall)
+                .whatsapp(whatsapp.equals("on"))
+                .telegram(telegram.equals("on"))
                 .location(Location.builder()
                         .district(city.trim().replace(" ","-"))
                         .state(state)
