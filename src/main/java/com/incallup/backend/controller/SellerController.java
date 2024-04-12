@@ -30,6 +30,8 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.io.IOException;
+
 @RestController
 @RequestMapping("/seller")
 @Slf4j
@@ -166,7 +168,7 @@ public class SellerController {
                 ,@ModelAttribute("age") Integer age
                 ,@ModelAttribute("state") String state
                 ,@ModelAttribute("city") String city
-                ,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException {
+                ,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException, IOException {
         authenticate(session);
         log.info(multipartFile1.getOriginalFilename());
         log.info(multipartFile2.getOriginalFilename());
