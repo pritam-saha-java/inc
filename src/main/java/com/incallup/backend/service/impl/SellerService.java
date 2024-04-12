@@ -149,8 +149,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         locationOptional.ifPresent(post::setLocation);
 
         try {
-            byte[] bytes1 =   ImageUtility.getBufferedImage(image1);
-            byte[] bytes2 =   ImageUtility.getBufferedImage(image2);
+            var bytes1 =   ImageUtility.getBufferedImage(image1);
+            var bytes2 =   ImageUtility.getBufferedImage(image2);
             post.setImageData1(bytes1);
             post.setImageData2(bytes2);
 
