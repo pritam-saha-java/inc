@@ -13,12 +13,18 @@ import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
+import com.incallup.backend.utility.ImageUtility;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import net.coobird.thumbnailator.filters.Watermark;
+import net.coobird.thumbnailator.geometry.Positions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
@@ -110,7 +116,22 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
 
     @Override
-    public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException {
+    public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException, IOException {
+
+
+            // code for image1, image2
+            BufferedImage originalImage = ImageIO.read(image1.getInputStream());
+            BufferedImage watermarkImage = ImageIO.read(new File("src/main/resources/static/server/assets/img/logo.png"));
+
+           watermarkImage = ImageUtility.toBufferedImage(watermarkImage.getScaledInstance(200,200, BufferedImage.SCALE_SMOOTH));
+
+            Watermark filter = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
+
+            BufferedImage watermarkedImage = filter.apply(originalImage);
+
+
+
+
 
         var postOptional = postRepository.findPostByTitle(post.getTitle());
         if(postOptional.isPresent())
@@ -143,7 +164,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         locationOptional.ifPresent(post::setLocation);
 
         try {
-            post.setImageData1(image1.getBytes());
+            post.setImageData1(ImageUtility.toByteArray(watermarkedImage,"png"));
 //            post.setImageData1(compressImage(image1.getBytes()));
             post.setImageData2(image2.getBytes());
 //            post.setImageData2(compressImage(image2.getBytes()));
