@@ -1,13 +1,33 @@
 package com.incallup.backend.utility;
 
+import net.coobird.thumbnailator.filters.Watermark;
+import net.coobird.thumbnailator.geometry.Positions;
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.IOException;
 
 
 public class ImageUtility {
+
+    public static String LOGO_PATH = "src/main/resources/static/server/assets/img/logo.png";
+
+    public static byte[] getBufferedImage(MultipartFile image1) throws IOException {
+        BufferedImage originalImage = ImageIO.read(image1.getInputStream());
+        BufferedImage watermarkImage = ImageIO.read(new File(ImageUtility.LOGO_PATH));
+
+        watermarkImage = ImageUtility.toBufferedImage(watermarkImage.getScaledInstance(200,200, BufferedImage.SCALE_SMOOTH));
+
+        Watermark filter = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
+
+      var watermarkedImage =  filter.apply(originalImage);
+      return ImageUtility.toByteArray(watermarkedImage,"png");
+
+    }
 //
 //
 //
