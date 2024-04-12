@@ -64,6 +64,7 @@ Functional Changes --
  - add compression in application for images (test out logic in separate java file)
  - add watermark in image using java (test the logic in separate java file) (in progress)
  - title & description length should be increased on category page
+ - post should take longer description (bug)
 
 
 
