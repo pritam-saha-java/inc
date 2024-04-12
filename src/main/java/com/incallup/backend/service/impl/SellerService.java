@@ -160,6 +160,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         var categoryOptional =  categoryRepository.findCategoryByName(post.getCategory().getName());
         categoryOptional.ifPresent(post::setCategory);
 
+
         post.setViews(0);
         postRepository.save(post);
 
@@ -178,6 +179,11 @@ public class SellerService implements SellerQueryService, SellerCommandService {
             location.setPosts(locationPosts);
             locationRepository.save(location);
         }
+        var seller = sellerOption.get();
+        var sellerPosts = seller.getPosts();
+        sellerPosts.add(post);
+        seller.setPosts(sellerPosts);
+        sellerRepository.save(seller);
 
 
     }
