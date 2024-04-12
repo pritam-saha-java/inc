@@ -203,6 +203,16 @@ public class SellerController {
         return model;
     }
 
+    @GetMapping("ads")
+    public ModelAndView ads(HttpSession session, ModelAndView view){
+        authenticate(session);
+        var username = (String) session.getAttribute("seller");
+        var seller = sellerQueryService.getSellerByUsername(username);
+        view.addObject("sellerObj",seller);
+        view.addObject("posts",seller.getPosts());
+        view.setViewName("ads");
+        return view;
+    }
 
     @GetMapping("/get/post/{postId}")
     public ModelAndView PostId(HttpSession session,@PathVariable Integer postId, ModelAndView model) throws IdNotFoundException{
