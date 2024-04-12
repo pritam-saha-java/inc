@@ -196,7 +196,11 @@ public class SellerController {
 
         sellerCommandService.createPost(post,sellerId,multipartFile1,multipartFile2);
         log.info(post.toString());
-        return new ModelAndView("profile");
+
+        var model = new ModelAndView("profile");
+        var seller = sellerQueryService.getSellerById(sellerId);
+        model.addObject("seller1",seller);
+        return model;
     }
 
 
