@@ -126,12 +126,12 @@
 
   <div class="row fixed-bottom mobilecontactbar stickymobile">
     <div class="col px-2 m-auto">
-      <button th:href="'tel:'+${post.contact}"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
+      <button th:href="'tel:+91 '+${post.contact}"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
         <i class="fa fa-lg fa fa-phone mx-1"></i>Telephone
       </button>
     </div>
     <div class="col px-2 m-auto">
-      <a target="_blank" rel="nofollow" th:href="'https://api.whatsapp.com/send/?phone='+${post.contact}"  class="btn btn-whatsapp btn-md btn-block whatsapp-pin">
+      <a target="_blank" rel="nofollow" th:href="${'https://api.whatsapp.com/send/?phone=+91'+post.contact+'&text=Hi+I+saw+your+Ad+on+Incallup%2C'+post.title+'+%2C+and+I+am+interested+in+your+profile.'}"  class="btn btn-whatsapp btn-md btn-block whatsapp-pin">
         <i class="fab fa-lg fa-whatsapp mx-1 align-middle"></i>Whatsapp
       </a>
     </div>
