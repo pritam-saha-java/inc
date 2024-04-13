@@ -144,7 +144,7 @@ private final ApplicationController applicationController;
 
 
 
-        var postsByCategory = customerService.searchByCategory(category);
+
 
         List<Post> posts = customerService.searchByCategory(category);
 

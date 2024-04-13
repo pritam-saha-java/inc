@@ -90,10 +90,10 @@ public class CustomerServiceImpl implements CustomerService {
         var posts = categoryObj.getPosts();
         posts.forEach((post -> {
             post.setByteString(convertByteArrayToBase64(post.getImageData1()));
-            if(post.getTitle().length()>15)
-                post.setTitle(post.getTitle().substring(0,13)+"..");
-            if(post.getDescription().length()>50)
-                post.setDescription(post.getDescription().substring(0,48)+"..");
+            if(post.getTitle().length()>30)
+                post.setTitle(post.getTitle().substring(0,28)+"..");
+            if(post.getDescription().length()>150)
+                post.setDescription(post.getDescription().substring(0,148)+"..");
         }));
 
        return posts;
@@ -128,10 +128,10 @@ public class CustomerServiceImpl implements CustomerService {
 
         postsByLocation.forEach((post -> {
             post.setByteString(convertByteArrayToBase64(post.getImageData1()));
-            if(post.getTitle().length()>15)
-                post.setTitle(post.getTitle().substring(0,13)+"..");
-            if(post.getDescription().length()>50)
-                post.setDescription(post.getDescription().substring(0,48)+"..");
+            if(post.getTitle().length()>30)
+                post.setTitle(post.getTitle().substring(0,28)+"..");
+            if(post.getDescription().length()>150)
+                post.setDescription(post.getDescription().substring(0,148)+"..");
         }));
         return new ArrayList<>(postsByLocation);
     }
