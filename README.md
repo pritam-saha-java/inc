@@ -41,6 +41,8 @@ Done Changes :
  - Footer Logo size should be fixed (done)
  - add watermark in image using java (test the logic in separate java file) (done)
  - fix search form (find out different test case scenarios) (done)
+ - title & description length should be increased on category page(done)
+ - post should take longer description (bug) (done)
 
 
 UI Changes ---
@@ -52,19 +54,19 @@ UI Changes ---
  - details page : age+ views text size should be increased
  - social media buttons size and shape should be fixed
  - distance between category page image and title decreased
-
+ - title page should display disclaimer
 
 
 
 
 Functional Changes --
- - add incall outcall prices (in progress)
+ - add incall outcall prices (in progress) (gets input needs to show on search page)
  - add validations for post form (need to check which validation are remaining) 
  - Create Post delete function for seller
  - admin panel 
+ - increase the loading speed for search page
+ - increase the limit of the image size
  - add compression in application for images (test out logic in separate java file)
- - title & description length should be increased on category page
- - post should take longer description (bug)
  - bug in ads.html page ("post.location!=null?location.district: post.location !=null?post.location.district:'location'" (template: "ads" - line 71, col 57))
 
 
