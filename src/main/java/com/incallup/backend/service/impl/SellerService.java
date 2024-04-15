@@ -20,7 +20,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.sql.rowset.serial.SerialBlob;
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -146,10 +148,11 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         try {
             var bytes1 =   ImageUtility.getBufferedImage(image1);
             var bytes2 =   ImageUtility.getBufferedImage(image2);
-            post.setImageData1(bytes1);
-            post.setImageData2(bytes2);
 
-        } catch (IOException e) {
+            post.setImageData1(new SerialBlob(bytes1));
+            post.setImageData2(new SerialBlob(bytes2));
+
+        } catch (IOException | SQLException e) {
             throw ApplicationException.builder()
                     .title("error saving data")
                     .Description("try to choose another format for images")

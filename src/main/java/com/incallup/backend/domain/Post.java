@@ -7,6 +7,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Blob;
 import java.time.Instant;
 
 @Getter
@@ -86,11 +87,10 @@ public class Post {
     private Instant updatedAt;
 
     @Lob
-    @Column(length = 100000)
-    private byte[] imageData1;
+    private Blob imageData1;
+
     @Lob
-    @Column(length = 100000)
-    private byte[] imageData2;
+    private Blob imageData2;
 
     @Transient
     private String byteString;

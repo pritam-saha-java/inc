@@ -13,6 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
@@ -45,8 +46,12 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         var post = postOptional.get();
-        post.setByteString(convertByteArrayToBase64(post.getImageData1()));
-        post.setByteString2(convertByteArrayToBase64(post.getImageData2()));
+        try {
+        post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+            post.setByteString2(convertByteArrayToBase64(post.getImageData2().getBytes(1,(int)post.getImageData2().length())));
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
         log.info("logging information : "+post.getByteString2().length());
 
 
@@ -89,7 +94,11 @@ public class CustomerServiceImpl implements CustomerService {
         var categoryObj = categoryOptional.get();
         var posts = categoryObj.getPosts();
         posts.forEach((post -> {
-            post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            try {
+                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             if(post.getTitle().length()>30)
                 post.setTitle(post.getTitle().substring(0,28)+"..");
             if(post.getDescription().length()>150)
@@ -127,7 +136,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 
         postsByLocation.forEach((post -> {
-            post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            try {
+                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             if(post.getTitle().length()>30)
                 post.setTitle(post.getTitle().substring(0,28)+"..");
             if(post.getDescription().length()>150)
@@ -150,7 +163,11 @@ public class CustomerServiceImpl implements CustomerService {
         var posts =  locationObj.getPosts();
 
         posts.forEach((post -> {
-            post.setByteString(convertByteArrayToBase64(post.getImageData1()));
+            try {
+                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
             if(post.getTitle().length()>15)
                 post.setTitle(post.getTitle().substring(0,13)+"..");
             if(post.getDescription().length()>50)

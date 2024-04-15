@@ -55,6 +55,7 @@ UI Changes ---
  - social media buttons size and shape should be fixed
  - distance between category page image and title decreased
  - title page should display disclaimer
+ - form instructions should be updated
 
 
 
