@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="icon" type="image/png" href="/server/assets/img/logo.png"/>
+  <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -41,18 +41,18 @@
 
   <!-- hero section start -->
   <div class="container px-4 mt-2  p-1  fs-6  ">
-    <a href="https://localhost/" class="row px-0 rounded mb-2   site-link"> < Back To Search </a>
+    <a href="https://incallup.com/" class="row px-0 rounded mb-2   site-link"> < Back To Search </a>
     <section class="bread_wraper mt-3">
       <div class="container px-0">
         <div class="row">
 
           <div class="bread-inner px-0 text-left pb-3">
             <ul>
-              <li><a href="https://localhost/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-1 icon-pink " aria-hidden="true"></i> </a></li>
+              <li><a href="https://incallup.com/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-1 icon-pink " aria-hidden="true"></i> </a></li>
               <li> > </li>
-              <li><a th:href="${'https://localhost/'+category.name}" class="border border-1 border-black rounded-4 p-2 text-center  " th:text="${category.title}" >category</a></li>
+              <li><a th:href="${'https://incallup.com/'+category.name}" class="border border-1 border-black rounded-4 p-2 text-center  " th:text="${category.title}" >category</a></li>
               <li th:if="${location!=null}" > > </li>
-              <li th:if="${location!=null}" ><a th:href="${'https://localhost/'+category.name+'/'+location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${location.name}" >category</a></li>
+              <li th:if="${location!=null}" ><a th:href="${'https://incallup.com/'+category.name+'/'+location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${location.name}" >category</a></li>
             </ul>
           </div>
 
@@ -74,10 +74,10 @@
   <div class="card my-2  "  th:each="post : ${posts}"   >
     <div class="row g-0">
       <div class="col-md-4 col-sm-12 ">
-        <img class="img-fluid  h-100  w-100 rounded-start rounded-4 cat-image"  th:src="'data:image/webp;base64,'+ ${post.byteString}" th:alt="${post.title}" th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+        <img class="img-fluid  h-100  w-100 rounded-start rounded-4 cat-image"  th:src="'data:image/webp;base64,'+ ${post.byteString}" th:alt="${post.title}" th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
       </div>
       <div class="col-md-8 container pb-0">
-        <div class="card-body px-0 mt-lg-4 mt-sm-1 row"  th:onclick=" location.href = 'https://localhost/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+        <div class="card-body px-0 mt-lg-4 mt-sm-1 row"  th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
           <h2 class="card-title fw-bold text-capitalize my-lg-2 my-sm-1  text-pink fs-3" th:text="${post.title}" >Card title</h2>
           <p class="card-text my-lg-5 my-md-5 my-sm-1 " th:text="${post.description}" >
             This is a wider card with supporting text below as a natural lead-in 

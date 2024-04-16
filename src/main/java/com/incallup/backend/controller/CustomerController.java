@@ -126,14 +126,14 @@ private final ApplicationController applicationController;
   
     }
 
-
-
+    @GetMapping("favicon.ico")
+    public String favicon(){
+        return "incallup.com/server/assets/img/favicon.ico";
+    }
 
     @GetMapping("{category}")
     public ModelAndView Category( @PathVariable(name = "category") String category, ModelAndView modelAndView) throws ApplicationException {
 
-        if(category.equals("favicon.ico"))
-            return null;
 
 
         var customPages = List.of("blogs", "contact","terms","privacy","faq");
@@ -141,14 +141,7 @@ private final ApplicationController applicationController;
             modelAndView.setViewName("site-"+category);
             return modelAndView;
         }
-
-
-
-
-
         List<Post> posts = customerService.searchByCategory(category);
-
-
         modelAndView.addObject("description", applicationQueryService.getSiteDescription());
         modelAndView.addObject("posts",posts);
         modelAndView.addObject("category",applicationQueryService.getCategoryByName(category));

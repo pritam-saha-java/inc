@@ -152,9 +152,15 @@ public class SellerService implements SellerQueryService, SellerCommandService {
             post.setImageData1(new SerialBlob(bytes1));
             post.setImageData2(new SerialBlob(bytes2));
 
-        } catch (IOException | SQLException e) {
+        } catch ( SQLException e) {
             throw ApplicationException.builder()
-                    .title("error saving data")
+                    .title("error saving data due to database")
+                    .Description("try to choose another format for images")
+                    .build();
+        }
+        catch (IOException e){
+            throw ApplicationException.builder()
+                    .title("error saving data due to File Format")
                     .Description("try to choose another format for images")
                     .build();
         }

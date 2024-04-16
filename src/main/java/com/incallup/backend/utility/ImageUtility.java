@@ -14,11 +14,18 @@ import java.io.IOException;
 
 public class ImageUtility {
 
-    public static String LOGO_PATH = "src/main/resources/static/server/assets/img/logo.png";
+    public static String LOGO_PATH = "logo.png";
 
     public static byte[] getBufferedImage(MultipartFile image1) throws IOException {
         BufferedImage originalImage = ImageIO.read(image1.getInputStream());
-        BufferedImage watermarkImage = ImageIO.read(new File(ImageUtility.LOGO_PATH));
+
+        BufferedImage watermarkImage;
+        try{
+
+         watermarkImage = ImageIO.read(new File(ImageUtility.LOGO_PATH));
+        }catch (IOException e){
+            throw new RuntimeException();
+        }
 
         watermarkImage = ImageUtility.toBufferedImage(watermarkImage.getScaledInstance(200,200, BufferedImage.SCALE_SMOOTH));
 

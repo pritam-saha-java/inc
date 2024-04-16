@@ -5,7 +5,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-  <link rel="icon" type="image/png" href="/server/assets/img/logo.png"/>
+  <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -35,16 +35,16 @@
 
 <!-- hero section start -->
 <div class="container  mt-2  p-1 fs-6  ">
-  <a href="https://localhost/" class="row px-4 rounded    site-link"> < Back To Search </a>
+  <a href="https://incallup.com/" class="row px-4 rounded    site-link"> < Back To Search </a>
   <section class="bread_wraper mt-3">
 
         <div class="bread-inner text-left ">
           <ul>
-            <li><a href="https://localhost/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
+            <li><a href="https://incallup.com/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
             <li> > </li>
-            <li><a th:href="${'https://localhost/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
+            <li><a th:href="${'https://incallup.com/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
             <li > > </li>
-            <li  ><a th:href="${'https://localhost/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${post.location.name}" >category</a></li>
+            <li  ><a th:href="${'https://incallup.com/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${post.location.name}" >category</a></li>
 
           </ul>
         </div>
@@ -83,7 +83,7 @@
       <li class="px-1 small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
       <li class="small-text" th:text="'Date : '+${post.date}"></li>
       <li class="px-1" >
-        <img height="10px" src="https://localhost/server/assets/icons/age.png" alt="age png">
+        <img height="10px" src="https://incallup.com/server/assets/icons/age.png" alt="age png">
 
       </li>
       <li class="small-text" th:text="'Age : '+${post.age}"></li>
