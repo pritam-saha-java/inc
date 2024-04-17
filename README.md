@@ -15,9 +15,7 @@ port number : 443
 
 
 
-translation : https://incallup-com.translate.goog/dating/thane?_x_tr_sl=la&_x_tr_tl=en&_x_tr_hl=en&_x_tr_pto=sc
-
-
+translation : [translation link](https://incallup-com.translate.goog/dating/thane?_x_tr_sl=en&_x_tr_tl=hi&_x_tr_hl=en&_x_tr_pto=sc)
 
 
 
