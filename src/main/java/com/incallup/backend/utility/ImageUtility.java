@@ -1,35 +1,68 @@
 package com.incallup.backend.utility;
 
+import net.coobird.thumbnailator.filters.Caption;
 import net.coobird.thumbnailator.filters.Watermark;
+import net.coobird.thumbnailator.geometry.Position;
 import net.coobird.thumbnailator.geometry.Positions;
+import org.apache.commons.io.IOUtils;
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClients;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
 
 
 public class ImageUtility {
 
-    public static String LOGO_PATH = "logo.png";
+//    public static String LOGO_PATH = "logo.png";
+//    public static String LOGO_LINK = "https://incallup.com/server/assets/img/logo.png";
 
     public static byte[] getBufferedImage(MultipartFile image1) throws IOException {
         BufferedImage originalImage = ImageIO.read(image1.getInputStream());
 
-        BufferedImage watermarkImage;
-        try{
+//        BufferedImage watermarkImage = null ;
+//        try{
 
-         watermarkImage = ImageIO.read(new File(ImageUtility.LOGO_PATH));
-        }catch (IOException e){
-            throw new RuntimeException();
-        }
+//         watermarkImage = ImageIO.read(new File(ImageUtility.LOGO_PATH));
 
-        watermarkImage = ImageUtility.toBufferedImage(watermarkImage.getScaledInstance(200,200, BufferedImage.SCALE_SMOOTH));
+//            URL url = new URL(ImageUtility.LOGO_LINK);
+//            URLConnection conn = url.openConnection();
+//         watermarkImage = ImageIO.read(conn.getInputStream());
 
-        Watermark filter = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
+//            HttpClient httpClient = HttpClients.createDefault();
+//            HttpGet httpGet = new HttpGet(ImageUtility.LOGO_LINK);
+//            HttpResponse httpResponse = httpClient.execute(httpGet);
+//            HttpEntity httpEntity = httpResponse.getEntity();
+//            if (httpEntity != null) {
+//
+//                byte[] imageBytes = IOUtils.toByteArray(httpEntity.getContent());
+//                watermarkImage = ImageIO.read(new ByteArrayInputStream(imageBytes));
+//
+//            }
+            String caption = "Incallup";
+            Font font = new Font("Monospaced", Font.PLAIN, 54);
+            Color c = Color.white;
+            Position position = Positions.CENTER;
+            int insetPixels = 0;
+
+//        }catch (IOException e){
+//            throw new RuntimeException(e);
+//        }
+
+//        watermarkImage = ImageUtility.toBufferedImage(watermarkImage.getScaledInstance(200,200, BufferedImage.SCALE_SMOOTH));
+        Caption filter = new Caption(caption, font, c, position, insetPixels);
+//        Watermark filter = new Watermark(Positions.CENTER, watermarkImage, 0.5f);
 
       var watermarkedImage =  filter.apply(originalImage);
       return ImageUtility.toByteArray(watermarkedImage,"png");
