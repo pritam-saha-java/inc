@@ -258,7 +258,7 @@ public class SellerController {
 
 
     /**
-     * not implemented
+     *  implemented
      * */
     @GetMapping({"edit/{username}","/profile"})
     public ModelAndView Username(HttpSession session, @PathVariable(required = false) String username, ModelAndView model) throws LogoutException{
