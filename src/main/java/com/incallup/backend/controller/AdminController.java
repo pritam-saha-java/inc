@@ -118,18 +118,20 @@ public class AdminController {
 
 
     @PutMapping("/block/seller/{sellerId}")
-    public ModelAndView Profile(@PathVariable Integer sellerId, ModelAndView model){
-        model.setViewName("sellerId");
-        adminCommandService.blockPost(sellerId);
-        return model;
+    public void Profile(@PathVariable Integer sellerId){
+
+        adminCommandService.blockSeller(sellerId);
+
     }
 
     @PutMapping("/block/post/{postId}")
-    public ModelAndView ProfilePost(@PathVariable Integer postId, ModelAndView model){
-        model.setViewName("postId");
+    public void ProfilePost(@PathVariable Integer postId
+    ){
+
         adminCommandService.blockPost(postId);
-        return model;
+
     }
+
 
 }
 
