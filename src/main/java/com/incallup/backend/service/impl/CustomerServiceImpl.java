@@ -93,9 +93,17 @@ public class CustomerServiceImpl implements CustomerService {
         }
         var categoryObj = categoryOptional.get();
         var posts = categoryObj.getPosts();
+        var blockedPosts = new LinkedList<Post>();
         posts.forEach((post -> {
+            System.out.println();
+            if(post.getIsBlocked())
+            {
+                System.out.println("this is post id "+post.getId());
+                blockedPosts.add(post);
+                return;
+            }
             try {
-                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1, (int) post.getImageData1().length())));
             } catch (SQLException e) {
                 throw new RuntimeException(e);
             }
@@ -104,7 +112,7 @@ public class CustomerServiceImpl implements CustomerService {
             if(post.getDescription().length()>150)
                 post.setDescription(post.getDescription().substring(0,148)+"..");
         }));
-
+        posts.removeAll(blockedPosts);
        return posts;
 
     }
@@ -130,6 +138,11 @@ public class CustomerServiceImpl implements CustomerService {
         var posts = location.getPosts();
          List<Post> postsByLocation = new LinkedList<>();
         posts.forEach( post -> {
+            if(post.getIsBlocked())
+            {
+                posts.remove(post);
+                return;
+            }
             if(post.getCategory().equals(category))
                 postsByLocation.add(post);
         });
@@ -163,6 +176,11 @@ public class CustomerServiceImpl implements CustomerService {
         var posts =  locationObj.getPosts();
 
         posts.forEach((post -> {
+            if(post.getIsBlocked())
+            {
+                posts.remove(post);
+                return;
+            }
             try {
                 post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
             } catch (SQLException e) {

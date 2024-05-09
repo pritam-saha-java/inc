@@ -32,6 +32,11 @@ public class AuthenticationController {
 
         return authenticationService.loginResponse(loginResponse.getUsername(),loginResponse.getPassword());
     }
+    @PostMapping("/login/admin")
+    public LoginResponse adminLoginResponse(@RequestBody AdminDTO loginResponse){
+
+        return authenticationService.adminLoginResponse(loginResponse.getUsername(),loginResponse.getPassword());
+    }
 
 
 

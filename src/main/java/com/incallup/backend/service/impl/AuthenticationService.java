@@ -43,7 +43,23 @@ public class AuthenticationService {
                 .build());
 
     }
+    public LoginResponse adminLoginResponse(String username,String password){
+try {
 
+    if (!"root".equals(username))
+        throw ApplicationException.builder().build();
+
+    if ("root1234".equals(password))
+        return new LoginResponse(username);
+
+    throw ApplicationException.builder().title("wrong password").build();
+
+}catch (Exception e){
+    return new LoginResponse(null);
+
+}
+
+    }
     public LoginResponse loginResponse(String username,String password){
         try {
 

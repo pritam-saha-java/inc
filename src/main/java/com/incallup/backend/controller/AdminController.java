@@ -6,8 +6,10 @@ import com.incallup.backend.domain.Admin;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.exception.ApplicationException;
+import com.incallup.backend.exception.LogoutException;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
+import com.incallup.backend.service.impl.AuthenticationService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,11 +34,22 @@ public class AdminController {
     private final AdminCommandService adminCommandService;
     private final AdminQueryService adminQueryService;
 
-    @PostMapping("/admin")
+    @PostMapping
     public void createAdmin(@RequestBody @Valid Admin admin){
 
     }
 
+    @Autowired
+    public AuthenticationService authenticationService;
+    @PostMapping("/login")
+    public ModelAndView Seller(ModelAndView model,@ModelAttribute("username") String username,@ModelAttribute("password") String password) throws LogoutException {
+
+        var loginResponse = authenticationService.adminLoginResponse(username,password);
+        model.addObject("username",loginResponse.getUsername());
+        model.setViewName("admin-create");
+        return model;
+
+    }
     @GetMapping("/create")
     public ModelAndView getCreatePage(ModelAndView view){
 
@@ -45,7 +58,7 @@ public class AdminController {
     }
     @GetMapping
     public ModelAndView Admin(ModelAndView model){
-        model.setViewName("Welcome");
+        model.setViewName("admin");
         return model;
     }
 
@@ -85,7 +98,7 @@ public class AdminController {
 
 
     @PostMapping("/location")
-    public String createLocations(@ModelAttribute("description") String description,@ModelAttribute("district") String district,@ModelAttribute("state") String state,@ModelAttribute("meta") String meta) throws ApplicationException {
+    public String createLocations(@ModelAttribute("description") String description,@ModelAttribute("city") String district,@ModelAttribute("state") String state,@ModelAttribute("meta") String meta) throws ApplicationException {
 
         var location = Location.builder().description(description).district(district).state(state).meta(meta).build();
 
@@ -96,7 +109,7 @@ public class AdminController {
 
     @GetMapping("/list/post")
     public ModelAndView ListPost(ModelAndView model){
-        model.setViewName("post");
+        model.setViewName("category");
         var posts = adminQueryService.listPosts();
         model.addObject("posts",posts);
         return model;
@@ -125,8 +138,7 @@ public class AdminController {
     }
 
     @PutMapping("/block/post/{postId}")
-    public void ProfilePost(@PathVariable Integer postId
-    ){
+    public void ProfilePost(@PathVariable Integer postId){
 
         adminCommandService.blockPost(postId);
 

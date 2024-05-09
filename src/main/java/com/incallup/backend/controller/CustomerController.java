@@ -23,7 +23,6 @@ import java.util.List;
 
 @RestController
 @Slf4j
-@RequestMapping("/")
 @Service
 @RequiredArgsConstructor
 public class CustomerController {
@@ -69,7 +68,7 @@ public class CustomerController {
     }
 
 //    @GetMapping(value = "sitemap/{pageName}", produces = MediaType.APPLICATION_XHTML_XML_VALUE)
-    @GetMapping(value = "sitemap/{pageName}", produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping(value = "/sitemap/{pageName}", produces = MediaType.APPLICATION_XML_VALUE)
     public String getSiteMap(@PathVariable(name = "pageName") String pageName) {
         return switch (pageName){
             case "category.xml"->siteMapService.categorySiteMap();
@@ -80,7 +79,7 @@ public class CustomerController {
 
     }
 
-    @GetMapping(value = "sitemap/location/{state}",produces = MediaType.APPLICATION_XML_VALUE)
+    @GetMapping(value = "/sitemap/location/{state}",produces = MediaType.APPLICATION_XML_VALUE)
 //    @GetMapping(value = "sitemap/location/{state}",produces = MediaType.TEXT_PLAIN_VALUE)
     public String getLocationSiteMap(@PathVariable(name = "state") String state){
 
@@ -114,7 +113,7 @@ private final ApplicationController applicationController;
 
 
 
-     @GetMapping("{category}/{location}/{titleString}")
+     @GetMapping("/{category}/{location}/{titleString}")
     public ModelAndView Title(@PathVariable(name = "titleString") String title,ModelAndView modelAndView, @PathVariable(name = "category") String category, @PathVariable(name = "location") String location) throws ApplicationException {
         Post post = customerService.searchByTitle(title);
         modelAndView.addObject("description", applicationQueryService.getSiteDescription());
@@ -126,12 +125,12 @@ private final ApplicationController applicationController;
   
     }
 
-    @GetMapping("favicon.ico")
+    @GetMapping("/favicon.ico")
     public String favicon(){
         return "incallup.com/server/assets/img/favicon.ico";
     }
 
-    @GetMapping("{category}")
+    @GetMapping("/{category}")
     public ModelAndView Category( @PathVariable(name = "category") String category, ModelAndView modelAndView) throws ApplicationException {
 
 
@@ -161,7 +160,7 @@ private final ApplicationController applicationController;
         return modelAndView;
     }
 
-    @GetMapping("{category}/{location}")
+    @GetMapping("/{category}/{location}")
     public ModelAndView Location(@PathVariable(name = "category") String category,@PathVariable(name = "location") String location, ModelAndView modelAndView) throws ApplicationException{
         List<Post> posts = customerService.searchByCategoryAndLocation(category, location);
 

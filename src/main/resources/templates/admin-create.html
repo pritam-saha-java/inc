@@ -8,12 +8,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com"/>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/server/assets/styles/style.css">
+    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css" />
+    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/reset.min.css" />
+    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/nav.css" />
+    <link rel="stylesheet" href="https://incallup.com/server/assets/styles/header.css" />
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
       integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
-    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
     <style type="text/css">
 
         body{
@@ -120,30 +123,66 @@
 
 </head>
 <body>
+<header class="site-header bg-pink  border-top border-bottom blue-border-primary border-5" th:fragment="siteHeader" >
 
-<h1 class="text-center mt-5">Add Information</h1>
+
+
+    <div class="wrapper site-header__wrapper">
+        <nav class="nav">
+            <a href="#" class="brand">
+                <img onclick="location='https://incallup.com/'"  src="https://incallup.com/server/assets/img/logo.png" alt="incallup logo"
+                     style=" max-width:10rem; height:auto; "
+                >
+            </a>
+
+            <ul class="nav__wrapper">
+                <li class="nav__item"><a href="https://incallup.com"><i class="fa fa-user mx-2 " aria-hidden="true"></i>  Block Seller By ID</a></li>
+                <li class="nav__item"><a href="https://incallup.com/admin/create"><i class="fa fa-user mx-2 " aria-hidden="true"></i> Create Functions</a></li>
+                <li class="nav__item"><a href="#"><i class="fa fa-location-arrow mx-2 " aria-hidden="true"></i>  Block Post By ID</a></li>
+                <li class="nav__item"><a href="https://incallup.com"><i class="fa fa-user mx-2 " aria-hidden="true"></i>  Block contact</a></li>
+                <li class="nav__item"><a href="https://incallup.com"><i class="fa fa-camera mx-2 " aria-hidden="true"></i>  Block Post By Title </a></li>
+
+            </ul>
+        </nav>
+
+        <button type="button"  class=" text-light btn blue-bg-desktop site-font1 py-1 px-3  fs-5 " aria-label="Search" data-bs-toggle="modal"
+                data-bs-target="#myModal" >
+            <i class="fas fa fa-search mx-2"></i>
+            <p class="header-icon-text " >Search</p>
+        </button>
+        <button class="nav__toggle py-2 px-3  btn blue-bg-desktop text-light" title="menu"  aria-expanded="false" type="button">
+            <i class="fas fa fa-bars" aria-hidden="true"  id="menu-one"></i>
+            <i class="fa fa-times" aria-hidden="true" id="menu-two" style="display:none;"></i>
+        </button>
+    </div>
+
+</header>
+<h1 class="text-center mt-5">Welcome to admin panel of Incallup</h1>
 
 <div class="mytabs mt-2">
 
 
     <input type="radio" name="mytabs" id="tabentry" checked="checked">
-    <label class="tablabel" for="tabentry">Add Location</label>
+    <label class="tablabel" for="tabentry">Create Location</label>
     <div class="tab">
 
-        <h2> Add Location </h2>
+        <h2 hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#states" > Add Location </h2>
         <div id="locres"></div>    
-        <form hx-post="/admin/location" hx-target="#locres"  class="px-3 mt-3 container justify-content-center">
-            <label class="row mx-5" for="district">District</label>
-            <input class="row mx-5" type="text" placeholder="enter district" name="district" id="district">
-            
-            <label class="row mx-5" for="state">State </label>
-            <input class="row mx-5" id="state" type="text" placeholder="enter state" name="state">
-           
-            <label class="row mx-5" for="meta">Meta Information</label>
-            <textarea class="row mx-5" name="meta" id="district-meta" cols="30" rows="2">add meta information for location</textarea>
-            
-            <label class="row mx-5" for="description">Location Description</label>
-            <textarea class="row mx-5" name="description" id="district-description" cols="30" rows="4">This is a sample text for location description</textarea>
+        <form hx-post="/admin/location" hx-target="#locres"  class="px-3 mt-3 container justify-content-center" >
+
+            <select name="state" id="states" hx-get="https://incallup.com/app/get/city/options" hx-target="#cities"  class="form-select  form-select-lg mb-3" aria-label="Select text">
+                <option selected>Select State</option>
+
+            </select>
+            <select name="city" id="cities" class="form-select mb-3 " hx-get="https://incallup.com/app/show/meta/city/input" hx-swap="outerHTML" hx-target="#district-meta"  aria-label="Large select example">
+                <option selected>Select City</option>
+
+            </select>
+            <label class="row " for="district-meta">Meta Information</label>
+
+            <textarea name="meta"  id="district-meta"  class="row form-control  "  rows="2"> add meta information for location</textarea>
+            <label class="row " for="district-description">Location Description</label>
+            <textarea class="row form-control border" name="description" id="district-description" cols="30" rows="4">This is a sample text for location description</textarea>
             
             <button class="btn btn-primary row mx-5 mt-3" type="submit">submit</button>
 
@@ -154,7 +193,7 @@
     <br>
     
     <input type="radio" name="mytabs" id="tabdelete">
-    <label class="tablabel" for="tabdelete">Add Category</label>
+    <label class="tablabel" for="tabdelete">Create Category</label>
     <div class="tab">
         <h2> Category Entry Form</h2>
         <div id="catres"></div>
@@ -178,6 +217,8 @@
 
 </div>
 
+<script th:src="@{/server/assets/scripts/main.js}"></script>
+<script th:src="@{/server/assets/scripts/common.js}"></script>
 <script>
     document.addEventListener('htmx:afterRequest', function(evt) {
         if(evt.detail.xhr.status == 500){
@@ -186,5 +227,7 @@
     } 
 });
 </script>
+<script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
+<script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </body>
 </html>
