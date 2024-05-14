@@ -56,4 +56,7 @@ public class Seller {
     @Column(name = "seller_is_blocked")
     private Boolean isBlocked  = false;
 
+    @Column(name = "phone_number")
+    private String phoneNumber;
+
 }

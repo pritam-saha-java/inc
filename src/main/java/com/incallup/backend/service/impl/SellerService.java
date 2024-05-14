@@ -3,19 +3,20 @@ package com.incallup.backend.service.impl;
 
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
-import com.incallup.backend.exception.AccountCreationException;
-import com.incallup.backend.exception.ApplicationException;
-import com.incallup.backend.exception.IdNotFoundException;
-import com.incallup.backend.exception.LogoutException;
+import com.incallup.backend.exception.*;
 import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
+import com.incallup.backend.request.ChangePasswordRequest;
+import com.incallup.backend.response.SellerAllPostResponse;
+import com.incallup.backend.response.SellerUpdateProfileRequest;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import com.incallup.backend.utility.ImageUtility;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -25,6 +26,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 
 /**
@@ -33,6 +35,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+@Log4j2
 public class SellerService implements SellerQueryService, SellerCommandService {
 
     @Autowired
@@ -214,7 +217,63 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         sellerRepository.save(seller);
     }
 
+    @Override
+    public String update(SellerUpdateProfileRequest request) {
+        Seller seller = sellerRepository.findSellerByUsername(request.getEmail())
+                .orElseThrow(() -> new BadRequestException("Seller Not Found"));
+        seller.setEmail(request.getEmail());
+        seller.setPhoneNumber(request.getPhoneNumber());
 
+        return "";
+    }
 
+    @Override
+    public List<SellerAllPostResponse> getSellerAllPosts(int sellerId) {
+        List<Post> posts = postRepository.findPostBySellerId(sellerId);
 
+        if (posts.isEmpty()) {
+            throw new BadRequestException("Seller Not Found");
+        }
+
+        return posts.stream()
+                .map(post -> {
+                    SellerAllPostResponse response = new SellerAllPostResponse();
+                    response.setPostId(post.getId());
+                    response.setPostName(post.getTitle());
+                    response.setDescription(post.getDescription());
+                    response.setViews(post.getViews());
+                    response.setStatus(post.getIsBlocked() ? "Blocked" : "non-blocked");
+                    return response;
+                })
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public String deleteSellerPostById(int postId) {
+        postRepository.findById(postId).ifPresentOrElse(post->{
+            postRepository.delete(post);
+        }, ()-> {
+            throw new BadRequestException("Post Not Found");
+        });
+        return "Post Deleted Successfully";
+    }
+
+    @Override
+    public String changePassword(int sellerId, ChangePasswordRequest request) {
+        sellerRepository.findById(sellerId)
+                .ifPresentOrElse(seller -> {
+            if (seller.getPassword().trim().equals(request.getOldPassword().trim())) {
+                if(request.getNewPassword().trim().equals(request.getConfirmPassword().trim())){
+                    seller.setPassword(request.getNewPassword());
+                } else {
+                    throw new BadRequestException("Confirm Passwords do not match");
+                }
+            } else {
+                throw new BadRequestException("Old Password Not Matched");
+            }
+        },  ()-> {
+            throw new BadRequestException("Seller Not Found");
+        });
+        return "";
+    }
 }
