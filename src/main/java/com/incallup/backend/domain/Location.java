@@ -8,6 +8,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Getter
@@ -17,7 +18,7 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 @Entity(name = "tbl_location")
-public class Location {
+public class Location implements Comparator<Location> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,4 +54,8 @@ public class Location {
     @OneToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Post> posts = new ArrayList<>();
 
+    @Override
+    public int compare(Location o1, Location o2) {
+        return o1.getName().compareToIgnoreCase(o2.getName());
+    }
 }

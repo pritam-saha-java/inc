@@ -1,8 +1,28 @@
 package com.incallup.backend.utility;
 
 
-
 public class IncallupConstants {
+
+
+    public static enum SITEMAP_PAGES {
+
+        CATEGORY("category")
+//        ,LOCATION("location")
+        ,TITLES("titles");
+        private final String value;
+
+        private SITEMAP_PAGES(String value){
+            this.value = value;
+        }
+
+        @Override
+        public String toString() {
+            return this.value;
+        }
+    };
+
+
+//            = List.of("category","location","titles");
     public static String APPLICATION_NAME = "Incallup";
 
     public static String ADMIN = "admin";

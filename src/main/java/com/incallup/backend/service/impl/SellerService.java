@@ -7,15 +7,22 @@ import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
+import com.incallup.backend.repository.CategoryRepository;
+import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.repository.PostRepository;
 import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
+import com.incallup.backend.utility.ImageUtility;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.sql.rowset.serial.SerialBlob;
+import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,6 +39,8 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     private final SellerRepository sellerRepository;
     @Autowired
     private final PostRepository postRepository;
+    private final LocationRepository locationRepository;
+    private final CategoryRepository categoryRepository;
 
 
     @Override
@@ -94,9 +103,25 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         return true;
     }
 
+    @Override
+    public Seller getSellerByUsername(String username) throws IdNotFoundException {
+
+        var userOptional = sellerRepository.findSellerByUsername(username);
+
+        return userOptional.orElseThrow(IdNotFoundException::new);
+    }
+
 
     @Override
-    public void createPost(@Valid Post post, Integer sellerId) throws ApplicationException {
+    public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException {
+
+        var postOptional = postRepository.findPostByTitle(post.getTitle());
+        if(postOptional.isPresent())
+            throw ApplicationException.builder()
+                    .title("title already exists")
+                    .Description("please choose proper title")
+                    .status(409)
+                    .build();
 
         var sellerOption = sellerRepository.findById(sellerId);
         if(sellerOption.isEmpty())
@@ -116,8 +141,63 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         String title = post.getTitle();
         String name = title.trim().replace(' ','-');
         post.setName(name);
+
+        var locationOptional = locationRepository.findLocationByDistrict(post.getLocation().getDistrict());
+        locationOptional.ifPresent(post::setLocation);
+
+        try {
+            var bytes1 =   ImageUtility.getBufferedImage(image1);
+            var bytes2 =   ImageUtility.getBufferedImage(image2);
+
+            post.setImageData1(new SerialBlob(bytes1));
+            post.setImageData2(new SerialBlob(bytes2));
+
+        } catch ( SQLException e) {
+            throw ApplicationException.builder()
+                    .title("error saving data due to database")
+                    .Description("try to choose another format for images")
+                    .build();
+        }
+        catch (IOException e){
+            throw ApplicationException.builder()
+                    .title("error saving data due to File Format")
+                    .Description("try to choose another format for images")
+                    .build();
+        }
+
+
+        var categoryOptional =  categoryRepository.findCategoryByName(post.getCategory().getName());
+        categoryOptional.ifPresent(post::setCategory);
+
+
+        post.setViews(0);
         postRepository.save(post);
+
+        if(categoryOptional.isPresent()){
+            var category = categoryOptional.get();
+            List<Post> posts = category.getPosts();
+            posts.add(post);
+            category.setPosts(posts);
+            categoryRepository.save(category);
+        }
+
+        if(locationOptional.isPresent()){
+            var location = locationOptional.get();
+            var locationPosts = location.getPosts();
+            locationPosts.add(post);
+            location.setPosts(locationPosts);
+            locationRepository.save(location);
+        }
+        var seller = sellerOption.get();
+        var sellerPosts = seller.getPosts();
+        sellerPosts.add(post);
+        seller.setPosts(sellerPosts);
+        sellerRepository.save(seller);
+
+
     }
+
+
 
 
     @Override

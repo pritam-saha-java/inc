@@ -12,22 +12,37 @@ body {
 :root {
     --blue: #103652;
     --pink : #BE206B;
-    --font:  Rubik;
+    --font:  "Inter", sans-serif;
     --grey: #E3E3E3;
     --light-pink: #FF0061;
     --post: #C1B0B0;
     
 
   }
-
+/*
   *{
     cursor: url('../icons/cursor.png') 2 5,pointer;
   }
+*/
 
 
-* {
+.small-text{
 
+    font-size:10px!important;
+}
 
+.stickymobile {
+    background-color: #fff;
+    bottom: 0;
+    left: 0;
+    margin: 0;
+    padding: 10px 0;
+    position: fixed;
+    position: sticky !important;
+    position: -webkit-sticky !important;
+    right: 0;
+    text-align: center;
+    z-index: 1030;
 }
 
 .post-icon{
@@ -43,7 +58,7 @@ body {
     .site-font1{
       
         
-        font-family: Rubik;
+        font-family: "Inter", sans-serif;
         font-size: 27px;
         font-weight: 500;
         line-height: 35px;
@@ -63,7 +78,7 @@ body {
 }
 .site-font{
    
-    font-family: Rubik;
+    font-family: "Inter", sans-serif;
     font-size: 27px;
     font-weight: 700;
     line-height: 35px;
@@ -72,11 +87,22 @@ body {
     
 }
 
-
+.rounded-top-left-1 {
+    border-top-left-radius: 1rem;
+}
+.rounded-top-right-1 {
+    border-top-right-radius: 1rem;
+}
+.rounded-bottom-left-1 {
+    border-bottom-left-radius: 1rem;
+}
+.rounded-bottom-right-1 {
+    border-bottom-right-radius: 1rem;
+}
 
 #hero-section{
 
-background: url('https://localhost/server/assets/img/background.png') center no-repeat;
+background: url('https://incallup.com/server/assets/img/background.png') center no-repeat;
 max-height:auto;
 max-width: 1300px;
 background-size: fit;
@@ -97,7 +123,7 @@ a{
     color: black;
 }
 .site-title{
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 48px;
 font-weight: 900;
 line-height: 62px;
@@ -117,7 +143,7 @@ button.btn:hover{
 }
 #hero-title{
     
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 64px;
 font-weight: 700;
 line-height: 83px;
@@ -146,7 +172,7 @@ padding-top: 5rem;
 }
 
 .site-text{
-font-family: Rubik;
+font-family: "Inter", sans-serif;
 font-size: 36px;
 font-weight: 500;
 line-height: 61px;
@@ -200,9 +226,13 @@ td>a{
 
 
 
-  .post>div>input , .post>div>select , .post>div>textarea ,.site-input{
+  .post>div>input , .post>div>select , .post>div>textarea {
     background-color: var(--post);
   
+  }
+
+  .site-input{
+  background-color:#D9D9D9;
   }
 
   .blue-border-primary{
@@ -224,9 +254,28 @@ td>a{
 .icon-pink{
     color:var(--pink);
 }
+.text-animate{
+        font-size:2rem!important;
+
+    }
+
+    .cat-image{
+        height:332px!important;
+        width:300px!important;
+        object-fit: cover!important ;
+    }
 
 @media screen and (max-width: 1000px){
 
+    .text-animate{
+        font-size:1.5rem!important;
+
+    }
+
+    .cat-image{
+        height:auto!important;
+        width:auto!important;
+    }
 
 #hero-section{
 
@@ -322,6 +371,83 @@ max-height:auto;
   height: auto!important;
 
 }
+.my-ul{
+    padding-left:1rem;
+}
+
+
+
+
+.btn-whatsapp , .btn-phone , .btn-telegram {
+    font-size: 14px !important;
+    font-weight: 500;
+    padding: .8rem .1rem;
+    text-transform: capitalize;
+}
+.btn {
+    border-radius: 18px;
+    font-weight: 500;
+}
+.whatsapp-pin,.phone-pin ,.telegram-pin {
+    padding-left: 1.2rem !important;
+    padding-right: 1.2rem !important;
+    width: 100%;
+}
+.btn-whatsapp {
+    background-color: #23B33A;
+    color: #fff !important;
+    font-size: .8rem !important;
+}
+.btn-primary {
+    background-color: #BE206B !important;
+    color: #fff !important;
+}
+
+.btn-telegram {
+    background-color:#1d93d2 !important;
+    color: #fff !important;
+    font-size: .8rem !important;
+}
+
+
+.post-title{
+        font-family: Inter , sans-serif;
+}
+@media screen and (max-width: 400px){
+
+
+
+.whatsapp-pin,.phone-pin ,.telegram-pin {
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+    padding-top: 3px !important;
+    padding-bottom: 3px !important;
+
+}
+
+}
+
+@media screen and (max-width: 500px){
+
+        .my-ul{
+            padding-left:0.1rem;
+            }
+        .small-text {
+            font-size: 6px !important;
+
+            }
+
+        .site-card{
+
+         font-size: 10px!important;
+
+        }
+
+
+       }
+
+
+
 /*
 @media only screen and (max-width: 600px) {
   #header-logo {
@@ -330,3 +456,56 @@ max-height:auto;
   }
 }
 */
+
+#sentenceTarget {
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+
+
+
+
+
+
+
+section.bread_wraper.login-breadcrame {
+    margin: 60px 0 0 0;
+}
+
+  .bread_wraper {margin:0px 0 0 0;
+
+     padding: 12px 0 0 0;
+  }
+
+  .bread_wraper ul li{ display:inline-block; padding:0 0px; font-family: 'Poppins', sans-serif;}
+
+  .bread_wraper ul li a {font-size:18px;font-family: 'Poppins', sans-serif;}
+
+  .bread_wraper ul li {font-size:16px;color: #002540;font-family: 'Poppins', sans-serif;}
+
+
+  .bread_wraper {
+      margin: 0px 0 0 0 !important;
+  }
+
+
+  .bread_wraper ul li a { font-size:20px; }
+
+
+   @media (max-width: 375px){
+  .bread_wraper ul li a {
+      font-size: 18px;
+
+      font-family: 'Poppins', sans-serif;
+  }
+  }
+
+   @media (max-width: 360px){
+
+       .bread_wraper ul li a {
+               font-size: 13px;
+
+               font-family: 'Poppins', sans-serif;
+           }
+   }

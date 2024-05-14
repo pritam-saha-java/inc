@@ -1,8 +1,10 @@
 package com.incallup.backend.service.impl;
 
+import com.incallup.backend.domain.Application;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Location;
 import com.incallup.backend.exception.ApplicationException;
+import com.incallup.backend.repository.ApplicationRepository;
 import com.incallup.backend.repository.CategoryRepository;
 import com.incallup.backend.repository.LocationRepository;
 import com.incallup.backend.service.ApplicationQueryService;
@@ -50,4 +52,17 @@ public class ApplicationService implements ApplicationQueryService {
     public List<Location> getLocationByState(String state) {
         return locationRepository.findLocationsByState(state);
     }
+
+    @Override
+    public String getSiteDescription() {
+
+        List<Application> applications  =  applicationRepository.findAll();
+        Application application = applications.stream().filter(application1 -> application1.getName().equals("application_description")).toList().get(0);
+//        return ((Integer) applications.stream().filter(application1 -> application1.getName().equals("application_description")).toList().size()).toString();
+        return application.getDescription();
+
+    }
+
+    @Autowired
+    private ApplicationRepository applicationRepository;
 }

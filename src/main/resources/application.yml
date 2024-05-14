@@ -20,10 +20,12 @@ logging:
 #        ORM:
 #          jdbc:
 #            bind: trace
+
 server:
   port: 443
   servlet:
     context-path: /
+
   ssl:
     enabled: true
     key-store-type: PKCS12
@@ -36,8 +38,15 @@ server:
 #    mime-types: text/xml , text/css , text/html , application/json
     min-response-size: 4096
 spring:
-#  devtools:
-#    restart:
+  servlet:
+    multipart:
+      max-file-size: 10MB
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src
 #      additional-paths: src/main/resources/static , src/main/resources/templates
   application:
     name: incallup

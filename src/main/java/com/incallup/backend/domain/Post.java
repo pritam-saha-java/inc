@@ -3,11 +3,11 @@ package com.incallup.backend.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Max;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.sql.Blob;
 import java.time.Instant;
 
 @Getter
@@ -15,6 +15,7 @@ import java.time.Instant;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
+
 @Builder
 @Entity(name = "tbl_post")
 public class Post {
@@ -25,20 +26,26 @@ public class Post {
     @Column(name = "post_id")
     private Integer id;
 
-    @Max(15)
-    @Column(name = "post_title", unique = true)
+
+    @Column(name = "post_title",length = 1000)
     private String title;
 
 
-    @Column(name = "post_name",unique = true)
+    @Column(name = "post_name",length = 1000)
     private String name;
 
     @ToString.Exclude
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Location location;
 
     @Column(name = "post_views")
     private Integer views;
+
+    @Column(name = "post_telegram")
+    private Boolean telegram;
+
+    @Column(name = "post_whatsapp")
+    private Boolean whatsapp;
 
 
 
@@ -48,12 +55,17 @@ public class Post {
     @Column(name = "post_age")
     private Integer age;
 
-    @Max(50)
-    @Column(name = "post_description")
+    @Column(name = "post_incall")
+    private String incall;
+    @Column(name = "post_outcall")
+    private String outcall;
+
+
+    @Column(name = "post_description",length = 10000)
     private String description;
 
     @JsonIgnore
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     @ToString.Exclude
     private Category category;
 
@@ -74,8 +86,22 @@ public class Post {
     @Column(name = "post_updated_at")
     private Instant updatedAt;
 
+    @Lob
+    private Blob imageData1;
 
+    @Lob
+    private Blob imageData2;
+
+    @Transient
+    private String byteString;
+    @Transient
+    private String byteString2;
+
+    @Transient
+    private String date;
 
     @Column(name = "post_is_blocked")
     private Boolean isBlocked  = false;
+
+
 }

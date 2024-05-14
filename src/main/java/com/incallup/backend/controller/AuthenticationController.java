@@ -5,25 +5,19 @@ import com.incallup.backend.domain.AdminDTO;
 import com.incallup.backend.helper.LoginResponse;
 import com.incallup.backend.service.impl.AuthenticationService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
 @RequestMapping("/auth")
 public class AuthenticationController {
 
-    @GetMapping("/create")
-    public ModelAndView Create(ModelAndView modelAndView){
-        modelAndView.setViewName("create.html");
-        return modelAndView;
-    }
 
-    @GetMapping("/login")
-    public ModelAndView login(ModelAndView modelAndView){
-        modelAndView.setViewName("login.html");
-        return modelAndView;
-    }
+
+
     @Autowired
     private AuthenticationService authenticationService;
 
@@ -37,6 +31,11 @@ public class AuthenticationController {
     public LoginResponse loginResponse(@RequestBody AdminDTO loginResponse){
 
         return authenticationService.loginResponse(loginResponse.getUsername(),loginResponse.getPassword());
+    }
+    @PostMapping("/login/admin")
+    public LoginResponse adminLoginResponse(@RequestBody AdminDTO loginResponse){
+
+        return authenticationService.adminLoginResponse(loginResponse.getUsername(),loginResponse.getPassword());
     }
 
 

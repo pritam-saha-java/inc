@@ -14,8 +14,12 @@ import com.incallup.backend.repository.SellerRepository;
 import com.incallup.backend.service.AdminCommandService;
 import com.incallup.backend.service.AdminQueryService;
 import com.jcraft.jsch.SftpException;
+import groovy.util.logging.Slf4j;
+import jakarta.persistence.Cacheable;
 import lombok.RequiredArgsConstructor;
 import net.schmizz.sshj.sftp.SFTPException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -31,8 +35,10 @@ import java.util.Set;
  **/
 @Service
 @RequiredArgsConstructor
+@Slf4j
 public class AdminService implements AdminQueryService, AdminCommandService {
 
+    private static final Logger log = LoggerFactory.getLogger(AdminService.class);
     @Autowired
     private final SellerRepository sellerRepository;
     @Autowired
@@ -118,7 +124,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
         }
         var post = postOptional.get();
         post.setIsBlocked(true);
-
+        postRepository.save(post);
     }
 
     @Override
@@ -135,7 +141,7 @@ public class AdminService implements AdminQueryService, AdminCommandService {
         }
         var seller = sellerOptional.get();
         seller.setIsBlocked(true);
-
+        sellerRepository.save(seller);
 
     }
 
@@ -149,6 +155,18 @@ public class AdminService implements AdminQueryService, AdminCommandService {
                        .Description("please add district name")
                        .build();
            }
+
+           var locationOptional =  locationRepository.findLocationByDistrict(location.getDistrict());
+           if(locationOptional.isPresent()){
+
+               var realLocation = locationOptional.get();
+               realLocation.setMeta(location.getMeta());
+               realLocation.setDescription(location.getDescription());
+               log.info(realLocation.getDescription());
+               locationRepository.save(realLocation);
+               return;
+           }
+
 
            var district = location.getDistrict().toLowerCase().trim();
            location.setName(district);

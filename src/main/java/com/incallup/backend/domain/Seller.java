@@ -31,6 +31,8 @@ public class Seller {
     @Column(name = "seller_username",nullable = false,unique = true)
     private String username;
 
+
+
     @Email
     @Column(name = "seller_email",nullable = false)
     private String email;

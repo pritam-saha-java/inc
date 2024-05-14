@@ -11,4 +11,6 @@ public interface ApplicationQueryService {
      Location getLocationByName(String locationName) throws ApplicationException;
 
      List<Location> getLocationByState(String state);
+
+     String getSiteDescription();
 }

@@ -4,6 +4,9 @@ import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
+import org.springframework.web.multipart.MultipartFile;
+
+import java.io.IOException;
 
 /**
  *
@@ -14,7 +17,7 @@ import com.incallup.backend.exception.ApplicationException;
 
 public interface SellerCommandService {
 
-    void createPost(Post post,Integer sellerId) throws ApplicationException;
+    void createPost(Post post, Integer sellerId, MultipartFile multipartFile1, MultipartFile multipartFile2) throws ApplicationException, IOException;
 
     void register(Seller seller) throws AccountCreationException;
 
