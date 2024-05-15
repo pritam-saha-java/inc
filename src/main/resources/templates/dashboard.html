@@ -5,26 +5,26 @@
   <meta charset="UTF-8"/>
   
   <meta name="viewport"
-        content="width=device-width,  user-scalable=no,  initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+        content="width=device-width,  user-scalable=no,  initial-scale=1.0 "/>
   <title>InCallUp</title>
   <meta name="format-detection" content="telephone=no,date=no,address=no,email=no,url=no" />
   <meta name="description" content="Incallup Safe Dating site in India. Browse our categories for getting a sex meeting. Independent Call Girls, Verified Call Girl, Spa & Massage, Dating.  Incallup is an open Advertising Platform">
-  <link rel="icon" type="image/png" href="https://incallup.com/server/assets/img/logo.png"/>
+  <link rel="icon" type="image/png" href="https://localhost/server/assets/img/logo.png"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/reset.min.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/nav.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/header.css" />
+  <link rel="stylesheet" href="https://localhost/server/assets/styles/style.css" />
+  <link rel="stylesheet" href="https://localhost/server/assets/styles/reset.min.css" />
+  <link rel="stylesheet" href="https://localhost/server/assets/styles/nav.css" />
+  <link rel="stylesheet" href="https://localhost/server/assets/styles/header.css" />
 
 
 <!--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
-
+  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
 
 </head>
 
@@ -32,13 +32,13 @@
 
 
   <div th:fragment="siteSearch" class="modal fade site-modal " tabindex="-1" id="myModal">
-    <div class="modal-dialog pt-5">
+    <div class="modal-dialog">
       <div class="modal-content">
 
         <!-- Modal Header -->
         <div class="modal-header">
           <h4 class="modal-title">
-            <i class="fas fa fa-search mx-2 "></i>
+            <i class="fas fa-search mx-2 "></i>
             Search
 
           </h4>
@@ -52,22 +52,22 @@
         <div class="modal-body container">
           <div class="row">
             <div class="col">
-              <select id="categories" hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" class="form-select  form-select-lg mb-3" aria-label="Large select example">
+              <select hx-trigger="load" hx-get="https://localhost/app/get/categories/options" hx-swap="innerHTML" class="form-select form-select-lg mb-3" aria-label="Large select example">
                 <option selected>Choose Category</option>
 
               </select>
 
             </div>
-            <div class="col" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#states" >
-              <select name="state" id="states" hx-get="https://incallup.com/app/get/city/options" hx-target="#cities"  class="form-select  form-select-lg mb-3" aria-label="Select text">
-                <option selected>Select State</option>
+            <div class="col" hx-trigger="load" hx-get="https://localhost/app/get/state/options" hx-target="#states" >
+              <select name="state" id="states" hx-get="https://localhost/app/get/city/options" hx-target="#cities" hx-indicator=".htmx-indicator" class="form-select form-select-lg mb-3" aria-label="Select text">
+                <option selected>Choose State</option>
 
               </select>
             </div>
           </div>
           <div class="row">
             <div class="col">
-              <input id="searchText" placeholder="Search here" class=" form-control mb-3 text-danger" aria-label="Large select example">
+              <input placeholder="Search here" class=" form-control mb-3 text-danger" aria-label="Large select example">
 
 
             </div>
@@ -91,9 +91,9 @@
               </button>
             </div>
               <div class="col-6 text-center  ">
-                <button style="border-radius: 20px 0px ;" type="submit" onclick="search()"  class="btn sButton">
+                <button style="border-radius: 20px 0px ;" type="submit" class="btn sButton">
 
-                  <i class="fas fa fa-search mx-2 "></i>
+                  <i class="fas fa-search mx-2 "></i>
 
                   Search
               </button>
@@ -112,33 +112,33 @@
     <div class="wrapper site-header__wrapper">
       <nav class="nav">
         <a href="#" class="brand">
-          <img onclick="location='https://incallup.com/'"  src="https://incallup.com/server/assets/img/logo.png" alt="incallup logo"
+          <img onclick="location='https://localhost/'"  src="https://localhost/server/assets/img/logo.png" alt="incallup logo"
                style=" max-width:10rem; height:auto; "
           >
         </a>
 
         <ul class="nav__wrapper">
-          <li class="nav__item"><a href="https://incallup.com/seller/post"><i class="fa fa-home mx-2 " aria-hidden="true"></i>  Home</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-home mx-2 " aria-hidden="true"></i>  Home</a></li>
           <li class="nav__item"><a href="#"><i class="fa fa-location-arrow mx-2 " aria-hidden="true"></i>  Locate Me</a></li>
-          <li class="nav__item"><a href="https://incallup.com/seller/profile"><i class="fa fa-user mx-2 " aria-hidden="true"></i>  Profile</a></li>
-          <li class="nav__item"><a href="https://incallup.com/seller/post"><i class="fa fa-camera mx-2 " aria-hidden="true"></i>  Post AD</a></li>
-          <li class="nav__item"><a href="https://incallup.com/login"><i class="fa fa-id-badge mx-2" aria-hidden="true"></i>  Login</a></li>
-          <li class="nav__item"><a  href="https://incallup.com/register"><i class="fa fa-user-plus mx-2 " aria-hidden="true"></i>  Sign Up</a></li>
-          <li class="nav__item"><a href="https://incallup.com/faq"><i class="fa fa-comment mx-2 " aria-hidden="true"></i>  FAQ</a></li>
-          <li class="nav__item"><a href="https://incallup.com/privacy"><i class="fa fa-user-secret mx-2 " aria-hidden="true"></i>  Privacy Policy</a></li>
-          <li class="nav__item"><a href="https://incallup.com/terms"><i class="fa fa-handshake mx-2 " aria-hidden="true"></i>  Terms & Condition</a></li>
-          <li class="nav__item"><a href="https://incallup.com/contact"><i class="fa fa-phone mx-2 " aria-hidden="true"></i>  Contact Us</a></li>
-          <li class="nav__item"><a href="https://incallup.com/blogs"><i class="fa fa-rss mx-2 " aria-hidden="true"></i>  Blogs</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-user mx-2 " aria-hidden="true"></i>  Profile</a></li>
+          <li class="nav__item"><a href="https://localhost/seller/post"><i class="fa fa-camera mx-2 " aria-hidden="true"></i>  Post AD</a></li>
+          <li class="nav__item"><a href="https://localhost/auth/login"><i class="fa fa-id-badge mx-2" aria-hidden="true"></i>  Login</a></li>
+          <li class="nav__item"><a  href="https://localhost/auth/create"><i class="fa fa-user-plus mx-2 " aria-hidden="true"></i>  Sign Up</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-comment mx-2 " aria-hidden="true"></i>  FAQ</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-user-secret mx-2 " aria-hidden="true"></i>  Privacy Policy</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-handshake mx-2 " aria-hidden="true"></i>  Terms & Condition</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-phone mx-2 " aria-hidden="true"></i>  Contact Us</a></li>
+          <li class="nav__item"><a href="#"><i class="fa fa-rss mx-2 " aria-hidden="true"></i>  Blogs</a></li>
         </ul>
       </nav>
 
       <button type="button"  class=" text-light btn blue-bg-desktop site-font1 py-1 px-3  fs-5 " aria-label="Search" data-bs-toggle="modal"
                data-bs-target="#myModal" >
-        <i class="fas fa fa-search mx-2"></i>
+        <i class="fas fa-search mx-2"></i>
         <p class="header-icon-text " >Search</p>
       </button>
       <button class="nav__toggle py-2 px-3  btn blue-bg-desktop text-light" title="menu"  aria-expanded="false" type="button">
-        <i class="fas fa fa-bars" aria-hidden="true"  id="menu-one"></i>
+        <i class="fas fa-bars" aria-hidden="true"  id="menu-one"></i>
         <i class="fa fa-times" aria-hidden="true" id="menu-two" style="display:none;"></i>
       </button>
     </div>
@@ -172,49 +172,60 @@
   </div>
 
   <!-- hero section end -->
-  <div th:fragment="categoryDropdown"  class="container my-2">
-    <div class="site-title mt-3 row  ">
-      <p class="text-center fs-1 lh-1">FIND ADS IN LOCAL : INDIA</p>
+  <div th:fragment="categoryDropdown"  class="container mt-2">
+    <div class="site-title my-5 row  ">
+      <p class="text-center">FIND ADS IN LOCAL : INDIA</p>
     </div>
-    <div class="site-text  mt-1 mb-2 row">
-      <p class="text-center fs-5 lh-1">Most Popular Location In A Specific Category</p>
+    <div class="site-text  mt-2 row">
+      <p class="text-center">Most Popular Location In A Specific Category</p>
     </div>
 
+    <!-- Specific Categories  -->
+    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" > </div>
 
 
-    <div id="categoryTemplate" th:replace="template-category.html :: siteCategory"></div>
+    <div class="container my-5 px-2">
+      <div class="p-5 px-3 text-center site-font bg-secondary-subtle ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin et
+        est faucibus, condimentum nulla vitae, dictum neque. Nunc dignissim sem ut suscipit scelerisque. Nullam purus
+        justo, gravida quis purus at, varius pulvinar urna. Cras iaculis lectus non sem pellentesque, eu auctor tortor
+        dignissim. Vestibulum pulvinar libero a erat commodo rutrum. Donec eget faucibus turpis. Vestibulum quis
+        ullamcorper leo. Quisque posuere mauris sit amet pretium laoreet. Donec id nunc nulla. Mauris lobortis eleifend
+        suscipit. Quisque pellentesque nulla vel fermentum consectetur. Vestibulum vel accumsan nunc, at sollicitudin
+        sapien.
+        Etiam egestas, elit ut imperdiet ullamcorper, orci dui auctor magna, a suscipit felis arcu at nunc. Fusce
+        volutpat massa non vulputate fermentum. Aenean eleifend eget tellus sed placerat. Nullam faucibus eros ac felis
+        tempor consequat. Morbi sagittis tortor quis purus scelerisque vestibulum. Phasellus ut ipsum sed lectus
+        tincidunt ultricies. In in est vitae leo hendrerit volutpat. Ut mi orci, venenatis vulputate libero id, molestie
+        tincidunt justo.
+        Maecenas porttitor urna semper orci sodales, sit amet efficitur felis vulputate. Mauris rutrum nunc in diam
+        fermentum, eget eleifend turpis condimentum. Aenean turpis ex, pellentesque ut condimentum at, dapibus vitae
+        ante. Morbi vitae convallis lorem. Nam euismod vestibulum tincidunt. Integer vitae nulla blandit, ullamcorper
+        purus sit amet, iaculis ante. Etiam vestibulum pellentesque lorem ornare rutrum. Integer fermentum, sapien sed
+        pretium porta, neque orci finibus leo, eget cursus nulla velit id ante. Aenean id diam euismod, semper elit non,
+        laoreet sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos.
+        Mauris lobortis imperdiet orci eu condimentum. Curabitur eleifend quam purus, sit amet fermentum magna viverra
+        sed. Pellentesque vel neque tempus nulla suscipit finibus sed eget metus. Aliquam euismod ligula non lorem
+        egestas ultricies. Mauris eget tellus in elit bibendum egestas. Fusce elementum fringilla odio, accumsan posuere
+        leo.
 
-    <div class="container my-3 px-2">
-      <div th:text="${description}" style="text-align: justify;" class=" p-3 lg-base  fw-light bg-secondary-subtle ">
-
-
-      </div>
-      <hr>
-      <div class="fw-bold text-center">Disclaimer from Incallup</div>
-      <div  style="text-align: justify;" class=" p-3  mt-3 lg-base  fw-light  ">
-        The User agrees to abide by our terms and conditions of use and to keep up with any changes by visiting our website and utilizing our services.
-        <br><br>
-        The advertiser took the initiative and is solely responsible for publishing the current advertising in Incallup. Incallup.com does not conduct any kind of pre-publication verification before publishing such advertisements. Under no circumstances will incallup.com be held liable for the accuracy, legality, respect for property rights, or any offense against public or moral order of any online content entered by the user.
-        <br><br>
-        Free Internet ad publishing and website navigation are provided by Incallup.com does not act as a middleman or intermediary between users who browse the website and users who post content.
       </div>
     </div>
   </div>
-  <footer th:fragment="siteFooter" class="container-fluid ">
-    <div class="row " id="footer-pink">
+  <!-- <footer th:fragment="siteFooter" class="container-fluid ">
+    <div class="row d-flex" id="footer-pink" >
       <div class="col-lg-4 col-md-4 col-sm-3  ">
-        <img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " style="    max-width: 10rem; height: auto; " src="https://incallup.com/server/assets/img/logo.png" alt="logo" >
+        <img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " style="width: 80px;"     src="https://localhost/server/assets/img/logo.png" alt="logo" >
       </div>
       <div class="col-lg-7  d-inline  col-md-6 col-sm container ">
         <div class="row  ">
           <p class="text-center pt-5 text-light header-icon-text" id="imp-link">Important Links</p>
         </div>
         <div class="row  blue-bg-desktop my-2 px-3 py-1 me-2 py-2 container d-flex  justify-content-around  ">
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="/faq">FAQ </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="/privacy">Privacy Policy </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none  " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="/terms">Terms & Condition </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="/contact">Contact Us </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="/blogs">Blogs </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">FAQ </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Privacy Policy </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none  " >|</p> </div>
+          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Terms & Condition </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Contact Us </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none " >|</p> </div>
+          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Blogs </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
 
 
 
@@ -224,8 +235,30 @@
     <div class="row blue-bg p-4 text-light site-font ">
       <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
     </div>
-  </footer>
+  </footer> -->
 
+  <footer th:fragment="siteFooter" class="container-fluid">
+    <div class="row footer-top">
+      <div class="col-lg-4 col-md-4 col-sm-3">
+        <img src="https://localhost/server/assets/img/logo.png" alt="logo" class="logo">
+      </div>
+      <div class="col-lg-7 col-md-6 col-sm container" >
+        <nav class="footer-nav  ">
+          <h3>Important Links</h3>
+          <ul class="nav-links d-flex">
+            <li><a href="" aria-label="FAQ" class="text-dark ">FAQ</a></li>
+            <li><a href="" aria-label="Privacy Policy" class="text-dark ">Privacy Policy</a></li>
+            <li><a href="" aria-label="Terms & Condition" class="text-dark ">Terms & Condition</a></li>
+            <li><a href="" aria-label="Contact Us" class="text-dark ">Contact Us</a></li>
+            <li><a href="" aria-label="Blogs" class="text-dark ">Blogs</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="row blue-bg p-4 text-light site-font">
+      <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
+    </div>
+  </footer>
 
 
 
@@ -234,7 +267,7 @@
   </script>
   <script th:src="@{/server/assets/scripts/main.js}"></script>
   <script th:src="@{/server/assets/scripts/common.js}"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
+
 
 
 </body>
