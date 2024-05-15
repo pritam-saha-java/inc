@@ -42,3 +42,199 @@
     padding: 1rem;
     color: white;
     }
+
+
+/* Category List transition */
+.transition-target {
+  transition: opacity 5s ease-in-out;
+}
+
+.fade-in {
+  opacity: 100; /* initial opacity */
+}
+
+.fade-in.loaded {
+  opacity: 1; /* final opacity */
+}
+
+
+
+
+/* Category Code CSS  */
+
+.btn-circle {
+  width:46px ; 
+  height: 46px; 
+  margin: 0 5 px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 50% ;
+  transition: all 0.3s;
+  display: inline-block; /* Ensures smooth scaling */
+  padding:0.4rem;
+}
+
+.btn-circle:hover{
+  transform: scale(0.9);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-circle2 {
+  width:50px ; 
+  height: 50px; 
+  margin: 0 5 px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 50% ;
+  transition: all 0.3s;
+  display: inline-block; /* Ensures smooth scaling */
+  padding:0.4rem;
+}
+
+.btn-circle2:hover{
+  transform: scale(0.9);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+.phoneBtn{
+ 
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 50%;
+ transition: all 0.3s;
+ padding:0.4rem;
+ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+ display: inline-block; /* Ensures smooth scaling */
+}
+.phoneBtn:hover {
+    transform: scale(0.9);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 991.98px) {
+  .card-container {
+    flex-direction: column;
+  }
+  .card img {
+    width: 100%;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .card-title {
+    font-size: 1.5rem;
+  }
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+
+.description-container {
+  max-height: calc(1.5em * 3); /* Allow for 3 lines of text */
+  overflow: auto;
+  position: relative;
+}
+
+.description-container::after {
+  content: '...';  
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding-left: 2px; /* Add a bit of padding between text and ellipsis */
+  background-color: white; /* Ensure ellipsis doesn't overlap with text */
+}
+
+/* phone and age */
+ /* For desktop screens */
+ /* For desktop screens */
+@media (min-width: 300px) {
+  .text-mobile {
+      font-size: smaller;
+  }
+}
+
+/* For mobile screens */
+@media (max-width: 992px) {
+  .text-desktop {
+      font-size: smaller;
+  }
+}
+
+
+/* Footer CSS */
+@media (min-width:300px){
+  .nav-links{
+    font-size: small;
+  }
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  width: 100px;
+  height: 100px; /* adjust height as needed */
+  margin-top: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding-right: 2px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-color{
+  background-color: #FF0061;
+}
+
+
+
+/* Media Queries for Mobile Responsiveness */
+
+@media (max-width: 768px) {
+  .footer-top {
+    flex-direction: column;
+    align-items: center;
+  }
+  .logo {
+    margin-top: 2rem;
+  }
+  .footer-nav {
+    flex-direction: column;
+  }
+  .nav-links {
+    flex-direction: column;
+  }
+  .nav-links li {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

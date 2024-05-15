@@ -25,7 +25,8 @@
 
 <!--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
   <script src="https://unpkg.com/htmx.org@1.9.10" integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC" crossorigin="anonymous"></script>
-
+<!-- Include Htmx library -->
+<script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
 </head>
 
 <body >
@@ -181,7 +182,7 @@
     </div>
 
     <!-- Specific Categories  -->
-    <div hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" > </div>
+    <div  id="content" hx-get="https://localhost/app/get/categories" hx-trigger="load" hx-swap="innerHTML" class="transition-target fade-in"   > </div>
 
 
     <div class="container my-5 px-2">
@@ -237,28 +238,62 @@
     </div>
   </footer> -->
 
-  <footer th:fragment="siteFooter" class="container-fluid">
+  <footer th:fragment="siteFooter" class="container-fluid footer-color"  style="background-color: #be206b;">
     <div class="row footer-top">
-      <div class="col-lg-4 col-md-4 col-sm-3">
-        <img src="https://localhost/server/assets/img/logo.png" alt="logo" class="logo">
-      </div>
-      <div class="col-lg-7 col-md-6 col-sm container" >
-        <nav class="footer-nav  ">
-          <h3>Important Links</h3>
-          <ul class="nav-links d-flex">
-            <li><a href="" aria-label="FAQ" class="text-dark ">FAQ</a></li>
-            <li><a href="" aria-label="Privacy Policy" class="text-dark ">Privacy Policy</a></li>
-            <li><a href="" aria-label="Terms & Condition" class="text-dark ">Terms & Condition</a></li>
-            <li><a href="" aria-label="Contact Us" class="text-dark ">Contact Us</a></li>
-            <li><a href="" aria-label="Blogs" class="text-dark ">Blogs</a></li>
-          </ul>
-        </nav>
+      <div class="col-lg-12">
+        <div class="col-lg-4 col-md-4 col-sm-3">
+          <img   src="https://localhost/server/assets/img/logo.png" alt="logo" class="logo">
+        </div>
+        <div class="col-lg-7 col-md-6 col-sm container" >
+          <nav class="footer-nav  ">
+            <ul class="nav-links  ">
+            <h3 class="text-center text-light border rounded bg-dark p-2 ">Important Links</h3>
+             <br>
+              <div class="d-flex ">
+                
+                <li><a href="" aria-label="FAQ" class="text-light ">FAQ </a></li>
+                <li><a href="" aria-label="Privacy Policy" class="text-light  mx-1 "> | Privacy Policy | </a></li>
+                <li><a href="" aria-label="Terms & Condition" class="text-light">Terms & Condition | </a></li>
+                <li><a href="" aria-label="Contact Us" class="text-light ">Contact Us | </a></li>
+                <li><a href="" aria-label="Blogs" class="text-light ">Blogs</a></li>
+               
+              </div>
+            </ul>
+          </nav>
+        </div>
       </div>
     </div>
     <div class="row blue-bg p-4 text-light site-font">
       <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
     </div>
   </footer>
+
+   <!-- <div>
+    <nav class="navbar">
+      <duv class="container-fluid">
+          
+        <div class="col-lg-6 bg-dark">
+          <img src="https://localhost/server/assets/img/logo.png" alt="logo" class="logo">
+        </div>
+        <div class="col-lg-6 bg-primary">
+          <h1 class=" ">important Links</h1>
+          
+            <div class="d-flex ">
+              <a href="" aria-label="FAQ" class="text-dark ">FAQ | </a>
+              <a href="" aria-label="Privacy Policy" class="text-dark ">Privacy Policy</a>
+              <a href="" aria-label="Terms & Condition" class="text-dark ">Terms & Condition</a>
+              <a href="" aria-label="Contact Us" class="text-dark ">Contact Us</a>
+              <a href="" aria-label="Blogs" class="text-dark ">Blogs</a>
+            </div>
+          </div>
+        
+
+
+      </duv>
+    </nav>
+   </div> -->
+
+
 
 
 

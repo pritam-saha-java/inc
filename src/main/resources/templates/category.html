@@ -77,10 +77,10 @@
           <div class="row g-0">
             <div class="col-lg-4 col-md-5 col-sm-12">
                 <!-- Image of product -->
-                <img class="img-fluid rounded-start rounded-4 w-100 p-2" style="max-height: 300px;" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" loading="lazy">
+                <img class="img-fluid rounded  w-100 "  th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; "  style="max-height: 300px;" th:src="@{/server/assets/img/sample.jpg}" th:alt="${post.title}" loading="lazy">
             </div>
             <div class="col-lg-8 col-md-7 col-sm-12">
-                <div class="card-body mt-2">
+                <div class="card-body mt-1">
                     <!-- Card Title -->
                     <h2 class="card-title fw-bold text-capitalize my-3 text-pink fs-3" th:text="${post.title}">Card title</h2>
                     <!-- Description -->
@@ -131,17 +131,21 @@
                        <div class="col d-flex">
                         <div class="col-4 px-2">
                           <p alt="contact link" class="fs-3 text-center"   th:onclick="location =  'tel:'+[[${post.contact}]];" >
-                              <i class="fa fa-phone phoneBtn" style="color: #BE206B;" aria-hidden="true"></i>
+                              <!-- <i class="fa fa-phone  btn-circle" style="color: #BE206B; width: 46px; "   aria-hidden="true"></i> -->
+                              <img class="img-fluid  btn-circle2 "   th:src="@{/server/assets/img/call2.png}" th:alt="${post.title}" loading="lazy">
+
                           </p>
                       </div>
                       <div class="col-4 px-1">
                           <p alt="whatsapp link" class="fs-3 text-center"  th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];">
-                              <i class="fa fa-whatsapp p-1 phoneBtn" style="background-color: #23B33A; color:white;" aria-hidden="true"></i>
+                              <!-- <i class="fa fa-whatsapp p-1 phoneBtn" style="background-color: #23B33A; color:white;" aria-hidden="true"></i> -->
+                              <img class="img-fluid  btn-circle  "   th:src="@{/server/assets/img/whatsApp-2.png}" th:alt="${post.title}" loading="lazy">
                           </p>
                       </div>
                       <div class="col-4 px-1">
                           <p alt="telegram link" class="fs-3 text-center" th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];"  >
-                              <i class="fa fa-telegram phoneBtn" style="color: #33B1E3;" aria-hidden="true"></i>
+                              <!-- <i class="fa fa-telegram phoneBtn" style="color: #33B1E3;" aria-hidden="true"></i> -->
+                              <img class="img-fluid  btn-circle  "   th:src="@{/server/assets/img/telegram2.png}" th:alt="${post.title}" loading="lazy">
                           </p>
                       </div>
                        </div>

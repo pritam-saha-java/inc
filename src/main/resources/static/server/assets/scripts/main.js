@@ -75,4 +75,25 @@ function showCategory(button,categoryBody){
    
     
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const descriptionContainers = document.querySelectorAll('.description-container');
+
+    descriptionContainers.forEach(container => {
+        const content = container.querySelector('.card-text');
+        const lineHeight = parseInt(window.getComputedStyle(content).lineHeight);
+        const maxHeight = lineHeight * 3;
+
+        if (container.offsetHeight < maxHeight) {
+            container.style.maxHeight = 'none';
+            container.removeChild(container.querySelector('::after'));
+        }
+    });
+});
+
+
+
+
+
 console.log('js connected');
