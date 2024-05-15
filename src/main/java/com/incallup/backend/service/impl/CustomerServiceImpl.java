@@ -54,18 +54,18 @@ public class CustomerServiceImpl implements CustomerService {
         /*post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
         post.setByteString2(convertByteArrayToBase64(post.getImageData2().getBytes(1,(int)post.getImageData2().length())));*/
 
-        URL url = remoteStorage.generatePresignedUrl(post.getImage1());
-        post.setImage1(url.toString());
-
-        URL url2 = remoteStorage.generatePresignedUrl(post.getImage2());
-        post.setImage1(url2.toString());
-
-        log.info("logging information : "+post.getByteString2().length());
+        //log.info("logging information : "+post.getByteString2().length());
 
 
         int views = post.getViews();
         post.setViews(++views);
         postRepository.save(post);
+
+        URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+        post.setImage1(url.toString());
+
+        URL url2 = remoteStorage.generatePresignedUrl(post.getImage2());
+        post.setImage2(url2.toString());
 
         String inputDate = post.getCreatedAt().toString();
         String[] parts = inputDate.split("T");

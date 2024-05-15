@@ -100,7 +100,8 @@
 
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-              <img th:unless="${post.isEmpty}" class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">
+<!--              <img class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">-->
+              <img th:unless="${post.image2.isEmpty}" class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">
 
             </div>
           </div>
