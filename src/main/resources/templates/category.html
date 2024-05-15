@@ -74,7 +74,7 @@
   <div class="card my-2  "  th:each="post : ${posts}"   >
     <div class="row g-0">
       <div class="col-md-4 col-sm-12 ">
-        <img class="img-fluid  h-100  w-100 rounded-start rounded-4 cat-image"  th:src="'data:image/webp;base64,'+ ${post.byteString}" th:alt="${post.title}" th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
+        <img class="img-fluid  h-100  w-100 rounded-start rounded-4 cat-image"  th:src="${post.image1}" th:alt="${post.title}" th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >
       </div>
       <div class="col-md-8 container pb-0">
         <div class="card-body px-0 mt-lg-4 mt-sm-1 row"  th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " >

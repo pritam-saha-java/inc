@@ -103,3 +103,13 @@ whm:
 #    port: 21
 #    username: dev
 #    password: 2NNx]l-9tgBn
+
+  #AWS Credentials
+  aws:
+    accessKey: AKIAW3MD7OVWRKPP3KMA
+    secretKey: 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
+    region: us-east-2
+    application:
+      bucket:
+        name: incallup-production
+

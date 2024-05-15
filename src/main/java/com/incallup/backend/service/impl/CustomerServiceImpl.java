@@ -1,6 +1,7 @@
 package com.incallup.backend.service.impl;
 
 
+import com.incallup.backend.configuration.RemoteStorage;
 import com.incallup.backend.domain.Category;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.exception.ApplicationException;
@@ -13,6 +14,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.net.URL;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -31,6 +33,9 @@ public class CustomerServiceImpl implements CustomerService {
     @Autowired
     private final LocationRepository locationRepository;
 
+    @Autowired
+    private final RemoteStorage remoteStorage;
+
 
     @Override
     public Post searchByTitle(String title) throws ApplicationException{
@@ -46,12 +51,15 @@ public class CustomerServiceImpl implements CustomerService {
         }
 
         var post = postOptional.get();
-        try {
-        post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
-            post.setByteString2(convertByteArrayToBase64(post.getImageData2().getBytes(1,(int)post.getImageData2().length())));
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
+        /*post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1,(int)post.getImageData1().length())));
+        post.setByteString2(convertByteArrayToBase64(post.getImageData2().getBytes(1,(int)post.getImageData2().length())));*/
+
+        URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+        post.setImage1(url.toString());
+
+        URL url2 = remoteStorage.generatePresignedUrl(post.getImage2());
+        post.setImage1(url2.toString());
+
         log.info("logging information : "+post.getByteString2().length());
 
 
@@ -102,11 +110,10 @@ public class CustomerServiceImpl implements CustomerService {
                 blockedPosts.add(post);
                 return;
             }
-            try {
-                post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1, (int) post.getImageData1().length())));
-            } catch (SQLException e) {
-                throw new RuntimeException(e);
-            }
+            //post.setByteString(convertByteArrayToBase64(post.getImageData1().getBytes(1, (int) post.getImageData1().length())));
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage1(url.toString());
+
             if(post.getTitle().length()>30)
                 post.setTitle(post.getTitle().substring(0,28)+"..");
             if(post.getDescription().length()>150)
