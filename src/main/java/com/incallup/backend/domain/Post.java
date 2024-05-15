@@ -92,6 +92,9 @@ public class Post {
     @Lob
     private Blob imageData2;
 
+    private String image1;
+    private String image2;
+
     @Transient
     private String byteString;
     @Transient

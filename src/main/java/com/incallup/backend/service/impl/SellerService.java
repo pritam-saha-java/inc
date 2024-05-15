@@ -1,6 +1,7 @@
 package com.incallup.backend.service.impl;
 
 
+import com.incallup.backend.configuration.RemoteStorage;
 import com.incallup.backend.domain.Post;
 import com.incallup.backend.domain.Seller;
 import com.incallup.backend.exception.*;
@@ -27,6 +28,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import java.util.UUID;
 
 
 /**
@@ -44,6 +46,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
     private final PostRepository postRepository;
     private final LocationRepository locationRepository;
     private final CategoryRepository categoryRepository;
+    private final RemoteStorage remoteStorage;
 
 
     @Override
@@ -148,7 +151,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
         var locationOptional = locationRepository.findLocationByDistrict(post.getLocation().getDistrict());
         locationOptional.ifPresent(post::setLocation);
 
-        try {
+        /*try {
             var bytes1 =   ImageUtility.getBufferedImage(image1);
             var bytes2 =   ImageUtility.getBufferedImage(image2);
 
@@ -166,7 +169,17 @@ public class SellerService implements SellerQueryService, SellerCommandService {
                     .title("error saving data due to File Format")
                     .Description("try to choose another format for images")
                     .build();
-        }
+        }*/
+
+
+        //Saving Image to Aws S3 bucket
+        String uuid1 = UUID.randomUUID() + ".jpg".toString();
+        remoteStorage.uploadFile(image1, uuid1);
+        post.setImage1(uuid1);
+
+        String uuid2 = UUID.randomUUID() + ".jpg".toString();
+        remoteStorage.uploadFile(image2, uuid2);
+        post.setImage2(uuid2);
 
 
         var categoryOptional =  categoryRepository.findCategoryByName(post.getCategory().getName());
