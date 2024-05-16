@@ -92,8 +92,22 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// document.getElementById("upload-file").addEventListener("click",function(){
+//   document.getElementById("image-input1").click();
+// })
 
 
+document.getElementById('image-input1').addEventListener('change', function() {
+    // Get the number of files selected
+    var selectedFiles = this.files.length;
+    
+    // Check if the number of selected files exceeds the limit (6)
+    if (selectedFiles > 6) {
+      alert('You can only select a maximum of 6 files.');
+      // Clear the selected files
+      this.value = '';
+    }
+  });
 
 
 console.log('js connected');

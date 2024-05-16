@@ -96,11 +96,12 @@
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img class="d-block w-100 img-fluid "  th:src="'data:image/webp;base64,'+ ${post.byteString}" th:alt="${post.title}">
+              <img class="d-block w-100 img-fluid "  th:src="${post.image1}" th:alt="${post.title}">
 
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-              <img th:unless="${post.byteString2.isEmpty}" class="img-fluid d-block w-100" th:src="'data:image/webp;base64,'+ ${post.byteString2}" th:alt="${post.title}">
+<!--              <img class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">-->
+              <img th:unless="${post.image2.isEmpty}" class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">
 
             </div>
           </div>
