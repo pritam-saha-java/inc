@@ -185,8 +185,7 @@
     <div id="categoryTemplate" th:replace="template-category.html :: siteCategory"></div>
 
     <div class="container my-3 px-2">
-      <div th:text="${description}" style="text-align: justify;" class=" p-3 lg-base  fw-light bg-secondary-subtle ">
-
+      <div th:utext="${location.description}" class=" p-3 bg-secondary-subtle ">
 
       </div>
       <hr>
