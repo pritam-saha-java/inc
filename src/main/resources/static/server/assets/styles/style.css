@@ -124,7 +124,7 @@ a{
 }
 .site-title{
 font-family: "Inter", sans-serif;
-font-size: 48px;
+font-size: 30px;
 font-weight: 900;
 line-height: 62px;
 letter-spacing: 0em;
@@ -246,9 +246,9 @@ td>a{
     padding: 1%;
     width: 50%; */
 
-    margin : auto 50px;
+    margin : 50px;
     padding-left: 7%;
-    padding-right: 7%;
+    /* padding-right: 7%; */
 
     /* margin-right: 5%; */
     width: 80%;
@@ -292,8 +292,9 @@ td>a{
     }
 
     .cat-image{
-        height:auto!important;
-        width:auto!important;
+        height:100%!important;
+        width:100%!important;
+        object-fit: cover;
     }
 
 #hero-section{
@@ -402,7 +403,10 @@ max-height:auto;
     font-weight: 500;
     padding: .8rem .1rem;
     text-transform: capitalize;
+    transition: transform 0.4s ease;
 }
+
+
 .btn {
     border-radius: 18px;
     font-weight: 500;
@@ -418,6 +422,10 @@ max-height:auto;
     font-size: .8rem !important;
 }
 
+.btn-whatsapp:hover{
+    background-color: #23B33A;
+    transform: scale(0.9);
+}
 
 
 .btn-primary {
@@ -431,10 +439,28 @@ max-height:auto;
     font-size: .8rem !important;
 }
 
+.btn-telegram:hover{
+    transform: scale(0.9);
+}
+
+
+.phone-pin:hover{
+    transform: scale(0.9);
+}
+
 
 .post-title{
         font-family: Inter , sans-serif;
+       
 }
+
+@media (max-width:500px){
+    .post-title{
+        font-size: medium;
+    }
+}
+
+
 @media screen and (max-width: 400px){
 
 
@@ -517,7 +543,7 @@ section.bread_wraper.login-breadcrame {
 
    @media (max-width: 375px){
   .bread_wraper ul li a {
-      font-size: 18px;
+      font-size: 11px;
 
       font-family: 'Poppins', sans-serif;
   }

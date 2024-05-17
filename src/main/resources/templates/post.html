@@ -106,7 +106,7 @@
 <div th:replace="dashboard.html :: siteHeader"></div>
 
   <!-- hero section start -->
-  <form onsubmit="return validateForm()" class=" my-4 post border shadow  container justify-content-center align-items-center  " th:action="${'https://incallup.com/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
+  <form onsubmit="return validateForm()" class=" my-4 post          " th:action="${'https://incallup.com/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
    
    <!-- Category -->
     <div class="mb-3 container ">
@@ -125,7 +125,7 @@
         <b class="col fw-bold">Ad Title *</b>       
       </label>
       <input name="title" type="text" class="form-control site-input row" id="postTitle" placeholder="Enter Title Text Here">
-      <p class="col text-dark" style="font-size: smaller;"  >15-50 Characters required</p>
+      <p class="col text-dark" style="font-size: x-small;"  >15-50 Characters required</p>
     </div>
 
     <!-- Description -->
@@ -134,7 +134,7 @@
         <b class="col fw-bold">Description *</b> 
       </label>
       <textarea name="description" type="text" class="form-control site-input row " id="postDescription" rows="5" placeholder="Enter the"></textarea>
-      <p class="col text-dark" style="font-size: smaller;">50 Characters required</p>
+      <p class="col text-dark" style="font-size:x-small ;">50 Characters required</p>
     </div>
 
     <!-- Phone -->
@@ -215,7 +215,7 @@
     <div class="mb-3 form-check text-center row d-flex justify-content-center ">
       <div class=" ">
         <input id="checkbox" type="checkbox" class="form-check-input  site-input"  style="position: relative;  "   >
-        <label class="form-check-label " for="exampleCheck1">By Clicking Publish You Accept Our <b><a href="terms.html" class="text-pink">Terms & Condition</a></b></label>
+        <label class="form-check-label fs-10 " for="exampleCheck1">By Clicking Publish You Accept Our <b><a href="terms.html" class="text-pink fs-10">Terms & Condition</a></b></label>
       </div>
 
     </div>

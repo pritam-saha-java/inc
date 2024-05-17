@@ -241,4 +241,28 @@ border-radius: 50%;
   }
 }
 
+.ad-text{
+  font-size: medium;
+}
+
+@media (max-width:1000px){
+    .ad-text{
+      font-size: small;
+    }
+}
+
+
 /* Post CSS */
+
+.dropdown {
+  opacity: 0;
+  transition: opacity 0.9s; /* adjust the duration to your liking */
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.transition-target {
+  transition: opacity 0.9s; /* adjust the duration to your liking */
+}

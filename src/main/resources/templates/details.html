@@ -35,12 +35,12 @@
 
 <!-- hero section start -->
 <div class="container  mt-2  p-1 fs-6  ">
-  <a href="https://incallup.com/" class="row px-4 rounded    site-link"> < Back To Search </a>
+  <a href="https://incallup.com/" class="row px-4 rounded site-link" style="color: #be206b;" > < Back To Search </a>
   <section class="bread_wraper mt-3">
 
-        <div class="bread-inner text-left ">
-          <ul>
-            <li><a href="https://incallup.com/">  <i class="fa fa-home  border border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
+        <div class="bread-inner text-left   ">
+          <ul >
+            <li ><a href="https://incallup.com/">  <i class="fa fa-home  border   border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
             <li> > </li>
             <li><a th:href="${'https://incallup.com/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
             <li > > </li>
@@ -60,9 +60,11 @@
 
 <div class="container px-4 px-lg-5 ">
 
+ <div class="col-12 col-md-8">
   <h2 class="row px-3 text-start text-capitalize post-title" th:text="${post.title}">
     Title
   </h2>
+ </div>
 
   <section class="bread_wraper mt-3" >
 
@@ -144,7 +146,7 @@
   <hr>
   <div class="d-flex justify-content-center">
     <div class="text-center">
-      <h3 class="row mt-5">Contact Information</h3>
+      <h3 class="row mt-5 fw-bold">Contact Information</h3>
     </div>
   </div>
 
@@ -162,22 +164,29 @@
     </div>
     <div class="col px-2 m-auto">
       <button th:href="'https://t.me/+91'+${post.contact}"  class="btn btn-primary btn-telegram btn-md btn-block telegram-pin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2"><defs><style>.cls-1{fill:white;stroke:#fffff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M40.83,8.48c1.14,0,2,1,1.54,2.86l-5.58,26.3c-.39,1.87-1.52,2.32-3.08,1.45L20.4,29.26a.4.4,0,0,1,0-.65L35.77,14.73c.7-.62-.15-.92-1.07-.36L15.41,26.54a.46.46,0,0,1-.4.05L6.82,24C5,23.47,5,22.22,7.23,21.33L40,8.69a2.16,2.16,0,0,1,.83-.21Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2"><defs><style>.cls-1{ stroke:#fffff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M40.83,8.48c1.14,0,2,1,1.54,2.86l-5.58,26.3c-.39,1.87-1.52,2.32-3.08,1.45L20.4,29.26a.4.4,0,0,1,0-.65L35.77,14.73c.7-.62-.15-.92-1.07-.36L15.41,26.54a.46.46,0,0,1-.4.05L6.82,24C5,23.47,5,22.22,7.23,21.33L40,8.69a2.16,2.16,0,0,1,.83-.21Z"/></svg>
         Telegram
       </button>
     </div>
   </div>
 
   <hr class="row mt-5">
-  <h1 class="  mt-5  ">
-    <!-- <div class=" ">
-      <div class="col text-center fs-5 " >ALL ADS IN <h1  class="fs-5" style="color: brown;" th:text="' ' + ${post.category.title} + ' > '  "  >   </h1>  </div>
-    </div> -->
+
+  <!-- AD  -->
+  <!-- <h1 class="  mt-5 ad-card ">
     <div class="col text-center fs-5 d-flex align-items-center justify-content-center" >
       <span>ALL ADS IN</span>
-      <h1 class="fs-5 ms-2 mt-2" style="color: brown;" th:text="' ' + ${post.category.title} + ' > '"></h1>
+      <h1 class="fs-5 ms-2 mt-2" style="color: brown;" th:text="' ' + ${post.category.title} + ' in '+   ${post.location.name}+' > '  "></h1>
     </div>
-  </h1>
+  </h1> -->
+
+
+  <div class="row justify-content-center text-center">
+    <div class="col-12 col-md-auto d-flex align-items-center justify-content-center">
+        <span class="ad-text">ALL ADS IN</span>
+        <h1 class="ad-text ms-2 mt-2" style="color: brown;" th:text="' ' + ${post.category.title} + ' in '+   ${post.location.name}+' > '  "></h1>
+    </div>
+</div>
   <h3 class="row mt-1 fs-5 "><div class="col text-center  ">In Incallup</div></h3>
 
 
