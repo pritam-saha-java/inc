@@ -75,4 +75,40 @@ function showCategory(button,categoryBody){
    
     
 }
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    const descriptionContainers = document.querySelectorAll('.description-container');
+
+    descriptionContainers.forEach(container => {
+        const content = container.querySelector('.card-text');
+        const lineHeight = parseInt(window.getComputedStyle(content).lineHeight);
+        const maxHeight = lineHeight * 3;
+
+        if (container.offsetHeight < maxHeight) {
+            container.style.maxHeight = 'none';
+            container.removeChild(container.querySelector('::after'));
+        }
+    });
+});
+
+// document.getElementById("upload-file").addEventListener("click",function(){
+//   document.getElementById("image-input1").click();
+// })
+
+
+document.getElementById('image-input1').addEventListener('change', function() {
+    // Get the number of files selected
+    var selectedFiles = this.files.length;
+    
+    console.log("Data: "+selectedFiles);
+    // Check if the number of selected files exceeds the limit (6)
+    if (selectedFiles > 6) {
+      alert('You can only select a maximum of 6 files.');
+      // Clear the selected files
+      this.value = '';
+    }
+  });
+
+
 console.log('js connected');

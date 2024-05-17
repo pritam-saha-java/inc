@@ -93,11 +93,14 @@
 
 <div th:replace="dashboard.html :: siteSearch"></div>
 <div th:replace="dashboard.html :: siteHeader"></div>
+
   <!-- hero section start -->
-  <form onsubmit="return validateForm()" class=" my-2 post" th:action="${'https://incallup.com/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
+  <form onsubmit="return validateForm()" class=" my-4 post border shadow  container justify-content-center align-items-center  " th:action="${'https://incallup.com/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
+   
+   <!-- Category -->
     <div class="mb-3 container ">
       <label for="exampleInputEmail1"  class="form-label row d-flex justify-content-between  ">
-        <b class="col-2">Category *</b>
+        <b class="col fw-bold">Category *</b>
         <p class="col-3"></p>
       </label>
       <select name="category" class="form-select row " hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
@@ -105,95 +108,110 @@
       </select>
 
     </div>
+    <!-- Ad Title -->
     <div class="mb-3 container">
       <label for="exampleInputEmail1" class="form-label row d-flex justify-content-between ">
-        <b class="col-2">Ad Title *</b>
-        <p class="col-3">15-50 Characters required</p>
+        <b class="col fw-bold">Ad Title *</b>       
       </label>
       <input name="title" type="text" class="form-control site-input row" id="postTitle" placeholder="Enter Title Text Here">
+      <p class="col text-dark" style="font-size: smaller;"  >15-50 Characters required</p>
     </div>
+
+    <!-- Description -->
     <div class="mb-3 container">
-      <label for="exampleInputEmail1" class="form-label row d-flex justify-content-between ">
-        <b class="col-2">Description *</b>
-        <p class="col-3">50 Characters required</p>
+      <label for="exampleInputEmail1" class="form-label row   justify-content-between ">
+        <b class="col fw-bold">Description *</b> 
       </label>
-      <textarea name="description" type="text" class="form-control site-input row " id="postDescription" rows="5"></textarea>
+      <textarea name="description" type="text" class="form-control site-input row " id="postDescription" rows="5" placeholder="Enter the"></textarea>
+      <p class="col text-dark" style="font-size: smaller;">50 Characters required</p>
     </div>
+
+    <!-- Phone -->
     <div class=" container">
         <div class="row mb-3 d-flex justify-content-between">
-          <div class="col-5">
-            <label for="exampleInputEmail1" class="form-label"><b>Phone *</b></label>
-            <input name="contact" type="tel" class="form-control site-input " id="postTitle" placeholder="Enter Phone Number" >
+          <div class="row">
+            <!-- Phone Input -->
+            <div class="col-lg-5 mb-3">
+              <label for="postTitle" class="form-label fw-bold">Phone *</label>
+              <input name="contact" type="tel" class="form-control site-input" id="postTitle" placeholder="Enter Phone Number">
+
+               
+            </div>
+            <!-- Contact Logos -->
+            <div class="col-lg-7 ">
+              <div class="d-flex align-items-center justify-content-center">
+                <div class="text-center d-flex">
+                  <input name="whatsapp" type="checkbox" class="form-check-input site-input" id="whatsapp">
+                  <img th:src="@{/server/assets/img/whatsapp.png} " alt="WhatsApp" class="post-icon"></img>
+                </div>
+                <div class="text-center mx-5 d-flex">
+                  <input name="telegram" type="checkbox" class="form-check-input site-input" id="telegram">
+                  <img th:src="@{/server/assets/img/telegram.png}" alt="Telegram" class="post-icon"  style="width:22px;height:22px"></img>
+                </div>
+              </div>
+            </div>
+           
           </div>
-          <div class="col-1 text-center">
-            <br>
-            <input name="whatsapp" type="checkbox" class="form-check-input site-input " id="whatsapp">
-            <img th:src="@{/server/assets/img/whatsapp.png} " alt="WhatsApp" class="post-icon"></img>
-          </div>
-          <div class="col-1 text-center">
-            <br>
-            <input name="telegram" type="checkbox" class="form-check-input site-input " id="telegram">
-            <img th:src="@{/server/assets/img/telegram.png}" alt="Telegram" class="post-icon"></img>
-          </div>
-          <div class="col-5">
-            <label for="exampleInputEmail1" class="form-label"><b>Your Age *</b></label>
+          
+
+          <!-- Age -->
+          <div class="col mt-1">
+            <label for="exampleInputEmail1" class="form-label col fw-bold"><b>Your Age *</b></label>
             <input name="age" type="number" class="form-control site-input" id="postAge" placeholder="Age">
           </div>
         </div>
+
+        <!-- InCall -->
       <div class="row mb-3 d-flex justify-content-between">
         <div class="col-5">
-          <label for="postIncall" class="form-label"><b>Incall *</b></label>
+          <label for="postIncall" class="form-label fw-bold"><b>Incall *</b></label>
           <input name="incall" type="number" class="form-control site-input " id="postIncall" placeholder="Enter Price Here" >
         </div>
 
+        <!-- Out Call -->
         <div class="col-5">
-          <label for="postOutCall" class="form-label"><b>OutCall *</b></label>
+          <label for="postOutCall" class="form-label fw-bold"><b>OutCall *</b></label>
           <input name="outcall" type="number" class="form-control site-input" id="postOutCall" placeholder="Enter Price Here">
         </div>
       </div>
         <div class="row mb-3 justify-content-between">
           <div class="col-5">
-            <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#post-state" ><b>State * </b></label>
-            <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options"  hx-target="#post-city"   class="form-control site-input "  >
+            <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#post-state" class="fw-bold"><b>State * </b></label>
+            <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options"  hx-target="#post-city"   class="form-control site-input  "  >
             <option>select state</option>
             </select>
           </div>
           <div class="col-5">
-            <label for="post-city"><b>City * </b></label>
+            <label for="post-city" class="fw-bold"><b>City * </b></label>
             <select name="city" id="post-city"  class="form-control site-input"  >
 
             </select>
           </div>
         </div>
 
-        <div class="row my-4 " >
+        <div class="row my-4 border " >
             <label for="image-input" class="site-input py-4 col mx-2 text-center">
               <div class="image-container ">
-                <span class="plus-icon">+</span>
+                <a class="plus-icon"  id="upload-file"  >+</a>
 
               </div>
               <span class="p-1">Maximum Image Size 5 MB</span>
-              <input type="file" name="image1" id="image-input1" accept="image/*" >
+              <input type="file"   name="images[]" id="image-input1" accept="image/*" multiple  >
             </label>
-            <label for="image-input" class="site-input py-4 col mx-2 text-center">
-              <div class="image-container ">
-                <span class="plus-icon">+</span>
-
-              </div>
-              <span class="p-1">Maximum Image Size 5 MB</span>
-              <input type="file" name="image2" id="image-input2" accept="image/*" >
-            </label>
+             
 
         </div>
     </div>
 
+    <!-- Terms and Conditions -->
     <div class="mb-3 form-check text-center row d-flex justify-content-center ">
-      <div class="col-1"><input id="checkbox" type="checkbox" class="form-check-input  site-input" ></div>
-
-        <label class="form-check-label col-5" for="exampleCheck1">By Clicking Publish You Accept Our <b><a href="terms.html" class="text-pink">Terms & Condition</a></b></label>
+      <div class=" ">
+        <input id="checkbox" type="checkbox" class="form-check-input  site-input"  style="position: relative;  "   >
+        <label class="form-check-label " for="exampleCheck1">By Clicking Publish You Accept Our <b><a href="terms.html" class="text-pink">Terms & Condition</a></b></label>
+      </div>
 
     </div>
-    <div class="row d-flex justify-content-center ">
+    <div class="row d-flex justify-content-center mb-4 ">
       <button  class="btn btn-primary w-25 bg-pink mx-3 px-2">Next</button>
     </div>
   </form>
