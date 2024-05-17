@@ -13,6 +13,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import java.net.URL;
 import java.sql.SQLException;
@@ -61,11 +62,49 @@ public class CustomerServiceImpl implements CustomerService {
         post.setViews(++views);
         postRepository.save(post);
 
-        URL url = remoteStorage.generatePresignedUrl(post.getImage1());
-        post.setImage1(url.toString());
+        URL url1 = remoteStorage.generatePresignedUrl(post.getImage1());
+        post.setImage1(url1.toString());
 
-        URL url2 = remoteStorage.generatePresignedUrl(post.getImage2());
-        post.setImage2(url2.toString());
+        if (!ObjectUtils.isEmpty(post.getImage2())) {
+            URL url2 = remoteStorage.generatePresignedUrl(post.getImage2());
+            post.setImage2(url2.toString());
+        } else {
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage2(url.toString());
+        }
+
+        if (!ObjectUtils.isEmpty(post.getImage3())) {
+            URL url3 = remoteStorage.generatePresignedUrl(post.getImage3());
+            post.setImage3(url3.toString());
+        } else {
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage3(url.toString());
+        }
+
+        if (!ObjectUtils.isEmpty(post.getImage4())) {
+            URL url4 = remoteStorage.generatePresignedUrl(post.getImage4());
+            post.setImage4(url4.toString());
+        } else {
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage4(url.toString());
+        }
+
+        if (!ObjectUtils.isEmpty(post.getImage5())) {
+            URL url5 = remoteStorage.generatePresignedUrl(post.getImage5());
+            post.setImage5(url5.toString());
+        } else {
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage5(url.toString());
+        }
+
+        if (!ObjectUtils.isEmpty(post.getImage6())) {
+            URL url6 = remoteStorage.generatePresignedUrl(post.getImage6());
+            post.setImage6(url6.toString());
+        } else {
+            URL url = remoteStorage.generatePresignedUrl(post.getImage1());
+            post.setImage6(url.toString());
+        }
+
 
         String inputDate = post.getCreatedAt().toString();
         String[] parts = inputDate.split("T");

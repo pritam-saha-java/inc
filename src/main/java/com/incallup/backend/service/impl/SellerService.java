@@ -119,7 +119,7 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
 
     @Override
-    public void createPost(@Valid Post post, Integer sellerId, MultipartFile image1,MultipartFile image2) throws ApplicationException {
+    public void createPost(@Valid Post post, Integer sellerId, List<MultipartFile> files) throws ApplicationException {
 
         var postOptional = postRepository.findPostByTitle(post.getTitle());
         if(postOptional.isPresent())
@@ -173,13 +173,42 @@ public class SellerService implements SellerQueryService, SellerCommandService {
 
 
         //Saving Image to Aws S3 bucket
-        String uuid1 = UUID.randomUUID() + ".jpg".toString();
+        /*String uuid = UUID.randomUUID() + ".jpg".toString();
         remoteStorage.uploadFile(image1, uuid1);
         post.setImage1(uuid1);
 
         String uuid2 = UUID.randomUUID() + ".jpg".toString();
         remoteStorage.uploadFile(image2, uuid2);
-        post.setImage2(uuid2);
+        post.setImage2(uuid2);*/
+
+        for (int i = 0; i < files.size(); i++) {
+            String uuid = UUID.randomUUID() + ".jpg".toString();
+            MultipartFile image = files.get(i);
+            remoteStorage.uploadFile(image, uuid);
+
+            switch (i) {
+                case 0:
+                    post.setImage1(uuid);
+                    break;
+                case 1:
+                    post.setImage2(uuid);
+                    break;
+                case 2:
+                    post.setImage3(uuid);
+                    break;
+                case 3:
+                    post.setImage4(uuid);
+                    break;
+                case 4:
+                    post.setImage5(uuid);
+                    break;
+                case 5:
+                    post.setImage6(uuid);
+                    break;
+                default:
+                    throw new IllegalArgumentException("Unsupported number of images");
+            }
+        }
 
 
         var categoryOptional =  categoryRepository.findCategoryByName(post.getCategory().getName());

@@ -95,16 +95,34 @@
       <div class="col">
         <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
           <div class="carousel-inner">
-            <div class="carousel-item active" data-bs-interval="10000">
-              <img class="d-block w-100 img-fluid "  th:src="${post.image1}" th:alt="${post.title}">
 
+            <div th:if="${not #strings.isEmpty(post.image1)}" class="carousel-item active" data-bs-interval="1000">
+              <img class="d-block w-100 img-fluid" th:src="${post.image1}" th:alt="${post.title}">
             </div>
-            <div class="carousel-item" data-bs-interval="2000">
-<!--              <img class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">-->
-              <img th:unless="${post.image2.isEmpty}" class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">
 
+            <div th:if="${not #strings.isEmpty(post.image2)}" class="carousel-item" data-bs-interval="2000">
+              <img class="img-fluid d-block w-100" th:src="${post.image2}" th:alt="${post.title}">
             </div>
+
+            <div th:if="${not #strings.isEmpty(post.image3)}" class="carousel-item" data-bs-interval="3000">
+              <img class="img-fluid d-block w-100" th:src="${post.image3}" th:alt="${post.title}">
+            </div>
+
+            <div th:if="${not #strings.isEmpty(post.image4)}" class="carousel-item" data-bs-interval="4000">
+              <img class="img-fluid d-block w-100" th:src="${post.image4}" th:alt="${post.title}">
+            </div>
+
+            <div th:if="${not #strings.isEmpty(post.image5)}" class="carousel-item" data-bs-interval="5000">
+              <img class="img-fluid d-block w-100" th:src="${post.image5}" th:alt="${post.title}">
+            </div>
+
+            <div th:if="${not #strings.isEmpty(post.image6)}" class="carousel-item" data-bs-interval="6000">
+              <img class="img-fluid d-block w-100" th:src="${post.image6}" th:alt="${post.title}">
+            </div>
+
           </div>
+
+
           <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>

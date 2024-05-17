@@ -82,6 +82,17 @@
               alert('Please check accept our terms before submitting.');
               return false;
           }
+
+        // Validate file input
+        var files = fileInput.files;
+        if (files.length < 1) {
+          alert('Please select at least one image.');
+         return false;
+       }
+        if (files.length > 6) {
+          alert('You can upload a maximum of 6 images.');
+          return false;
+        }
           return true;
       }
   </script>
@@ -189,18 +200,15 @@
           </div>
         </div>
 
-        <div class="row my-4 border " >
-            <label for="image-input" class="site-input py-4 col mx-2 text-center">
-              <div class="image-container ">
-                <a class="plus-icon"  id="upload-file"  >+</a>
-
-              </div>
-              <span class="p-1">Maximum Image Size 5 MB</span>
-              <input type="file"   name="images[]" id="image-input1" accept="image/*" multiple  >
-            </label>
-             
-
-        </div>
+      <div class="row my-4 border">
+        <label for="image-input" class="site-input py-4 col mx-2 text-center">
+          <div class="image-container">
+            <a class="plus-icon" id="upload-file image-input1">+</a>
+          </div>
+          <span class="p-1 fs-10">Maximum Image Size 5 MB</span>
+          <input type="file" name="files" multiple>
+        </label>
+      </div>
     </div>
 
     <!-- Terms and Conditions -->

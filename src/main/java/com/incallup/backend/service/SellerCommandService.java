@@ -22,7 +22,7 @@ import com.incallup.backend.response.SellerUpdateProfileRequest;
 
 public interface SellerCommandService {
 
-    void createPost(Post post, Integer sellerId, MultipartFile multipartFile1, MultipartFile multipartFile2) throws ApplicationException, IOException;
+    void createPost(Post post, Integer sellerId, List<MultipartFile> files) throws ApplicationException, IOException;
 
     void register(Seller seller) throws AccountCreationException;
 

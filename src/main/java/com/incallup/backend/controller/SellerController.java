@@ -167,25 +167,23 @@ public class SellerController {
         return model;
     }
 
-    @PostMapping(value = "/post/{sellerId}",headers = "Content-Type=multipart/form-data")
-    public ModelAndView Post(HttpSession session
-                ,@RequestParam("image1") MultipartFile multipartFile1
-                ,@RequestParam("image2") MultipartFile multipartFile2
-                ,@ModelAttribute("category") String category
-                ,@ModelAttribute("title") String title
-                ,@ModelAttribute("description") String description
-                ,@ModelAttribute("contact") String contact
-                ,@ModelAttribute("whatsapp") String whatsapp
-                ,@ModelAttribute("telegram") String telegram
-                ,@ModelAttribute("age") Integer age
-                ,@ModelAttribute("state") String state
-                ,@ModelAttribute("incall") String incall
-                ,@ModelAttribute("outcall") String outcall
-                ,@ModelAttribute("city") String city
-                ,@PathVariable(name = "sellerId") Integer sellerId) throws ApplicationException, IOException {
+    @PostMapping(value = "/post/{sellerId}", headers = "Content-Type=multipart/form-data")
+    public ModelAndView Post(HttpSession session,
+                             @ModelAttribute("category") String category,
+                             @ModelAttribute("title") String title,
+                             @ModelAttribute("description") String description,
+                             @ModelAttribute("contact") String contact,
+                             @ModelAttribute("whatsapp") String whatsapp,
+                             @ModelAttribute("telegram") String telegram,
+                             @ModelAttribute("age") Integer age,
+                             @ModelAttribute("state") String state,
+                             @ModelAttribute("incall") String incall,
+                             @ModelAttribute("outcall") String outcall,
+                             @ModelAttribute("city") String city,
+                             @PathVariable(name = "sellerId") Integer sellerId,
+                             @RequestParam("files") List<MultipartFile> files) throws ApplicationException, IOException {
         authenticate(session);
-        log.info(multipartFile1.getOriginalFilename());
-        log.info(multipartFile2.getOriginalFilename());
+
         Post post = Post.builder()
                 .age(age)
                 .title(title)
@@ -206,7 +204,7 @@ public class SellerController {
                 .build();
         log.info(post.toString());
 
-        sellerCommandService.createPost(post,sellerId,multipartFile1,multipartFile2);
+        sellerCommandService.createPost(post,sellerId,files);
         log.info(post.toString());
 
         var model = new ModelAndView("profile");
