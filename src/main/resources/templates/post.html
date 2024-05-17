@@ -95,7 +95,7 @@
 <div th:replace="dashboard.html :: siteHeader"></div>
 
   <!-- hero section start -->
-  <form onsubmit="return validateForm()" class=" my-4 post border shadow    " th:action="${'https://localhost:443/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
+  <form onsubmit="return validateForm()" class=" my-4 post border shadow  container justify-content-center align-items-center  " th:action="${'https://incallup.com/seller/post/'+sellerId}"  enctype="multipart/form-data" method="post">
    
    <!-- Category -->
     <div class="mb-3 container ">
@@ -103,7 +103,7 @@
         <b class="col fw-bold">Category *</b>
         <p class="col-3"></p>
       </label>
-      <select name="category" class="form-select row " hx-trigger="load" hx-get="https://localhost:443/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
+      <select name="category" class="form-select row " hx-trigger="load" hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example" id="postCategory" >
         <option selected>Select Category</option>
       </select>
 
@@ -176,8 +176,8 @@
       </div>
         <div class="row mb-3 justify-content-between">
           <div class="col-5">
-            <label for="post-state" hx-trigger="load" hx-get="https://localhost:443/app/get/state/options" hx-target="#post-state" class="fw-bold"><b>State * </b></label>
-            <select name="state" id="post-state" hx-get="https://localhost:443/app/get/city/options"  hx-target="#post-city"   class="form-control site-input  "  >
+            <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options" hx-target="#post-state" class="fw-bold"><b>State * </b></label>
+            <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options"  hx-target="#post-city"   class="form-control site-input  "  >
             <option>select state</option>
             </select>
           </div>
@@ -211,7 +211,7 @@
       </div>
 
     </div>
-    <div class="row d-flex justify-content-center ">
+    <div class="row d-flex justify-content-center mb-4 ">
       <button  class="btn btn-primary w-25 bg-pink mx-3 px-2">Next</button>
     </div>
   </form>

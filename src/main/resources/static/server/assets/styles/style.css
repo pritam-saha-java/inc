@@ -28,7 +28,7 @@ body {
 
 .small-text{
 
-    font-size:10px!important;
+    font-size:19x !important;
 }
 
 .stickymobile {
@@ -246,8 +246,10 @@ td>a{
     padding: 1%;
     width: 50%; */
 
-    margin-left: 70px;
-    padding-left: 4%;
+    margin : auto 50px;
+    padding-left: 7%;
+    padding-right: 7%;
+
     /* margin-right: 5%; */
     width: 80%;
     padding-top: 14px;
@@ -415,6 +417,9 @@ max-height:auto;
     color: #fff !important;
     font-size: .8rem !important;
 }
+
+
+
 .btn-primary {
     background-color: #BE206B !important;
     color: #fff !important;
@@ -450,7 +455,7 @@ max-height:auto;
             padding-left:0.1rem;
             }
         .small-text {
-            font-size: 6px !important;
+            font-size: 10px !important;
 
             }
 
@@ -475,7 +480,7 @@ max-height:auto;
 */
 
 #sentenceTarget {
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform 0.5s ease;
 }
 
