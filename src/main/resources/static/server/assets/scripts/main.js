@@ -101,6 +101,7 @@ document.getElementById('image-input1').addEventListener('change', function() {
     // Get the number of files selected
     var selectedFiles = this.files.length;
     
+    console.log("Data: "+selectedFiles);
     // Check if the number of selected files exceeds the limit (6)
     if (selectedFiles > 6) {
       alert('You can only select a maximum of 6 files.');
