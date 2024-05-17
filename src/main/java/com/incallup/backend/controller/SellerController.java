@@ -9,8 +9,11 @@ import com.incallup.backend.exception.AccountCreationException;
 import com.incallup.backend.exception.ApplicationException;
 import com.incallup.backend.exception.IdNotFoundException;
 import com.incallup.backend.exception.LogoutException;
+import com.incallup.backend.request.ChangePasswordRequest;
+import com.incallup.backend.response.SellerAllPostResponse;
 import com.incallup.backend.service.AdminQueryService;
 import com.incallup.backend.service.CustomerService;
+import com.incallup.backend.response.SellerUpdateProfileRequest;
 import com.incallup.backend.service.SellerCommandService;
 import com.incallup.backend.service.SellerQueryService;
 import com.incallup.backend.service.impl.AuthenticationService;
@@ -19,6 +22,7 @@ import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
@@ -31,6 +35,7 @@ import org.springframework.web.servlet.support.RequestContextUtils;
 import org.springframework.web.servlet.view.RedirectView;
 
 import java.io.IOException;
+import java.util.List;
 
 @RestController
 @RequestMapping("/seller")
@@ -92,6 +97,13 @@ public class SellerController {
                         .build()
         );
         return "sign"+password+email+username;
+    }
+
+    @PostMapping("/update-profile")
+    public ResponseEntity<String> update(SellerUpdateProfileRequest request) throws AccountCreationException {
+        String response = sellerCommandService.update(request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
     }
 
 
@@ -278,7 +290,27 @@ public class SellerController {
         return model;
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/get-all-posts/{sellerId}")
+    public ResponseEntity<List<SellerAllPostResponse>> getSellerAllPosts(@PathVariable int sellerId) {
+        List<SellerAllPostResponse> response = sellerCommandService.getSellerAllPosts(sellerId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
 
+    }
+
+    @RequestMapping(method = RequestMethod.DELETE, path = "/delete-posts/{postId}")
+    public ResponseEntity<String> deleteSellerPostById(@PathVariable int postId) {
+        String response = sellerCommandService.deleteSellerPostById(postId);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/change-password/{sellerId}")
+    public ResponseEntity<String> changePassword(@PathVariable int sellerId,
+                                                 @RequestParam ChangePasswordRequest request) {
+        String response = sellerCommandService.changePassword(sellerId, request);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+
+    }
 
 
 

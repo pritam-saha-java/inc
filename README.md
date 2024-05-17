@@ -1,3 +1,4 @@
+
 # InCallup Application 
 
 
@@ -6,20 +7,23 @@ Language stack :
 - Front end : htmx ,css,bootstrap , hyperscript, javascript 
 - Backend : Java ,Kotlin, Thymeleaf (Template Engine) , Spring boot 
 
-
+# Inc
 
 
 API documentation is the [link](https://incallup.com/swagger-ui/index.html) format : http://{base-url}/swagger-ui/index.html
 
-port number : 443
 
+API documentation is the [link](https://localhost/incallup/swagger/ui) format : https://{base-url}/incallup/swagger/ui
 
 
 translation : [translation link](https://incallup-com.translate.goog/dating/thane?_x_tr_sl=en&_x_tr_tl=hi&_x_tr_hl=en&_x_tr_pto=sc)
 
 
+### branching strategy 
+feature branch ----> testing branch ----> staging branch ----> main branch (production branch)
 
 
+		
 
 
 
@@ -67,6 +71,5 @@ Functional Changes --
  - increase the limit of the image size
  - add compression in application for images (test out logic in separate java file)
  - bug in ads.html page ("post.location!=null?location.district: post.location !=null?post.location.district:'location'" (template: "ads" - line 71, col 57))
-
 
 
