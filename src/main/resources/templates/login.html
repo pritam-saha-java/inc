@@ -37,7 +37,7 @@
 <div th:replace="dashboard.html :: siteHeader"></div>
 
 
-<div class="border border-3 px-0 py-5 mt-5">
+<div class="border border-3 px-0 py-5 mt-5 p-3">
 
 
 
@@ -47,7 +47,17 @@
     </div>
 </div>
 
-<h1 class="text-center my-5 site-text ">Get Into <img  class="rounded rounded-4" style=" max-width:10rem; height:auto; background-color:var(--pink); " src="https://incallup.com/server/assets/img/logo.png" alt="site-logo"></h1>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-auto">
+            <div class="d-flex align-items-center">
+                <h1 class="text-center my-5 site-text">Get Into</h1>
+                <img class="rounded rounded-4 mx-1" style="max-width: 10rem; height: 3rem; background-color: var(--pink);" src="https://incallup.com/server/assets/img/logo.png" alt="site-logo">
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <form class="container " method="post" action="https://incallup.com/seller/login">
     <div class="mb-4 row justify-content-center " >

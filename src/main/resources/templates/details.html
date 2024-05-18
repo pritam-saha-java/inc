@@ -40,7 +40,7 @@
 
         <div class="bread-inner text-left   ">
           <ul >
-            <li ><a href="https://incallup.com/">  <i class="fa fa-home  border   border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
+            <li ><a href="https://incallup.com/"> <i class="fa fa-home  border   border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
             <li> > </li>
             <li><a th:href="${'https://incallup.com/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
             <li > > </li>
@@ -72,21 +72,20 @@
   <div class="  bread-inner text-left "   >
 
     <ul class="my-ul" >
-      <li class="px-1">
+      <li class=" ">
         <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-geo-alt-fill  " height="10px" viewBox="0 0 16 16">
           <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
         </svg>
       </li>
-      <li class=" small-text "    th:text="${#strings.capitalizeWords(post.location.district)}"></li>
-      <li class="px-1 small-text    " ><i class="fa fa-eye" aria-hidden="true"></i></li>
-      <li class="small-text  " th:text="'Views : '+${post.views}"></li>
-      <li class="px-1 small-text  " ><i class="fa fa-address-book" aria-hidden="true"></i></li>
+      <li class=" small-text " th:text="${#strings.capitalizeWords(post.location.district)}"></li>
+      <li class="  small-text" ><i class="fa fa-eye" aria-hidden="true"></i></li>
+      <li class="small-text " th:text="'Views : '+${post.views}"></li>
+      <li class="  small-text" ><i class="fa fa-address-book" aria-hidden="true"></i></li>
       <li class="small-text" th:text="'Ad Id : '+${post.id}"></li>
-      <li class="px-1 small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
+      <li class="  small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
       <li class="small-text" th:text="'Date : '+${post.date}"></li>
-      <li class="px-1" >
+      <li class=" " >
         <img height="10px" src="https://incallup.com/server/assets/icons/age.png" alt="age png">
-
       </li>
       <li class="small-text" th:text="'Age : '+${post.age}"></li>
     </ul>
@@ -153,7 +152,7 @@
 
   <div class="row fixed-bottom mobilecontactbar stickymobile">
     <div class="col px-2 m-auto">
-      <button th:href="'tel:+91 '+${post.contact}"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
+      <button  th:onclick="location = 'tel:' + ${post.contact};"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
         <i class="fa fa-sm fa fa-phone  mx-1"    ></i>Telephone
       </button>
     </div>
@@ -163,10 +162,11 @@
       </a>
     </div>
     <div class="col px-2 m-auto">
-      <button th:href="'https://t.me/+91'+${post.contact}"  class="btn btn-primary btn-telegram btn-md btn-block telegram-pin">
+      <button th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];"  class="btn btn-primary btn-telegram btn-md btn-block telegram-pin">
         <svg xmlns="http://www.w3.org/2000/svg" width="18px" height="18px" viewBox="0 0 48 48" id="Layer_2" data-name="Layer 2"><defs><style>.cls-1{ stroke:#fffff;stroke-linecap:round;stroke-linejoin:round;}</style></defs><path class="cls-1" d="M40.83,8.48c1.14,0,2,1,1.54,2.86l-5.58,26.3c-.39,1.87-1.52,2.32-3.08,1.45L20.4,29.26a.4.4,0,0,1,0-.65L35.77,14.73c.7-.62-.15-.92-1.07-.36L15.41,26.54a.46.46,0,0,1-.4.05L6.82,24C5,23.47,5,22.22,7.23,21.33L40,8.69a2.16,2.16,0,0,1,.83-.21Z"/></svg>
         Telegram
       </button>
+
     </div>
   </div>
 
