@@ -1,8 +1,8 @@
 // this file will be connected to index file
 
 
-function search(){
-
+function search(e){
+     e.preventDefault();
     var city = cities.value;
     var state = states.value;
     var category = categories.value;
@@ -92,6 +92,15 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+
+// document.addEventListener("DOMContentLoaded", function() {
+//     const searchButton = document.querySelector('#searchButton');
+    
+//     searchButton.addEventListener('click', function(event) {
+//         event.preventDefault(); // Prevent default behavior of the button
+//         search(); // Call the search function
+//     });
+// });
 
 
 

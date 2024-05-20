@@ -82,6 +82,26 @@ const sentences = [
   "Please Be Aware Of URLs That Do Not Take You To Incallup Page."
 ];
 
+
+
+document.addEventListener('click', function(event) {
+  const navToggle = document.querySelector('.nav__toggle');
+  const navWrapper = document.querySelector('.nav__wrapper');
+  const isClickInsideNavToggle = navToggle.contains(event.target);
+  const isClickInsideNavWrapper = navWrapper.contains(event.target);
+
+  if (!isClickInsideNavToggle && !isClickInsideNavWrapper) {
+    if (navWrapper.classList.contains('active')) {
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.setAttribute('aria-label', 'menu');
+      navWrapper.classList.remove('active');
+      document.getElementById('menu-two').style.display = 'none';
+      document.getElementById('menu-one').style.display = '';
+    }
+  }
+});
+
+
 //const targetDiv = document.getElementById("sentenceTarget");
 
 //const displaySentences = () => {

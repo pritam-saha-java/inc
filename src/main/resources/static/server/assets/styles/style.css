@@ -122,13 +122,32 @@ a{
     text-decoration: none;
     color: black;
 }
-.site-title{
-font-family: "Inter", sans-serif;
-font-size: 30px;
-font-weight: 900;
-line-height: 62px;
-letter-spacing: 0em;
+
+
+.site-title {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    letter-spacing: 0em;
+    text-align: center; /* Center-align text */
+    font-size: 1.2rem; 
 }
+
+.sub-title {
+    font-size:   x-small;
+}
+
+@media (max-width: 1000px) {
+    .site-title {
+        font-size: 20px; /* Reduce font size for smaller screens */
+    }
+
+    .sub-title {
+        font-size:   x-small;
+    }
+}
+
+
+
 .blue-bg,.blue-bg-desktop{
     background-color: var(--blue);
    
@@ -178,6 +197,14 @@ font-weight: 500;
 line-height: 61px;
 letter-spacing: 0em;
 }
+
+.site-text2{
+    font-family: "Inter", sans-serif;
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 61px;
+    letter-spacing: 0em;
+    }
 
 #footer-pink , .bg-pink{
     background-color: var(--pink);
