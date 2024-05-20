@@ -4,7 +4,8 @@
 */
 .brand {
   font-weight: bold;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 .site-header {
   position: relative;
@@ -15,7 +16,9 @@
   justify-content: space-between;
   align-items: center;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem; }
+  padding-bottom: 0.5rem; 
+
+}
 
 .nav__wrapper {
   position: fixed;
@@ -43,6 +46,25 @@
     color: white;
     }
 
+    .btn-tog {
+      --bs-btn-padding-y: 0.2rem;
+      --bs-btn-padding-x: 0.3rem;
+    }
+
+    .dropdown-item1 {
+      padding: 0.5rem 1rem;
+      color: #333; /* Text color */
+    }
+    
+    .dropdown-item1:hover,
+    .dropdown-item1:focus {
+      background-color: #f0f0f0; /* Hover background color */
+    }
+    
+    .dropdown-menu1 {
+      border: none; /* Remove border */
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+    }
 
 /* Category List transition */
 .transition-target {
@@ -57,6 +79,31 @@
   opacity: 1; /* final opacity */
 }
 
+/* Dashboard CSS */
+/* Desclaimer CSS */
+.responsive-text {
+  padding: 1rem; /* default padding */
+  margin-top: 1rem; /* default margin-top */
+  font-size: 1rem; /* default font size */
+  font-weight: 300; /* light font weight */
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+  .responsive-text {
+      font-size: 0.9rem; /* slightly smaller font on tablets */
+      padding: 0.8rem; /* reduce padding on tablets */
+  }
+}
+
+@media (max-width: 576px) {
+  .responsive-text {
+      font-size: 0.8rem; /* even smaller font on mobile */
+      padding: 0.6rem; /* reduce padding on mobile */
+  }
+}
+
+ 
 
 
 
