@@ -110,15 +110,15 @@
 /* Category Code CSS  */
 
 .btn-circle {
-  width:46px ; 
-  height: 44px; 
+  width:41px ; 
+  height: 41px; 
   margin: 0 5 px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
   border-radius: 50% ;
   transition: all 0.3s;
   display: inline-block; /* Ensures smooth scaling */
-  padding:0.4rem;
-  margin-top: 1rem;
+  padding:0.5rem;
+  
 }
 
 .btn-circle:hover{
@@ -127,15 +127,15 @@
 }
 
 .btn-circle2 {
-  width:50px ; 
-  height: 44px; 
+  width: 41px;
+  height: 41px;
   margin: 0 5 px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-  border-radius: 50% ;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
   transition: all 0.3s;
-  display: inline-block; /* Ensures smooth scaling */
-  padding:0.4rem;
-  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem;
+   
 }
 
 .btn-circle2:hover{
@@ -168,17 +168,78 @@ border-radius: 50%;
     flex-direction: column;
   }
   .card img {
-    width: 100%;
+    /* width: 100%; */
   }
 }
 
 @media (max-width: 575.98px) {
   .card-title {
-    font-size: 1.5rem;
+    font-size: 1.02rem;
   }
+
   .card-text {
     font-size: 1rem;
   }
+}
+
+@media (max-width: 1200.98px) {
+  .card-title {
+    
+    font-size: 1rem;
+    font-size: 14px;
+    letter-spacing: -.1px;
+    margin-top: 0;
+    word-break: break-word;
+    word-spacing: 0;
+    word-wrap: break-word;
+    display: -webkit-box !important;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+    max-height: none;
+    text-overflow: ellipsis !important;
+  }
+
+  .card-text {
+    font-size: 1rem;
+  }
+}
+
+.badge-pill {
+  background-color: #f7f7f7;
+  border: 0;
+  border-radius: 8px;
+  box-sizing: border-box;
+  color: #4f566a;
+  font-size: .78rem;
+  padding: 3px 7px;
+  word-wrap: break-word;
+  display: inline-block;
+  font-weight: 400;
+  letter-spacing: -.1px;
+  margin-bottom: 1px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+  max-height: 24px;
+}
+
+.item-card{
+   
+    border-radius: .7rem;
+    box-shadow: 0 .125rem 1.25rem 0 rgba(107, 134, 177, .15);
+    overflow: hidden;
+ 
+}
+.bordertop {
+  height: fit-content !important;
+  min-height: fit-content !important;
+}
+.bordertop {
+  border: .1px solid #307abb6e;
 }
 
 *, :after, :before {

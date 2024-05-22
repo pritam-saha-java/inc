@@ -1,185 +1,375 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
 
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport"
-        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://incallup.com/server/assets/img/logo.png"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/style.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/nav.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/header.css"
+    />
 
-        <link rel="icon" type="image/png" href="https://incallup.com/server/assets/img/logo.png"/>
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/style.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/reset.min.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/nav.css" />
-  <link rel="stylesheet" href="https://incallup.com/server/assets/styles/header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}" />
+    <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+    <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
 
+    <title>Details Page</title>
+    <script
+      type="text/javascript"
+      async
+      defer
+      src="https://maps.googleapis.com/maps/api/js?loading=async"
+    ></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <style>
+      ol,
+      ul {
+        padding-left: 0.6rem;
+      }
 
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
-  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
-  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
+      .carousel-image {
+        height: 400px;
+        width: 600px;
+        background-size: contain;
+        background-position: center;
+        padding: 12px;
 
-  <title >Details Page</title>
-  <script type="text/javascript"  async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  <style>
+        justify-content: center;
+        align-content: center;
+      }
 
-    ol, ul {
-    padding-left: 0.6rem;
-    }
+      /* 3 button css */
+      .fixed-bottom.mobilecontactbar.stickymobile {
+        display: flex;
+        justify-content: center;
+      }
 
+      .fixed-bottom.mobilecontactbar.stickymobile .col-md-4 {
+        flex: 0 0 33.33%; /* Set each column to occupy one-third of the available space */
+      }
 
-    .carousel-image {
-    height: 400px;
-    width: 600px;
-    background-size: contain;
-    background-position: center;
-    padding: 12px;
-     
-    justify-content: center;
-    align-content: center;
-}
-  </style>
-</head>
+      .fixed-bottom.mobilecontactbar.stickymobile .btn {
+        width: 100%;
+        margin-bottom: 5px; /* Add some spacing between buttons */
+      }
 
-<body >
+      .carousel-control-prev-icon,
+      .carousel-control-next-icon {
+        color: #be206b;
+      }
+    </style>
+  </head>
 
-<div th:replace="dashboard.html :: siteSearch"></div>
-<div th:replace="dashboard.html :: siteHeader"></div>
+  <body>
+    <div th:replace="dashboard.html :: siteSearch"></div>
+    <div th:replace="dashboard.html :: siteHeader"></div>
 
-<!-- hero section start -->
-<div class="container  mt-2  p-1 fs-6  ">
-  <a href="https://incallup.com/" class="row px-4 rounded site-link" style="color: #be206b;" > < Back To Search </a>
-  
-  <section class="bread_wraper mt-3">
+    <!-- hero section start -->
+    <div class="container mt-2 p-1 fs-6">
+      <a
+        href="https://incallup.com/"
+        class="row px-4 rounded site-link"
+        style="color: #be206b"
+      >
+        < Back To Search
+      </a>
 
-        <div class="bread-inner text-left   ">
-          <ul >
-            <li ><a href="https://incallup.com/"> <i class="fa fa-home  border   border-1 rounded-4 border-black p-2 icon-pink " aria-hidden="true"></i> </a></li>
-            <li> > </li>
-            <li><a th:href="${'https://incallup.com/'+post.category.name}" class="border border-1 border-black rounded-4 p-2 text-center " th:text="${post.category.title}" >category</a></li>
-            <li > > </li>
-            <li  ><a th:href="${'https://incallup.com/'+post.category.name+'/'+post.location.district}" class="border border-1 border-black rounded-4 p-2 text-center text-capitalize" th:text="${post.location.name}" >category</a></li>
-
+      <section class="bread_wraper mt-3">
+        <div class="bread-inner text-left">
+          <ul>
+            <li>
+              <a href="https://incallup.com/">
+                <i
+                  class="fa fa-home border border-1 rounded-4 border-black p-2 icon-pink"
+                  aria-hidden="true"
+                ></i>
+              </a>
+            </li>
+            <li>></li>
+            <li>
+              <a
+                th:href="${'https://incallup.com/'+post.category.name}"
+                class="border border-1 border-black rounded-4 p-2 text-center"
+                th:text="${post.category.title}"
+                >category</a
+              >
+            </li>
+            <li>></li>
+            <li>
+              <a
+                th:href="${'https://incallup.com/'+post.category.name+'/'+post.location.district}"
+                class="border border-1 border-black rounded-4 p-2 text-center text-capitalize"
+                th:text="${post.location.name}"
+                >category</a
+              >
+            </li>
           </ul>
         </div>
-
-
-  </section>
-
-
-
-
-
-</div>
-
-<div class="container px-4 px-lg-5 ">
-
- <div class="col-12 col-md-8">
-  <h2 class="row px-3 text-start text-capitalize post-title" th:text="${post.title}">
-    Title
-  </h2>
- </div>
-
-  <section class="bread_wraper mt-3" >
-
-
-  <div class="  bread-inner text-left "   >
-
-    <ul class="my-ul" >
-      <li class=" ">
-        <svg xmlns="http://www.w3.org/2000/svg"  fill="currentColor" class="bi bi-geo-alt-fill  " height="10px" viewBox="0 0 16 16">
-          <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
-        </svg>
-      </li>
-      <li class=" small-text " th:text="${#strings.capitalizeWords(post.location.district)}"></li>
-      <li class="  small-text" ><i class="fa fa-eye" aria-hidden="true"></i></li>
-      <li class="small-text " th:text="'Views : '+${post.views}"></li>
-      <li class="  small-text" ><i class="fa fa-address-book" aria-hidden="true"></i></li>
-      <li class="small-text" th:text="'Ad Id : '+${post.id}"></li>
-      <li class="  small-text" ><i class="fa fa-calendar" aria-hidden="true"></i></li>
-      <li class="small-text" th:text="'Date : '+${post.date}"></li>
-      <li class=" " >
-        <img height="10px" src="https://incallup.com/server/assets/icons/age.png" alt="age png">
-      </li>
-      <li class="small-text" th:text="'Age : '+${post.age}"></li>
-    </ul>
-
+      </section>
     </div>
-  </section>
-  <div class="row gx-4 gx-lg-5 align-items-center">
-      <div class="col">
-        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner p-3  " style="background-color: rgb(212, 210, 210);"  >
 
-            <div th:if="${not #strings.isEmpty(post.image1)}" class="carousel-item active" data-bs-interval="1000">
-                <img class="carousel-image d-block   img-fluid" th:src="${post.image1}" th:alt="${post.title}">
-            </div>
-        
-            <div th:if="${not #strings.isEmpty(post.image2)}" class="carousel-item" data-bs-interval="2000">
-                <img class="carousel-image img-fluid d-block  " th:src="${post.image2}" th:alt="${post.title}">
-            </div>
-        
-            <div th:if="${not #strings.isEmpty(post.image3)}" class="carousel-item" data-bs-interval="3000">
-                <img class="carousel-image img-fluid d-block  " th:src="${post.image3}" th:alt="${post.title}">
-            </div>
-        
-            <div th:if="${not #strings.isEmpty(post.image4)}" class="carousel-item" data-bs-interval="4000">
-                <img class="carousel-image img-fluid d-block  " th:src="${post.image4}" th:alt="${post.title}">
-            </div>
-        
-            <div th:if="${not #strings.isEmpty(post.image5)}" class="carousel-item" data-bs-interval="5000">
-                <img class="carousel-image img-fluid d-block w-100" th:src="${post.image5}" th:alt="${post.title}">
-            </div>
-        
-            <div th:if="${not #strings.isEmpty(post.image6)}" class="carousel-item" data-bs-interval="6000">
-                <img class="carousel-image img-fluid d-block w-100" th:src="${post.image6}" th:alt="${post.title}">
-            </div>
-        
+    <div class="container px-4 px-lg-5">
+      <div class="col-12 col-md-8 card">
+        <div class="card-body">
+          <h2
+            class="card-title text-capitalize post-title"
+            th:text="${post.title}"
+            style="font-size: smaller"
+          >
+            Title
+          </h2>
         </div>
-        
-
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-        </div>
-
-
       </div>
 
-  </div>
-  <div class="row mt-5" th:text="${post.description}">
-    category description
-  </div>
+      <div class="row gx-4 gx-lg-5 align-items-center">
+        <div class="col">
+          <div
+            id="carouselExampleInterval"
+            class="carousel slide"
+            data-bs-ride="carousel"
+          >
+            <div class="carousel-inner p-3" style="background-color: white">
+              <div
+                th:if="${not #strings.isEmpty(post.image1)}"
+                class="carousel-item active"
+                data-bs-interval="1000"
+              >
+                <img
+                  class="carousel-image d-block img-fluid"
+                  th:src="${post.image1}"
+                  th:alt="${post.title}"
+                />
+              </div>
 
-  <hr>
-  <div class="d-flex justify-content-center">
-    <div class="text-center">
-      <h3 class="row mt-5 fw-bold">Contact Information</h3>
-    </div>
-  </div>
+              <div
+                th:if="${not #strings.isEmpty(post.image2)}"
+                class="carousel-item"
+                data-bs-interval="2000"
+              >
+                <img
+                  class="carousel-image img-fluid d-block"
+                  th:src="${post.image2}"
+                  th:alt="${post.title}"
+                />
+              </div>
 
+              <div
+                th:if="${not #strings.isEmpty(post.image3)}"
+                class="carousel-item"
+                data-bs-interval="3000"
+              >
+                <img
+                  class="carousel-image img-fluid d-block"
+                  th:src="${post.image3}"
+                  th:alt="${post.title}"
+                />
+              </div>
 
-  <div class="row fixed-bottom mobilecontactbar stickymobile">
+              <div
+                th:if="${not #strings.isEmpty(post.image4)}"
+                class="carousel-item"
+                data-bs-interval="4000"
+              >
+                <img
+                  class="carousel-image img-fluid d-block"
+                  th:src="${post.image4}"
+                  th:alt="${post.title}"
+                />
+              </div>
+
+              <div
+                th:if="${not #strings.isEmpty(post.image5)}"
+                class="carousel-item"
+                data-bs-interval="5000"
+              >
+                <img
+                  class="carousel-image img-fluid d-block w-100"
+                  th:src="${post.image5}"
+                  th:alt="${post.title}"
+                />
+              </div>
+
+              <div
+                th:if="${not #strings.isEmpty(post.image6)}"
+                class="carousel-item"
+                data-bs-interval="6000"
+              >
+                <img
+                  class="carousel-image img-fluid d-block w-100"
+                  th:src="${post.image6}"
+                  th:alt="${post.title}"
+                />
+              </div>
+            </div>
+
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon bg-secondary"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleInterval"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon bg-secondary"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- All logo with name -->
+      <section class="bread_wraper mt-3">
+        <div class="bread-inner text-left">
+          <ul class="my-ul">
+            <li class=" ">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="currentColor"
+                class="bi bi-geo-alt-fill"
+                height="10px"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
+                />
+              </svg>
+            </li>
+            <li
+              class="small-text"
+              th:text="${#strings.capitalizeWords(post.location.district)}"
+            ></li>
+            <li class="small-text">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </li>
+            <li class="small-text" th:text="'Views : '+${post.views}"></li>
+            <li class="small-text">
+              <i class="fa fa-address-book" aria-hidden="true"></i>
+            </li>
+            <li class="small-text" th:text="'Ad Id : '+${post.id}"></li>
+            <li class="small-text">
+              <i class="fa fa-calendar" aria-hidden="true"></i>
+            </li>
+            <li class="small-text" th:text="'Date : '+${post.date}"></li>
+            <li class=" ">
+              <img
+                height="10px"
+                src="https://incallup.com/server/assets/icons/age.png"
+                alt="age png"
+              />
+            </li>
+            <li class="small-text" th:text="'Age : '+${post.age}"></li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- category description -->
+      <div class="row mt-5">
+        <strong class="fa-lg m-2">
+          <svg
+            width="26"
+            height="26"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 496 512"
+          >
+            <path
+              d="M248 8C111 8 0 119 0 256s111 248 248 248 248-111 248-248S385 8 248 8zm0 448c-110.3 0-200-89.7-200-200S137.7 56 248 56s200 89.7 200 200-89.7 200-200 200zm117.8-146.4c-10.2-8.5-25.3-7.1-33.8 3.1-20.8 25-51.5 39.4-84 39.4s-63.2-14.3-84-39.4c-8.5-10.2-23.7-11.5-33.8-3.1-10.2 8.5-11.5 23.6-3.1 33.8 30 36 74.1 56.6 120.9 56.6s90.9-20.6 120.9-56.6c8.5-10.2 7.1-25.3-3.1-33.8zM168 240c17.7 0 32-14.3 32-32s-14.3-32-32-32-32 14.3-32 32 14.3 32 32 32zm160-60c-25.7 0-55.9 16.9-59.9 42.1-1.7 11.2 11.5 18.2 19.8 10.8l9.5-8.5c14.8-13.2 46.2-13.2 61 0l9.5 8.5c8.5 7.4 21.6.3 19.8-10.8-3.8-25.2-34-42.1-59.7-42.1z"
+            ></path>
+          </svg>
+          Description</strong
+        >
+        <p th:text="${post.description}"></p>
+        category description
+      </div>
+
+      <hr />
+      <div class="d-flex justify-content-center">
+        <div class="text-center">
+          <h3 class="row mt-5 fw-bold">Contact Information</h3>
+        </div>
+      </div>
+
+      <!-- <div class="row fixed-bottom mobilecontactbar stickymobile">
     <div class="col px-2 m-auto">
       <button  th:onclick="location = 'tel:' + ${post.contact};"  class="btn btn-primary btn-phone btn-md btn-block phone-pin">
         <i class="fa fa-sm fa fa-phone  mx-1"    ></i>Telephone
@@ -197,40 +387,72 @@
       </button>
 
     </div>
-  </div>
+  </div> -->
+      <div class="row fixed-bottom mobilecontactbar stickymobile">
+        <div class="col-md-4 px-2">
+          <button
+            th:onclick="location = 'tel:' + ${post.contact}"
+            class="btn btn-primary btn-phone btn-md btn-block phone-pin"
+          >
+            <i class="fa fa-phone mx-1"></i>
+          </button>
+        </div>
+        <div class="col-md-4 px-2">
+          <a
+            target="_blank"
+            rel="nofollow"
+            th:href="${'https://api.whatsapp.com/send/?phone=+91'+post.contact+'&text=Hi+I+saw+your+Ad+on+Incallup%2C'+post.title+'+%2C+and+I+am+interested+in+your+profile.'}"
+            class="btn btn-whatsapp btn-md btn-block whatsapp-pin"
+          >
+            <i class="fab fa-whatsapp mx-1 fa-xl mt-2"></i>
+          </a>
+        </div>
+        <div class="col-md-4 px-2">
+          <button
+            th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];"
+            class="btn btn-primary btn-telegram btn-md btn-block telegram-pin"
+          >
+            <i class="fa-brands fa-xl fa-telegram"></i>
+          </button>
+        </div>
+      </div>
 
-  <hr class="row mt-5">
+      <hr class="row mt-5" />
 
-  <!-- AD  -->
-  <!-- <h1 class="  mt-5 ad-card ">
+      <!-- AD  -->
+      <!-- <h1 class="  mt-5 ad-card ">
     <div class="col text-center fs-5 d-flex align-items-center justify-content-center" >
       <span>ALL ADS IN</span>
       <h1 class="fs-5 ms-2 mt-2" style="color: brown;" th:text="' ' + ${post.category.title} + ' in '+   ${post.location.name}+' > '  "></h1>
     </div>
   </h1> -->
 
-
-  <div class="row justify-content-center text-center">
-    <div class="col-12 col-md-auto d-flex align-items-center justify-content-center">
-        <span class="ad-text">ALL ADS IN</span>
-        <h1 class="ad-text ms-2 mt-2" style="color: brown;" th:text="' ' + ${post.category.title} + ' in '+   ${post.location.name}+' > '  "></h1>
+      <div class="row justify-content-center text-center">
+        <div
+          class="col-12 col-md-auto d-flex align-items-center justify-content-center"
+        >
+          <span class="ad-text">ALL ADS IN</span>
+          <h1
+            class="ad-text ms-2 mt-2"
+            style="color: brown"
+            th:text="' ' + ${post.category.title} + ' in '+   ${post.location.name}+' > '  "
+          ></h1>
+        </div>
+      </div>
+      <h3 class="row mt-1 fs-5">
+        <div class="col text-center">In Incallup</div>
+      </h3>
     </div>
-</div>
-  <h3 class="row mt-1 fs-5 "><div class="col text-center  ">In Incallup</div></h3>
-
-
-
-   
-
-
-</div>
-<!--Footer-->
-<div th:replace="dashboard.html :: siteFooter"></div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-  </script>
-  <script th:src="@{/server/assets/scripts/main.js}"></script>
-  <script th:src="@{/server/assets/scripts/common.js}"></script>
-</body>
-
+    <!--Footer-->
+    <div th:replace="dashboard.html :: siteFooter"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script th:src="@{/server/assets/scripts/main.js}"></script>
+    <script th:src="@{/server/assets/scripts/common.js}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+  </body>
 </html>
