@@ -1,8 +1,8 @@
 // this file will be connected to index file
 
 
-function search(e){
-     e.preventDefault();
+function search(){
+     console.log("In Search Function");
     var city = cities.value;
     var state = states.value;
     var category = categories.value;
@@ -10,10 +10,10 @@ function search(e){
     var selectedCity = city!=="Select City";
     var selectedState = state!=="Select State";
     var selectedText = text.length>0;
-//    alert(categories.value)
+    // alert(categories.value)
 //    alert(selectedText)
 
-
+    console.log("state: ",state +"text: "+selectedText+"Selected_City: "+selectedCity+"Selected_State: "+selectedState );
 
     if (selectedText) {
         if(selectedCity){
@@ -54,6 +54,7 @@ for (const element of allTDs) {
     element.classList.add('text-light');
     
 }
+
 function showCategory(button,categoryBody){
     
 //    let catergoryButton = element.parentNode.parentNode.parentNode;
