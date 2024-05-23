@@ -74,6 +74,97 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <style>
+      footer.page-footer a span {
+        border-right: 1px solid;
+        color: #666;
+        line-height: 32px;
+        padding-left: 5px;
+        padding-right: 8px;
+        font-size: 14px;
+      }
+      .text-center {
+        text-align: center !important;
+      }
+      .container,
+      .container-fluid,
+      .container-md {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+      }
+
+      .list-inline,
+      .list-unstyled {
+        line-height: 28px;
+      }
+      .boxservice .service .frb .list-inline,
+      .list-unstyled {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .list-inline,
+      .list-unstyled {
+        list-style: none;
+        padding-left: 0;
+      }
+      l,
+      ol,
+      ul {
+        margin-top: 0;
+      }
+      address,
+      dl,
+      ol,
+      ul {
+        margin-bottom: 1rem;
+      }
+      .btn-floating {
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        height: 38px;
+        margin: 10px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        vertical-align: middle;
+        width: 38px;
+        z-index: 1;
+      }
+      .ml-1,
+      .mx-1 {
+        margin-left: 0.25rem !important;
+      }
+      .mr-1,
+      .mx-1 {
+        margin-right: 0.25rem !important;
+      }
+      .btn-floating svg {
+        margin: 9px;
+      }
+      .btn-floating .insta-icon {
+        margin: 9px;
+      }
+      @media only screen and (max-width: 768px) {
+    .rta {
+        background-position: 50%;
+    }
+}
+.rta {
+    /* background-image: url(../static/server/assets/img/rta.jpg); */
+    background-repeat: no-repeat;
+    background-size: 92px 41px;
+    height: 41px;
+    
+}
+    </style>
   </head>
 
   <body>
@@ -111,7 +202,7 @@
                   hx-trigger="load"
                   hx-get="https://incallup.com/app/get/categories/options"
                   hx-swap="innerHTML"
-                  class="form-select   mb-3"
+                  class="form-select mb-3"
                   aria-label="Large select example"
                 >
                   <option selected>Choose Category</option>
@@ -131,7 +222,7 @@
                   hx-get="https://incallup.com/app/get/city/options"
                   hx-target="#cities"
                   hx-indicator=".htmx-indicator"
-                  class="form-select  mb-3"
+                  class="form-select mb-3"
                   aria-label="Select text"
                 >
                   <option selected>Choose State</option>
@@ -143,7 +234,7 @@
             <div class=" ">
               <div class="col">
                 <input
-                        id="searchText"
+                  id="searchText"
                   placeholder="Search here"
                   class="form-control mb-3 text-danger"
                   aria-label="Large select example"
@@ -152,7 +243,7 @@
               <div class="col">
                 <select
                   id="cities"
-                  class="form-select mb-3  "
+                  class="form-select mb-3"
                   aria-label="Large select example"
                 >
                   <option selected>Select City</option>
@@ -223,10 +314,17 @@
                 ><i class="fa fa-home mx-2" aria-hidden="true"></i> Home</a
               >
             </li>
+            <!-- Login -->
             <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-location-arrow mx-2" aria-hidden="true"></i>
-                Locate Me</a
+              <a href="https://incallup.com/login"
+                ><i class="fa fa-id-badge mx-2" aria-hidden="true"></i> Login</a
+              >
+            </li>
+            <!-- Signup -->
+            <li class="nav__item">
+              <a href="https://incallup.com/register"
+                ><i class="fa fa-user-plus mx-2" aria-hidden="true"></i> Sign
+                Up</a
               >
             </li>
             <li class="nav__item">
@@ -240,14 +338,9 @@
               >
             </li>
             <li class="nav__item">
-              <a href="https://incallup.com/login"
-                ><i class="fa fa-id-badge mx-2" aria-hidden="true"></i> Login</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="https://incallup.com/register"
-                ><i class="fa fa-user-plus mx-2" aria-hidden="true"></i> Sign
-                Up</a
+              <a href="#"
+                ><i class="fa fa-location-arrow mx-2" aria-hidden="true"></i>
+                Locate Me</a
               >
             </li>
             <li class="nav__item">
@@ -283,7 +376,7 @@
 
         <button
           type="button"
-          class="text-light btn   site-font1 py-1 px-3 fs-5"
+          class="text-light btn site-font1 py-1 px-3 fs-5"
           aria-label="Search"
           data-bs-toggle="modal"
           data-bs-target="#myModal"
@@ -292,7 +385,7 @@
           <!-- <p class="header-icon-text"> </p> -->
         </button>
         <button
-          class="nav__toggle py-2 px-3 btn   text-light"
+          class="nav__toggle py-2 px-3 btn text-light"
           title="menu"
           aria-expanded="false"
           type="button"
@@ -446,6 +539,117 @@
     </div>
   </footer> -->
 
+    <footer class="page-footer font-small white pt-4">
+      <div class="container-fluid text-center text-md-left border">
+        <div class="row">
+          <div class="col">
+            <!-- <div class="col-2">
+              <a href="https://incallup.com/">
+                <img
+                class="img-fluid float-left mt-2 p-2 "
+                style="width: 100px; height: 70px; margin-left: 1rem"
+                src="https://incallup.com/server/assets/img/logo.png"
+                alt="logo"
+                
+              />
+              </a>
+            </div> -->
+
+            <div class="col">
+              <a data-href="/FAQ/"><span class=" ">FAQ</span></a>
+              <a data-href="/privacy-policy/"
+                ><span class=" ">Privacy policy</span></a
+              >
+              <a data-href="/Blogs/"><span class=" ">Blogs</span></a>
+              <a data-href="/terms-and-conditions/"
+                ><span class=" ">Terms and conditions</span></a
+              >
+
+              <a data-href="/contact-us/"><span class=" ">Contact us</span></a>
+             
+            </div>
+            <p class="pt-md-1 pl-md-1"></p>
+            <div class="row">
+              <div class="col-sm">
+                <p class="social">Follow us:</p>
+                <ul class="list-unstyled list-inline">
+                  <!-- Youtube -->
+                  <li class="list-inline-item">
+                    <a
+                      target="_blank"
+                      data-href="https://www.youtube.com/channel/UCEuH7bRlBuyuJRGQmoIl95A"
+                      class="btn-floating btn-sm bg-dark mx-1"
+                      ><svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M5 7H19C19.5523 7 20 7.44771 20 8V16C20 16.5523 19.5523 17 19 17H5C4.44772 17 4 16.5523 4 16V8C4 7.44772 4.44772 7 5 7ZM2 8C2 6.34315 3.34315 5 5 5H19C20.6569 5 22 6.34315 22 8V16C22 17.6569 20.6569 19 19 19H5C3.34315 19 2 17.6569 2 16V8ZM10 9L14 12L10 15V9Z"
+                          fill="#ffffff"
+                        ></path></svg
+                    ></a>
+                  </li>
+                  <!-- Instagram -->
+                  <li class="list-inline-item">
+                    <a
+                      target="_blank"
+                      data-href="https://www.instagram.com/skokka_en/"
+                      class="btn-floating btn-sm btn-ins mx-1 bg-dark"
+                    >
+                      <i class="fa-brands text-light pt-1 fa-lg insta-icon fa-instagram mt-3"></i>
+                    </a>
+                  </li>
+                  <!-- Twitter -->
+                  <li class="list-inline-item">
+                    <a
+                      target="_blank"
+                      data-href="https://skokka.link/tw-in"
+                      class="btn-floating btn-sm bg-dark mx-2"
+                    >
+                      <i class="fa-brands fa-x-twitter text-light pt-1 fa-lg insta-icon mt-3"></i
+                    ></a>
+                  </li>
+
+                  <!-- Facebook -->
+                  <li class="list-inline-item">
+                    <a
+                      target="_blank"
+                      data-href="https://www.facebook.com/SkokkaEng"
+                      class="btn-floating btn-sm btn-ins mx-1 bg-dark"
+                      viewBox="0 0 24 24"
+                      ><i class="fa-brands fa-facebook text-light pt-1 fa-lg insta-icon mt-3"></i> ></a
+                    >
+                  </li>
+                  <!-- Blog -->
+                  <li class="list-inline-item">
+                    <a
+                      target="_blank"
+                      data-href="https://blog.skokka.com/en/"
+                      class="btn-floating btn-sm btn-comm mx-1 bg-dark"
+                      ><i class="icon-blog-ico"
+                        ><i class="icon-blog fa-solid fa-blog text-light pt-1 fa-lg insta-icon mt-3"></i
+                      ></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- <div class="row blue-bg p-4 text-light site-font  " style="background-color: var(--blue)">
+      <p class="text-center text-dark">
+        Copyright © 2024 Incallup. All right reserved.
+      </p>
+    </div> -->
+
     <footer
       th:fragment="siteFooter"
       class="container-fluid footer-color text-center text-md-start"
@@ -477,93 +681,10 @@
       <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
     </div> -->
 
-      <div class="container">
-        <section class="">
-          <div class="p-4">
-            <!--Grid row-->
-            <div class="row">
-              <!--Grid column-->
-              <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
-                <a href="https://incallup.com/">
-                  <img
-                  class="h-lg-75 h-sm-35 h-md-35 mt-3"
-                  style="width: 100px; height: 70px; margin-left: 1rem"
-                  src="https://incallup.com/server/assets/img/logo.png"
-                  alt="logo"
-                  
-                />
-                </a>
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <!-- <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
-            <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5>
-
-            <ul class="list-unstyled mb-0 mt-3 text-center">
-                <div class="d-flex ">
-                    <li class="  ">
-                        <a href="#!" class="text-light mx-1 "  >FAQ | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light ">Terms and Conditions |</a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light mx-2  ">Privacy Policy | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light ">Contact Us | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light mx-2  "> Blogs</a>
-                      </li>
-                </div>
-            </ul>
-          </div> -->
-              <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
-                <!-- <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5> -->
-
-                <ul class="list-unstyled mb-0 mt-3 text-center">
-                  <div
-                    class="d-flex flex-column flex-md-row justify-content-center"
-                  >
-                    <!-- FAQ -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">FAQ </a>
-                    </li>
-                    <!-- Blog -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">Blogs</a>
-                    </li>
-                  </div>
-                  <div
-                    class="d-flex flex-column flex-md-row justify-content-center"
-                  >
-                  <!-- Contact us -->
-                  <li class="mx-2 mb-2 mb-md-0">
-                    <a href="#!" class="text-dark">Contact Us  </a>
-                  </li>
-                    <!-- Privacy Policy -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">Privacy Policy  </a>
-                    </li>
-                    
-                    <!-- Terms and Conditions -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark"
-                        >Terms and Conditions  
-                      </a>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer -->
-        </section>
-      </div>
-      <div class="row blue-bg p-4 text-light site-font" style=" background-color: var(--blue);"     >
+      <div
+        class="row blue-bg p-4 text-light site-font"
+        style="background-color: var(--blue)"
+      >
         <p class="text-center">
           Copyright © 2024 Incallup. All right reserved.
         </p>
