@@ -116,11 +116,11 @@
           No posts Available &#128531;
         </div>
       </div>
-      <div class="card my-1" th:each="post : ${posts}">
+      <div class="card border-primary my-1" th:each="post : ${posts}" style="background-color: aliceblue;"    >
         <div class="row g-0  ">
           <!-- Image -->
           <div class="col-md-4 col-sm-12    ">
-            <img class="img-fluid h-100 w-100 cat-image  rounded-start rounded-4 " th:src="${post.image1}"
+            <img class="img-fluid h-100 w-100 cat-image    " th:src="${post.image1}"
               th:alt="${post.title}"
               th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " />
           </div>
@@ -184,13 +184,13 @@
              <div class="float-end">
                    <div class="d-flex">
                     <div>
-                      <p alt="contact link" class="fs-3 mx-2 text-center" th:onclick="location = 'tel:' + ${post.contact};">
+                      <p alt="contact link" class="fs-3 mx-2 text-center bg-light" th:onclick="location = 'tel:' + ${post.contact};">
                         <img class="img-fluid btn-circle2" th:src="@{/server/assets/img/call2.png}" th:alt="${post.title}"
                           loading="lazy" />
                       </p>
                     </div>
                     <div>
-                      <p alt="whatsapp link" class="fs-3  mx-2 text-center"
+                      <p alt="whatsapp link" class="fs-3  mx-2 text-center bg-light"
                     th:onclick="location = 'https://api.whatsapp.com/send/?phone='+ [[${post.contact}]];">
                     
                     <img class="img-fluid btn-circle" th:src="@{/server/assets/img/whatsApp-2.png}" th:alt="${post.title}"
@@ -198,7 +198,7 @@
                   </p>
                     </div>
                  <div>
-                  <p alt="telegram link" class="fs-3  mx-2 text-center"
+                  <p alt="telegram link" class="fs-3  mx-2 text-center bg-light"
                   th:onclick="location = 'https://t.me/+91'+[[${post.contact}]];">
                   <img class="img-fluid btn-circle" th:src="@{/server/assets/img/telegram2.png}" th:alt="${post.title}"
                     loading="lazy" />
