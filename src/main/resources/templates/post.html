@@ -2,224 +2,224 @@
 <html lang="en" xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport"
-    content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
-  <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <link rel="icon" type="image/ico" href="/server/assets/img/favicon.ico" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-  <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
-  <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
-  <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
-  <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/server/assets/styles/style.css}">
+    <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
+    <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
+    <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
 
-  <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
-  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
-  <title>Post Page</title>
+    <script type="text/javascript" async defer src="https://maps.googleapis.com/maps/api/js?loading=async"></script>
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <title>Post Page</title>
 
-  <style>
-    * {
-      cursor: pointer;
-    }
-  </style>
+    <style>
+        * {
+            cursor: pointer;
+        }
+    </style>
 
-  <script>
-    function containsEmoji(text) {
-      var emojiPattern = /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
-      return emojiPattern.test(text);
-    }
+    <script>
+        function containsEmoji(text) {
+            var emojiPattern = /[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}]/u;
+            return emojiPattern.test(text);
+        }
 
-    function containsNumber(text) {
-      var numberPattern = /\d/;
-      return numberPattern.test(text);
-    }
+        function containsNumber(text) {
+            var numberPattern = /\d/;
+            return numberPattern.test(text);
+        }
 
-    function containsSpecialCharacters(text) {
-      var specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
-      return specialCharacterPattern.test(text);
-    }
-    function validateForm() {
-      var checkbox = document.getElementById('checkbox');
-      var title = document.getElementById('postTitle');
-      if (title.value.length < 15) {
-        alert('insert longer title');
-        return false;
-      }
-      if (title.value.length > 90) {
-        alert("insert shorter title")
-        return false;
-      }
-      if (containsNumber(title.value)) {
-        alert("Please do not use numbers in the title.");
-        return false;
-      }
-      if (containsEmoji(title.value)) {
-        alert("Please do not use emojis in the title.");
-        return false;
-      }
-      if (containsSpecialCharacters(title.value)) {
-        alert("Please do not use special characters in the title.");
-        return false;
-      }
-      if (postDescription.value.length < 50) {
-        alert('please insert longer description');
-        return false;
-      }
-      if (postDescription.value.length > 1000) {
-        alert('please insert shorter description');
-        return false;
-      }
-      if (!checkbox.checked) {
-        alert('Please check accept our terms before submitting.');
-        return false;
-      }
+        function containsSpecialCharacters(text) {
+            var specialCharacterPattern = /[!@#$%^&*(),.?":{}|<>]/;
+            return specialCharacterPattern.test(text);
+        }
+        function validateForm() {
+            var checkbox = document.getElementById('checkbox');
+            var title = document.getElementById('postTitle');
+            if (title.value.length < 15) {
+                alert('insert longer title');
+                return false;
+            }
+            if (title.value.length > 90) {
+                alert("insert shorter title")
+                return false;
+            }
+            if (containsNumber(title.value)) {
+                alert("Please do not use numbers in the title.");
+                return false;
+            }
+            if (containsEmoji(title.value)) {
+                alert("Please do not use emojis in the title.");
+                return false;
+            }
+            if (containsSpecialCharacters(title.value)) {
+                alert("Please do not use special characters in the title.");
+                return false;
+            }
+            if (postDescription.value.length < 50) {
+                alert('please insert longer description');
+                return false;
+            }
+            if (postDescription.value.length > 1000) {
+                alert('please insert shorter description');
+                return false;
+            }
+            if (!checkbox.checked) {
+                alert('Please check accept our terms before submitting.');
+                return false;
+            }
 
-      // Validate file input
-      var files = fileInput.files;
-      if (files.length < 1) {
-        alert('Please select at least one image.');
-        return false;
-      }
-      if (files.length > 6) {
-        alert('You can upload a maximum of 6 images.');
-        return false;
-      }
-      return true;
-    }
-  </script>
+            // Validate file input
+            var files = fileInput.files;
+            if (files.length < 1) {
+                alert('Please select at least one image.');
+                return false;
+            }
+            if (files.length > 6) {
+                alert('You can upload a maximum of 6 images.');
+                return false;
+            }
+            return true;
+        }
+    </script>
 </head>
 
 <body>
 
-  <div th:replace="dashboard.html :: siteSearch"></div>
-  <div th:replace="dashboard.html :: siteHeader"></div>
+<div th:replace="dashboard.html :: siteSearch"></div>
+<div th:replace="dashboard.html :: siteHeader"></div>
 
-  <!-- hero section start -->
-  <div class="container my-5">
+<!-- hero section start -->
+<div class="container my-5">
     <form onsubmit="return validateForm()" class="my-4 post mx-auto" style="max-width: 600px;" th:action="${'https://incallup.com/seller/post/'+sellerId}"
-      enctype="multipart/form-data" method="post">
+          enctype="multipart/form-data" method="post">
 
-      <!-- Category -->
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
-          <b class="fw-bold">Category *</b>
-        </label>
-        <select name="category" class="form-select" hx-trigger="load"
-          hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example"
-          id="postCategory">
-          <option selected>Select Category</option>
-        </select>
-      </div>
-
-      <!-- Ad Title -->
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
-          <b class="fw-bold">Ad Title *</b>
-        </label>
-        <input name="title" type="text" class="form-control site-input" id="postTitle" placeholder="Enter Title Text Here">
-        <p class="text-dark" style="font-size: x-small;">15-50 Characters required</p>
-      </div>
-
-      <!-- Description -->
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">
-          <b class="fw-bold">Description *</b>
-        </label>
-        <textarea name="description" type="text" class="form-control site-input" id="postDescription" rows="5"
-          placeholder="Enter the"></textarea>
-        <p class="text-dark" style="font-size:x-small;">50 Characters required</p>
-      </div>
-
-      <!-- Phone -->
-      <div class="mb-3">
-        <label for="postTitle" class="form-label fw-bold">Phone *</label>
-        <input name="contact" type="tel" class="form-control site-input" id="postTitle" placeholder="Enter Phone Number">
-      </div>
-
-      <!-- Contact Logos -->
-      <div class="mb-3 d-flex justify-content-between align-items-center">
-        <div class="d-flex align-items-center">
-          <input name="whatsapp" type="checkbox" class="form-check-input site-input" id="whatsapp">
-          <img th:src="@{/server/assets/img/whatsapp.png}" alt="WhatsApp" class="post-icon ms-2">
+        <!-- Category -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+                <b class="fw-bold">Category *</b>
+            </label>
+            <select name="category" class="form-select" hx-trigger="load"
+                    hx-get="https://incallup.com/app/get/categories/options" hx-swap="innerHTML" aria-label="Large select example"
+                    id="postCategory">
+                <option selected>Select Category</option>
+            </select>
         </div>
-        <div class="d-flex align-items-center">
-          <input name="telegram" type="checkbox" class="form-check-input site-input" id="telegram">
-          <img th:src="@{/server/assets/img/telegram.png}" alt="Telegram" class="post-icon ms-2" style="width:22px;height:22px">
-        </div>
-      </div>
 
-      <!-- Age -->
-      <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label fw-bold">Your Age *</label>
-        <input name="age" type="number" class="form-control site-input" id="postAge" placeholder="Age">
-      </div>
-
-      <!-- Incall and Outcall -->
-      <div class="row mb-3">
-        <div class="col-md-6 mb-3">
-          <label for="postIncall" class="form-label fw-bold">Incall *</label>
-          <input name="incall" type="number" class="form-control site-input" id="postIncall" placeholder="Enter Price Here">
+        <!-- Ad Title -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+                <b class="fw-bold">Ad Title *</b>
+            </label>
+            <input name="title" type="text" class="form-control site-input" id="postTitle" placeholder="Enter Title Text Here">
+            <p class="text-dark" style="font-size: x-small;">15-50 Characters required</p>
         </div>
-        <div class="col-md-6 mb-3">
-          <label for="postOutCall" class="form-label fw-bold">OutCall *</label>
-          <input name="outcall" type="number" class="form-control site-input" id="postOutCall" placeholder="Enter Price Here">
-        </div>
-      </div>
 
-      <!-- State and City -->
-      <div class="row mb-3">
-        <div class="col-md-6 mb-3">
-          <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options"
-            hx-target="#post-state" class="fw-bold">State *</label>
-          <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options" hx-target="#post-city"
-            class="form-control site-input">
-            <option>select state</option>
-          </select>
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">
+                <b class="fw-bold">Description *</b>
+            </label>
+            <textarea name="description" type="text" class="form-control site-input" id="postDescription" rows="5"
+                      placeholder="Enter the"></textarea>
+            <p class="text-dark" style="font-size:x-small;">50 Characters required</p>
         </div>
-        <div class="col-md-6 mb-3">
-          <label for="post-city" class="fw-bold">City *</label>
-          <select name="city" id="post-city" class="form-control site-input">
-          </select>
+
+        <!-- Phone -->
+        <div class="mb-3">
+            <label for="postTitle" class="form-label fw-bold">Phone *</label>
+            <input name="contact" type="tel" class="form-control site-input" id="postTitle" placeholder="Enter Phone Number">
         </div>
-      </div>
 
-      <!-- Image Upload -->
-      <div class="mb-3">
-        <label for="image-input" class="form-label fw-bold">Upload Images</label>
-        <div class="border p-4 text-center">
-          <div class="image-container">
-            <a class="plus-icon" id="upload-file image-input1">+</a>
-          </div>
-          <span class="p-1" style="font-size: 10px;">Maximum Image Size 5 MB</span>
-          <input type="file" name="files" multiple class="form-control" style="font-size: 10px;">
+        <!-- Contact Logos -->
+        <div class="mb-3 d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <input name="whatsapp" type="checkbox" class="form-check-input site-input" id="whatsapp">
+                <img th:src="@{/server/assets/img/whatsapp.png}" alt="WhatsApp" class="post-icon ms-2">
+            </div>
+            <div class="d-flex align-items-center">
+                <input name="telegram" type="checkbox" class="form-check-input site-input" id="telegram">
+                <img th:src="@{/server/assets/img/telegram.png}" alt="Telegram" class="post-icon ms-2" style="width:22px;height:22px">
+            </div>
         </div>
-      </div>
 
-      <!-- Terms and Conditions -->
-      <div class="mb-3 form-check text-center">
-        <input id="checkbox" type="checkbox" class="form-check-input site-input">
-        <label class="form-check-label fs-10" for="checkbox">By Clicking Publish You Accept Our <b><a
-              href="terms.html" class="text-pink fs-10">Terms & Condition</a></b></label>
-      </div>
+        <!-- Age -->
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label fw-bold">Your Age *</label>
+            <input name="age" type="number" class="form-control site-input" id="postAge" placeholder="Age">
+        </div>
 
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button class="btn btn-primary w-50 bg-pink">Next</button>
-      </div>
+        <!-- Incall and Outcall -->
+        <div class="row mb-3">
+            <div class="col-md-6 mb-3">
+                <label for="postIncall" class="form-label fw-bold">Incall *</label>
+                <input name="incall" type="number" class="form-control site-input" id="postIncall" placeholder="Enter Price Here">
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="postOutCall" class="form-label fw-bold">OutCall *</label>
+                <input name="outcall" type="number" class="form-control site-input" id="postOutCall" placeholder="Enter Price Here">
+            </div>
+        </div>
+
+        <!-- State and City -->
+        <div class="row mb-3">
+            <div class="col-md-6 mb-3">
+                <label for="post-state" hx-trigger="load" hx-get="https://incallup.com/app/get/state/options"
+                       hx-target="#post-state" class="fw-bold">State *</label>
+                <select name="state" id="post-state" hx-get="https://incallup.com/app/get/city/options" hx-target="#post-city"
+                        class="form-control site-input">
+                    <option>select state</option>
+                </select>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="post-city" class="fw-bold">City *</label>
+                <select name="city" id="post-city" class="form-control site-input">
+                </select>
+            </div>
+        </div>
+
+        <!-- Image Upload -->
+        <div class="mb-3">
+            <label for="image-input" class="form-label fw-bold">Upload Images</label>
+            <div class="border p-4 text-center">
+                <div class="image-container">
+                    <a class="plus-icon" id="upload-file image-input1">+</a>
+                </div>
+                <span class="p-1" style="font-size: 10px;">Maximum Image Size 5 MB</span>
+                <input type="file" name="files" multiple class="form-control" style="font-size: 10px;">
+            </div>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div class="mb-3 form-check text-center">
+            <input id="checkbox" type="checkbox" class="form-check-input site-input">
+            <label class="form-check-label fs-10" for="checkbox">By Clicking Publish You Accept Our <b><a
+                    href="terms.html" class="text-pink fs-10">Terms & Condition</a></b></label>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="text-center">
+            <button class="btn btn-primary w-50 bg-pink">Next</button>
+        </div>
     </form>
-  </div>
+</div>
 
-  <div th:replace="dashboard.html :: siteFooter"></div>
+<div th:replace="dashboard.html :: siteFooter"></div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script th:src="@{/server/assets/scripts/main.js}"></script>
-  <script th:src="@{/server/assets/scripts/common.js}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script th:src="@{/server/assets/scripts/main.js}"></script>
+<script th:src="@{/server/assets/scripts/common.js}"></script>
 </body>
 
 </html>

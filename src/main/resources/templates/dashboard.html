@@ -1,309 +1,309 @@
 <!DOCTYPE html>
 <html
-  lang="en"
-  xmlns="https://www.w3.org/1999/xhtml"
-  xmlns:th="https://www.thymeleaf.org"
+        lang="en"
+        xmlns="https://www.w3.org/1999/xhtml"
+        xmlns:th="https://www.thymeleaf.org"
 >
-  <head>
+<head>
     <meta charset="UTF-8" />
 
     <meta
-      name="viewport"
-      content="width=device-width,  user-scalable=no,  initial-scale=1.0 "
+            name="viewport"
+            content="width=device-width,  user-scalable=no,  initial-scale=1.0 "
     />
     <title>InCallUp</title>
     <meta
-      name="format-detection"
-      content="telephone=no,date=no,address=no,email=no,url=no"
+            name="format-detection"
+            content="telephone=no,date=no,address=no,email=no,url=no"
     />
     <meta
-      name="description"
-      content="Incallup Safe Dating site in India. Browse our categories for getting a sex meeting. Independent Call Girls, Verified Call Girl, Spa & Massage, Dating.  Incallup is an open Advertising Platform"
+            name="description"
+            content="Incallup Safe Dating site in India. Browse our categories for getting a sex meeting. Independent Call Girls, Verified Call Girl, Spa & Massage, Dating.  Incallup is an open Advertising Platform"
     />
     <link
-      rel="icon"
-      type="image/png"
-      href="https://incallup.com/server/assets/img/logo.png"
+            rel="icon"
+            type="image/png"
+            href="https://incallup.com/server/assets/img/logo.png"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
-      rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Rubik&display=swap"
+            rel="stylesheet"
     />
 
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
     />
     <link
-      rel="stylesheet"
-      href="https://incallup.com/server/assets/styles/style.css"
+            rel="stylesheet"
+            href="https://incallup.com/server/assets/styles/style.css"
     />
     <link
-      rel="stylesheet"
-      href="https://incallup.com/server/assets/styles/reset.min.css"
+            rel="stylesheet"
+            href="https://incallup.com/server/assets/styles/reset.min.css"
     />
     <link
-      rel="stylesheet"
-      href="https://incallup.com/server/assets/styles/nav.css"
+            rel="stylesheet"
+            href="https://incallup.com/server/assets/styles/nav.css"
     />
     <link
-      rel="stylesheet"
-      href="https://incallup.com/server/assets/styles/header.css"
+            rel="stylesheet"
+            href="https://incallup.com/server/assets/styles/header.css"
     />
 
     <!--  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>-->
     <script
-      src="https://unpkg.com/htmx.org@1.9.10"
-      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-      crossorigin="anonymous"
+            src="https://unpkg.com/htmx.org@1.9.10"
+            integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
+            crossorigin="anonymous"
     ></script>
     <!-- Include Htmx library -->
     <script src="https://unpkg.com/htmx.org/dist/htmx.min.js"></script>
     <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
-      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+            integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
     />
-  </head>
+</head>
 
-  <body>
-    <div
-      th:fragment="siteSearch"
-      class="modal fade site-modal"
-      tabindex="-1"
-      id="myModal"
-    >
-      <div class="modal-dialog">
+<body>
+<div
+        th:fragment="siteSearch"
+        class="modal fade site-modal"
+        tabindex="-1"
+        id="myModal"
+>
+    <div class="modal-dialog">
         <div class="modal-content">
-          <!-- Modal Header -->
-          <!-- <div class="modal-header">
-            <h4 class="modal-title">
-              <i class="fas fa-search text-dark mx-2"></i>
-            </h4>
-             
-            <button
-              type="button"
-              class="btn"
-              onclick="search()"
-              data-bs-dismiss="modal"
-            >
-              <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
-          </div> -->
+            <!-- Modal Header -->
+            <!-- <div class="modal-header">
+              <h4 class="modal-title">
+                <i class="fas fa-search text-dark mx-2"></i>
+              </h4>
 
-          <!-- Modal body -->
-          <div class="modal-body container">
-            <div class=" ">
-              <!-- Choose Categories -->
-              <div class="col">
-                <select
-                  id="categories"
-                  hx-trigger="load"
-                  hx-get="https://incallup.com/app/get/categories/options"
-                  hx-swap="innerHTML"
-                  class="form-select   mb-3"
-                  aria-label="Large select example"
-                >
-                  <option selected>Choose Category</option>
-                </select>
-              </div>
-
-              <!-- Choose State -->
-              <div
-                class="col"
-                hx-trigger="load"
-                hx-get="https://incallup.com/app/get/state/options"
-                hx-target="#states"
+              <button
+                type="button"
+                class="btn"
+                onclick="search()"
+                data-bs-dismiss="modal"
               >
-                <select
-                  name="state"
-                  id="states"
-                  hx-get="https://incallup.com/app/get/city/options"
-                  hx-target="#cities"
-                  hx-indicator=".htmx-indicator"
-                  class="form-select  mb-3"
-                  aria-label="Select text"
-                >
-                  <option selected>Choose State</option>
-                </select>
-              </div>
+                <i class="fa fa-times" aria-hidden="true"></i>
+              </button>
+            </div> -->
+
+            <!-- Modal body -->
+            <div class="modal-body container">
+                <div class=" ">
+                    <!-- Choose Categories -->
+                    <div class="col">
+                        <select
+                                id="categories"
+                                hx-trigger="load"
+                                hx-get="https://incallup.com/app/get/categories/options"
+                                hx-swap="innerHTML"
+                                class="form-select   mb-3"
+                                aria-label="Large select example"
+                        >
+                            <option selected>Choose Category</option>
+                        </select>
+                    </div>
+
+                    <!-- Choose State -->
+                    <div
+                            class="col"
+                            hx-trigger="load"
+                            hx-get="https://incallup.com/app/get/state/options"
+                            hx-target="#states"
+                    >
+                        <select
+                                name="state"
+                                id="states"
+                                hx-get="https://incallup.com/app/get/city/options"
+                                hx-target="#cities"
+                                hx-indicator=".htmx-indicator"
+                                class="form-select  mb-3"
+                                aria-label="Select text"
+                        >
+                            <option selected>Choose State</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Select City -->
+                <div class=" ">
+                    <div class="col">
+                        <input
+                                id="searchText"
+                                placeholder="Search here"
+                                class="form-control mb-3 text-danger"
+                                aria-label="Large select example"
+                        />
+                    </div>
+                    <div class="col">
+                        <select
+                                id="cities"
+                                class="form-select mb-3  "
+                                aria-label="Large select example"
+                        >
+                            <option selected>Select City</option>
+                        </select>
+                    </div>
+                </div>
             </div>
 
-            <!-- Select City -->
-            <div class=" ">
-              <div class="col">
-                <input
-                        id="searchText"
-                  placeholder="Search here"
-                  class="form-control mb-3 text-danger"
-                  aria-label="Large select example"
-                />
-              </div>
-              <div class="col">
-                <select
-                  id="cities"
-                  class="form-select mb-3  "
-                  aria-label="Large select example"
-                >
-                  <option selected>Select City</option>
-                </select>
-              </div>
-            </div>
-          </div>
+            <!-- Close and Search Button -->
+            <!-- Modal footer -->
+            <div class="container mb-2">
+                <div class="row mx-2 pt-0">
+                    <div class="col-6 text-center">
+                        <button
+                                style="border-radius: 0px 20px"
+                                type="button"
+                                class="btn mx-2 sButton"
+                                data-bs-dismiss="modal"
+                        >
+                            Close
+                        </button>
+                    </div>
 
-          <!-- Close and Search Button -->
-          <!-- Modal footer -->
-          <div class="container mb-2">
-            <div class="row mx-2 pt-0">
-              <div class="col-6 text-center">
-                <button
-                  style="border-radius: 0px 20px"
-                  type="button"
-                  class="btn mx-2 sButton"
-                  data-bs-dismiss="modal"
-                >
-                  Close
-                </button>
-              </div>
-
-              <div class="col-6 text-center">
-                <button
-                  style="border-radius: 20px 0px"
-                  type="submit"
-                  class="btn sButton"
-                  th:onclick="search()"
-                >
-                  <i class="fas fa-search mx-2"></i>
-                  Search
-                </button>
-              </div>
+                    <div class="col-6 text-center">
+                        <button
+                                style="border-radius: 20px 0px"
+                                type="submit"
+                                class="btn sButton"
+                                th:onclick="search()"
+                        >
+                            <i class="fas fa-search mx-2"></i>
+                            Search
+                        </button>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
+</div>
 
-    <header
-      class="site-header bg-pink border-top border-bottom blue-border-primary border-5"
-      th:fragment="siteHeader"
-    >
-      <div class="wrapper site-header__wrapper">
+<header
+        class="site-header bg-pink border-top border-bottom blue-border-primary border-5"
+        th:fragment="siteHeader"
+>
+    <div class="wrapper site-header__wrapper">
         <nav class="nav">
-          <a href="#" class="brand">
-            <!-- User -->
+            <a href="#" class="brand">
+                <!-- User -->
 
-            <img
-              onclick="location='https://incallup.com/'"
-              src="https://incallup.com/server/assets/img/logo.png"
-              alt="incallup logo"
-              style="max-width: 10rem; height: auto"
-            />
-          </a>
+                <img
+                        onclick="location='https://incallup.com/'"
+                        src="https://incallup.com/server/assets/img/logo.png"
+                        alt="incallup logo"
+                        style="max-width: 10rem; height: auto"
+                />
+            </a>
 
-          <ul class="nav__wrapper">
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa-regular mx-2 text-light fa-circle-user"></i>
-                UserID</a
-              >
-            </li>
+            <ul class="nav__wrapper">
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa-regular mx-2 text-light fa-circle-user"></i>
+                        UserID</a
+                    >
+                </li>
 
-            <li class="nav__item">
-              <a href="https://incallup.com/"
-                ><i class="fa fa-home mx-2" aria-hidden="true"></i> Home</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-location-arrow mx-2" aria-hidden="true"></i>
-                Locate Me</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="https://incallup.com/seller/post"
-                ><i class="fa fa-user mx-2" aria-hidden="true"></i> Profile</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="https://incallup.com/seller/post"
-                ><i class="fa fa-camera mx-2" aria-hidden="true"></i> Post AD</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="https://incallup.com/login"
-                ><i class="fa fa-id-badge mx-2" aria-hidden="true"></i> Login</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="https://incallup.com/register"
-                ><i class="fa fa-user-plus mx-2" aria-hidden="true"></i> Sign
-                Up</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-comment mx-2" aria-hidden="true"></i> FAQ</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-user-secret mx-2" aria-hidden="true"></i>
-                Privacy Policy</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-handshake mx-2" aria-hidden="true"></i> Terms &
-                Condition</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-phone mx-2" aria-hidden="true"></i> Contact
-                Us</a
-              >
-            </li>
-            <li class="nav__item">
-              <a href="#"
-                ><i class="fa fa-rss mx-2" aria-hidden="true"></i> Blogs</a
-              >
-            </li>
-          </ul>
+                <li class="nav__item">
+                    <a href="https://incallup.com/"
+                    ><i class="fa fa-home mx-2" aria-hidden="true"></i> Home</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-location-arrow mx-2" aria-hidden="true"></i>
+                        Locate Me</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="https://incallup.com/seller/post"
+                    ><i class="fa fa-user mx-2" aria-hidden="true"></i> Profile</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="https://incallup.com/seller/post"
+                    ><i class="fa fa-camera mx-2" aria-hidden="true"></i> Post AD</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="https://incallup.com/login"
+                    ><i class="fa fa-id-badge mx-2" aria-hidden="true"></i> Login</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="https://incallup.com/register"
+                    ><i class="fa fa-user-plus mx-2" aria-hidden="true"></i> Sign
+                        Up</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-comment mx-2" aria-hidden="true"></i> FAQ</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-user-secret mx-2" aria-hidden="true"></i>
+                        Privacy Policy</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-handshake mx-2" aria-hidden="true"></i> Terms &
+                        Condition</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-phone mx-2" aria-hidden="true"></i> Contact
+                        Us</a
+                    >
+                </li>
+                <li class="nav__item">
+                    <a href="#"
+                    ><i class="fa fa-rss mx-2" aria-hidden="true"></i> Blogs</a
+                    >
+                </li>
+            </ul>
         </nav>
 
         <button
-          type="button"
-          class="text-light btn   site-font1 py-1 px-3 fs-5"
-          aria-label="Search"
-          data-bs-toggle="modal"
-          data-bs-target="#myModal"
+                type="button"
+                class="text-light btn   site-font1 py-1 px-3 fs-5"
+                aria-label="Search"
+                data-bs-toggle="modal"
+                data-bs-target="#myModal"
         >
-          <i class="fas fa-search text-dark mx-2"></i>
-          <!-- <p class="header-icon-text"> </p> -->
+            <i class="fas fa-search text-dark mx-2"></i>
+            <!-- <p class="header-icon-text"> </p> -->
         </button>
         <button
-          class="nav__toggle py-2 px-3 btn   text-light"
-          title="menu"
-          aria-expanded="false"
-          type="button"
+                class="nav__toggle py-2 px-3 btn   text-light"
+                title="menu"
+                aria-expanded="false"
+                type="button"
         >
-          <i class="fas fa-bars text-dark" aria-hidden="true" id="menu-one"></i>
-          <i
-            class="fa fa-times"
-            aria-hidden="true"
-            id="menu-two"
-            style="display: none"
-          ></i>
+            <i class="fas fa-bars text-dark" aria-hidden="true" id="menu-one"></i>
+            <i
+                    class="fa fa-times"
+                    aria-hidden="true"
+                    id="menu-two"
+                    style="display: none"
+            ></i>
         </button>
 
         <!-- User Logo -->
@@ -316,80 +316,80 @@
           <li><a class="dropdown-item" href="https://incallup.com/create">Sign Up</a></li>
         </ul>
       </div> -->
-      </div>
-    </header>
+    </div>
+</header>
 
-    <!-- navbar start -->
+<!-- navbar start -->
 
-    <!-- navbar end -->
-    <!-- hero section start -->
-    <div class="text-center container p-0 m-auto" id="hero-section" style="">
-      <div id="hero-bg">
+<!-- navbar end -->
+<!-- hero section start -->
+<div class="text-center container p-0 m-auto" id="hero-section" style="">
+    <div id="hero-bg">
         <div class=" ">
-          <div class="text-pink px-lg-2" id="hero-title">
-            WELCOME TO INCALLUP
-          </div>
-          <span class="mt-2 text-wrap site-text" id="hero-subtext"
+            <div class="text-pink px-lg-2" id="hero-title">
+                WELCOME TO INCALLUP
+            </div>
+            <span class="mt-2 text-wrap site-text" id="hero-subtext"
             >Have a date in your city today , choose your category
           </span>
         </div>
         <div class="container">
-          <div class="row mt-lg-5 justify-content-center">
-            <div
-              th:each="category : ${categories}"
-              class="col-lg-3 col-md-6 col-sm-12 my-2"
-              th:onclick="location =[[${category.name}]];"
-            >
-              <img
-                th:src="@{${'/server/assets/img/'+category.name+'.jpg'}}"
-                class="card-img-top site-border"
-                th:alt="${category.title}"
-              />
-              <div class="card-body blue-bg py-2">
+            <div class="row mt-lg-5 justify-content-center">
                 <div
-                  class="card-title h-3 text-light"
-                  th:text="${category.title}"
+                        th:each="category : ${categories}"
+                        class="col-lg-3 col-md-6 col-sm-12 my-2"
+                        th:onclick="location =[[${category.name}]];"
                 >
-                  Camera
+                    <img
+                            th:src="@{${'/server/assets/img/'+category.name+'.jpg'}}"
+                            class="card-img-top site-border"
+                            th:alt="${category.title}"
+                    />
+                    <div class="card-body blue-bg py-2">
+                        <div
+                                class="card-title h-3 text-light"
+                                th:text="${category.title}"
+                        >
+                            Camera
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+</div>
+
+<!-- hero section end -->
+<div th:fragment="categoryDropdown" class="container mt-2">
+    <div class="my-2 row">
+        <div class="d-flex justify-content-center align-items-center">
+            <p class="site-title fs-6 fw-bold">FIND ADS IN LOCAL : INDIA</p>
+        </div>
+        <div class="d-flex justify-content-center align-items-center">
+            <p class="sub-title">Most Popular Location In A Specific Category</p>
+        </div>
     </div>
 
-    <!-- hero section end -->
-    <div th:fragment="categoryDropdown" class="container mt-2">
-      <div class="my-2 row">
-        <div class="d-flex justify-content-center align-items-center">
-          <p class="site-title fs-6 fw-bold">FIND ADS IN LOCAL : INDIA</p>
-        </div>
-        <div class="d-flex justify-content-center align-items-center">
-          <p class="sub-title">Most Popular Location In A Specific Category</p>
-        </div>
-      </div>
+    <!-- Specific Categories  -->
+    <div
+            th:if="${location == null}"
+            id="content"
+            hx-get="https://incallup.com/app/get/categories"
+            hx-trigger="load"
+            hx-swap="innerHTML"
+            class="transition-target fade-in"
+    ></div>
 
-      <!-- Specific Categories  -->
-      <div
-        th:if="${location == null}"
-        id="content"
-        hx-get="https://incallup.com/app/get/categories"
-        hx-trigger="load"
-        hx-swap="innerHTML"
-        class="transition-target fade-in"
-      ></div>
-
-      <div class="container my-3 px-2">
+    <div class="container my-3 px-2">
         <div
-          th:if="${location != null}"
-          th:utext="${location.description}"
-          class="p-3 bg-secondary-subtle"
+                th:if="${location != null}"
+                th:utext="${location.description}"
+                class="p-3 bg-secondary-subtle"
         ></div>
         <div
-          th:if="${location == null}"
-          th:utext="${description}"
-          class="p-3 bg-secondary-subtle"
+                th:if="${location == null}"
+                th:utext="${description}"
+                class="p-3 bg-secondary-subtle"
         ></div>
 
         <hr />
@@ -402,205 +402,205 @@
         Free Internet ad publishing and website navigation are provided by Incallup.com does not act as a middleman or intermediary between users who browse the website and users who post content.
       </div> -->
         <div class="responsive-text">
-          The User agrees to abide by our terms and conditions of use and to
-          keep up with any changes by visiting our website and utilizing our
-          services.
-          <br /><br />
-          The advertiser took the initiative and is solely responsible for
-          publishing the current advertising in Incallup. Incallup.com does not
-          conduct any kind of pre-publication verification before publishing
-          such advertisements. Under no circumstances will incallup.com be held
-          liable for the accuracy, legality, respect for property rights, or any
-          offense against public or moral order of any online content entered by
-          the user.
-          <br /><br />
-          Free Internet ad publishing and website navigation are provided by
-          Incallup.com does not act as a middleman or intermediary between users
-          who browse the website and users who post content.
+            The User agrees to abide by our terms and conditions of use and to
+            keep up with any changes by visiting our website and utilizing our
+            services.
+            <br /><br />
+            The advertiser took the initiative and is solely responsible for
+            publishing the current advertising in Incallup. Incallup.com does not
+            conduct any kind of pre-publication verification before publishing
+            such advertisements. Under no circumstances will incallup.com be held
+            liable for the accuracy, legality, respect for property rights, or any
+            offense against public or moral order of any online content entered by
+            the user.
+            <br /><br />
+            Free Internet ad publishing and website navigation are provided by
+            Incallup.com does not act as a middleman or intermediary between users
+            who browse the website and users who post content.
         </div>
-      </div>
     </div>
-    <!-- <footer th:fragment="siteFooter" class="container-fluid ">
-    <div class="row d-flex" id="footer-pink" >
-      <div class="col-lg-4 col-md-4 col-sm-3  ">
-        <img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " style="width: 80px;"     src="https://incallup.com/server/assets/img/logo.png" alt="logo" >
-      </div>
-      <div class="col-lg-7  d-inline  col-md-6 col-sm container ">
-        <div class="row  ">
-          <p class="text-center pt-5 text-light header-icon-text" id="imp-link">Important Links</p>
-        </div>
-        <div class="row  blue-bg-desktop my-2 px-3 py-1 me-2 py-2 container d-flex  justify-content-around  ">
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">FAQ </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Privacy Policy </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none  " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Terms & Condition </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Contact Us </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none " >|</p> </div>
-          <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Blogs </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
-
-
-
-        </div>
-      </div>
+</div>
+<!-- <footer th:fragment="siteFooter" class="container-fluid ">
+<div class="row d-flex" id="footer-pink" >
+  <div class="col-lg-4 col-md-4 col-sm-3  ">
+    <img class="  h-lg-75 h-sm-25 h-md-25 mt-3  " style="width: 80px;"     src="https://incallup.com/server/assets/img/logo.png" alt="logo" >
+  </div>
+  <div class="col-lg-7  d-inline  col-md-6 col-sm container ">
+    <div class="row  ">
+      <p class="text-center pt-5 text-light header-icon-text" id="imp-link">Important Links</p>
     </div>
-    <div class="row blue-bg p-4 text-light site-font ">
-      <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
+    <div class="row  blue-bg-desktop my-2 px-3 py-1 me-2 py-2 container d-flex  justify-content-around  ">
+      <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">FAQ </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+      <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Privacy Policy </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none  " >|</p> </div>
+      <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Terms & Condition </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+      <div class=" text-light col-2 header-icon-text row "><a class=" col text-light " href="">Contact Us </a> <p class="col-1 d-sm-none  d-lg-inline d-md-none " >|</p> </div>
+      <div class=" text-light col-2 header-icon-text row "><a class=" col  text-light " href="">Blogs </a> <p class="col-1 d-sm-none d-lg-inline d-md-none " >|</p> </div>
+
+
+
     </div>
-  </footer> -->
+  </div>
+</div>
+<div class="row blue-bg p-4 text-light site-font ">
+  <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
+</div>
+</footer> -->
 
-    <footer
-      th:fragment="siteFooter"
-      class="container-fluid footer-color text-center text-md-start"
-      style="background-color: white"
-    >
-      <!-- <div class="row footer-top">
-      <div class="col-lg-12">
-        <div class="col-lg-4 col-md-4 col-sm-3">
-          <img   src="https://incallup.com/server/assets/img/logo.png" alt="logo" class="logo">
-        </div>
-        <div class="col-lg-7 col-md-6 col-sm container" >
-          <nav class="footer-nav  ">
-            <ul class="nav-links  ">
-              <div class="d-flex ">
-
-                <li><a href="" aria-label="FAQ" class="text-light ">FAQ </a></li>
-                <li><a href="" aria-label="Privacy Policy" class="text-light  mx-1 "> | Privacy Policy | </a></li>
-                <li><a href="" aria-label="Terms & Condition" class="text-light">Terms & Condition | </a></li>
-                <li><a href="" aria-label="Contact Us" class="text-light ">Contact Us | </a></li>
-                <li><a href="" aria-label="Blogs" class="text-light ">Blogs</a></li>
-
-              </div>
-            </ul>
-          </nav>
-        </div>
+<footer
+        th:fragment="siteFooter"
+        class="container-fluid footer-color text-center text-md-start"
+        style="background-color: white"
+>
+    <!-- <div class="row footer-top">
+    <div class="col-lg-12">
+      <div class="col-lg-4 col-md-4 col-sm-3">
+        <img   src="https://incallup.com/server/assets/img/logo.png" alt="logo" class="logo">
       </div>
-    </div>
-    <div class="row blue-bg p-4 text-light site-font">
-      <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
-    </div> -->
-
-      <div class="container">
-        <section class="">
-          <div class="p-4">
-            <!--Grid row-->
-            <div class="row">
-              <!--Grid column-->
-              <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
-                <a href="https://incallup.com/">
-                  <img
-                  class="h-lg-75 h-sm-35 h-md-35 mt-3"
-                  style="width: 100px; height: 70px; margin-left: 1rem"
-                  src="https://incallup.com/server/assets/img/logo.png"
-                  alt="logo"
-                  
-                />
-                </a>
-              </div>
-              <!--Grid column-->
-
-              <!--Grid column-->
-              <!-- <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
-            <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5>
-
-            <ul class="list-unstyled mb-0 mt-3 text-center">
-                <div class="d-flex ">
-                    <li class="  ">
-                        <a href="#!" class="text-light mx-1 "  >FAQ | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light ">Terms and Conditions |</a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light mx-2  ">Privacy Policy | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light ">Contact Us | </a>
-                      </li>
-                      <li>
-                        <a href="#!" class="text-light mx-2  "> Blogs</a>
-                      </li>
-                </div>
-            </ul>
-          </div> -->
-              <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
-                <!-- <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5> -->
-
-                <ul class="list-unstyled mb-0 mt-3 text-center">
-                  <div
-                    class="d-flex flex-column flex-md-row justify-content-center"
-                  >
-                    <!-- FAQ -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">FAQ </a>
-                    </li>
-                    <!-- Blog -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">Blogs</a>
-                    </li>
-                  </div>
-                  <div
-                    class="d-flex flex-column flex-md-row justify-content-center"
-                  >
-                  <!-- Contact us -->
-                  <li class="mx-2 mb-2 mb-md-0">
-                    <a href="#!" class="text-dark">Contact Us  </a>
-                  </li>
-                    <!-- Privacy Policy -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark">Privacy Policy  </a>
-                    </li>
-                    
-                    <!-- Terms and Conditions -->
-                    <li class="mx-2 mb-2 mb-md-0">
-                      <a href="#!" class="text-dark"
-                        >Terms and Conditions  
-                      </a>
-                    </li>
-                  </div>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          <!-- Footer -->
-        </section>
-      </div>
-      <div class="row blue-bg p-4 text-light site-font" style=" background-color: var(--blue);"     >
-        <p class="text-center">
-          Copyright © 2024 Incallup. All right reserved.
-        </p>
-      </div>
-    </footer>
-
-    <!-- <div>
-    <nav class="navbar">
-      <duv class="container-fluid">
-
-        <div class="col-lg-6 bg-dark">
-          <img src="https://incallup.com/server/assets/img/logo.png" alt="logo" class="logo">
-        </div>
-        <div class="col-lg-6 bg-primary">
-          <h1 class=" ">important Links</h1>
-
+      <div class="col-lg-7 col-md-6 col-sm container" >
+        <nav class="footer-nav  ">
+          <ul class="nav-links  ">
             <div class="d-flex ">
-              <a href="" aria-label="FAQ" class="text-dark ">FAQ | </a>
-              <a href="" aria-label="Privacy Policy" class="text-dark ">Privacy Policy</a>
-              <a href="" aria-label="Terms & Condition" class="text-dark ">Terms & Condition</a>
-              <a href="" aria-label="Contact Us" class="text-dark ">Contact Us</a>
-              <a href="" aria-label="Blogs" class="text-dark ">Blogs</a>
+
+              <li><a href="" aria-label="FAQ" class="text-light ">FAQ </a></li>
+              <li><a href="" aria-label="Privacy Policy" class="text-light  mx-1 "> | Privacy Policy | </a></li>
+              <li><a href="" aria-label="Terms & Condition" class="text-light">Terms & Condition | </a></li>
+              <li><a href="" aria-label="Contact Us" class="text-light ">Contact Us | </a></li>
+              <li><a href="" aria-label="Blogs" class="text-light ">Blogs</a></li>
+
             </div>
-          </div>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="row blue-bg p-4 text-light site-font">
+    <p class="text-center">Copyright © 2023 Incallup. All right reserved.</p>
+  </div> -->
+
+    <div class="container">
+        <section class="">
+            <div class="p-4">
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-3 col-md-3 mb-4 mb-md-0">
+                        <a href="https://incallup.com/">
+                            <img
+                                    class="h-lg-75 h-sm-35 h-md-35 mt-3"
+                                    style="width: 100px; height: 70px; margin-left: 1rem"
+                                    src="https://incallup.com/server/assets/img/logo.png"
+                                    alt="logo"
+
+                            />
+                        </a>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <!-- <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
+                  <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5>
+
+                  <ul class="list-unstyled mb-0 mt-3 text-center">
+                      <div class="d-flex ">
+                          <li class="  ">
+                              <a href="#!" class="text-light mx-1 "  >FAQ | </a>
+                            </li>
+                            <li>
+                              <a href="#!" class="text-light ">Terms and Conditions |</a>
+                            </li>
+                            <li>
+                              <a href="#!" class="text-light mx-2  ">Privacy Policy | </a>
+                            </li>
+                            <li>
+                              <a href="#!" class="text-light ">Contact Us | </a>
+                            </li>
+                            <li>
+                              <a href="#!" class="text-light mx-2  "> Blogs</a>
+                            </li>
+                      </div>
+                  </ul>
+                </div> -->
+                    <div class="col-lg-9 col-md-9 mb-4 mb-md-0">
+                        <!-- <h5 class="text-uppercase fw-bold text-light  ">Important Links</h5> -->
+
+                        <ul class="list-unstyled mb-0 mt-3 text-center">
+                            <div
+                                    class="d-flex flex-column flex-md-row justify-content-center"
+                            >
+                                <!-- FAQ -->
+                                <li class="mx-2 mb-2 mb-md-0">
+                                    <a href="#!" class="text-dark">FAQ </a>
+                                </li>
+                                <!-- Blog -->
+                                <li class="mx-2 mb-2 mb-md-0">
+                                    <a href="#!" class="text-dark">Blogs</a>
+                                </li>
+                            </div>
+                            <div
+                                    class="d-flex flex-column flex-md-row justify-content-center"
+                            >
+                                <!-- Contact us -->
+                                <li class="mx-2 mb-2 mb-md-0">
+                                    <a href="#!" class="text-dark">Contact Us  </a>
+                                </li>
+                                <!-- Privacy Policy -->
+                                <li class="mx-2 mb-2 mb-md-0">
+                                    <a href="#!" class="text-dark">Privacy Policy  </a>
+                                </li>
+
+                                <!-- Terms and Conditions -->
+                                <li class="mx-2 mb-2 mb-md-0">
+                                    <a href="#!" class="text-dark"
+                                    >Terms and Conditions
+                                    </a>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer -->
+        </section>
+    </div>
+    <div class="row blue-bg p-4 text-light site-font" style=" background-color: var(--blue);"     >
+        <p class="text-center">
+            Copyright © 2024 Incallup. All right reserved.
+        </p>
+    </div>
+</footer>
+
+<!-- <div>
+<nav class="navbar">
+  <duv class="container-fluid">
+
+    <div class="col-lg-6 bg-dark">
+      <img src="https://incallup.com/server/assets/img/logo.png" alt="logo" class="logo">
+    </div>
+    <div class="col-lg-6 bg-primary">
+      <h1 class=" ">important Links</h1>
+
+        <div class="d-flex ">
+          <a href="" aria-label="FAQ" class="text-dark ">FAQ | </a>
+          <a href="" aria-label="Privacy Policy" class="text-dark ">Privacy Policy</a>
+          <a href="" aria-label="Terms & Condition" class="text-dark ">Terms & Condition</a>
+          <a href="" aria-label="Contact Us" class="text-dark ">Contact Us</a>
+          <a href="" aria-label="Blogs" class="text-dark ">Blogs</a>
+        </div>
+      </div>
 
 
 
-      </duv>
-    </nav>
-   </div> -->
+  </duv>
+</nav>
+</div> -->
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-    <script th:src="@{/server/assets/scripts/main.js}"></script>
-    <script th:src="@{/server/assets/scripts/common.js}"></script>
-  </body>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"
+></script>
+<script th:src="@{/server/assets/scripts/main.js}"></script>
+<script th:src="@{/server/assets/scripts/common.js}"></script>
+</body>
 </html>
