@@ -297,7 +297,8 @@
               onclick="location='https://incallup.com/'"
               src="https://incallup.com/server/assets/img/logo.png"
               alt="incallup logo"
-              style="max-width: 10rem; height: auto"
+              style="max-width: 10rem; height: auto; position: relative; right: 14px;  "
+
             />
           </a>
 
@@ -389,6 +390,7 @@
           title="menu"
           aria-expanded="false"
           type="button"
+          style="position: relative;right: -14px;"
         >
           <i class="fas fa-bars text-dark" aria-hidden="true" id="menu-one"></i>
           <i
@@ -473,6 +475,7 @@
         class="transition-target fade-in"
       ></div>
 
+      <hr />
       <div class="container my-3 px-2">
         <div
           th:if="${location != null}"
@@ -494,7 +497,7 @@
         <br><br>
         Free Internet ad publishing and website navigation are provided by Incallup.com does not act as a middleman or intermediary between users who browse the website and users who post content.
       </div> -->
-        <div class="responsive-text">
+        <div class="responsive-text  rounded" style="border: 1px solid #103652; color: #103652;">
           The User agrees to abide by our terms and conditions of use and to
           keep up with any changes by visiting our website and utilizing our
           services.
