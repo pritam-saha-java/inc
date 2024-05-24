@@ -62,7 +62,7 @@
 
     <!-- hero section start -->
     <div class="container px-4 mt-2 p-1 fs-6">
-      <a href="https://incallup.com/" class="row px-0 rounded mb-2 site-link">
+      <a href="https://incallup.com/" class="row px-0 rounded mb-2 site-link" style="color:  #be206b;">
         < Back To Search
       </a>
       <section class="bread_wraper mt-3">
@@ -116,20 +116,19 @@
           No posts Available &#128531;
         </div>
       </div>
+
+      
       <div class="card border-primary my-1" th:each="post : ${posts}" style="background-color: aliceblue;"    >
         <div class="row g-0  ">
           <!-- Image -->
-          <div class="col-md-4 col-sm-12    ">
+          <div class="col-md-4 col-sm-12 ">
             <img class="img-fluid h-100 w-100 cat-image    " th:src="${post.image1}"
               th:alt="${post.title}"
               th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; " />
           </div>
-
-
-
           <!-- Other Content -->
-          <div class="col-md-8 container pb-0">
-            <div class="card-body px-0 mt-lg-4 mt-sm-1 row"
+          <div class="col-md-8 container pb-0"  style="position: relative; top: -28px;">
+            <div class="card-body px-0 mt-lg-4  row"
               th:onclick=" location.href = 'https://incallup.com/'+ [[${category.name}]] +'/'+[[${post.location.district}]]+'/'+ [[${post.name}]]; ">
               <!-- Title -->
               <h2 class="card-title fw-bold text-capitalize my-lg-1 my-sm-1 text-pink fs-6" th:text="${post.title}">
@@ -143,11 +142,11 @@
               </p>
                
               <div class="d-inline-flex mx-0 mt-2">
-                <strong class="badge-pill fw-bold" th:text=" ${post.age!=null?post.age+' years':'22 years'}"> </strong>
-                <strong class="badge-pill fw-bold" th:text=" ${category.title!=null?category.title:'category'}"></strong>
+                <strong class="badge-pill border   fw-bold" th:text=" ${post.age!=null?post.age+' years':'22 years'}"> </strong>
+                <strong class="badge-pill border mx-2 fw-bold" th:text=" ${category.title!=null?category.title:'category'}"></strong>
               
                 <!-- <i class="fa-solid fa-sm fa-location-dot"></i> -->
-                <strong class="badge-pill fw-bold"
+                <strong class="badge-pill border  fw-bold"
                   th:text=" ${location!=null?location.district: post.location !=null?post.location.district:'location'}"></strong>
               
               
@@ -184,7 +183,7 @@
              <div class="float-end">
                    <div class="d-flex">
                     <div>
-                      <p alt="contact link" class="fs-3 mx-2 text-center bg-light" th:onclick="location = 'tel:' + ${post.contact};">
+                      <p alt="contact link" class="fs-3 mx-2 text-center bg-light" th:onclick="location = 'tel:' + [[${post.contact}]];">
                         <img class="img-fluid btn-circle2" th:src="@{/server/assets/img/call2.png}" th:alt="${post.title}"
                           loading="lazy" />
                       </p>

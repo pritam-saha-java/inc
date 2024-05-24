@@ -81,7 +81,7 @@ body {
 }
 
 #hero-section {
-  background: url("https://localhost/server/assets/img/background.png") center
+  background: url("https://incallup.com/server/assets/img/background.png") center
     no-repeat;
   max-height: auto;
   max-width: 1300px;
@@ -270,6 +270,8 @@ td > a {
   width: 300px !important;
   object-fit: cover !important ;
 }
+
+
 @media screen and (max-width: 1000px) {
     #hero-title {
         font-size: 24px;
@@ -288,7 +290,16 @@ td > a {
         line-height: 15px;
       }
 }
-@media screen and (max-width: 350px) {
+
+/* Detail Page Image */
+@media screen and (max-width:1000){
+  .mycarousel-inner   {
+    position: relative;
+    right: 300px;
+  }
+}
+
+@media screen and (max-width: 550px) {
   .text-animate {
     font-size: 1.5rem !important;
   }

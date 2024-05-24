@@ -101,9 +101,9 @@
         background-size: contain;
         background-position: center;
         padding: 12px;
-
         justify-content: center;
         align-content: center;
+        margin-left: 12px;
       }
 
       /* 3 button css */
@@ -125,6 +125,8 @@
       .carousel-control-next-icon {
         color: #be206b;
       }
+
+      
     </style>
   </head>
 
@@ -177,7 +179,7 @@
     </div>
 
     <div class="container px-4 px-lg-5">
-      <div class="col-12 col-md-8 card">
+      <div class="col-12 col-md-8 card"  style=" position:relative;right:10px ">
         <div class="card-body">
           <h2
             class="card-title text-capitalize post-title"
@@ -193,17 +195,17 @@
         <div class="col">
           <div
             id="carouselExampleInterval"
-            class="carousel slide"
+            class="carousel slide "
             data-bs-ride="carousel"
           >
-            <div class="carousel-inner p-3" style="background-color: white">
+            <div class="carousel-inner   p-3" style="background-color: white;max-width: 300px;">
               <div
                 th:if="${not #strings.isEmpty(post.image1)}"
                 class="carousel-item active"
                 data-bs-interval="1000"
               >
                 <img
-                  class="carousel-image d-block img-fluid"
+                  class="carousel-image     first_img d-block img-fluid"
                   th:src="${post.image1}"
                   th:alt="${post.title}"
                 />
@@ -213,6 +215,7 @@
                 th:if="${not #strings.isEmpty(post.image2)}"
                 class="carousel-item"
                 data-bs-interval="2000"
+                style="max-width: 260px;"
               >
                 <img
                   class="carousel-image img-fluid d-block"
@@ -277,7 +280,7 @@
               data-bs-slide="prev"
             >
               <span
-                class="carousel-control-prev-icon bg-secondary"
+                class="carousel-control-prev-icon bg-info rounded-4"
                 aria-hidden="true"
               ></span>
               <span class="visually-hidden">Previous</span>
@@ -289,7 +292,7 @@
               data-bs-slide="next"
             >
               <span
-                class="carousel-control-next-icon bg-secondary"
+                class="carousel-control-next-icon bg-info rounded-4"
                 aria-hidden="true"
               ></span>
               <span class="visually-hidden">Next</span>
@@ -297,7 +300,7 @@
           </div>
         </div>
       </div>
-
+      <hr>
       <!-- All logo with name -->
       <section class="bread_wraper mt-3">
         <div class="bread-inner text-left">
@@ -342,13 +345,13 @@
           </ul>
         </div>
       </section>
-
+      <hr>
       <!-- category description -->
       <div class="row mt-5">
-        <strong class="fa-lg my-1 ">
+        <strong class="fa-lg  mb-4 ">
           Description</strong
         >
-        <p th:text="${post.description}"></p>
+        <p th:text="${post.description}" class="text-wrap" ></p>
         
       </div>
 
@@ -432,6 +435,26 @@
       <h3 class="row mt-1 fs-5">
         <div class="col text-center">In Incallup</div>
       </h3>
+      <hr />
+      <div class="fw-bold text-center">Disclaimer from Incallup</div>
+       
+      <div class="responsive-text    rounded mb-2"  style="border: 1px solid #103652; color: #103652;">
+        The User agrees to abide by our terms and conditions of use and to
+        keep up with any changes by visiting our website and utilizing our
+        services.
+        <br /><br />
+        The advertiser took the initiative and is solely responsible for
+        publishing the current advertising in Incallup. Incallup.com does not
+        conduct any kind of pre-publication verification before publishing
+        such advertisements. Under no circumstances will incallup.com be held
+        liable for the accuracy, legality, respect for property rights, or any
+        offense against public or moral order of any online content entered by
+        the user.
+        <br /><br />
+        Free Internet ad publishing and website navigation are provided by
+        Incallup.com does not act as a middleman or intermediary between users
+        who browse the website and users who post content.
+      </div>
     </div>
     <!--Footer-->
     <div th:replace="dashboard.html :: siteFooter"></div>
