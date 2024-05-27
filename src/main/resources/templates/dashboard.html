@@ -153,19 +153,21 @@
         margin: 9px;
       }
       @media only screen and (max-width: 768px) {
-    .rta {
-        background-position: 50%;
-    }
-}
-.rta {
-    /* background-image: url(../static/server/assets/img/rta.jpg); */
-    background-repeat: no-repeat;
-    background-size: 92px 41px;
-    height: 41px;
-    
-}
+        .rta {
+          background-position: 50%;
+        }
+      }
+      .rta {
+        /* background-image: url(../static/server/assets/img/rta.jpg); */
+        background-repeat: no-repeat;
+        background-size: 92px 41px;
+        height: 41px;
+      }
     </style>
-    <meta name="google-site-verification" content="xzdHHKgOSo-kGF9TgyyFtc9GbD_ibaiXZX6MfEJP5mI" />
+    <meta
+      name="google-site-verification"
+      content="xzdHHKgOSo-kGF9TgyyFtc9GbD_ibaiXZX6MfEJP5mI"
+    />
   </head>
 
   <body>
@@ -298,8 +300,12 @@
               onclick="location='https://incallup.com/'"
               src="https://incallup.com/server/assets/img/logo.png"
               alt="incallup logo"
-              style="max-width: 10rem; height: auto; position: relative; right: 14px;  "
-
+              style="
+                max-width: 10rem;
+                height: auto;
+                position: relative;
+                right: 14px;
+              "
             />
           </a>
 
@@ -346,30 +352,30 @@
               >
             </li>
             <li class="nav__item">
-              <a href="#"
+              <a href="https://incallup.com/FAQ.html"
                 ><i class="fa fa-comment mx-2" aria-hidden="true"></i> FAQ</a
               >
             </li>
             <li class="nav__item">
-              <a href="#"
+              <a href="https://incallup.com/privacy-policy.html"
                 ><i class="fa fa-user-secret mx-2" aria-hidden="true"></i>
                 Privacy Policy</a
               >
             </li>
             <li class="nav__item">
-              <a href="#"
+              <a href="https://incallup.com/termAndCondition.html"
                 ><i class="fa fa-handshake mx-2" aria-hidden="true"></i> Terms &
                 Condition</a
               >
             </li>
             <li class="nav__item">
-              <a href="#"
+              <a href="https://incallup.com/contact-us.html"
                 ><i class="fa fa-phone mx-2" aria-hidden="true"></i> Contact
                 Us</a
               >
             </li>
             <li class="nav__item">
-              <a href="#"
+              <a href="https://incallup.com/Blogs.html"
                 ><i class="fa fa-rss mx-2" aria-hidden="true"></i> Blogs</a
               >
             </li>
@@ -391,7 +397,7 @@
           title="menu"
           aria-expanded="false"
           type="button"
-          style="position: relative;right: -14px;"
+          style="position: relative; right: -14px"
         >
           <i class="fas fa-bars text-dark" aria-hidden="true" id="menu-one"></i>
           <i
@@ -498,7 +504,10 @@
         <br><br>
         Free Internet ad publishing and website navigation are provided by Incallup.com does not act as a middleman or intermediary between users who browse the website and users who post content.
       </div> -->
-        <div class="responsive-text  rounded" style="border: 1px solid #103652; color: #103652;">
+        <div
+          class="responsive-text rounded"
+          style="border: 1px solid #103652; color: #103652"
+        >
           The User agrees to abide by our terms and conditions of use and to
           keep up with any changes by visiting our website and utilizing our
           services.
@@ -543,7 +552,7 @@
     </div>
   </footer> -->
 
-    <footer class="page-footer font-small white pt-4">
+    <footer class="page-footer2 font-small white pt-4" th:fragment="siteFooter2">
       <div class="container-fluid text-center text-md-left border">
         <div class="row">
           <div class="col">
@@ -560,17 +569,29 @@
             </div> -->
 
             <div class="col">
-              <a data-href="/FAQ/"><span class=" ">FAQ</span></a>
-              <a data-href="/privacy-policy/"
-                ><span class=" ">Privacy policy</span></a
-              >
-              <a data-href="/Blogs/"><span class=" ">Blogs</span></a>
-              <a data-href="/terms-and-conditions/"
-                ><span class=" ">Terms and conditions</span></a
+              <a data-href="/FAQ/" href="https://incallup.com/FAQ.html"
+                ><span class=" ">FAQ |</span></a
               >
 
-              <a data-href="/contact-us/"><span class=" ">Contact us</span></a>
-             
+              <a
+                data-href="/privacy-policy/"
+                href="https://incallup.com/privacy-policy.html"
+                ><span class=" ">Privacy policy |</span></a
+              >
+              <a data-href="/Blogs/" href="https://incallup.com/Blogs.html"
+                ><span class=" ">Blogs |</span></a
+              >
+              <a
+                data-href="/terms-and-conditions/"
+                href="https://incallup.com/termAndCondition.html"
+                ><span class=" ">Terms and conditions |</span></a
+              >
+
+              <a
+                data-href="/contact-us/"
+                href="https://incallup.com/contact-us.html"
+                ><span class=" ">Contact us</span></a
+              >
             </div>
             <p class="pt-md-1 pl-md-1"></p>
             <div class="row">
@@ -605,7 +626,9 @@
                       data-href="https://www.instagram.com/skokka_en/"
                       class="btn-floating btn-sm btn-ins mx-1 bg-dark"
                     >
-                      <i class="fa-brands text-light pt-1 fa-lg insta-icon fa-instagram mt-3"></i>
+                      <i
+                        class="fa-brands text-light pt-1 fa-lg insta-icon fa-instagram mt-3"
+                      ></i>
                     </a>
                   </li>
                   <!-- Twitter -->
@@ -615,7 +638,9 @@
                       data-href="https://skokka.link/tw-in"
                       class="btn-floating btn-sm bg-dark mx-2"
                     >
-                      <i class="fa-brands fa-x-twitter text-light pt-1 fa-lg insta-icon mt-3"></i
+                      <i
+                        class="fa-brands fa-x-twitter text-light pt-1 fa-lg insta-icon mt-3"
+                      ></i
                     ></a>
                   </li>
 
@@ -626,7 +651,10 @@
                       data-href="https://www.facebook.com/SkokkaEng"
                       class="btn-floating btn-sm btn-ins mx-1 bg-dark"
                       viewBox="0 0 24 24"
-                      ><i class="fa-brands fa-facebook text-light pt-1 fa-lg insta-icon mt-3"></i> ></a
+                      ><i
+                        class="fa-brands fa-facebook text-light pt-1 fa-lg insta-icon mt-3"
+                      ></i>
+                      ></a
                     >
                   </li>
                   <!-- Blog -->
@@ -636,14 +664,15 @@
                       data-href="https://blog.skokka.com/en/"
                       class="btn-floating btn-sm btn-comm mx-1 bg-dark"
                       ><i class="icon-blog-ico"
-                        ><i class="icon-blog fa-solid fa-blog text-light pt-1 fa-lg insta-icon mt-3"></i
+                        ><i
+                          class="icon-blog fa-solid fa-blog text-light pt-1 fa-lg insta-icon mt-3"
+                        ></i
                       ></i>
                     </a>
                   </li>
                 </ul>
               </div>
             </div>
-            
           </div>
         </div>
       </div>

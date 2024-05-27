@@ -1,0 +1,82 @@
+footer.page-footer a span {
+    border-right: 1px solid;
+    color: #666;
+    line-height: 32px;
+    padding-left: 5px;
+    padding-right: 8px;
+    font-size: 14px;
+  }
+  .text-center {
+    text-align: center !important;
+  }
+  .container,
+  .container-fluid,
+  .container-md {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    width: 100%;
+  }
+
+  .list-inline,
+  .list-unstyled {
+    line-height: 28px;
+  }
+  .boxservice .service .frb .list-inline,
+  .list-unstyled {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .list-inline,
+  .list-unstyled {
+    list-style: none;
+    padding-left: 0;
+  }
+  l,
+  ol,
+  ul {
+    margin-top: 0;
+  }
+  address,
+  dl,
+  ol,
+  ul {
+    margin-bottom: 1rem;
+  }
+  .btn-floating {
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 38px;
+    margin: 10px;
+    overflow: hidden;
+    padding: 0;
+    position: relative;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    vertical-align: middle;
+    width: 38px;
+    z-index: 1;
+  }
+  .ml-1,
+  .mx-1 {
+    margin-left: 0.25rem !important;
+  }
+  .mr-1,
+  .mx-1 {
+    margin-right: 0.25rem !important;
+  }
+  .btn-floating svg {
+    margin: 9px;
+  }
+  .btn-floating .insta-icon {
+    margin: 9px;
+  }
+  @media only screen and (max-width: 768px) {
+.rta {
+    background-position: 50%;
+}
+  }

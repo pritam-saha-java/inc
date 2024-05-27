@@ -30,6 +30,8 @@
     <link rel="stylesheet" th:href="@{/server/assets/styles/reset.min.css}" />
     <link rel="stylesheet" th:href="@{/server/assets/styles/nav.css}" />
     <link rel="stylesheet" th:href="@{/server/assets/styles/header.css}" />
+    <!-- <link rel="stylesheet" th:href="@{/server/assets/styles/footer2.css}" /> -->
+
     <title th:text="${category.title}">category</title>
     <script
       type="text/javascript"
@@ -53,6 +55,8 @@
       * {
         cursor: auto;
       }
+
+      
     </style>
   </head>
 
@@ -215,6 +219,7 @@
     <!--<div  style="text-align: justify;" class=" mx-5 px-5  mt-3 lg-base  fw-light  " th:if="${location!=null}" th:text="${location.description}"></div>-->
 
     <div th:replace="dashboard.html :: categoryDropdown"></div>
+    <div th:replace="dashboard.html :: siteFooter2"></div>
 
     <div th:replace="dashboard.html :: siteFooter"></div>
 

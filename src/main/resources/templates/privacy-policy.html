@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:th="https://www.thymeleaf.org"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      th:href="@{/server/assets/img/logo.png}"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <!-- <style>
+      footer.page-footer a span {
+        border-right: 1px solid;
+        color: #666;
+        line-height: 32px;
+        padding-left: 5px;
+        padding-right: 8px;
+        font-size: 14px;
+      }
+      .text-center {
+        text-align: center !important;
+      }
+      .container,
+      .container-fluid,
+      .container-md {
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 15px;
+        padding-right: 15px;
+        width: 100%;
+      }
+
+      .list-inline,
+      .list-unstyled {
+        line-height: 28px;
+      }
+      .boxservice .service .frb .list-inline,
+      .list-unstyled {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      .list-inline,
+      .list-unstyled {
+        list-style: none;
+        padding-left: 0;
+      }
+      l,
+      ol,
+      ul {
+        margin-top: 0;
+      }
+      address,
+      dl,
+      ol,
+      ul {
+        margin-bottom: 1rem;
+      }
+      .btn-floating {
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        cursor: pointer;
+        display: inline-block;
+        height: 38px;
+        margin: 10px;
+        overflow: hidden;
+        padding: 0;
+        position: relative;
+        -webkit-transition: all 0.2s ease-in-out;
+        -o-transition: all 0.2s ease-in-out;
+        transition: all 0.2s ease-in-out;
+        vertical-align: middle;
+        width: 38px;
+        z-index: 1;
+      }
+      .ml-1,
+      .mx-1 {
+        margin-left: 0.25rem !important;
+      }
+      .mr-1,
+      .mx-1 {
+        margin-right: 0.25rem !important;
+      }
+      .btn-floating svg {
+        margin: 9px;
+      }
+      .btn-floating .insta-icon {
+        margin: 9px;
+      }
+      @media only screen and (max-width: 768px) {
+        .rta {
+          background-position: 50%;
+        }
+      }
+      .rta {
+        /* background-image: url(../static/server/assets/img/rta.jpg); */
+        background-repeat: no-repeat;
+        background-size: 92px 41px;
+        height: 41px;
+      }
+    </style> -->
+    <title>Privacy Policy</title>
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/reset.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/nav.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/header.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/style.css"
+    />
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <!-- <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/footer2.css"
+    /> -->
+    <link
+      rel="stylesheet"
+      href="https://incallup.com/server/assets/styles/privacy-policy.css"
+    />
+
+    <!-- Bootstrap 5 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <div th:replace="dashboard.html :: siteSearch"></div>
+    <div th:replace="dashboard.html :: siteHeader"></div>
+
+    <div class="card p-3">
+      <div class="container border my-5   rounded-4  ">
+        <h1 class="title text-center p-3">
+          Privacy Policy
+          <p class="mt-1">Last updated  May 2024 </p>
+          <hr />
+        </h1>
+        <p class="fs-5 text-wrap">
+          We do not collect personal information to market, sell or give away.
+          Your privacy is important to us. We offer the highest consideration to
+          all our customers and users. We are committed to protecting your
+          personal information. We only use the information we collect to activate
+          your account and constantly improve your online experience.
+        </p>
+        <p class="fs-5"> Visit to
+          learn more about our privacy policy. <strong>www.incallup.com</strong> does not sell its
+          customer database or customer information to third parties. All
+          information collected on this website will be kept confidential and will
+          not be sold, reused, rented, disclosed or given away. We always respect
+          your right to remain anonymous and will try not to reveal your identity
+          unless ordered to do so by a court. </p>
+          <p class="fs-5">If you pay by credit card, we need
+            to know your name, email, phone number, address and credit card
+            information. This allows us to process and fulfill your orders easily
+            and confidentially. We use a secure server every time you place an
+            order. Secure server software (SSL) encrypts all information you enter
+            before sending it.</p>
+            <p class="fs-5"> <strong  >www. incallup.com does not store credit card
+              information on our servers</strong>. Whenever we decide to change our Privacy
+            Policy, we'll post those changes on this page so you'll always know what
+            information we collect, how we use it, and where we'll display it. It
+            will be very easy for you. If we decide to change our privacy policy, we
+            will post all the information on this page so you always know what
+            information we collect, how we use it, and under what circumstances we
+            show it.</p>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <!-- <div th:replace="dashboard.html :: siteFooter2"></div> -->
+
+    <div th:replace="dashboard.html :: siteFooter"></div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+    <script th:src="@{/server/assets/scripts/main.js}"></script>
+    <script th:src="@{/server/assets/scripts/common.js}"></script>
+  </body>
+</html>
