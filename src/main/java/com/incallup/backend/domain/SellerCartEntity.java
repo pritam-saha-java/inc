@@ -1,3 +1,4 @@
+/*
 package com.incallup.backend.domain;
 
 import jakarta.persistence.*;
@@ -12,3 +13,4 @@ public class SellerCartEntity {
     @Column(name = "id")
     private Long id;
 }
+*/
