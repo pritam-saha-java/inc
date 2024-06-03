@@ -4,7 +4,7 @@ services:
   incallup:
     build: .
     ports:
-      - "80:8080"
+      - "8080:8080"
     environment:
       SPRING_JPA_HIBERNATE_DDL_AUTO: validate
       SPRING_JPA_SHOW_SQL: "true"
